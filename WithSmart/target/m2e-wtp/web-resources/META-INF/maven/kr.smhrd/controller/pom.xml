@@ -127,11 +127,11 @@
 		</dependency>
 
 		<!-- Spring에서 DB에 연결하기위한 mysql Driver API 추가 -->
-		<dependency>
+		<!-- <dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.42</version> <!-- 8.0.16 -->
-		</dependency>
+			<version>5.1.42</version> 8.0.16
+		</dependency> -->
 
 		<!-- Spring에서 JDBC를 사용하기위한 API -->
 		<dependency>
