@@ -37,78 +37,9 @@
 </head>
 <body>
 
-  <div class="site-mobile-menu site-navbar-target">
-      <div class="site-mobile-menu-header">
-        <div class="site-mobile-menu-close">
-          <span class="icofont-close js-menu-toggle"></span>
-        </div>
-      </div>
-      <div class="site-mobile-menu-body"></div>
-    </div>
-    
-    <div class="container">
-
-	<!--nav 바 시작  -->
-      <nav class="site-nav">
-        <div class="logo">
-          <a href="goMain" class="text-black">WithSmart<span class="text-black">.</span></a>
-        </div>
-        <div class="row align-items-center">
-          
-     <!-- 홈, 게시판, 점심 고르기, 채팅 선택 바  -->
-          <div class="col-12 col-sm-12 col-lg-12 site-navigation text-center" >
-            <ul class="js-clone-nav d-none d-lg-inline-block text-left site-menu" class="text-black">
-              
-               <!-- 로그인한 사용자 닉네임 표시 -->
-             <li margin-right:"50px"><p class="text-black font-weight-bold mb-4" data-aos-delay="0"> 님 </p></li>
-              <li class="active"><a href="goMain" class="text-black">홈</a></li>
-              <li class="has-children">
-                <a href="#" class="text-black">자유게시판</a>
-                <ul class="dropdown">
-                  <li><a href="goStudyBoard" class="text-black">스터디게시판</a></li>
-                  <li><a href="#" class="text-black">친목게시판</a></li>
-                  <li><a href="#" class="text-black">프로젝트게시판</a></li>
-                  <li><a href="#" class="text-black">질문게시판</a></li>
-                </ul>
-              </li>
-           
-               <li><a href="#" class="text-black">애로 및 건의사항 게시판</a></li>
-               
-               <li class="has-children">
-             	<a href="#" class="text-black">채용공고 및 공모전 게시판</a>
-                    <ul class="dropdown">
-                      <li><a href="#">채용공고</a></li>
-                      <li><a href="#">공모전</a></li>
-					</ul>
-               </li>
-               
-               <li><a href ="#" class="text-black">점심메뉴 고르기</a>
-               <li><a href ="#" class="text-black">오늘의 퀴즈</a>
-               <li><a href ="#" class="text-black">채팅</a>
-                
-                <!-- 로그인 성공시 보이는 메뉴  -->
-               <li class="has-children">
-                <a href="#" class="text-black">마이페이지</a>
-                <ul class="dropdown">
-                  <li><a href="#">정보수정</a></li>
-                  <li><a href="#">로그아웃</a></li>
-                </ul>
-              </li>
-                             
-            </ul>
-            
-
-            <a href="#" class="burger light ml-auto site-menu-toggle js-menu-toggle d-block d-lg-none" data-toggle="collapse" data-target="#main-navbar">
-              <span></span>
-            </a>
-
-          </div>
-
-        </div> 
-         
-      </nav> <!-- END nav -->
-
-    </div> <!-- END container -->
+ <!-- header 파일 불러오기 -->
+    <%@ include file="./header.jsp" %>   
+ 
 
 	
 	
@@ -166,7 +97,9 @@
 	      </div>
 	    </div>
 
-
+ <!-- footer 파일 불러오기 -->
+    <%@ include file="./footer.jsp" %>   
+ 
 
 	<!--script  -->
     <script src="resources/js/jquery-3.5.1.min.js"></script>

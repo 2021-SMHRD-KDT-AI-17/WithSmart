@@ -10,6 +10,8 @@
   <meta name="keywords" content="bootstrap, bootstrap4" />
 
 
+	<!-- 부트스트랩 css 적용  -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="resources/css/bootstrap.min.css">
@@ -26,14 +28,25 @@
 <meta charset="UTF-8">
 <title>WithSmart</title>
 <style type="text/css">
-	.click-btn-box{
-		display: flex;
+	
+	.board{
+		
 		justify-content: center;
 		align-items: center;
 		margin-top: 100px;
-		margin-left: 1000px;
+		margin-left: 500px;
+		width: 1000px;
 		
+	}
+	
+	.table-responsive{
+		width: 700px;
+		margin-top: 200px;
+	
 		
+	}
+	.btn{
+		align-content: right;
 	}
 	
 </style>
@@ -51,24 +64,91 @@
     <%@ include file="./header.jsp" %>   
 
 
-        <div class="click-btn-box">
+        <div class="board">
         	
-                <div>
-                	<button type="button" class="btn btn-primary" onclick="location.href='/StudyBoardWrite';">글 작성하기</button>
-                </div>
+    	<!-- 스터디 게시판 작성글 목록 불러오기  -->
+    	<!-- <div id="board">
+				<table id = "list">
+					<tr>
+						<td>번호</td>
+						<td>제목</td>
+						<td>작성자</td>
+						<td>시간</td>
+						<td>조회수</td>
+					</tr>
+
+					<tr>
+						<td>1</td>
+						<td><a href ="#" >제목 불러오기</a></td>
+						<td>작성자 불러오기</td>
+						<td>작성 시각 불러오기</td>
+						<td>조회수 불러오기</td>
+						<td><a href="#">삭제</a></td>						
+					</tr>
+					
+				</table> -->
+				
+				
+				<div class="table-responsive">
+										
+	                <div class ="btn">
+						<a href="goMain"><button class="btn btn-primary" id="writer">홈으로 가기</button></a>
+	                	<a href="goStudyBoardWrite"><button type="button" class="btn btn-primary">글 작성하기</button></a>
+	                </div>
+					
+  					<table class="table">
+					  <thead>
+					    <tr>
+					      <th scope="col">No</th>
+					      <th scope="col">제목</th>
+					      <th scope="col">작성자</th>
+					      <th scope="col">작성일</th>
+					      <th scope="col">조회수</th>
+					      <th scope="col">추천수</th>
+					    </tr>
+					  </thead>
+					  <tbody>
+					    <tr>
+					      <th scope="row">1</th>
+					      <td><a href="goStudyBoardDetail">제목1</a></td>
+					      <td>닉네임</td>
+					      <td>작성일</td>
+					      <td>11</td>
+					      <td>11</td>
+					    </tr>
+					    <tr>
+					      <th scope="row">2</th>
+					      <td><a href="goStudyBoardDetail">제목2</a></td>
+					      <td>닉네임</td>
+					      <td>작성일</td>
+					      <td>11</td>
+					      <td>11</td>
+					    </tr>
+					    <tr>
+					      <th scope="row">3</th>
+					      <td><a href="goStudyBoardDetail">제목3</a></td>
+					      <td>닉네임</td>
+					      <td>작성일</td>
+					      <td>11</td>
+					      <td>11</td>
+					    </tr>
+					    
+					  </tbody>
+    
+  					</table>
+				</div>
+			
         </div>
-        
+      
 
     
-    
+
     
 <!--	 배경사진 삽입         
 
 <div class="hero-slant overlay" data-stellar-background-ratio="0.5" style="background-image: url('resources/images/img_h_7-min.jpg'); background-position: 0% 0px";>
  -->   
     
-    	
-    	<!-- 스터디 게시판 작성글 목록 불러오기  -->
     	
     	
     
