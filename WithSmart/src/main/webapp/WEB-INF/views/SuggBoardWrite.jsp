@@ -91,12 +91,8 @@
               </div>
             </div>
           </div>
-     <!--      <div class="form-group">
-            <label class="text-black" for="email"></label>
-            <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-          </div>
-       -->
+    
+    
 	       	<div class="form-group">
 	       		<!-- 파일 첨부  -->
 	       		
@@ -110,8 +106,8 @@
           </div>
         
       	<div class ="btn">
-          <button type="submit" class="btn btn-primary"><a href="goStudyBoard" style="color: white">작성하기</a></button>
-          <button type="submit" class="btn btn-primary"><a href="goStudyBoard" style="color: white">뒤로가기</a></button>
+          <button type="submit" class="btn btn-primary"><a href="goSuggBoard" style="color: white">작성하기</a></button>
+          <button type="submit" class="btn btn-primary"><a href="goSuggBoard" style="color: white">뒤로가기</a></button>
         </div>
         </form>
       </div>

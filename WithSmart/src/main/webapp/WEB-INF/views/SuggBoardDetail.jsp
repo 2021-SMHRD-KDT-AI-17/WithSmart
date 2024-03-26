@@ -115,6 +115,7 @@
               <!-- 댓글 남기기 입력 폼 -->
               <div class="comment-form-wrap pt-5">
                 <h3 class="mb-5">댓글 남기기</h3>
+                
                 	<form action="#" class="">
 	                  	<div class="form-group">
 	                    <label for="nick">닉네임 *</label>
@@ -132,7 +133,7 @@
 	                    <input type="submit" value="답글달기" class="btn btn-primary btn-md" name="#">
 	                  	
 	                  	<!--뒤로 가기 (게시판 메인페이지로 이동)  -->
-	                  	<button class="btn btn-primary btn-md"><a href="goStudyBoard" style="color:white">뒤로가기</a></button>
+	                  	<button class="btn btn-primary btn-md"><a href="goSuggBoard" style="color:white">뒤로가기</a></button>
 	                  	<button class="btn btn-primary btn-md"><a href="#" style="color:white">글 삭제</a></button>
 					  </div>			
 	                </form>		  	
