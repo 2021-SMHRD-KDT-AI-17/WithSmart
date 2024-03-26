@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.smhrd.Mapper.FriendBoardMapper">
+
+
+ <select id="friendBoardList" resultType="kr.smhrd.entity.FriendBoard">
+ 	select * from FriendBoard order by f_date desc
+ </select>
+
+<insert id="insertBoard" parameterType="kr.smhrd.entity.FriendBoard" >
+	insert into tbl_friendboard(title, writer, filename, content)
+	values(#{title}, #{writer}, #{filename}, #{content})
+</insert>
+
+
+
+</mapper>

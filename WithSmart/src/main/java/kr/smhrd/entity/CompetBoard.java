@@ -14,9 +14,10 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 @RequiredArgsConstructor
-// --------------------- WithSmart
-public class Board {
 
+public class CompetBoard {
+
+	
 	private int num;
 	@NonNull private String title;
 	@NonNull private String writer;
