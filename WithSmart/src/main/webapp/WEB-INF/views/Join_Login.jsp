@@ -82,14 +82,13 @@
             
             <!-- 회원가입 정보 입력 form  -->
             <form action="memberInsert" class="sign-up-form d-grid" data-aos="fade-up" data-aos-delay="200" method ="post">
-              <input type="text" class="form-control" placeholder="이메일을 입력해주세요" name="mb_id"><br>
-              <input type="button" class="btn btn-primary" value="Email 중복체크" onclick="checkE()" id="inputE">
-              <span id="resultCheck"></span>
-              <input type="password" class="form-control" style="margin-bottom:20px" placeholder="비밀번호를 입력해주세요" name="mb_pw">
-              <input type="text" class ="form-control" style = "margin-top:10px" placeholder ="닉네임을 입력해주세요" name="mb_nick">
-              <input type="text" class ="form-control" style = "margin-top:10px" placeholder ="인증번호를 입력해주세요" name="mb_cert">
-              <input type="submit" class="btn btn-primary" style="margin-top:30px" value="회원가입">
-              
+	            <input type="text" class="form-control" placeholder="이메일을 입력해주세요" name="mb_id"><br>
+	            <input type="button" class="btn btn-primary" value="Email 중복체크" onclick="checkE()" id="inputE">
+	            <span id="resultCheck"></span>
+	            <input type="password" class="form-control" style="margin-bottom:20px" placeholder="비밀번호를 입력해주세요" name="mb_pw">
+	            <input type="text" class ="form-control" style = "margin-top:10px" placeholder ="닉네임을 입력해주세요" name="mb_nick">
+	            <input type="text" class ="form-control" style = "margin-top:10px" placeholder ="인증번호를 입력해주세요" name="mb_cert">
+	            <input type="submit" class="btn btn-primary" style="margin-top:30px" value="회원가입">
             </form>
           
           <br><br>

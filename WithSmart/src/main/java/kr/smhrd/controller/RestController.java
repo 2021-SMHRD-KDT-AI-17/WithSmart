@@ -10,6 +10,7 @@ import kr.smhrd.entity.Member;
 @org.springframework.web.bind.annotation.RestController
 public class RestController {
 	
+	@Autowired
 	private MemberMapper memberMapper;
 	
 	// Email 중복체크 / emailCheck

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@page import="kr.smhrd.entity.Member"%>
 <!-- /*
 * Template Name: Append
 * Template Author: Untree.co
@@ -33,11 +33,6 @@
   <title>WithSmart</title>
 </head>
 <body>
-	<%-- <%-- <%
-		// 로그인한 사용자의 세션 가지고오기
-		Member loginMember = (Member)session.getAttribute("loginMember");
-		
-	%> --%>
 
 
   <!-- header 파일 불러오기  --> 
@@ -54,8 +49,12 @@
         <div class="row align-items-center justify-content-between">
           <div class="col-lg-7 intro">
             <h1 class="text-white font-weight-bold mb-4" data-aos="fade-up" data-aos-delay="0">안녕하세요! <br> WithSmart 입니다.</h1>
-            <p class="text-white mb-4" data-aos="fade-up" data-aos-delay="100"> 스마트인재 개발원 수강생과 수료생들을 위한 서비스입니다. <br> 회원가입 후 서비스를 이용해보세요!</p>
-           	<button class="btn btn-primary" ><a href ="goJoin" , style ='color:white' >회원가입  / 로그인 </a></button>
+            <p class="text-white mb-4" data-aos="fade-up" data-aos-delay="100"> 스마트인재 개발원 수강생과 수료생들을 위한 서비스입니다. 
+            
+            	<br> 회원가입 후 서비스를 이용해보세요!</p>
+           		<button class="btn btn-primary" ><a href ="goJoin" , style ='color:white' >회원가입  / 로그인 </a></button>
+           
+            
            
            <!--  <form action="#" class="sign-up-form d-flex" data-aos="fade-up" data-aos-delay="200">
               <input type="text" class="form-control" placeholder="이메일을 입력해주세요">
