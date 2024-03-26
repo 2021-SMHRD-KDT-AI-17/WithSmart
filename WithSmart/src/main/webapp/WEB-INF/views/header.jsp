@@ -29,7 +29,7 @@
       <nav class="site-nav">
         <div class="logo">
         <!-- 로고 클릭시 Main.jsp로 이동  -->
-          <a href="goMain" class="text-black">WithSmart<span class="text-black">.</span></a>
+          <a href="goMain" class="text-black">WithSmart<span class="text-black"></span></a>
         </div>
         <div class="row align-items-center">
           

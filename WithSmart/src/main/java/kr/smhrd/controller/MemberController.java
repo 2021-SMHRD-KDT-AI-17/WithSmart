@@ -4,12 +4,18 @@ import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import kr.smhrd.Mapper.MemberMapper;
+import kr.smhrd.entity.Member;
 
 
 //Handler Mapping이 Controller를 찾기위해 @(Annotation)으로 Controller라고 명시해야 함
@@ -36,7 +42,10 @@ public class MemberController {
 //	}
 //	
 	
-	@RequestMapping("/")
+	// 인터페이스 불러오기
+	private MemberMapper memberMapper;
+	
+	@RequestMapping(value="/")
 	public String main() {
 		return "Main";
 	}
@@ -44,6 +53,15 @@ public class MemberController {
 	@RequestMapping("/goMain")
 	public String goMain() {
 		return "Main";
+	}
+	
+	// 회원가입
+	@RequestMapping("/memberInsert")
+	public String memberInsert(Member member, Model model) {
+		// System.out.println(member);
+		memberMapper.memberInsert(member);
+		model.addAttribute("mb_nick", member.getMb_nick());
+		return "header";
 	}
 
 		
