@@ -45,19 +45,19 @@
                 <a href="#"  class="text-black">자유게시판</a>
                 <ul class="dropdown">
                   <li><a href="goStudyBoard"  class="text-black">스터디게시판</a></li>
-                  <li><a href="#" class="text-black" >친목게시판</a></li>
-                  <li><a href="#" class="text-black" >프로젝트게시판</a></li>
-                  <li><a href="#" class="text-black">질문게시판</a></li>
+                  <li><a href="goFriendBoard" class="text-black" >친목게시판</a></li>
+                  <li><a href="goProjectBoard" class="text-black" >프로젝트게시판</a></li>
+                  <li><a href="goQnABoard" class="text-black">질문게시판</a></li>
                 </ul>
               </li>
            
-               <li><a href="#" class="text-black">애로 및 건의사항 게시판</a></li>
+               <li><a href="goSuggBoard" class="text-black">애로 및 건의사항 게시판</a></li>
                
                <li class="has-children">
              	<a href="#" class="text-black">채용공고 및 공모전 게시판</a>
                     <ul class="dropdown">
-                      <li><a href="#">채용공고</a></li>
-                      <li><a href="#">공모전</a></li>
+                      <li><a href="goJobBoard">채용공고</a></li>
+                      <li><a href="goCompetBoard">공모전</a></li>
 					</ul>
                </li>
                
@@ -70,7 +70,7 @@
                 <a href="#" class="text-black">마이페이지</a>
                 <ul class="dropdown">
                   <li><a href="#">정보수정</a></li>
-                  <li><a href="#">로그아웃</a></li>
+                  <li><a href="goMain">로그아웃</a></li>
                 </ul>
               </li>
                              

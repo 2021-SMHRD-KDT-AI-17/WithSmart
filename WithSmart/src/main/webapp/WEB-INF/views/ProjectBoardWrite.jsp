@@ -110,8 +110,8 @@
           </div>
         
       	<div class ="btn">
-          <button type="submit" class="btn btn-primary"><a href="goStudyBoard" style="color: white">작성하기</a></button>
-          <button type="submit" class="btn btn-primary"><a href="goStudyBoard" style="color: white">뒤로가기</a></button>
+          <button type="submit" class="btn btn-primary"><a href="goProjectBoard" style="color: white">작성하기</a></button>
+          <button type="submit" class="btn btn-primary"><a href="goProjectBoard" style="color: white">뒤로가기</a></button>
         </div>
         </form>
       </div>

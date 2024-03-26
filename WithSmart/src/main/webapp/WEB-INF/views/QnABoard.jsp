@@ -79,7 +79,7 @@
 										
 	                <div class ="btn">
 						<a href="goMain"><button class="btn btn-primary" id="writer">홈으로 가기</button></a>
-	                	<a href="goStudyBoardWrite"><button type="button" class="btn btn-primary">글 작성하기</button></a>
+	                	<a href="goQnABoardWrite"><button type="button" class="btn btn-primary">글 작성하기</button></a>
 	                </div>
 					
   					<table class="table">
@@ -96,7 +96,7 @@
 					  <tbody>
 					    <tr>
 					      <th scope="row">1</th>
-					      <td><a href="goStudyBoardDetail">제목1</a></td>
+					      <td><a href="goQnABoardDetail">제목1</a></td>
 					      <td>닉네임</td>
 					      <td>작성일</td>
 					      <td>11</td>
@@ -104,7 +104,7 @@
 					    </tr>
 					    <tr>
 					      <th scope="row">2</th>
-					      <td><a href="goStudyBoardDetail">제목2</a></td>
+					      <td><a href="goQnABoardDetail">제목2</a></td>
 					      <td>닉네임</td>
 					      <td>작성일</td>
 					      <td>11</td>
@@ -112,7 +112,7 @@
 					    </tr>
 					    <tr>
 					      <th scope="row">3</th>
-					      <td><a href="goStudyBoardDetail">제목3</a></td>
+					      <td><a href="goQnABoardDetail">제목3</a></td>
 					      <td>닉네임</td>
 					      <td>작성일</td>
 					      <td>11</td>
@@ -121,7 +121,7 @@
 					    
 					    <tr>
 					      <th scope="row">4</th>
-					      <td><a href="goStudyBoardDetail">제목4</a></td>
+					      <td><a href="goQnABoardDetail">제목4</a></td>
 					      <td>닉네임</td>
 					      <td>작성일</td>
 					      <td>11</td>
@@ -130,7 +130,7 @@
 					    
 					    <tr>
 					      <th scope="row">5</th>
-					      <td><a href="goStudyBoardDetail">제목5</a></td>
+					      <td><a href="goQnABoardDetail">제목5</a></td>
 					      <td>닉네임</td>
 					      <td>작성일</td>
 					      <td>11</td>
@@ -139,7 +139,7 @@
 					    
 					    <tr>
 					      <th scope="row">6</th>
-					      <td><a href="goStudyBoardDetail">제목6</a></td>
+					      <td><a href="goQnABoardDetail">제목6</a></td>
 					      <td>닉네임</td>
 					      <td>작성일</td>
 					      <td>11</td>
@@ -148,7 +148,7 @@
 					    
 					    <tr>
 					      <th scope="row">7</th>
-					      <td><a href="goStudyBoardDetail">제목7</a></td>
+					      <td><a href="goQnABoardDetail">제목7</a></td>
 					      <td>닉네임</td>
 					      <td>작성일</td>
 					      <td>11</td>
@@ -156,9 +156,8 @@
 					    </tr>
 					    
 					    <tr>
-					    
 					      <th scope="row">8</th>
-					      <td><a href="goStudyBoardDetail">제목8</a></td>
+					      <td><a href="goQnABoardDetail">제목8</a></td>
 					      <td>닉네임</td>
 					      <td>작성일</td>
 					      <td>11</td>
