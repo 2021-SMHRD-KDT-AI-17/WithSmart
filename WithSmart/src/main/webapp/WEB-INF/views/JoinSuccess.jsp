@@ -57,6 +57,13 @@
 		
 	}
 	
+	#Update{
+		display: block;
+        background: linear-gradient(45deg, white, #c9f1c0);
+		font-size: 30px;
+		padding: 20px;
+		
+	}
 	
 </style>
 </head>
@@ -74,7 +81,7 @@
 
 
         <div class="board">
-       
+       		
 			<div class="table-responsive">
 										
 	                <!-- <div class ="btn">
@@ -83,15 +90,18 @@
 					<!-- Wrapper -->
 						<div id="wrapper">
 							<!-- Menu -->
-								<nav id="Update">	
+								<span id="Update">	
 									<ul class="actions vertical">
-										<li><h1>환영합니다!</h1></li>
-										<li>회원가입을 축하합니다.</li>
+										<div><h1> 환영합니다! </h1></div>
+										<br>
 										<!-- Q2. 회원가입 한 회원정보 중 이메일을 출력하시오.(request영역 활용) -->
-										<li>메세지시스템의 새로운 이메일은 <%=mb_nick %>입니다.</li>
-										<li><button onclick='location.href="goJoin"'>로그인 하러가기</button></li>
+										<div><strong><%=mb_nick %></strong>님 회원가입이 완료되었습니다.</div>
+										<div>위드스마트에서 많은 정보와 교류를 나누어보세요 :)</div>
+										<br>
+										<br>
+										<div><button onclick='location.href="goJoin"'>로그인 하러가기</button></div>
 									</ul>
-								</nav>			
+								</span>			
 						</div>
   					
 				</div>
