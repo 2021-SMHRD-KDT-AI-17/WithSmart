@@ -31,14 +31,14 @@
 <title>WithSmart</title>
 <style type="text/css">
 	
-	.board{
+	.container-md{
 		
 		justify-content: center;
 		align-items: center;
 		margin-top: 100px;
 		margin-left: 300px;
 		margin-right : 500px;
-		width: 1000px;
+		width: 100%;
 		
 	}
 	
@@ -78,7 +78,7 @@
     <%@ include file="./header.jsp" %>   
 
 
-        <div class="board">
+        <div class="container-md">
        
 			<div class="table-responsive">
 										
@@ -108,6 +108,7 @@
 					  </tbody>
   					</table>
 				</div>
+			</div>
 			
 			<!-- 부트스트랩 페이징 적용   -->
 			<nav aria-label="Page navigation example" class="bottom_num">
