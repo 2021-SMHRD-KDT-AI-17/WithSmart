@@ -55,7 +55,7 @@
                </li>
                
                <li><a href ="#" class="text-black">점심메뉴 고르기</a>
-               <li><a href ="#" class="text-black">오늘의 퀴즈</a>
+               <li><a href ="showQuiz" class="text-black">오늘의 퀴즈</a>
                <li><a href ="#" class="text-black">채팅</a>
                
                <!-- 로그인 성공시 보이는 메뉴  -->

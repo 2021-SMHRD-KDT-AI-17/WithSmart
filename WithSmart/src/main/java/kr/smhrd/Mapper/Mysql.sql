@@ -13,6 +13,9 @@ select * from tbl_suggboard;
 
 commit;
 
+select * from tbl_jobboard;
+
+
 
 
 >>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-AI-17/WithSmart.git
