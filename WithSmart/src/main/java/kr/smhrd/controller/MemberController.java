@@ -4,21 +4,27 @@ import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import kr.smhrd.Mapper.MemberMapper;
+import kr.smhrd.entity.Member;
 
 //Handler Mapping이 Controller를 찾기위해 @(Annotation)으로 Controller라고 명시해야 함
 // servlet - context.xml 파일에 어떤 패키지에서 Controller를 찾을건지 명시
 @Controller
 public class MemberController {
-	
+
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
-	
+
 //	@RequestMapping(value = "/", method = RequestMethod.GET)
 //	public String home(Locale locale, Model model) {
 //		logger.info("Welcome home! The client locale is {}.", locale);
@@ -35,41 +41,140 @@ public class MemberController {
 //		return "Main"; // /WEB-INF/views/home.jsp
 //	}
 //	
-	
-	@RequestMapping("/")
+
+	// 인터페이스 불러오기
+	@Autowired
+	private MemberMapper memberMapper;
+
+	// Main.jsp로 이동하는 메소드
+	@RequestMapping(value = "/")
 	public String main() {
 		return "Main";
 	}
-	
+
 	@RequestMapping("/goMain")
 	public String goMain() {
 		return "Main";
 	}
 
-		
-	@RequestMapping("/goJoin")
-	public String goJoin(){
+	// 회원가입
+	@RequestMapping("/memberInsert")
+	public String memberInsert(Member member, Model model) {
+		// System.out.println(member);
+		memberMapper.memberInsert(member);
+		// model.addAttribute("mb_nick", member.getMb_nick());
 		return "Join_Login";
 	}
+
 	
+	@RequestMapping("/goJoin") 
+	public String goJoin(){ 
+		return "Join_Login"; 
+	}
+	 
+
+	// 로그인
 	@RequestMapping("/goLogin")
-	public String goLogin() {
+	public String goLogin(Member member, HttpSession session) {
+		System.out.println(member.toString());
+		Member loginMember = memberMapper.goLogin(member);
+		session.setAttribute("loginMember", loginMember);
 		return "Main";
 	}
-	
+
 	@RequestMapping("/goStudyBoard")
 	public String goStudyBoard() {
 		return "StudyBoard";
 	}
-		
+
 	@RequestMapping("/goStudyBoardDetail")
 	public String goStudyBoardDetail() {
 		return "StudyBoardDetail";
 	}
-	
+
 	@RequestMapping("/goStudyBoardWrite")
-	public String goStudyBoardWrite(){
+	public String goStudyBoardWrite() {
 		return "StudyBoardWrite";
+	}
+
+	@RequestMapping("/goQnABoard")
+	public String goQnABoard() {
+		return "QnABoard";
+	}
+
+	@RequestMapping("/goQnABoardDetail")
+	public String goQnABoardDetail0() {
+		return "QnABoardDetail";
+	}
+
+	@RequestMapping("/goQnABoardWrite")
+	public String goQnABoardWrite() {
+		return "QnABoardWrite";
+	}
+
+	@RequestMapping("/goProjectBoard")
+	public String goProjectBoard() {
+		return "ProjectBoard";
+	}
+
+	@RequestMapping("/goProjectBoardDetail")
+	public String goProjectBoardDetail() {
+		return "ProjectBoardDetail";
+	}
+
+	@RequestMapping("/goProjectBoardWrite")
+	public String goProjectBoardWrite() {
+		return "ProjectBoardWrite";
+	}
+
+	@RequestMapping("/goFriendBoard")
+	public String goFriendBoard() {
+		return "FriendBoard";
+	}
+
+	@RequestMapping("/goFriendBoardDetail")
+	public String goFriendBoardDetail() {
+		return "FriendBoardDetail";
+	}
+
+	@RequestMapping("/goFriendBoardWrite")
+	public String goFriendBoardWrite() {
+		return "FriendBoardWrite";
+	}
+
+	@RequestMapping("/goCompetBoard")
+	public String goCompetBoard() {
+		return "CompetBoard";
+	}
+
+	@RequestMapping("/goCompetBoardDetail")
+	public String goCompetBoardDetail() {
+		return "CompetBoardDetail";
+	}
+
+	@RequestMapping("/goJobBoard")
+	public String goJobBoard() {
+		return "JobBoard";
+	}
+
+	@RequestMapping("/goJobBoardDetail")
+	public String goJobBoardDetail() {
+		return "JobBoardDetail";
+	}
+
+	@RequestMapping("/goSuggBoard")
+	public String goSuggBoard() {
+		return "SuggBoard";
+	}
+
+	@RequestMapping("/goSuggBoardDetail")
+	public String goSuggBoardDetail() {
+		return "SuggBoardDetail";
+	}
+
+	@RequestMapping("/goSuggBoardWrite")
+	public String goSuggBoardWrite() {
+		return "SuggBoardWrite";
 	}
 
 }

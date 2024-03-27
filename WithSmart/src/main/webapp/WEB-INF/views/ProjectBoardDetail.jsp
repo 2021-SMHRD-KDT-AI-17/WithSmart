@@ -132,7 +132,7 @@
 	                    <input type="submit" value="답글달기" class="btn btn-primary btn-md" name="#">
 	                  	
 	                  	<!--뒤로 가기 (게시판 메인페이지로 이동)  -->
-	                  	<button class="btn btn-primary btn-md"><a href="goStudyBoard" style="color:white">뒤로가기</a></button>
+	                  	<button class="btn btn-primary btn-md"><a href="goProjectBoard" style="color:white">뒤로가기</a></button>
 	                  	<button class="btn btn-primary btn-md"><a href="#" style="color:white">글 삭제</a></button>
 					  </div>			
 	                </form>		  	

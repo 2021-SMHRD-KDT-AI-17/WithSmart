@@ -28,6 +28,44 @@
 <title>WithSmart</title>
 </head>
 <body>
+	<script>
+		Kakao.init('84d9c6f5e18014eec71252d1b8479107'); //발급받은 키 중 javascript키를 사용해준다.
+		console.log(Kakao.isInitialized()); // sdk초기화여부판단
+		//카카오로그인
+		function kakaoLogin() {
+		    Kakao.Auth.login({
+		      success: function (response) {
+		        Kakao.API.request({
+		          url: '/v2/user/me',
+		          success: function (response) {
+		        	  console.log(response)
+		          },
+		          fail: function (error) {
+		            console.log(error)
+		          },
+		        })
+		      },
+		      fail: function (error) {
+		        console.log(error)
+		      },
+		    })
+		  }
+		//카카오로그아웃  
+		function kakaoLogout() {
+		    if (Kakao.Auth.getAccessToken()) {
+		      Kakao.API.request({
+		        url: '/v1/user/unlink',
+		        success: function (response) {
+		        	console.log(response)
+		        },
+		        fail: function (error) {
+		          console.log(error)
+		        },
+		      })
+		      Kakao.Auth.setAccessToken(undefined)
+		    }
+		  }
+	</script>
 
    <!-- header 파일 불러오기  --> 
  <%@ include file = "./header.jsp" %>
@@ -39,18 +77,18 @@
       <div class="container">
         <div class="row align-items-center justify-content-between">
           <div class="col-lg-7 intro">
-            <h1 class="text-white font-weight-bold mb-4" data-aos="fade-up" data-aos-delay="0">WithSmart.</h1>
+            <h1 class="text-white font-weight-bold mb-4" data-aos="fade-up" data-aos-delay="0">WithSmart</h1>
             <h3 class="text-white mb-4" data-aos="fade-up" data-aos-delay="100"><strong>회원가입</strong></h3>
             
             <!-- 회원가입 정보 입력 form  -->
-            <form action="#" class="sign-up-form d-grid" data-aos="fade-up" data-aos-delay="200" method ="post">
-              <input type="text" class="form-control" placeholder="이메일을 입력해주세요"><br>
-              <input type="password" class="form-control" style="margin-bottom:20px" placeholder="비밀번호를 입력해주세요">
-              <input type="text" class ="form-control" style = "margin-top:10px" placeholder ="닉네임을 입력해주세요">
-              <input type="text" class ="form-control" style = "margin-top:10px" placeholder ="인증번호를 입력해주세요">
-              <input type="submit" class="btn btn-primary" style="margin-top:30px"value="회원가입">
-              <input type="submit" class="btn btn-primary" style="margin-top:30px"value="카카오 회원가입">
-              
+            <form action="memberInsert" class="sign-up-form d-grid" data-aos="fade-up" data-aos-delay="200" method ="post">
+	            <input type="text" class="form-control" placeholder="이메일을 입력해주세요" name="mb_id"><br>
+	            <input type="button" class="btn btn-primary" value="Email 중복체크" onclick="checkE()" id="inputE">
+	            <span id="resultCheck"></span>
+	            <input type="password" class="form-control" style="margin-bottom:20px" placeholder="비밀번호를 입력해주세요" name="mb_pw">
+	            <input type="text" class ="form-control" style = "margin-top:10px" placeholder ="닉네임을 입력해주세요" name="mb_nick">
+	            <input type="text" class ="form-control" style = "margin-top:10px" placeholder ="인증번호를 입력해주세요" name="mb_cert">
+	            <input type="submit" class="btn btn-primary" style="margin-top:30px" value="회원가입">
             </form>
           
           <br><br>
@@ -58,10 +96,24 @@
           <!-- 로그인  -->
       		<h3 class="text-white mb-4" data-aos="fade-up" data-aos-delay="100"><strong>로그인</strong></h3>
 				<form action="goLogin" class="sign-up-form d-grid" data-aos="fade-up" data-aos-delay="200" method ="post">
-				<input type="text" class="form-control" placeholder="이메일을 입력하세요" name="email">
-				<input type="password" class="form-control"  placeholder="비밀번호를 입력하세요" name="pw">
-				<input type="submit" class="btn btn-primary" style="margin-top:20px"value="로그인">
-				<input type="submit" class="btn btn-primary" style="margin-top:20px"value="카카오 로그인">
+					<input type="text" class="form-control" placeholder="이메일을 입력하세요" name="email">
+					<input type="password" class="form-control"  placeholder="비밀번호를 입력하세요" name="pw">
+					<input type="submit" class="btn btn-primary" style="margin-top:20px"value="로그인">
+					<br>
+					<span onclick="kakaoLogin();">
+				      <a href="javascript:void(0)">
+				          <img src="https://k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg" width="222"
+											alt="카카오 로그인 버튼" />
+				      </a>
+					</span>
+					<br>
+					<span onclick="kakaoLogout();">
+				      <a href="javascript:void(0)">
+				          <button>카카오 로그아웃</button>
+				      </a>
+					</span>
+					
+				</form>
     
     
           </div>   
@@ -70,7 +122,33 @@
 
       <div class="slant" style="background-image: url('resources/images/slant.svg');"></div>
     </div>
+    <script type="text/javascript">
+    function checkE(){
+		var inputE = $('#inputE').val()
+		console.log(inputE)
+		
+		$.ajax( 
+			{
+				url : 'emailCheck',
+				data : {'inputE' : inputE},
+				type : 'get',
+				success : function(data){
+					if(data==1){
+						// 사용가능
+						$('#resultCheck').text('사용 가능한 이메일')
+					}else{
+						$('#resultCheck').text('중복된 이메일')
+					}
+				},
+				error : function(){
+					alert("통신실패")
+				}
+			}
+		)
+	}
     
+    
+    </script>
     
  	<!-- footer 파일 불러오기 -->
     <%@ include file="./footer.jsp" %>

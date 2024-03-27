@@ -8,6 +8,7 @@
 </head>
 <body>
 	 <!-- Start Footer 하단에 고정되는 메뉴들 -->
+	  <div class="slant" style="background-image: url('resources/images/slant.svg');"></div>
      <div class="site-footer">
       <div class="container">
         <div class="row justify-content-between">
