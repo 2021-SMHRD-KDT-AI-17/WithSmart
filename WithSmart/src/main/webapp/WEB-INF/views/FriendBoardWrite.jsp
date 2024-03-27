@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+    
+     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+ <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>  
+ 
+ 
 <!-- /*
 * Template Name: Append
 * Template Author: Untree.co
@@ -73,11 +79,17 @@
 		
         <h1 class="h6 mb-3 text-black" ><strong>게시글 작성</strong></h1>
       
+      
+      <table id="list">
+      
+      
      	 <!-- 글 작성 입력 폼 -->
-        <form action ="FriendBoardInsert" method ="post">
+        <form action ="FriendBoardInsert" method ="post" enctype="multipart/form-data">
           <div class="row" style ="margin-top: 50px">
             <div class="col-md-6">
               <div class="form-group">
+              
+              
               <!--  글 제목 입력  -->
                 <label class="text-black" for="fname">제목</label>
                 <input type="text" class="form-control" name="title">
@@ -104,15 +116,19 @@
             <label class="text-black" for="contents">내용</label>
             <textarea name="content" class="form-control" id="contents" cols="30" rows="10"></textarea>
           </div>
-        
-        </form>
-      	<div class ="btn">
-          <button type="submit" class="btn btn-primary"><a href="goFriendBoard" style="color: white">작성하기</a></button>
-          <button type="submit" class="btn btn-primary"><a href="goFriendBoard" style="color: white">뒤로가기</a></button>
+        	<div class ="btn">
+<!--           <button type="submit" class="btn btn-primary" style="color: white">작성하기</button> -->
+
+          <input type="submit" class="btn btn-primary" value="작성하기">
+          <input type="reset" class="btn btn-primary" value="초기화">
         </div>
+        </form>
+      	
       </div>
     </div>
   </div>
+	
+	</table>
 	
 	<div id="overlayer"></div>
 	    <div class="loader">

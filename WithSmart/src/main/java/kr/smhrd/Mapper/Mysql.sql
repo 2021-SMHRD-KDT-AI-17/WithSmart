@@ -7,5 +7,4 @@ select * from tbl_suggboard;
 
 commit;
 
-
-
+select * from tbl_jobboard;

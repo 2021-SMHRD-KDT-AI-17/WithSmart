@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
+     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+ <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>  
+    
+    
 <!-- /*
 * Template Name: Append
 * Template Author: Untree.co
@@ -55,14 +59,20 @@
 	    	
 	    <!-- 게시글 가져오기  -->
 	    	
-	    <div style="margin-top: 50px">	
+	    <div style="margin-top: 50px" id="f_board">	
+	    
+	    <table id="list">
+	    
 	       <!--게시글 제목  -->
           <h3>게시글 제목</h3>
+          <td>${f_board.tilte}</td>
           <!-- 게시글 내용  -->
           <p>내용1</p>
           <p>세부 내용</p>
           <p>사진파일  </p>
-
+		
+		</table>
+		
 		</div>
 
 
@@ -81,6 +91,7 @@
                     <div class="meta">답글 시간 (January 9, 2018 at 2:21pm)</div>
                    <!--답글 내용 가져오기  --> 
                     <p>댓글 내용  <button class="btn btn-info" style ="margin-left: 30px" >추천하기</button></p>
+                    
                      <!-- 부트스트랩 아이콘 가져옴 -->
                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-emoji-heart-eyes" viewBox="0 0 16 16">
   						<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
