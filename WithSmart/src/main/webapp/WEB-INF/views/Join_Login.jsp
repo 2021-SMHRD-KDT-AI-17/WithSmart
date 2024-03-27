@@ -137,7 +137,7 @@
 				data : {'inputC' : inputC},
 				type : 'get',
 				success : function(data){
-					if(data==1){
+					if(data==0){
 						$('#certCheck').text('인증번호가 확인되었습니다.')
 					}else{
 						$('#certCheck').text('등록되지 않은 인증번호입니다.')

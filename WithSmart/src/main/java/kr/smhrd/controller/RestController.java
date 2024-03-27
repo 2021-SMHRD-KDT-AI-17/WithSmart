@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import kr.smhrd.Mapper.CertificationMapper;
 import kr.smhrd.Mapper.MemberMapper;
 import kr.smhrd.entity.Member;
+import kr.smhrd.entity.Certification;
 
 @org.springframework.web.bind.annotation.RestController
 public class RestController {
@@ -35,7 +36,7 @@ public class RestController {
 	// 인증번호 확인
 	@RequestMapping("/certCheck")
 	public int certCheck(@RequestParam("inputC") String inputC) {
-		Member cert = certificationMapper.certCheck(inputC);
+		Certification cert = certificationMapper.certCheck(inputC);
 		if(cert == null) {
 			return 1;
 		}else {

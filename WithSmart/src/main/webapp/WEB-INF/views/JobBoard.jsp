@@ -1,4 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@page import="java.util.ArrayList"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <meta charset="utf-8">
@@ -57,6 +60,10 @@
 		
 	}
 	
+	a{
+		color: black;
+		
+	}
 	
 </style>
 </head>
@@ -87,71 +94,24 @@
 					    <tr>
 					     <th scope="col">No</th>
 					      <th scope="col">채용공고명</th>
+					      <th scope="col">회사명</th>
+					      <th scope="col">마감기한</th>
 					      <th scope="col">작성일</th>
 					      <th scope="col">조회수</th>
 					    </tr>
 					  </thead>
 					  <tbody>
-					    <tr>
-					      <th scope="row">1</th>
-					      <td><a href="goJobBoardDetail">제목1</a></td>
-					      <td>작성일</td>
-					      <td>11</td>
-					   
-					    </tr>
-					    <tr>
-					      <th scope="row">2</th>
-					      <td><a href="goJobBoardDetail">제목2</a></td>
-					      <td>작성일</td>
-					      <td>11</td>
-					    </tr>
-					    
-					    <tr>
-					      <th scope="row">3</th>
-					      <td><a href="goJobBoardDetail">제목3</a></td>
-					      <td>작성일</td>
-					      <td>11</td>
-					    </tr>
-					    
-					    <tr>
-					      <th scope="row">4</th>
-					      <td><a href="goJobBoardDetail">제목4</a></td>
-					      <td>작성일</td>
-					      <td>11</td>
-					    </tr>
-					    
-					    
-					    <tr>
-					      <th scope="row">5</th>
-					      <td><a href="goJobBoardDetail">제목5</a></td>
-					      <td>작성일</td>
-					      <td>11</td>
-					    </tr>
-					    
-					    
-					    <tr>
-					      <th scope="row">6</th>
-					      <td><a href="goJobBoardDetail">제목6</a></td>
-					      <td>작성일</td>
-					      <td>11</td>
-					    </tr>
-					    
-					    <tr>
-					      <th scope="row">7</th>
-					      <td><a href="goJobBoardDetail">제목7</a></td>
-					      <td>작성일</td>
-					      <td>11</td>
-					    </tr>
-					    
-					    <tr>
-					      <th scope="row">8</th>
-					      <td><a href="goJobBoardDetail">제목8</a></td>
-					 	  <td>작성일</td>
-					      <td>11</td>
-					    </tr>
-					    
+					  	<c:forEach items="${b_list}" var="b" varStatus="s">
+					    	<tr>
+					    		<td>${b.job_idx}</td>
+					    		<td><a href="${b.detailinfo}">${b.jobtitle}</a></td>
+					    		<td><a href="${b.companyinfo}">${b.companyname}</td>
+					    		<td>${b.enddate}</td>
+					    		<td>${b.uploadtime }</td>
+					    		<td>${b.viewcount}</td>
+					    	</tr>
+					    </c:forEach>
 					  </tbody>
-    
   					</table>
 				</div>
 			
