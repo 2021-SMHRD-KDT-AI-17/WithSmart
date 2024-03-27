@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@page import="kr.smhrd.entity.Member"%>
+<%@ page import="kr.smhrd.entity.Member"%>
 <!-- /*
 * Template Name: Append
 * Template Author: Untree.co
@@ -36,8 +36,7 @@
 
 
   <!-- header 파일 불러오기  --> 
- <%@ include file = "./header.jsp" %>
-    
+ <%@ include file = "./header.jsp" %>  
     
 
 	<!-- 배경 사진 삽입  -->
@@ -48,11 +47,18 @@
       <div class="container">
         <div class="row align-items-center justify-content-between">
           <div class="col-lg-7 intro">
-            <h1 class="text-white font-weight-bold mb-4" data-aos="fade-up" data-aos-delay="0">안녕하세요! <br> WithSmart 입니다.</h1>
+            <h1 class="text-white font-weight-bold mb-4" data-aos="fade-up" data-aos-delay="0">
+            <%if(loginMember == null){ %>
+            	안녕하세요! <br> WithSmart 입니다.</h1>
+            <%}else { %>
+            	<%=loginMember.getMb_nick() %>님 안녕하세요! <br> WithSmart 입니다.</h1>
+            <%} %>
             <p class="text-white mb-4" data-aos="fade-up" data-aos-delay="100"> 스마트인재 개발원 수강생과 수료생들을 위한 서비스입니다. 
-            
+            <%if(loginMember == null){ %>
             	<br> 회원가입 후 서비스를 이용해보세요!</p>
            		<button class="btn btn-primary" ><a href ="goJoin" , style ='color:white' >회원가입  / 로그인 </a></button>
+            <%} %>
+            	
            
             
            

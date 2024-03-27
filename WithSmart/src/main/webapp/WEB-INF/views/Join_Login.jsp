@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@page import="kr.smhrd.entity.Member" %>
 <!DOCTYPE html>
  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -26,6 +27,7 @@
 <head>
 <meta charset="UTF-8">
 <title>WithSmart</title>
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 </head>
 <body>
 	<script>
@@ -82,12 +84,14 @@
             
             <!-- 회원가입 정보 입력 form  -->
             <form action="memberInsert" class="sign-up-form d-grid" data-aos="fade-up" data-aos-delay="200" method ="post">
-	            <input type="text" class="form-control" placeholder="이메일을 입력해주세요" name="mb_id"><br>
-	            <input type="button" class="btn btn-primary" value="Email 중복체크" onclick="checkE()" id="inputE">
+	            <input type="text" class="form-control" placeholder="이메일을 입력해주세요" name="mb_id"  id="inputE">
+	            <input type="button" class="btn btn-primary" value="Email 중복체크" onclick="checkE()">
 	            <span id="resultCheck"></span>
 	            <input type="password" class="form-control" style="margin-bottom:20px" placeholder="비밀번호를 입력해주세요" name="mb_pw">
 	            <input type="text" class ="form-control" style = "margin-top:10px" placeholder ="닉네임을 입력해주세요" name="mb_nick">
-	            <input type="text" class ="form-control" style = "margin-top:10px" placeholder ="인증번호를 입력해주세요" name="mb_cert">
+	            <input type="text" class ="form-control" style = "margin-top:10px" placeholder ="인증번호를 입력해주세요" name="mb_cert" id="inputC">
+	            <input type="button" class="btn btn-primary" value="인증번호 확인" onclick="checkC()">
+	            <span id="certCheck"></span>
 	            <input type="submit" class="btn btn-primary" style="margin-top:30px" value="회원가입">
             </form>
           
@@ -96,13 +100,13 @@
           <!-- 로그인  -->
       		<h3 class="text-white mb-4" data-aos="fade-up" data-aos-delay="100"><strong>로그인</strong></h3>
 				<form action="goLogin" class="sign-up-form d-grid" data-aos="fade-up" data-aos-delay="200" method ="post">
-					<input type="text" class="form-control" placeholder="이메일을 입력하세요" name="email">
-					<input type="password" class="form-control"  placeholder="비밀번호를 입력하세요" name="pw">
+					<input type="text" class="form-control" placeholder="이메일을 입력하세요" name="mb_id">
+					<input type="password" class="form-control"  placeholder="비밀번호를 입력하세요" name="mb_pw">
 					<input type="submit" class="btn btn-primary" style="margin-top:20px"value="로그인">
 					<br>
 					<span onclick="kakaoLogin();">
 				      <a href="javascript:void(0)">
-				          <img src="https://k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg" width="222"
+				          <img src="https://k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg" width="150"
 											alt="카카오 로그인 버튼" />
 				      </a>
 					</span>
@@ -123,6 +127,29 @@
       <div class="slant" style="background-image: url('resources/images/slant.svg');"></div>
     </div>
     <script type="text/javascript">
+    function checkC(){
+		var inputC = $('#inputC').val()
+		console.log(inputC)
+		
+		$.ajax( 
+			{
+				url : 'certCheck',
+				data : {'inputC' : inputC},
+				type : 'get',
+				success : function(data){
+					if(data==1){
+						$('#certCheck').text('인증번호가 확인되었습니다.')
+					}else{
+						$('#certCheck').text('등록되지 않은 인증번호입니다.')
+					}
+				},
+				error : function(){
+					alert("통신실패")
+				}
+			}
+		)
+	}
+    
     function checkE(){
 		var inputE = $('#inputE').val()
 		console.log(inputE)
@@ -134,7 +161,6 @@
 				type : 'get',
 				success : function(data){
 					if(data==1){
-						// 사용가능
 						$('#resultCheck').text('사용 가능한 이메일')
 					}else{
 						$('#resultCheck').text('중복된 이메일')
@@ -146,6 +172,7 @@
 			}
 		)
 	}
+   
     
     
     </script>
