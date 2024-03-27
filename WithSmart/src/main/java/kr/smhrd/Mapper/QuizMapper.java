@@ -14,7 +14,7 @@ List<Quiz> showQuiz();
 	
     void submitQuiz(@Param("quiz_idx") int quizIdx, @Param("user_answer") int userAnswer);
 
-	int getCorrectAnswer(String[] quiz_idx);
+	int getCorrectAnswer(int i);
 	
 	
 }

@@ -11,7 +11,7 @@
    </select>
     
    <!-- 퀴즈 답변 제출 -->
-   <insert id="submitQuiz">
+   <insert id="quizScore">
        INSERT INTO tbl_user_answer (quiz_idx, user_answer) VALUES (#{quiz_idx}, #{userAnswer});
    </insert>
 

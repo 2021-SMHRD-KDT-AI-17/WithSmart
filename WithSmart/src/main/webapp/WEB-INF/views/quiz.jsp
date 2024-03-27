@@ -9,14 +9,15 @@
 </head>
 <body>
    <h1>오늘의 퀴즈</h1>
-    <form id="quiz-form" action="/submitQuiz" method="post">
+    <form id="quiz-form" action="quizScore" method="post">
         <ul>
             <!-- 서버로부터 받은 퀴즈 데이터를 반복문으로 동적으로 추가 -->
             <c:forEach items="${quizList}" var="quiz">
                 <li>
                     <p>${quiz.quizContent}</p>
+                    <!-- 퀴즈 인덱스를 quiz_idx로 받음 -->
                     <input type="hidden" name="quiz_idx" value="${quiz.quiz_idx}">
-                    <!-- 선택지를 반복문으로 동적으로 추가 -->
+                    <!-- 각 퀴즈별로 사용자의 선택을 받기 위해 name 속성 수정 -->
                     <label>
                         <input type="radio" name="userAnswer_${quiz.quiz_idx}" value="1">
                         ${quiz.choice1}

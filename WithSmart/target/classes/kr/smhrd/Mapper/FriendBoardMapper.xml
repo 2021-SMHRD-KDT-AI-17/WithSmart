@@ -3,14 +3,19 @@
 <mapper namespace="kr.smhrd.Mapper.FriendBoardMapper">
 
 
- <select id="friendBoardList" resultType="kr.smhrd.entity.FriendBoard">
- 	select * from FriendBoard order by f_date desc
- </select>
-
 <insert id="insertBoard" parameterType="kr.smhrd.entity.FriendBoard" >
-	insert into tbl_friendboard(title, writer, filename, content)
-	values(#{title}, #{writer}, #{filename}, #{content})
+		insert into tbl_friendboard(title, writer, filename, content)
+		values(#{title}, #{writer}, #{filename}, #{content})
 </insert>
+
+ <select id="friendBoardList" resultType="kr.smhrd.entity.FriendBoard">
+ 	select * from tbl_friendboard <!-- order by f_date desc -->
+ </select>
+ 
+ 	<select id="friendboardContent" parameterType="int" resultType="kr.smhrd.entity.FriendBoard">
+		select * from tbl_friendboard where num=#{num}
+	</select>
+
 
 
 
