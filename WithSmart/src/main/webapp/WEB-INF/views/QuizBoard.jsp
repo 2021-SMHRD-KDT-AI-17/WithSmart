@@ -1,7 +1,4 @@
-<%@page import="java.util.ArrayList"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <meta charset="utf-8">
@@ -60,10 +57,10 @@
 		
 	}
 	
-	a{
-		color: black;
-		
+	.container-md{
+		margin-bottom: 50px;
 	}
+	
 	
 </style>
 </head>
@@ -83,57 +80,31 @@
         <div class="board">
        
 			<div class="table-responsive">
-										
-	                <div class ="btn">
-						<a href="goMain"><button class="btn btn-primary" id="writer">홈으로 가기</button></a>
-	               
-	                </div>
 					
-  					<table class="table">
-					  <thead>
-					    <tr>
-					     <th scope="col">No</th>
-					      <th scope="col">채용공고명</th>
-					      <th scope="col">회사명</th>
-					      <th scope="col">마감기한</th>
-					      <th scope="col">작성일</th>
-					      <th scope="col">조회수</th>
-					    </tr>
-					  </thead>
-					  <tbody>
-					  	<c:forEach items="${b_list}" var="b" varStatus="s">
-					    	<tr>
-					    		<td>${b.job_idx}</td>
-					    		<td><a href="${b.detailinfo}">${b.jobtitle}</a></td>
-					    		<td><a href="${b.companyinfo}">${b.companyname}</td>
-					    		<td>${b.enddate}</td>
-					    		<td>${b.uploadtime }</td>
-					    		<td>${b.viewcount}</td>
-					    	</tr>
-					    </c:forEach>
-					  </tbody>
-  					</table>
-				</div>
-			
-			<!-- 부트스트랩 페이징 적용   -->
-			<nav aria-label="Page navigation example" class="bottom_num">
-			  <ul class="pagination justify-content-center">
-			    <li class="page-item">
-			      <a class="page-link" href="#" aria-label="Previous">
-			        <span aria-hidden="true">&laquo;</span>
-			      </a>
-			    </li>
-			    <li class="page-item"><a class="page-link" href="#">1</a></li>
-			    <li class="page-item"><a class="page-link" href="#">2</a></li>
-			    <li class="page-item"><a class="page-link" href="#">3</a></li>
-			    <li class="page-item">
-			      <a class="page-link" href="#" aria-label="Next">
-			        <span aria-hidden="true">&raquo;</span>
-			      </a>
-			    </li>
-			  </ul>
-			</nav>
-    
+					
+					<div class="container-md" align="center">문제명</div>
+						
+						
+						<div align="center">
+							<p>1번 보기</p>
+							<p>2번 보기</p>
+							<p>3번 보기</p>
+							<p>4번 보기</p>
+						
+						</div>
+					
+					</div>
+					
+					
+					<form action="#" method="get">			
+	                <div class ="btn">
+	                
+	                	<input type="text" name ="#" placeholder ="답을 입력하세요">
+						<button class="btn btn-primary" >답 제출</button>
+	                	
+	                </div>
+					</form> 
+  				    
         </div>
       
 

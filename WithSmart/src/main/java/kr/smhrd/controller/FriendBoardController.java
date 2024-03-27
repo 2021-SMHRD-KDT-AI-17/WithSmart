@@ -94,6 +94,9 @@ public class FriendBoardController {
 		model.addAttribute("FriendBoard", Friendboard);
 		return "FriendBoardDetail";
 	}
+	
+
+	
 //	
 //	
 //	// 게시글 삭제 (deleteBoard 로 이동)
