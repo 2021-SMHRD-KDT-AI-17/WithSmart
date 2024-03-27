@@ -29,11 +29,14 @@
 <title>WithSmart</title>
 </head>
 <style>
-	* 지도를 표시하는 div 요소에 필요한 스타일 지정 */
-        #map {
+	#map {
             width: 100%; /* 부모 요소에 대해 100%의 너비를 가지도록 설정 */
-            height: 400px; /* 적절한 높이 설정 */
+            height: 500px; /* 적절한 높이 설정 */
         }
+        
+    .kakaoMap{
+    	margin: 150px;
+    }
 	 
 </style>
 
@@ -45,16 +48,10 @@
     <%@ include file="./header.jsp" %>   
 
 	
-	<div class="container-fluid">
-    	<div class="row justify-content-center">
-        	<div class="col-md-10">
-            	<div id="map" class="kakaoMap"></div>
-       	 	</div>
-   		</div>
+	
+	<div class="kakaoMap">
+		<div id="map" style="width:100%; height:500px;"></div>
 	</div>
-	
-	
-	<!-- <div id="map" style="width:1900px;height:500px;"></div> -->
 <!-- 	<script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=발급받은JavaScript 키"></script>
  --> 
  	<script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=d0f022c59208d8f98b74e224a733a304"></script>
@@ -229,7 +226,7 @@
 		    },
 		   
 		    {
-		        content: '<div style="padding:5px;">사이공장 <br><a href="https://map.kakao.com/link/map/사이공장, 35.1491442	, 126.9223007 " style="color:blue" target="_blank">큰지도보기</a></div>', 
+		        content: '<div style="padding:5px;">사이공장 <br><a href="https://map.kakao.com/link/map/사이공장, 35.1491442, 126.9223007 " style="color:blue" target="_blank">큰지도보기</a></div>', 
 			    latlng: new kakao.maps.LatLng(35.1491442, 126.9223007)
 		    	
 		    },
@@ -295,7 +292,10 @@
 		 
 		 // 인포윈도우를 생성합니다
 			 var infowindow = new kakao.maps.InfoWindow({
-				 content:  positions[i].content// 윈도우에 표시할 내용
+				 content: '<div class="infowindow-content">' + positions[i].content + '</div>'
+				 
+			/* 	 content:  positions[i].content,// 윈도우에 표시할 내용
+				 maxWidth: 300 */
 				 // disableAutoPan: true 
 			 });
 		 
@@ -326,7 +326,19 @@
 			  };
 		}
 
+		// 지도 크기 조정
+		function resizeMap() {
+	        var mapDiv = document.getElementById('map');
+	        var parentDiv = mapDiv.parentElement;
+	        mapDiv.style.width = parentDiv.offsetWidth + 'px';
+	        mapDiv.style.height = '500px'; // 적절한 높이 설정
+	    }
 
+	    // 페이지 로드 및 리사이즈 이벤트 시에 지도 크기 조정
+	    window.addEventListener('load', resizeMap);
+	    window.addEventListener('resize', resizeMap);
+		
+		
 	 
 	 </script>
 	 
