@@ -13,6 +13,12 @@ public interface FriendBoardMapper {
 
 	public int insertBoard(FriendBoard friendboard);
 
+	public void FriendboardCount(int num);
+
+	public FriendBoard FriendboardContent(int num);
+
+
+
 
 
 	

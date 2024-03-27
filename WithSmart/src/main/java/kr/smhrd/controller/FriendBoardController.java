@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,15 +24,16 @@ public class FriendBoardController {
 	@Autowired
 	private FriendBoardMapper friendBoardMapper;
 	
-	// BoardMain.jsp로 이동 + DB값 가져오기
-	@RequestMapping("/goFriendBoardMain")
-	public String goFriendBoardMain(Model model) {
-		List<FriendBoard> F_list = friendBoardMapper.friendBoardList();
-		model.addAttribute("F_list", F_list);
+	// goFriendBoard.jsp로 이동 + DB값 가져오기
+	@RequestMapping("/goFriendBoard")
+	public String goFriendBoard(Model model) {
+//		System.out.println("친목게시판으로!");
+		List<FriendBoard> f_list = friendBoardMapper.friendBoardList();
+		model.addAttribute("f_list", f_list);
 		return "FriendBoard";
 	}
 	
-	// BoardWrite.jsp로 이동
+	// goFriendBoardWrite.jsp로 이동
 	@RequestMapping("/goFriendBoardWrite")
 	public String goFriendBoardWrite() {
 		return "FriendBoardWrite";
@@ -39,8 +41,8 @@ public class FriendBoardController {
 	
 	// 게시글 등록
 	@RequestMapping("/FriendBoardInsert")
-	public String FriendboardInsert(FriendBoard Friendboard, HttpServletRequest request) {
-		
+	public String friendBoardInsert(FriendBoard Friendboard, HttpServletRequest request) {
+//		System.out.println("controller접근");
 
 		
 		// 1. 요청객체(request)
@@ -53,6 +55,7 @@ public class FriendBoardController {
 		String encoding = "UTF-8";
 		// 5. 파일 이름 중복제거
 		DefaultFileRenamePolicy rename = new DefaultFileRenamePolicy();
+
 		
 		try {
 			MultipartRequest multi = new MultipartRequest(request, path, size, encoding, rename);
@@ -60,10 +63,11 @@ public class FriendBoardController {
 			String writer = multi.getParameter("writer");
 			String filename = multi.getFilesystemName("filename");
 			String content = multi.getParameter("content");
+
 			
 			Friendboard = new FriendBoard(title, writer, filename, content);
 			
-			System.out.println(Friendboard.toString());
+			 System.out.println(Friendboard.toString());
 			
 			
 		} catch (IOException e) {
@@ -78,18 +82,21 @@ public class FriendBoardController {
 			System.out.println("업로드 실패");
 		}
 		
-		return "redirect:/goFriendBoardMain";
+		return "redirect:/goFriendBoard";
 	}
 	
 	
 	// 상세페이지로 이동 (FriendboardDetail.jsp로 이동)
-//	@RequestMapping("/boardContent")
-//	public String boardContent(int num, Model model) {
-//		boardMapper.boardCount(num);   // num 값에 해당하는 게시물 조회수 1 증가시키기
-//		Board board = boardMapper.boardContent(num); // num 값에 해당하는 하나의 게시물 가져오기
-//		model.addAttribute("board", board);
-//		return "BoardDetail";
-//	}
+	@RequestMapping("/FriendboardContent")
+	public String boardContent(int num, Model model) {
+		friendBoardMapper.FriendboardCount(num);   // num 값에 해당하는 게시물 조회수 1 증가시키기
+		FriendBoard Friendboard = friendBoardMapper.FriendboardContent(num); // num 값에 해당하는 하나의 게시물 가져오기
+		model.addAttribute("FriendBoard", Friendboard);
+		return "FriendBoardDetail";
+	}
+	
+
+	
 //	
 //	
 //	// 게시글 삭제 (deleteBoard 로 이동)

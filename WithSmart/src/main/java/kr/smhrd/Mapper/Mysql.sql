@@ -18,8 +18,11 @@ delete from tbl_member where mb_pw='5555';
 
 commit;
 
+<<<<<<< HEAD
+
+select * from tbl_jobboard;
+=======
 select * from tbl_certification;
-
-
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-AI-17/WithSmart.git
 
 

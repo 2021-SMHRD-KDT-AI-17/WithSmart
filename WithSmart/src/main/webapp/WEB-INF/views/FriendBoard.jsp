@@ -1,5 +1,14 @@
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+    
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+ <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>  
+    
+    
+    
+    
 <!DOCTYPE html>
 <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -25,7 +34,9 @@
   <link rel="stylesheet" href="resources/css/style.css">
 <html>
 <head>
-<meta charset="UTF-8">
+		<meta charset="UTF-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
 <title>WithSmart</title>
 <style type="text/css">
 	
@@ -60,6 +71,7 @@
 	
 </style>
 </head>
+
 <body>
 
 	<%-- <%
@@ -83,17 +95,37 @@
 	                </div>
 					
   					<table class="table">
+  					
 					  <thead>
 					    <tr>
-					      <th scope="col">No</th>
-					      <th scope="col">제목</th>
-					      <th scope="col">작성자</th>
-					      <th scope="col">작성일</th>
-					      <th scope="col">조회수</th>
-					      <th scope="col">추천수</th>
+					      <td scope="col">No</td>
+					      <td scope="col">제목</td>
+					      <td scope="col">작성자</td>
+					      <td scope="col">작성일</td>
+					      <td scope="col">조회수</td>
+					      <td scope="col">추천수</td>
 					    </tr>
+					    
+					    
+					    
+					    
+					    <c:forEach items="${F_list }" var="f" varStatus="fs">
+							<tr>
+								<td>${fs.count }</td>
+								<td>${f.title }</td>
+								<td>${f.writer }</td>
+								<td>${fn:split(f.f_date ," ")[1] }</td>
+								<td>${f.count }</td>
+			<%-- 						<c:if test="${loginMember.email eq 'admin' }">
+									<td><a href="deleteBoard?num=${f.num}">삭제</a></td>    
+									</c:if> --%>
+								
+							</tr>
+				</c:forEach>
+					    
 					  </thead>
-					  <tbody>
+					  
+<!-- 					  <tbody>
 					    <tr>
 					      <th scope="row">1</th>
 					      <td><a href="goFriendBoardDetail">제목1</a></td>
@@ -164,7 +196,7 @@
 					      <td>11</td>
 					    </tr>
 					    
-					  </tbody>
+					  </tbody> -->
     
   					</table>
 				</div>
