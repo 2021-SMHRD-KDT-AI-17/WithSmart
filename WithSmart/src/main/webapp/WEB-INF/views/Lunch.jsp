@@ -34,8 +34,7 @@
             width: 100%; /* 부모 요소에 대해 100%의 너비를 가지도록 설정 */
             height: 400px; /* 적절한 높이 설정 */
         }
-	
-
+	 
 </style>
 
 
@@ -327,17 +326,7 @@
 			  };
 		}
 
-		
-		function resizeMap() {
-	        var mapDiv = document.getElementById('map');
-	        var parentDiv = mapDiv.parentElement;
-	        mapDiv.style.width = parentDiv.offsetWidth + 'px';
-	        mapDiv.style.height = parentDiv.offsetHeight + 'px';
-	    }
 
-	    // 페이지 로드 및 리사이즈 이벤트 시에 지도 크기 조정
-	    window.addEventListener('load', resizeMap);
-	    window.addEventListener('resize', resizeMap);
 	 
 	 </script>
 	 
