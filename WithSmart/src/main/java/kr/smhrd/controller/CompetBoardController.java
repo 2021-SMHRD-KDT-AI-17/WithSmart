@@ -1,6 +1,5 @@
 package kr.smhrd.controller;
 
-import org.springframework.web.bind.annotation.RequestMapping;
 import java.io.IOException;
 import java.util.List;
 
@@ -10,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
@@ -23,13 +21,23 @@ public class CompetBoardController {
 
 	@Autowired
 	private CompetBoardMapper CompetboardMapper;
-	
+	     
 	// BoardMain.jsp로 이동 + DB값 가져오기
-	@RequestMapping("/goCompetBoardMain")
-	public String goCompetBoardMain(Model model) {
+	@RequestMapping("/goCompetBoard")
+	public String goCompetBoard(Model model) {
 		List<CompetBoard> cp_list = CompetboardMapper.CompetboardList();
-		model.addAttribute("cp_list", cp_list);
+		model.addAttribute("cp_list",cp_list);
+		List<CompetBoard> CompetboardList = CompetboardMapper.CompetboardList();
+		for (CompetBoard competboard : CompetboardList) {
+		    System.out.println(competboard);
+		}
 		return "CompetBoard";
+	}
+	
+	@RequestMapping("/goCompetBoardDetail")
+	public String goCompetBoardDetail() {
+		
+		return "CompetBoardDetail";
 	}
 	
 	// BoardWrite.jsp로 이동
@@ -102,14 +110,6 @@ public class CompetBoardController {
 	 */
 
 
-@RequestMapping("/goCompetBoard")
-	public String goCompetBoard() {
-		return "CompetBoard";
-	}
 
-	@RequestMapping("/goCompetBoardDetail")
-	public String goCompetBoardDetail() {
-		return "CompetBoardDetail";
-	}
 
 }
