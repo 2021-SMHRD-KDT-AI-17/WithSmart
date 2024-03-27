@@ -11,7 +11,7 @@
 
   <meta name="description" content="" />
   <meta name="keywords" content="bootstrap, bootstrap4" />
-
+	
 
 	<!-- 부트스트랩 css 적용  -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -26,10 +26,13 @@
   <link rel="stylesheet" href="resources/css/jquery.fancybox.min.css">
   <link rel="stylesheet" href="resources/css/aos.css">
   <link rel="stylesheet" href="resources/css/style.css">
+  
 <html>
 <head>
 <meta charset="UTF-8">
 <title>WithSmart</title>
+
+
 <style type="text/css">
 	
 	.board{
@@ -64,7 +67,7 @@
 </style>
 </head>
 <body>
-
+	
 	<%
 		List<Member> list = (List<Member>)request.getAttribute("list");
 	%>

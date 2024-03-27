@@ -77,6 +77,12 @@
 	                  		<li><a href="goShowMember">회원정보관리</a></li>
 	                  <%} %>
 	                  <li><a href="memberLogout">로그아웃</a></li>
+	                  <span onclick="kakaoLogout();">
+				      <a href="javascript:void(0)">
+				      	
+				         <li><a href="goMain">카카오 로그아웃</a><li>
+				      </a>
+					 </span>
 	                  
 	                  </ul>
 	              </li>

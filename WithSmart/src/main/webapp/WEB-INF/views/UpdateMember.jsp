@@ -74,15 +74,14 @@
 	                <div class ="btn">
 						<a href="goMain"><button class="btn btn-primary" id="writer">홈으로 가기</button></a>
 	                </div>
-					
-  					<h2>회원정보수정</h2>
-  					<form action="memberUpdate" method="post">
-  						<li>접속한 이메일 : ${loginMember.mb_id }</li>
-  						<li><input type="hidden" name="mb_id" value="${loginMember.mb_id }"></li>
-  						<li><input type="password" name="mb_pw" placeholder="비밀번호를 입력하세요" value="${loginMember.mb_pw }"></li>
-  						<li><input type="text" name="mb_nick" placeholder="닉네임를 입력하세요" value="${loginMember.mb_nick }"></li>
-  						<li><input type="submit" class="button fit" placeholder="닉네임를 입력하세요" value="UPDATE"></li>  						
-  					</form>
+						<h2>회원정보수정</h2>
+						<form action="memberUpdate" method="post">
+							<li>접속한 이메일 : ${loginMember.mb_id }</li>
+							<li><input type="hidden" name="mb_id" value="${loginMember.mb_id }"></li>
+							<li><input type="password" name="mb_pw" placeholder="비밀번호를 입력하세요" value="${loginMember.mb_pw }"></li>
+							<li><input type="text" name="mb_nick" placeholder="닉네임를 입력하세요" value="${loginMember.mb_nick }"></li>
+							<li><input type="submit" class="button fit" placeholder="닉네임를 입력하세요" value="수정"></li>  			
+	  					</form>
 				</div>
         </div>
       

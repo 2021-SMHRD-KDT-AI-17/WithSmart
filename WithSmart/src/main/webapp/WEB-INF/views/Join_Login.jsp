@@ -91,8 +91,8 @@
 	            <input type="text" class ="form-control" style = "margin-top:10px" placeholder ="닉네임을 입력해주세요" name="mb_nick">
 	            <input type="text" class ="form-control" style = "margin-top:10px" placeholder ="인증번호를 입력해주세요" name="mb_cert" id="inputC">
 	            <input type="button" class="btn btn-primary" value="인증번호 확인" onclick="checkC()">
-	            <span id="certCheck"></span>
-	            <input type="submit" class="btn btn-primary" style="margin-top:30px" value="회원가입">
+	            <div id="certCheck"></div>
+	            <input type="submit" class="btn btn-success" style="margin-top:10px" value="회원가입" width="500">
             </form>
           
           <br><br>
@@ -102,7 +102,7 @@
 				<form action="goLogin" class="sign-up-form d-grid" data-aos="fade-up" data-aos-delay="200" method ="post">
 					<input type="text" class="form-control" placeholder="이메일을 입력하세요" name="mb_id">
 					<input type="password" class="form-control"  placeholder="비밀번호를 입력하세요" name="mb_pw">
-					<input type="submit" class="btn btn-primary" style="margin-top:20px"value="로그인">
+					<input type="submit" class="btn btn-success" style="margin-top:20px"value="로그인">
 					<br>
 					<span onclick="kakaoLogin();">
 				      <a href="javascript:void(0)">
@@ -111,11 +111,12 @@
 				      </a>
 					</span>
 					<br>
-					<span onclick="kakaoLogout();">
+					<!-- <span onclick="kakaoLogout();">
 				      <a href="javascript:void(0)">
+				      	<input type="submit" class="btn btn-warning"value="카카오 로그아웃">
 				          <button>카카오 로그아웃</button>
 				      </a>
-					</span>
+					</span> -->
 					
 				</form>
     
@@ -137,7 +138,7 @@
 				data : {'inputC' : inputC},
 				type : 'get',
 				success : function(data){
-					if(data==0){
+					if(data==1){
 						$('#certCheck').text('인증번호가 확인되었습니다.')
 					}else{
 						$('#certCheck').text('등록되지 않은 인증번호입니다.')
