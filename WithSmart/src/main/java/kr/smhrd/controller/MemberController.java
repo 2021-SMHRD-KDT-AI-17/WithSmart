@@ -2,6 +2,7 @@ package kr.smhrd.controller;
 
 import java.text.DateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.smhrd.Mapper.MemberMapper;
 import kr.smhrd.entity.Member;
@@ -62,8 +64,8 @@ public class MemberController {
 	public String memberInsert(Member member, Model model) {
 		// System.out.println(member);
 		memberMapper.memberInsert(member);
-		// model.addAttribute("mb_nick", member.getMb_nick());
-		return "Join_Login";
+		model.addAttribute("mb_nick", member.getMb_nick());
+		return "JoinSuccess";
 	}
 
 	
@@ -72,15 +74,53 @@ public class MemberController {
 		return "Join_Login"; 
 	}
 	 
-
 	// 로그인
 	@RequestMapping("/goLogin")
 	public String goLogin(Member member, HttpSession session) {
-		System.out.println(member.toString());
+		// System.out.println(member);
 		Member loginMember = memberMapper.goLogin(member);
 		session.setAttribute("loginMember", loginMember);
+		session.setAttribute("loginMember1", loginMember);
 		return "Main";
 	}
+	
+	// 로그아웃
+	@RequestMapping("/memberLogout")
+	public String memberLogout(HttpSession session) {
+		session.invalidate();
+		return "Main";
+	}
+	
+	// 회원정보 페이지로 이동
+	@RequestMapping("/goShowMember")
+	public String goShowMember(Model model) {
+		List<Member> list = memberMapper.goShowMember();
+		model.addAttribute("list",list);
+		return "ShowMember";
+	}
+	
+	// 회원정보수정하는 페이지로 이동
+	@RequestMapping("/showUpdate")
+	public String showUpdate() {
+		return "UpdateMember";
+	}
+	
+	// 회원정보 수정
+	@RequestMapping("/memberUpdate")
+	public String memberUpdate(Member member, HttpSession session) {
+		memberMapper.memberUpdate(member);
+		session.setAttribute("loginMember", member);
+		return "Main";
+	}
+	
+	// 회원삭제
+	@RequestMapping("/deleteMember")
+	public String deleteMember(@RequestParam("mb_id") String mb_id) {
+		memberMapper.deleteMember(mb_id);
+		return "redirect:/goShowMember";
+	}
+	
+	
 
 	
 

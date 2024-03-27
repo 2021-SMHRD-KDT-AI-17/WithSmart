@@ -3,11 +3,23 @@
 <mapper namespace="kr.smhrd.Mapper.MemberMapper">
 	
 	<insert id="memberInsert" parameterType="kr.smhrd.entity.Member">
-		insert into tbl_member values(#{mb_id}, #{mb_pw}, #{mb_nick}, #{mb_cert})
+		insert into tbl_member(mb_id, mb_pw, mb_nick, mb_cert) values(#{mb_id}, #{mb_pw}, #{mb_nick}, #{mb_cert})
 	</insert>
 	
 	<select id="goLogin" parameterType="kr.smhrd.entity.Member" resultType="kr.smhrd.entity.Member">
 		select * from tbl_member where mb_id=#{mb_id} and mb_pw=#{mb_pw}
 	</select>
+	
+	<select id="goShowMember" resultType="kr.smhrd.entity.Member">
+		select * from tbl_member where not(mb_nick='관리자')	
+	</select>
+	
+	<delete id="deleteMember" parameterType="String">
+		delete from tbl_member where mb_id=#{mb_id}
+	</delete>
+	
+	<update id="memberUpdate" parameterType="kr.smhrd.entity.Member">
+		update tbl_member set mb_pw=#{mb_pw}, mb_nick=#{mb_nick} where mb_id=#{mb_id}
+	</update>
 	
 </mapper>

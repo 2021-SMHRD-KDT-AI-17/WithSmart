@@ -1,5 +1,7 @@
 package kr.smhrd.Mapper;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
@@ -14,6 +16,14 @@ public interface MemberMapper {
 	public Member emailCheck(String inputE);
 
 	public Member goLogin(Member member);
+
+	public List<Member> goShowMember();
+
+	public void deleteMember(String mb_id);
+
+	public void memberUpdate(Member member);
+
+	public Member InsertCheck(String inputE);
 
 	
 

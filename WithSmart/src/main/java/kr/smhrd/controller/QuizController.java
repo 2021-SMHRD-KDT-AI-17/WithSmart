@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -29,20 +30,22 @@ public class QuizController {
     @RequestMapping("/submitQuiz")
     public String submitQuiz(
         @RequestParam(name = "quiz_idx") String[] quiz_idx,
-        @RequestParam(name = "userAnswer") String[] userAnswer)
+        @RequestParam(name = "userAnswer") String[] userAnswer, Model model)
     {
-    	int totalscore = 0;
-    	int maxscore = quiz_idx.length * 100;
+    	int totalScore = 0;
+    	int maxScore = quiz_idx.length * 100;
         for (int i = 0; i < quiz_idx.length; i++) {
             quizMapper.submitQuiz(Integer.parseInt(quiz_idx[i]), Integer.parseInt(userAnswer[i]));
             
             int correctAnswer = quizMapper.getCorrectAnswer(quiz_idx);
             
-            if(userAnswer == correctAnswer) {
-            	
+            if(Integer.parseInt(userAnswer[i]) == correctAnswer) {
+            	totalScore += 10;
             }
         }
-        return "redirect:/showQuiz";
+        model.addAttribute("totalScore", totalScore);
+        model.addAttribute("maxScore",maxScore);
+        return "scorePage";
     }
     
 }
