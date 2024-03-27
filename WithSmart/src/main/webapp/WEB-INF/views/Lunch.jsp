@@ -28,6 +28,11 @@
 <meta charset="UTF-8">
 <title>WithSmart</title>
 </head>
+
+<link rel="stylesheet" href="resources/css/lunch.css">
+<script src="resources/js/lunch.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script> -->
+
 <style>
 	#map {
             width: 100%; /* 부모 요소에 대해 100%의 너비를 가지도록 설정 */
@@ -49,11 +54,13 @@
 
 	
 	
+	<!-- 지도 담을 div 태그 -->
 	<div class="kakaoMap">
 		<div id="map" style="width:100%; height:500px;"></div>
 	</div>
 <!-- 	<script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=발급받은JavaScript 키"></script>
  --> 
+ 	<!-- 카카오 지도 API 사용  -->
  	<script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=d0f022c59208d8f98b74e224a733a304"></script>
  	
 	<script>
@@ -64,10 +71,10 @@
         	level: 3 // 지도의 확대 레벨
     	};
 
-		var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+		var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성
  
 		
-		// 마커를 표시할 위치와 내용을 가지고 있는 객체 배열입니다 
+		// 마커를 표시할 위치와 내용을 가지고 있는 객체 배열
 	    var positions = [
 		    {
 		        content: '<div style="padding:5px;">행복한 담벼락 <br><a href="https://map.kakao.com/link/map/행복한담벼락,35.1496077, 126.9206097" style="color:blue" target="_blank">큰지도보기</a></div>', 
@@ -105,8 +112,8 @@
 		    	
 		    },
 		    {
-		        content: '<div style="padding:5px;">저스트 텐동<br><a href="https://map.kakao.com/link/map/저스트 텐동, 35.1501988,126.9159763 " style="color:blue" target="_blank">큰지도보기</a></div>', 
-			    latlng: new kakao.maps.LatLng(35.1501988,126.9159763 )
+		        content: '<div style="padding:5px;">저스트 텐동<br><a href="https://map.kakao.com/link/map/저스트 텐동, 35.1489568, 126.9247276 " style="color:blue" target="_blank">큰지도보기</a></div>', 
+			    latlng: new kakao.maps.LatLng(35.1489568, 126.9247276 )
 		    	
 		    },
 		    {
@@ -279,18 +286,19 @@
 		
 		
 		
+		// 마커 클맀했을 때 보이는 인포윈도우 담을 배열 선언
 		var infowindowArray = [];
 		
 		for(var i = 0; i < positions.length; i++) {
-		    // 배열의 좌표들이 잘 보이게 마커를 지도에 추가합니다
-		  
-		    var marker =  new kakao.maps.Marker({ 
+		    
+			// 배열의 좌표들이 잘 보이게 마커를 지도에 추가
+		  	var marker =  new kakao.maps.Marker({ 
 		    	map: map, // 마커를 표시할 지도
 		    	position : positions[i].latlng // 마커위치
 		    });
 		   
 		 
-		 // 인포윈도우를 생성합니다
+		 // 인포윈도우를 생성
 			 var infowindow = new kakao.maps.InfoWindow({
 				 content: '<div class="infowindow-content">' + positions[i].content + '</div>'
 				 
@@ -301,17 +309,19 @@
 		 
 			 infowindowArray.push(infowindow);		 
 		 
-	
+			// 마커 클릭식 발생하는 이벤트
 			 kakao.maps.event.addListener(marker, "click",  makeOverListener(map, marker, infowindow));
 			 kakao.maps.event.addListener(marker, "click", makeOutListener(infowindow));
 		}
 
+		// 클릭시 인포윈도우 닫기
 		function makeOutListener(infowindow){
 			 for (infowindow of infowindowArray) {
 			    infowindow.close();
 			 }
 		}
 
+		// 클릭시 인포위도우 열고 닫는 이벤트
 		function makeOverListener(map, marker, infowindow) {
 			  return function() {
 				 // 현재 인포윈도우가 열려있는지 확인
@@ -343,6 +353,18 @@
 	 </script>
 	 
 	 
+	 <!-- 룰렛판 담을 div 태그  -->
+	  <div id="menu">
+            <canvas width="600" height='600'></canvas>  
+            <!-- 버튼 클릭시 rotate() 함수 호출  -->
+            <button onclick="rotate()">돌려돌려 돌림판</button>
+            <div id="addDiv">
+              <input type="text" id="menuAdd">
+              <!-- 버튼 클릭시 add() 함수 호출  -->
+              <button onclick="add()">메뉴 추가</button>
+            </div>
+       </div>
+	
 	 
 	 
 	 
@@ -361,7 +383,6 @@
      <div class="slant" style="background-image: url('resources/images/slant.svg');"></div>
    
     
-
 
 
 	<!-- script  -->
