@@ -1,7 +1,7 @@
 /**
  * 
  */
-document.addEventListener("DOMContentLoaded", function() {
+
 	const $c = document.querySelector("canvas");
 	const ctx = $c.getContext(`2d`);
 	const menuAdd = document.querySelector('#menuAdd');
@@ -97,12 +97,6 @@ document.addEventListener("DOMContentLoaded", function() {
 	
 	
 	document.querySelector("#removeAllButton").addEventListener("click", removeAll);
-	
-	rotate();
 	newMake(); // 페이지 로드시 초기 룰렛 생성
-}); 
-
-
-
 
 

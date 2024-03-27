@@ -34,11 +34,7 @@
 <!-- <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script> -->
 
 <style>
-	#map {
-            width: 100%; /* 부모 요소에 대해 100%의 너비를 가지도록 설정 */
-            height: 500px; /* 적절한 높이 설정 */
-        }
-        
+	
     .kakaoMap{
     	margin: 150px;
     }
@@ -52,7 +48,9 @@
 	<!-- header 파일 불러오기 -->
     <%@ include file="./header.jsp" %>   
 
-	
+     <div class="container-fluid" align="center" style ="margin-top: 200px;" >
+	 	<h1> 주변 식당 보기</h1>
+	 </div>
 	
 	<!-- 지도 담을 div 태그 -->
 	<div class="kakaoMap">
