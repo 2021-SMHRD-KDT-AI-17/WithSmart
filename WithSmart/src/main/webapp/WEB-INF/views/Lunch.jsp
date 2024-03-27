@@ -30,7 +30,7 @@
 </head>
 
 <link rel="stylesheet" href="resources/css/lunch.css">
-<script src="resources/js/lunch.js"></script>
+
 <!-- <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script> -->
 
 <style>
@@ -353,15 +353,22 @@
 	 </script>
 	 
 	 
+	 <div class="container" align="center">
+	 	<h1>룰렛 돌리기</h1>
+	 </div>
+	 
 	 <!-- 룰렛판 담을 div 태그  -->
 	  <div id="menu">
             <canvas width="600" height='600'></canvas>  
-            <!-- 버튼 클릭시 rotate() 함수 호출  -->
-            <button onclick="rotate()">돌려돌려 돌림판</button>
+            <!-- 버튼 클릭시 resources/js/lunch.js에 있는 rotate() 함수 호출  -->
+            <button onclick="rotate()" style="margin-bottom: 30px; margin-top: 30px">돌려돌려 돌림판</button>
             <div id="addDiv">
               <input type="text" id="menuAdd">
-              <!-- 버튼 클릭시 add() 함수 호출  -->
-              <button onclick="add()">메뉴 추가</button>
+              <!-- 버튼 클릭시 resources/js/lunch.js에 있는 add() 함수 호출  -->
+              <div class="btn">
+	              <button onclick="add()" style="margin-left: 20px">메뉴 추가</button>
+	              <button id="removeAllButton" onclick="removeAll()" style="margin-left: 20px">초기화</button>
+	          </div>
             </div>
        </div>
 	
@@ -386,6 +393,7 @@
 
 
 	<!-- script  -->
+	<script src="resources/js/lunch.js"></script>
     <script src="resources/js/jquery-3.5.1.min.js"></script>
     <script src="resources/js/jquery-migrate-3.0.0.min.js"></script>
     <script src="resources/js/popper.min.js"></script>

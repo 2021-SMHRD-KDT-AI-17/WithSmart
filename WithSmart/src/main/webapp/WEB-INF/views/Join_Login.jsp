@@ -103,7 +103,7 @@
 					<input type="text" class="form-control" placeholder="이메일을 입력하세요" name="mb_id">
 					<input type="password" class="form-control"  placeholder="비밀번호를 입력하세요" name="mb_pw">
 					<input type="submit" class="btn btn-success" style="margin-top:20px"value="로그인">
-					<br>
+					<br><br>
 					<span onclick="kakaoLogin();">
 				      <a href="javascript:void(0)">
 				          <img src="https://k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg" width="150"

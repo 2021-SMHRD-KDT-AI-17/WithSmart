@@ -79,7 +79,12 @@
 										
 	                <div class ="btn">
 						<a href="goMain"><button class="btn btn-primary" id="writer">홈으로 가기</button></a>
-	                	<a href="goStudyBoardWrite"><button type="button" class="btn btn-primary">글 작성하기</button></a>
+						<%if(loginMember ==null){ %>
+							<a href="goJoin"><button type="button" class="btn btn-primary">글 작성하기</button></a>
+						<%}else{ %>
+							<a href="goStudyBoardWrite"><button type="button" class="btn btn-primary">글 작성하기</button></a>
+						<%} %>
+	                	
 	                </div>
 					
   					<table class="table">
