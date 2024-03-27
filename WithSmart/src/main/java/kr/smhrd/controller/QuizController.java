@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import kr.smhrd.Mapper.QuizMapper;
 import kr.smhrd.entity.Quiz;
 
-
 @Controller
 public class QuizController {
     
@@ -28,7 +27,7 @@ public class QuizController {
     }
     
     // 퀴즈 결과 페이지
-    @RequestMapping(value = "/quizScore", method = RequestMethod.POST)
+    @RequestMapping("/quizScore")
     public String submitQuiz(
         @RequestParam(name = "quiz_idx") String[] quiz_idx,
         @RequestParam(name = "userAnswer") String[] userAnswer,
