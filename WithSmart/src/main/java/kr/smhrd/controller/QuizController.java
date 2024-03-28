@@ -1,6 +1,5 @@
 package kr.smhrd.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -12,10 +11,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.smhrd.Mapper.QuizMapper;
 import kr.smhrd.entity.Quiz;
+import kr.smhrd.entity.QuizAnswer;
 
 @Controller
 public class QuizController {
-    
     @Autowired
     private QuizMapper quizMapper;
     
@@ -33,26 +32,52 @@ public class QuizController {
         return "quiz";
     }
     
+    
+    @RequestMapping("/backToMain")
+    public String backToMain() {
+        return "redirect:/quizMain";
+    }
    
  // 퀴즈 결과 페이지
-    @RequestMapping("/quizScore")
+    @RequestMapping("/submitQuiz")
     public String submitQuiz(
-        @RequestParam("quiz_idx") List<Integer> quiz_idxList,
-        @RequestParam("mb_id") String mb_id,
-        @RequestParam Map<String, String> userAnswerMap,
-        Model model
-    ) {
-        try {
-            for (int quiz_idx : quiz_idxList) {
-                String userAnswer = userAnswerMap.get("userAnswer_" + quiz_idx);
-                quizMapper.insertUserAnswer(quiz_idx, mb_id, userAnswer); // 사용자의 답안 저장
-            }
-            // 저장 완료 메시지 전달 또는 다음 단계로 이동
-            model.addAttribute("message", "사용자의 답안이 저장되었습니다.");
-        } catch (Exception e) {
-            // 예외 처리
-            model.addAttribute("error", "답안 저장 중 오류가 발생했습니다: " + e.getMessage());
-        }
-        return "quizScore"; // 퀴즈 결과 페이지로 이동
+    		@RequestParam("quiz_idx") List<Integer> quiz_idxList,
+    	    @RequestParam("mb_id") String mb_id,
+    	    @RequestParam Map<String, String> userAnswerMap,
+    	    Model model
+    	) {
+    	    try {
+    	        int totalCorrectAnswers = 0; // 총 정답 수 초기화
+    	        int totalQuestions = quiz_idxList.size(); // 총 문제 수
+    	        int maxScore = totalQuestions * 10; // 만점을 계산 (한 문제당 10점)
+
+    	        for (int quiz_idx : quiz_idxList) {
+    	            String userAnswer = userAnswerMap.get("userAnswer_" + quiz_idx);
+    	            int correctAnswer = quizMapper.getCorrectAnswer(quiz_idx);
+
+    	            // 사용자 답안과 정답 비교하여 정확도 계산
+    	            if (userAnswer != null && userAnswer.equals(String.valueOf(correctAnswer))) {
+    	                totalCorrectAnswers++; // 정답일 경우 정답 수 증가
+    	            }
+    	        }
+
+    	        // 점수 계산: 총 정답 수 * 한 문제당 점수
+    	        int score = totalCorrectAnswers * 10;
+
+    	        // 채점 결과를 모델에 추가
+    	        model.addAttribute("totalQuestions", totalQuestions);
+    	        model.addAttribute("totalCorrectAnswers", totalCorrectAnswers);
+    	        model.addAttribute("score", score);
+    	        model.addAttribute("maxScore", maxScore);
+
+    	        // 채점 결과 페이지로 이동
+    	        return "quizScore";
+    	    } catch (Exception e) {
+    	        // 예외 처리
+    	        model.addAttribute("error", "채점 중 오류가 발생했습니다: " + e.getMessage());
+    	        return "quizError"; // 에러 페이지로 이동
+    	    }
     }
+    
+    
 }

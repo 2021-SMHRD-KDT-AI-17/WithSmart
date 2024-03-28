@@ -18,7 +18,7 @@
     <br>
     <div class="container mt-5">
         <h2 class="text-center mb-4">오늘의 퀴즈</h2>
-        <form id="quiz-form" action="quizScore" method="post">
+        <form id="quiz-form" action="submitQuiz" method="post">
             <!-- 사용자 ID 입력 -->
             <label for="mb_id">사용자 ID:</label>
             <input type="text" id="mb_id" name="mb_id">

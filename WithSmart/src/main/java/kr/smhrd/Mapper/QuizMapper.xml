@@ -4,16 +4,11 @@
 
     <!-- 랜덤으로 퀴즈 리스트 조회 -->
     <select id="showQuiz" resultType="kr.smhrd.entity.Quiz">
-        SELECT quiz_idx, quizContent, choice1, choice2, choice3, choice4, answer
-        FROM tbl_quiz
-        ORDER BY RAND()
-        LIMIT 10;
-    </select>
+    SELECT quiz_idx, quizContent, choice1, choice2, choice3, choice4, answer
+    FROM tbl_quiz
+    ORDER BY RAND(CURRENT_TIMESTAMP())
+    LIMIT 10;
+</select>
     
-        
-  <insert id="insertUserAnswer">
-        INSERT INTO tbl_test (quiz_idx, mb_id, answer)
-        VALUES (#{quiz_idx}, #{mb_id}, #{userAnswer})
-    </insert>
-  
+   
 </mapper>

@@ -62,6 +62,9 @@
 		color: black;'
 	}
 	
+	.pagination{
+	margin: 0px;
+	}
 	
 </style>
 </head>
@@ -121,7 +124,7 @@
 					    <c:forEach begin="1" end="${totalPages}" var="pageNum">
 					        <c:choose>
 					            <c:when test="${pageNum == currentPage}">
-					                <span>${pageNum} </span>
+					                <span>${pageNum}</span>
 					            </c:when>
 					            <c:otherwise>
 					                <a href="goCompetBoard?page=${pageNum}">${pageNum}</a>
