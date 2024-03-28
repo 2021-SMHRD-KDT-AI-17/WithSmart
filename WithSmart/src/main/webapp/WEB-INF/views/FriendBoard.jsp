@@ -117,9 +117,9 @@
                    
                    
                    <c:forEach items="${f_list }" var="f" varStatus="fs">
-	                     <tr>
+	                     <tr onclick="location.href='FboardContent?friendboard_idx=${f.friendboard_idx }'" onMouseover="this.style.color='red';" onMouseout="this.style.color='black'">
 	                        <td>${fs.count }</td>
-	                        <td><a href="FboardContent?friendboard_idx=${f.friendboard_idx }">${f.title }</a></td>
+	                        <td>${f.title }</a></td>
 	                        <td>${f.writer }</td>
 	                        <td>${fn:split(f.writetime ," ")[1] }</td>
 	                        <td>${f.viewcount }</td>

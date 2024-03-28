@@ -103,11 +103,11 @@
 					  </thead>
 					  
 					  <c:forEach items="${s_list }" var="s" varStatus="ss">
-	                     <tr>
+	                     <tr onclick="location.href='SboardContent?suggboard_idx=${s.suggboard_idx }'" onMouseover="this.style.color='red';" onMouseout="this.style.color='black'">
 	                        <td>${ss.count }</td>
 	                        <c:choose> 
 	                        	<c:when test="${loginMember.mb_id eq 'admin@naver.com'}">
-						        	<td><a href="SboardContent?suggboard_idx=${s.suggboard_idx }">${s.title }</a></td>
+						        	<td>${s.title }</td>
 						    		<td>${s.writer }</td>
 		                        	<td>${fn:split(s.writetime ," ")[1] }</td>
 		                        	<c:if test="${loginMember.mb_id eq 'admin@naver.com' }">
