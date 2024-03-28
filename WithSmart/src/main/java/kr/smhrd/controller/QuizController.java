@@ -33,10 +33,7 @@ public class QuizController {
     }
     
     
-    @RequestMapping("/backToMain")
-    public String backToMain() {
-        return "redirect:/quizMain";
-    }
+    
    
  // 퀴즈 결과 페이지
     @RequestMapping("/submitQuiz")
@@ -46,20 +43,23 @@ public class QuizController {
     	    @RequestParam Map<String, String> userAnswerMap,
     	    Model model
     	) {
-    	    try {
-    	        int totalCorrectAnswers = 0; // 총 정답 수 초기화
-    	        int totalQuestions = quiz_idxList.size(); // 총 문제 수
-    	        int maxScore = totalQuestions * 10; // 만점을 계산 (한 문제당 10점)
+    	try {
+            int totalCorrectAnswers = 0; // 총 정답 수 초기화
+            int totalQuestions = quiz_idxList.size(); // 총 문제 수
+            int maxScore = totalQuestions * 10; // 만점을 계산 (한 문제당 10점)
 
-    	        for (int quiz_idx : quiz_idxList) {
-    	            String userAnswer = userAnswerMap.get("userAnswer_" + quiz_idx);
-    	            int correctAnswer = quizMapper.getCorrectAnswer(quiz_idx);
-
-    	            // 사용자 답안과 정답 비교하여 정확도 계산
-    	            if (userAnswer != null && userAnswer.equals(String.valueOf(correctAnswer))) {
-    	                totalCorrectAnswers++; // 정답일 경우 정답 수 증가
-    	            }
-    	        }
+            // 각 문제에 대한 채점
+//            for (int quiz_idx : quiz_idxList) {
+//                // 사용자가 선택한 답 가져오기
+//                String userAnswer = userAnswerMap.get("userAnswer_" + quiz_idx);
+//                // 정답 가져오기
+//                int correctAnswer = quizMapper.getCorrectAnswer(quiz_idx);
+//
+//                // 사용자 답안과 정답 비교하여 정확도 계산
+//                if (userAnswer != null && userAnswer.equals(String.valueOf(correctAnswer))) {
+//                    totalCorrectAnswers++; // 정답일 경우 정답 수 증가
+//                }
+//            }
 
     	        // 점수 계산: 총 정답 수 * 한 문제당 점수
     	        int score = totalCorrectAnswers * 10;
@@ -72,11 +72,16 @@ public class QuizController {
 
     	        // 채점 결과 페이지로 이동
     	        return "quizScore";
+    	        
     	    } catch (Exception e) {
     	        // 예외 처리
     	        model.addAttribute("error", "채점 중 오류가 발생했습니다: " + e.getMessage());
     	        return "quizError"; // 에러 페이지로 이동
     	    }
+    }
+    @RequestMapping("/backToMain")
+    public String backToMain() {
+        return "redirect:/quizMain";
     }
     
     

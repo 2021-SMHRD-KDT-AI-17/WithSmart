@@ -29,7 +29,7 @@
    <form id="start-quiz-form" action="showQuiz" method="post">
     <div class="container mt-5">
         <div class="text-center">
-            <input type="text" name="userId" placeholder="사용자 ID 입력" required>
+            <input type="text" name="mb_id" placeholder="사용자 ID 입력" required>
             <button type="submit" class="btn btn-primary btn-lg">오늘의 퀴즈 풀기</button>
         </div>
     </div>
