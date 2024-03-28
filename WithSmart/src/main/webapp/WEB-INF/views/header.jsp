@@ -44,6 +44,33 @@
               	<strong><%=loginMember.getMb_nick() %>님 </strong></li>
               <%} %>
               
+              <%if(loginMember == null){ %>
+              	<li class="active"><a href="goMain" class="text-black">홈</a></li>
+              <li class="has-children">
+                <a href="#"  class="text-black">자유게시판</a>
+                <ul class="dropdown">
+                  <li><a href="goJoin"  class="text-black">스터디게시판</a></li>
+                  <li><a href="goJoin" class="text-black" >친목게시판</a></li>
+                  <li><a href="goJoin" class="text-black" >프로젝트게시판</a></li>
+                  <li><a href="goJoin" class="text-black">질문게시판</a></li>
+                </ul>
+              </li>
+           
+               <li><a href="goJoin" class="text-black">애로 및 건의사항 게시판</a></li>
+               
+               <li class="has-children">
+             	<a href="#" class="text-black">채용공고 및 공모전 게시판</a>
+                    <ul class="dropdown">
+                      <li><a href="goJoin">채용공고</a></li>
+                      <li><a href="goJoin">공모전</a></li>
+					</ul>
+               </li>
+               
+               <li><a href ="goJoin" class="text-black">오늘의 퀴즈</a>
+               <li><a href ="goJoin" class="text-black">점심메뉴 고르기</a>
+               <li><a href ="goJoin" class="text-black">채팅</a>	
+              <%}else{ %>
+              
               <li class="active"><a href="goMain" class="text-black">홈</a></li>
               <li class="has-children">
                 <a href="#"  class="text-black">자유게시판</a>
@@ -68,7 +95,7 @@
                <li><a href ="quizMain" class="text-black">오늘의 퀴즈</a>
                <li><a href ="goLunch" class="text-black">점심메뉴 고르기</a>
                <li><a href ="#" class="text-black">채팅</a>
-               
+               <%} %>
                <!-- 로그인 성공시 보이는 메뉴  -->
                <%if(loginMember == null){ %>
                	   

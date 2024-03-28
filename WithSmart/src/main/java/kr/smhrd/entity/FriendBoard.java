@@ -30,14 +30,6 @@ public class FriendBoard {
 	    private String writetime;
         private int viewcount;
 	    private int heartcount;
-	    
-//		public FriendBoard(String title, String writer, String filename,
-//				String content) {
-//			this.title = title;
-//			this.writer = writer;
-//			this.filename = filename;
-//			this.content = content;
-//		}
 
 
 
