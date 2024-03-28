@@ -1,6 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    
+<%@page import="java.util.ArrayList"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!-- /*
 * Template Name: Append
 * Template Author: Untree.co
@@ -36,6 +37,7 @@
 <meta charset="UTF-8">
 <title>WithSmart</title>
 </head>
+
 <body>
 
       <!-- header 파일 불러오기  --> 
@@ -56,13 +58,13 @@
 		    <!-- 공모전 정보 DB에서 가져오기  -->
 		    	
 		    <div style="margin-top: 50px">	
-		       <!--공모전명  -->
-	          <h3>공모전명</h3>
-	          <!-- 공모전 내용  -->
-	          <p>내용1</p>
-	          <p>세부 내용</p>
-	          <p>사진파일  </p>
-	
+		       	 	  <!--공모전명  -->
+			          <h3>${cp_detail.compettitle}</h3>
+			          <!-- 공모전 내용  -->
+			           <img src="${cp_detail.imglink}" alt="이미지" width="700">
+			          <p><a href="${cp_detail.homelink}" target="_blank" >홈페이지 상세 링크</a></p>
+			          <span>기간 : </span>
+			          <span> ${cp_detail.during}</span>		
 			</div>
         </div>
            

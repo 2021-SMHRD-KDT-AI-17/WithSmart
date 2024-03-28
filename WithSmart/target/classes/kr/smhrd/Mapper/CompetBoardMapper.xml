@@ -5,6 +5,9 @@
 	<select id="CompetboardList" resultType="kr.smhrd.entity.CompetBoard">
 		select * from tbl_competboard
 	</select>
-
+	
+	<select id="getCompetBoardById" parameterType="int" resultType="kr.smhrd.entity.CompetBoard">
+		select * from tbl_competboard where competboard=#{competboard}
+	</select>
 
 </mapper>
