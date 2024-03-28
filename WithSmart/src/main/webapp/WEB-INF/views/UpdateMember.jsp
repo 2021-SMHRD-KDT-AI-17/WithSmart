@@ -44,6 +44,7 @@
 		margin: 0 auto;
 		margin-top: 150px;
 		background-image: linear-gradient(45deg, #f0efef, white);
+		border:1px solid #000000;
 /* 		background-color:#f0efef; */
 		padding:30px;
 		border-radius: 30px 30px 30px 30px;

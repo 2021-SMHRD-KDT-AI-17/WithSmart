@@ -41,6 +41,14 @@
 		width:200px;
 		height:49.17px;
 	}
+	
+	input[type=text]{
+	background-color:#f0efef;
+	}
+	
+	input[type=password]{
+	background-color:#f0efef;
+	}
 
 </style>
 
@@ -103,14 +111,14 @@
             <!-- 회원가입 정보 입력 form  -->
             <form action="memberInsert" class="sign-up-form d-grid" data-aos="fade-up" data-aos-delay="200" method ="post" style=width:425px>
 	            <input type="text" class="form-control" placeholder="이메일을 입력해주세요" style="margin-bottom:10px" name="mb_id"  id="inputE">
-	            <input type="button" class="btn btn-primary" value="Email 중복 체크" onclick="checkE()" style="margin-bottom:10px">
+	            <input type="button" class="btn btn-success" value="Email 중복 체크" onclick="checkE()" style="margin-bottom:10px">
 	            <span id="resultCheck"></span>
 	            <input type="password" class="form-control" placeholder="비밀번호를 입력해주세요" name="mb_pw">
 	            <input type="text" class ="form-control" style = "margin-top:5px" placeholder ="닉네임을 입력해주세요" name="mb_nick">
-	            <input type="text" class ="form-control" style = "margin-bottom:10px" placeholder ="발급 받은 인증번호를 입력해주세요" name="mb_cert" id="inputC">
-	            <input type="button" class="btn btn-primary" value="인증번호 확인 " onclick="checkC()">
+	            <input type="text" class ="form-control" style = "margin-top:5px" placeholder ="발급 받은 인증번호를 입력해주세요" name="mb_cert" id="inputC">
+	            <input type="button" class="btn btn-success" value="인증번호 확인 " onclick="checkC()" style = "margin-top:5px">
 	            <div id="certCheck"></div>
-	            <input type="submit" class="btn btn-success" style="margin-top:10px" value="회원가입 하기 " width=500;>
+	            <input type="submit" class="btn btn-primary" style="margin-top:10px" value="회원가입 하기 " width=500;>
             </form>
           
           <br><br>
@@ -119,8 +127,8 @@
       		<h3 class="text-white mb-4" data-aos="fade-up" data-aos-delay="100"><strong>로그인</strong></h3>
 				<form action="goLogin" class="sign-up-form d-grid" data-aos="fade-up" data-aos-delay="200" method ="post" style=width:425px>
 					<input type="text" class="form-control" placeholder="이메일을 입력하세요" name="mb_id">
-					<input type="password" class="form-control"  placeholder="비밀번호를 입력하세요" name="mb_pw">
-					<input type="submit" class="btn btn-success" style="margin-top:20px"value="로그인">
+					<input type="password" class="form-control"  placeholder="비밀번호를 입력하세요" name="mb_pw" style = "margin-top:10px">
+					<input type="submit" class="btn btn-primary" style="margin-top:20px"value="로그인">
 					<br><br>
 					<span onclick="kakaoLogin();">
 				      <a href="javascript:void(0)">
