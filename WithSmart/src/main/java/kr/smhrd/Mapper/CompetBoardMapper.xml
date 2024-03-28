@@ -9,5 +9,12 @@
 	<select id="getCompetBoardById" parameterType="int" resultType="kr.smhrd.entity.CompetBoard">
 		select * from tbl_competboard where competboard=#{competboard}
 	</select>
+	
+	<select id="getCompetBoardList" parameterType="int" resultType="kr.smhrd.entity.CompetBoard">
+		select * from tbl_competboard limit #{startIndex}, 10
+	</select>
 
+	<select id="getTotalCount" resultType="int">
+		select count(*) from tbl_competboard
+	</select>
 </mapper>
