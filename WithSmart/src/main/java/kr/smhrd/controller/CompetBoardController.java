@@ -22,19 +22,30 @@ public class CompetBoardController {
 
 	@Autowired
 	private CompetBoardMapper CompetboardMapper;
-	     
+	
+
+	
 	// BoardMain.jsp로 이동 + DB값 가져오기
 	@RequestMapping("/goCompetBoard")
-	public String goCompetBoard(Model model) {
-		List<CompetBoard> cp_list = CompetboardMapper.CompetboardList();
-		model.addAttribute("cp_list",cp_list);
-		return "CompetBoard";
+	public String goCompetBoard(@RequestParam(defaultValue = "1") int page, Model model) {
+		int pagesize = 10;
+	    int totalCount = CompetboardMapper.getTotalCount();
+	    int totalPages = (int) Math.ceil((double) totalCount / pagesize);
+	    if (page > totalPages) {
+	        page = totalPages;
+	    }
+	    int startIndex = (page - 1) * pagesize; // 시작 인덱스 계산
+	    List<CompetBoard> cpList = CompetboardMapper.getCompetBoardList(startIndex);
+	    System.out.println(startIndex);
+	    model.addAttribute("cpList", cpList);
+	    model.addAttribute("totalPages", totalPages);
+	    model.addAttribute("currentPage", page);
+	    return "CompetBoard";
 	}
 	
 	@RequestMapping("/goCompetBoardDetail")
 	public String goCompetBoardDetail(@RequestParam("competboard") int competboard, Model model ) {
 		CompetBoard competBoard = CompetboardMapper.getCompetBoardById(competboard);
-		System.out.println(competBoard);
 		model.addAttribute("cp_detail", competBoard);
 		return "CompetBoardDetail";
 	}
@@ -45,11 +56,13 @@ public class CompetBoardController {
 		return "CompetBoardWrite";
 	}
 	
+	
+	
+	
+	
 	// 게시글 등록
 	@RequestMapping("/CompetBoardInsert")
 	public String CompetboardInsert(CompetBoard board, HttpServletRequest request) {
-		
-		
 		
 		
 		// 1. 요청객체(request)
@@ -72,7 +85,7 @@ public class CompetBoardController {
 			
 			board = new CompetBoard(title, writer, filename, content);
 			
-			System.out.println(board.toString());
+			// System.out.println(board.toString());
 			
 			
 		} catch (IOException e) {
