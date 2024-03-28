@@ -19,7 +19,7 @@
   <meta name="keywords" content="bootstrap, bootstrap4" />
 
 
-	<!-- 부트스트랩 css 적용  -->
+   <!-- 부트스트랩 css 적용  -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
   
@@ -34,51 +34,51 @@
   <link rel="stylesheet" href="resources/css/style.css">
 <html>
 <head>
-		<meta charset="UTF-8">
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		
+      <meta charset="UTF-8">
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      
 <title>WithSmart</title>
 <style type="text/css">
-	
-	.board{
-		
-		justify-content: center;
-		align-items: center;
-		margin-top: 100px;
-		margin-left: 300px;
-		margin-right : 500px;
-		width: 1000px;
-		
-	}
-	
-	.table-responsive{
-		width: 1200px;
-		margin-top: 150px;
-	
-		
-	}
-	.btn{
-		display: inline-block;
-		float: right;
-		margin: 0 5px 0 30px;
-	}
-	
-	.bottom_num{
-		margin-right: 200px; 
-		
-	}
-	
-	
+   
+   .board{
+      
+      justify-content: center;
+      align-items: center;
+      margin-top: 100px;
+      margin-left: 300px;
+      margin-right : 500px;
+      width: 1000px;
+      
+   }
+   
+   .table-responsive{
+      width: 1200px;
+      margin-top: 150px;
+   
+      
+   }
+   .btn{
+      display: inline-block;
+      float: right;
+      margin: 0 5px 0 30px;
+   }
+   
+   .bottom_num{
+      margin-right: 200px; 
+      
+   }
+   
+   
 </style>
 </head>
 
 <body>
 
-	<%-- <%
-		// 로그인한 사용자의 세션 가지고오기
-		Member loginMember = (Member)session.getAttribute("loginMember");
-		
-	%> --%>
+   <%-- <%
+      // 로그인한 사용자의 세션 가지고오기
+      Member loginMember = (Member)session.getAttribute("loginMember");
+      
+   %> --%>
 
 
 <!-- header 파일 불러오기 -->
@@ -87,157 +87,86 @@
 
         <div class="board">
        
-			<div class="table-responsive">
-										
-	                <div class ="btn">
-						<a href="goMain"><button class="btn btn-primary" id="writer">홈으로 가기</button></a>
-	                	<a href="goFriendBoardWrite"><button type="button" class="btn btn-primary">글 작성하기</button></a>
-	                </div>
-					
-  					<table class="table">
-  					
-					  <thead>
-					    <tr>
-					      <td scope="col">No</td>
-					      <td scope="col">제목</td>
-					      <td scope="col">작성자</td>
-					      <td scope="col">작성일</td>
-					      <td scope="col">조회수</td>
-					      <td scope="col">추천수</td>
-					    </tr>
-					    
-					    
-					    
-					    
-					    <c:forEach items="${f_list }" var="f" varStatus="fs">
-							<tr>
-								<td>${fs.count }</td>
-								<td>${f.title }</td>
-								<td>${f.writer }</td>
-								<td>${fn:split(f.writetime ," ")[1] }</td>
-								<td>${f.viewcount }</td>
-								<td>${f.heartcount }</td>
-			<%-- 						<c:if test="${loginMember.email eq 'admin' }">
-									<td><a href="deleteBoard?num=${f.num}">삭제</a></td>    
-									</c:if> --%>
-								
-							</tr>
-				</c:forEach>
-					    
-					  </thead>
-					  
-<!-- 					  <tbody>
-					    <tr>
-					      <th scope="row">1</th>
-					      <td><a href="goFriendBoardDetail">제목1</a></td>
-					      <td>닉네임</td>
-					      <td>작성일</td>
-					      <td>11</td>
-					      <td>11</td>
-					    </tr>
-					    <tr>
-					      <th scope="row">2</th>
-					      <td><a href="goFriendBoardDetail">제목2</a></td>
-					      <td>닉네임</td>
-					      <td>작성일</td>
-					      <td>11</td>
-					      <td>11</td>
-					    </tr>
-					    <tr>
-					      <th scope="row">3</th>
-					      <td><a href="goFriendBoardDetail">제목3</a></td>
-					      <td>닉네임</td>
-					      <td>작성일</td>
-					      <td>11</td>
-					      <td>11</td>
-					    </tr>
-					    
-					    <tr>
-					      <th scope="row">4</th>
-					      <td><a href="goFriendBoardDetail">제목4</a></td>
-					      <td>닉네임</td>
-					      <td>작성일</td>
-					      <td>11</td>
-					      <td>11</td>
-					    </tr>
-					    
-					    <tr>
-					      <th scope="row">5</th>
-					      <td><a href="goFriendBoardDetail">제목5</a></td>
-					      <td>닉네임</td>
-					      <td>작성일</td>
-					      <td>11</td>
-					      <td>11</td>
-					    </tr>
-					    
-					    <tr>
-					      <th scope="row">6</th>
-					      <td><a href="goFriendBoardDetail">제목6</a></td>
-					      <td>닉네임</td>
-					      <td>작성일</td>
-					      <td>11</td>
-					      <td>11</td>
-					    </tr>
-					    
-					    <tr>
-					      <th scope="row">7</th>
-					      <td><a href="goFriendBoardDetail">제목7</a></td>
-					      <td>닉네임</td>
-					      <td>작성일</td>
-					      <td>11</td>
-					      <td>11</td>
-					    </tr>
-					    
-					    <tr>
-					      <th scope="row">8</th>
-					      <td><a href="goFriendBoardDetail">제목8</a></td>
-					      <td>닉네임</td>
-					      <td>작성일</td>
-					      <td>11</td>
-					      <td>11</td>
-					    </tr>
-					    
-					  </tbody> -->
+         <div class="table-responsive">
+                              
+                   <div class ="btn">
+                  <a href="goMain"><button class="btn btn-primary" id="writer">홈으로 가기</button></a>
+                      <a href="goFriendBoardWrite"><button type="button" class="btn btn-primary">글 작성하기</button></a>
+                   </div>
+               
+                 <table class="table">
+                 
+                 <thead>
+                   <tr>
+                     <td scope="col">No</td>
+                     <td scope="col">제목</td>
+                     <td scope="col">작성자</td>
+                     <td scope="col">작성일</td>
+                     <td scope="col">조회수</td>
+                     <td scope="col">추천수</td>
+                     <%if(loginMember.getMb_id().equals("admin@naver.com")){ %>
+                     	<td scope="col">삭제</td>
+                     <%} %>
+                   </tr>
+                   
+                   
+                   
+                   
+                   <c:forEach items="${f_list }" var="f" varStatus="fs">
+	                     <tr>
+	                        <td>${fs.count }</td>
+	                        <td><a href="FboardContent?friendboard_idx=${f.friendboard_idx }">${f.title }</a></td>
+	                        <td>${f.writer }</td>
+	                        <td>${fn:split(f.writetime ," ")[1] }</td>
+	                        <td>${f.viewcount }</td>
+	                        <td><a href="Fboardheart?friendboard_idx=${f.friendboard_idx }">${f.heartcount } <span type="button"> ♥ </span></a></td>
+	                        <c:if test="${loginMember.mb_id eq 'admin@naver.com' }">
+								<td><a href="deleteFBoard?friendboard_idx=${f.friendboard_idx }">삭제</a></td>
+							</c:if>
+	                     </tr>
+            		</c:forEach>
+                   
+                 </thead>
     
-  					</table>
-				</div>
-			
-			<!-- 부트스트랩 페이징 적용   -->
-			<nav aria-label="Page navigation example" class="bottom_num">
-			  <ul class="pagination justify-content-center">
-			    <li class="page-item">
-			      <a class="page-link" href="#" aria-label="Previous">
-			        <span aria-hidden="true">&laquo;</span>
-			      </a>
-			    </li>
-			    <li class="page-item"><a class="page-link" href="#">1</a></li>
-			    <li class="page-item"><a class="page-link" href="#">2</a></li>
-			    <li class="page-item"><a class="page-link" href="#">3</a></li>
-			    <li class="page-item">
-			      <a class="page-link" href="#" aria-label="Next">
-			        <span aria-hidden="true">&raquo;</span>
-			      </a>
-			    </li>
-			  </ul>
-			</nav>
+                 </table>
+            </div>
+         
+         <!-- 부트스트랩 페이징 적용   -->
+         <nav aria-label="Page navigation example" class="bottom_num">
+           <ul class="pagination justify-content-center">
+             <li class="page-item">
+               <a class="page-link" href="#" aria-label="Previous">
+                 <span aria-hidden="true">&laquo;</span>
+               </a>
+             </li>
+             <li class="page-item"><a class="page-link" href="#">1</a></li>
+             <li class="page-item"><a class="page-link" href="#">2</a></li>
+             <li class="page-item"><a class="page-link" href="#">3</a></li>
+             <li class="page-item">
+               <a class="page-link" href="#" aria-label="Next">
+                 <span aria-hidden="true">&raquo;</span>
+               </a>
+             </li>
+           </ul>
+         </nav>
     
         </div>
       
 
     
-<!--	 배경사진 삽입         
+<!--    배경사진 삽입         
 
 <div class="hero-slant overlay" data-stellar-background-ratio="0.5" style="background-image: url('resources/images/img_h_7-min.jpg'); background-position: 0% 0px";>
  -->   
     
-    	
+       
     <div id="overlayer"></div>
-    	<div class="loader">
-      	<div class="spinner-border" role="status">
-       		<span class="sr-only">Loading...</span>
-      	</div>
-    </div> 	
-    	
+       <div class="loader">
+         <div class="spinner-border" role="status">
+             <span class="sr-only">Loading...</span>
+         </div>
+    </div>    
+       
     
      <div class="slant" style="background-image: url('resources/images/slant.svg');"></div>
    
@@ -245,7 +174,7 @@
 
 
 
-	<!-- script  -->
+   <!-- script  -->
    <script src="resources/js/jquery-3.5.1.min.js"></script>
     <script src="resources/js/jquery-migrate-3.0.0.min.js"></script>
     <script src="resources/js/popper.min.js"></script>
@@ -259,5 +188,7 @@
     <script src="resources/js/jquery.waypoints.min.js"></script>
     <script src="resources/js/jquery.fancybox.min.js"></script>
     <script src="resources/js/custom.js"></script>
+</body>
+</html>
 </body>
 </html>
