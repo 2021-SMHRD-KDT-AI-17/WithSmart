@@ -12,9 +12,10 @@ public interface QuizMapper {
 
 List<Quiz> showQuiz();
 	
-    void submitQuiz(@Param("quiz_idx") int quizIdx, @Param("user_answer") int userAnswer);
+    public void submitQuiz(@Param("quiz_idx") int quizIdx, @Param("user_answer") int userAnswer);
 
-	int getCorrectAnswer(int i);
+ // 주어진 퀴즈 번호에 대한 정답을 가져온다.
+    int getCorrectAnswer(int quiz_idx);
 	
 	
 }

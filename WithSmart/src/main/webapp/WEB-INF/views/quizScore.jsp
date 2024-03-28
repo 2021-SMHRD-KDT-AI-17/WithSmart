@@ -9,7 +9,7 @@
 </head>
 <body>
     <h1>퀴즈 결과</h1>
-    <form id="quiz-score-form" action="/showQuiz" method="post">
+    <form id="quiz-score-form" action="/" method="post">
         <p>당신의 점수는 ${totalScore} / ${maxScore} 점입니다.</p>
         
         <%-- 사용자의 점수에 따라 메시지 표시 --%>
@@ -24,6 +24,8 @@
                 <p>분발하세요. 좀 더 공부해서 더 높은 점수를 획득하세요.</p>
             </c:otherwise>
         </c:choose>
+        <%-- 메인 페이지로 이동하는 링크 추가 --%>
+        <a href="/quizMain">메인 페이지로 돌아가기</a>
     </form>
 </body>
 </html>

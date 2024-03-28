@@ -18,6 +18,12 @@ public class QuizController {
     @Autowired
     private QuizMapper quizMapper;
     
+    // 퀴즈 메인
+    @RequestMapping("/quizMain")
+    public String showQuizMainPage() {
+        return "quizMain";
+    }
+    
     // 퀴즈 풀이 페이지
     @RequestMapping("/showQuiz")
     public String showQuiz(Model model) {
@@ -27,7 +33,7 @@ public class QuizController {
     }
     
     // 퀴즈 결과 페이지
-    @RequestMapping("/quizScore")
+    @RequestMapping(value = "/quizScore", method = RequestMethod.POST)
     public String submitQuiz(
         @RequestParam(name = "quiz_idx") String[] quiz_idx,
         @RequestParam(name = "userAnswer") String[] userAnswer,
@@ -45,5 +51,11 @@ public class QuizController {
         model.addAttribute("totalScore", totalScore);
         model.addAttribute("maxScore", maxScore);
         return "quizScore"; // 퀴즈 결과 페이지로 이동
+    }
+    
+ // 초기화면으로 이동
+    @RequestMapping("/backToQuizMain")
+    public String backToQuizMain() {
+        return "redirect:/quizMain";
     }
 }

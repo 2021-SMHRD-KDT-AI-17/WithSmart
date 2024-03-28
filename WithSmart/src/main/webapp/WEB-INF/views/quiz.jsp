@@ -1,38 +1,60 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" isELIgnored="false"%>
+    pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ include file="header.jsp" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>퀴즈</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>퀴즈</title>
+    <!-- 부트스트랩 CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="resources/css/bootstrap.min.css">
+  <link rel="stylesheet" href="resources/css/owl.carousel.min.css">
+  <link rel="stylesheet" href="resources/css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="resources/fonts/icomoon/style.css">
+  <link rel="stylesheet" href="resources/fonts/feather/style.css">
+  <link rel="stylesheet" href="resources/fonts/flaticon/font/flaticon.css">
+  <link rel="stylesheet" href="resources/css/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="resources/css/aos.css">
+  <link rel="stylesheet" href="resources/css/style.css">
 </head>
 <body>
-	<h1>오늘의 퀴즈</h1>
-	<form id="quiz-form" action="/quizScore" method="post">
-		<ul>
-			<!-- 서버로부터 받은 퀴즈 데이터를 반복문으로 동적으로 추가 -->
-			<c:forEach items="${quizList}" var="quiz">
-				<li>
-					<p>${quiz.quizContent}</p> <input type="hidden" name="quiz_idx"
-					value="${quiz.quiz_idx}"> <!-- 선택지를 반복문으로 동적으로 추가 --> <label>
-						<input type="radio" name="userAnswer_${quiz.quiz_idx}" value="1">
-						${quiz.choice1}
-				</label><br> <label> <input type="radio"
-						name="userAnswer_${quiz.quiz_idx}" value="2">
-						${quiz.choice2}
-				</label><br> <label> <input type="radio"
-						name="userAnswer_${quiz.quiz_idx}" value="3">
-						${quiz.choice3}
-				</label><br> <label> <input type="radio"
-						name="userAnswer_${quiz.quiz_idx}" value="4">
-						${quiz.choice4}
-				</label><br>
-				</li>
-			</c:forEach>
-		</ul>
-		<button type="submit">제출</button>
-	</form>
+	<br>
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">오늘의 퀴즈</h2>
+        <form id="quiz-form" action="/quizScore" method="post">
+            <div class="list-group">
+                <!-- 서버로부터 받은 퀴즈 데이터를 반복문으로 동적으로 추가 -->
+                <c:forEach items="${quizList}" var="quiz">
+                    <div class="list-group-item">
+                        <p>${quiz.quizContent}</p>
+                        <input type="hidden" name="quiz_idx" value="${quiz.quiz_idx}">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="userAnswer_${quiz.quiz_idx}" id="choice1_${quiz.quiz_idx}" value="1">
+                            <label class="form-check-label" for="choice1_${quiz.quiz_idx}">${quiz.choice1}</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="userAnswer_${quiz.quiz_idx}" id="choice2_${quiz.quiz_idx}" value="2">
+                            <label class="form-check-label" for="choice2_${quiz.quiz_idx}">${quiz.choice2}</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="userAnswer_${quiz.quiz_idx}" id="choice3_${quiz.quiz_idx}" value="3">
+                            <label class="form-check-label" for="choice3_${quiz.quiz_idx}">${quiz.choice3}</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="userAnswer_${quiz.quiz_idx}" id="choice4_${quiz.quiz_idx}" value="4">
+                            <label class="form-check-label" for="choice4_${quiz.quiz_idx}">${quiz.choice4}</label>
+                        </div>
+                    </div>
+                </c:forEach>
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">제출</button>
+        </form>
+    </div>
 </body>
 </html>
