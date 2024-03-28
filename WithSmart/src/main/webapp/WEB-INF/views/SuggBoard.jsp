@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>  
 <!DOCTYPE html>
 <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -76,7 +79,7 @@
         <div class="board">
        
 			<div class="table-responsive">
-										
+					<span><h1>애로 및 건의사항 게시판</h1></span>					
 	                <div class ="btn">
 						<a href="goMain"><button class="btn btn-primary" id="writer">홈으로 가기</button></a>
 	                	<%if(loginMember ==null){ %>
@@ -89,87 +92,39 @@
   					<table class="table">
 					  <thead>
 					    <tr>
-					      <th scope="col">No</th>
-					      <th scope="col">제목</th>
-					      <th scope="col">작성자</th>
-					      <th scope="col">작성일</th>
-					      <th scope="col">조회수</th>
-					      <th scope="col">추천수</th>
+					      <td scope="col">No</td>
+					      <td scope="col">제목</td>
+					      <td scope="col">작성자</td>
+					      <td scope="col">작성일</td>
+					      <%if(loginMember.getMb_id().equals("admin@naver.com")){ %>
+                     		<td scope="col">삭제</td>
+                     	<%} %>
 					    </tr>
 					  </thead>
-					  <tbody>
-					    <tr>
-					      <th scope="row">1</th>
-					      <td><a href="goSuggBoardDetail">제목1</a></td>
-					      <td>닉네임</td>
-					      <td>작성일</td>
-					      <td>11</td>
-					      <td>11</td>
-					    </tr>
-					    <tr>
-					      <th scope="row">2</th>
-					      <td><a href="goSuggBoardDetail">제목2</a></td>
-					      <td>닉네임</td>
-					      <td>작성일</td>
-					      <td>11</td>
-					      <td>11</td>
-					    </tr>
-					    <tr>
-					      <th scope="row">3</th>
-					      <td><a href="goSuggBoardDetail">제목3</a></td>
-					      <td>닉네임</td>
-					      <td>작성일</td>
-					      <td>11</td>
-					      <td>11</td>
-					    </tr>
-					    
-					    <tr>
-					      <th scope="row">4</th>
-					      <td><a href="goSuggBoardDetail">제목4</a></td>
-					      <td>닉네임</td>
-					      <td>작성일</td>
-					      <td>11</td>
-					      <td>11</td>
-					    </tr>
-					    
-					    <tr>
-					      <th scope="row">5</th>
-					      <td><a href="goSuggBoardDetail">제목5</a></td>
-					      <td>닉네임</td>
-					      <td>작성일</td>
-					      <td>11</td>
-					      <td>11</td>
-					    </tr>
-					    
-					    <tr>
-					      <th scope="row">6</th>
-					      <td><a href="goSuggBoardDetail">제목6</a></td>
-					      <td>닉네임</td>
-					      <td>작성일</td>
-					      <td>11</td>
-					      <td>11</td>
-					    </tr>
-					    
-					    <tr>
-					      <th scope="row">7</th>
-					      <td><a href="goSuggBoardDetail">제목7</a></td>
-					      <td>닉네임</td>
-					      <td>작성일</td>
-					      <td>11</td>
-					      <td>11</td>
-					    </tr>
-					    
-					    <tr>
-					      <th scope="row">8</th>
-					      <td><a href="goSuggBoardDetail">제목8</a></td>
-					      <td>닉네임</td>
-					      <td>작성일</td>
-					      <td>11</td>
-					      <td>11</td>
-					    </tr>
-					    
-					  </tbody>
-    
+					  
+					  <c:forEach items="${s_list }" var="s" varStatus="ss">
+	                     <tr>
+	                        <td>${ss.count }</td>
+	                        <c:choose> 
+	                        	<c:when test="${loginMember.mb_id eq 'admin@naver.com'}">
+						        	<td><a href="SboardContent?suggboard_idx=${s.suggboard_idx }">${s.title }</a></td>
+						    		<td>${s.writer }</td>
+		                        	<td>${fn:split(s.writetime ," ")[1] }</td>
+		                        	<c:if test="${loginMember.mb_id eq 'admin@naver.com' }">
+									<td><a href="deleteSBoard?suggboard_idx=${s.suggboard_idx }">삭제</a></td>
+									</c:if>
+					    	    </c:when>
+	                        	<c:otherwise>
+	                        		<td>건의합니다</td>
+						    		<td>***</td>
+		                        	<td>${fn:split(s.writetime ," ")[1] }</td>
+	                        	</c:otherwise>
+							</c:choose>
+	                     </tr>
+            		</c:forEach>
+    					
+    					
+    					
   					</table>
 				</div>
 			

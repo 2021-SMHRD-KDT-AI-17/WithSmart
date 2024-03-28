@@ -84,14 +84,18 @@
 <!-- header 파일 불러오기 -->
     <%@ include file="./header.jsp" %>   
 
-
+	
         <div class="board">
        
          <div class="table-responsive">
-                              
+                   <span><h1>친목 게시판</h1></span>           
                    <div class ="btn">
                   <a href="goMain"><button class="btn btn-primary" id="writer">홈으로 가기</button></a>
-                      <a href="goFriendBoardWrite"><button type="button" class="btn btn-primary">글 작성하기</button></a>
+                  <%if(loginMember ==null){ %>
+						<a href="goJoin"><button type="button" class="btn btn-primary">글 작성하기</button></a>
+						<%}else{ %>
+							<a href="goFriendBoardWrite"><button type="button" class="btn btn-primary">글 작성하기</button></a>
+						<%} %>
                    </div>
                
                  <table class="table">
