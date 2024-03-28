@@ -58,11 +58,12 @@
 	}
 	
 	#Update{
-		display: block;
-        background: linear-gradient(45deg, white, #c9f1c0);
-		font-size: 30px;
-		padding: 20px;
-		
+  		display: block;  
+        /* background: linear-gradient(45deg, white, #c9f1c0); */
+		font-size: 20px;
+		/* background-size: cover; */
+		/* padding: 20px; */
+ 		/* width: 100%;  */
 	}
 	
 </style>
@@ -90,18 +91,21 @@
 					<!-- Wrapper -->
 						<div id="wrapper">
 							<!-- Menu -->
-								<span id="Update">	
+								<div id="Update">	
 									<ul class="actions vertical">
+										<br>
 										<div><h1> 환영합니다! </h1></div>
+										<br>
 										<br>
 										<!-- Q2. 회원가입 한 회원정보 중 이메일을 출력하시오.(request영역 활용) -->
 										<div><strong><%=mb_nick %></strong>님 회원가입이 완료되었습니다.</div>
-										<div>위드스마트에서 많은 정보와 교류를 나누어보세요 :)</div>
+										<div><strong>위드스마트</strong> 에서 많은 정보와 교류를 나누어보세요 :)</div>
 										<br>
-										<br>
-										<div><button onclick='location.href="goJoin"'>로그인 하러가기</button></div>
+										<!-- <div id=loginButton><button onclick='location.href="goJoin"'>로그인 하러가기</button></div> -->
+										<div text-align: center><button class="btn btn-primary" display :inline-block; ><a href ="goJoin", style ='color:white' >로그인 하러가기</a></button></div>
 									</ul>
-								</span>			
+									
+								</div>			
 						</div>
   					
 				</div>

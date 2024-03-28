@@ -37,19 +37,23 @@
 		margin-left: 300px;
 		margin-right : 500px;
 		width: 1000px;
-		
+		text-align: center;
 	}
 	
 	.table-responsive{
 		width: 1200px;
+		margin: 0 auto;
 		margin-top: 150px;
-	
+		
+		/* margin-left: auto;
+   		margin-right: auto; */
 		
 	}
 	.btn{
 		display: inline-block;
 		float: right;
 		margin: 0 5px 0 30px;
+
 	}
 	
 	.bottom_num{
@@ -67,20 +71,28 @@
     <%@ include file="./header.jsp" %>   
 
 
-        <div class="board">
+        <div class="board" >
        
 			<div class="table-responsive">
 										
-	                <div class ="btn">
-						<a href="goMain"><button class="btn btn-primary" id="writer">홈으로 가기</button></a>
-	                </div>
+	                
 						<h2>회원정보수정</h2>
+						<br>
 						<form action="memberUpdate" method="post">
-							<li>접속한 이메일 : ${loginMember.mb_id }</li>
-							<li><input type="hidden" name="mb_id" value="${loginMember.mb_id }"></li>
-							<li><input type="password" name="mb_pw" placeholder="비밀번호를 입력하세요" value="${loginMember.mb_pw }"></li>
-							<li><input type="text" name="mb_nick" placeholder="닉네임를 입력하세요" value="${loginMember.mb_nick }"></li>
-							<li><input type="submit" class="button fit" placeholder="닉네임를 입력하세요" value="수정"></li>  			
+							<div>접속한 이메일 계정 정보 : ${loginMember.mb_id }</div>
+							<br>
+							<div><input type="hidden" name="mb_id" value="${loginMember.mb_id }"></div>
+							<p>수정할 비밀번호</p>
+							<div><input type="password" name="mb_pw" placeholder="비밀번호를 입력하세요" value="${loginMember.mb_pw }"></div>
+							<br>
+							<p>수정할 닉네임<p>
+							<div><input type="text" name="mb_nick" placeholder="닉네임를 입력하세요" value="${loginMember.mb_nick }"></div>
+							<br>
+							<div><input type="submit" class="button fit" placeholder="닉네임를 입력하세요" value="수정"></div> 
+							
+							<div class ="btn">
+						<a href="goMain"><button class="btn btn-primary" id="writer">홈으로 가기</button></a>
+	                </div> 			
 	  					</form>
 				</div>
         </div>
