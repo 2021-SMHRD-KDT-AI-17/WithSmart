@@ -13,4 +13,8 @@ public interface CompetBoardMapper {
 
 	int insertBoard(CompetBoard board);
 
+	public CompetBoard getCompetBoardById(int competboard);
+
+	
+
 }

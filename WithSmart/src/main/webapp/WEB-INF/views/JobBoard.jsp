@@ -103,8 +103,8 @@
 					  	<c:forEach items="${b_list}" var="b" varStatus="s">
 					    	<tr>
 					    		<td>${b.job_idx}</td>
-					    		<td><a href="${b.detailinfo}">${b.jobtitle}</a></td>
-					    		<td><a href="${b.companyinfo}">${b.companyname}</td>
+					    		<td><a href="${b.detailinfo}"  target="_blank">${b.jobtitle}</a></td>
+					    		<td><a href="${b.companyinfo}"  target="_blank">${b.companyname}</td>
 					    		<td>${b.enddate}</td>
 					    		<td>${b.uploadtime }</td>
 					    		<td>${b.viewcount}</td>

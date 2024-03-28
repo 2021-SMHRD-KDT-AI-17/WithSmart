@@ -1,7 +1,7 @@
 <%@page import="java.util.ArrayList"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+ <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -100,7 +100,7 @@
 					    <c:forEach items="${cp_list}" var="cp" varStatus="s">
     						<tr>
 						        <td>${cp.competboard}</td>
-						        <td><a href="goCompetBoardDetail">${cp.compettitle}</a></td>
+						        <td><a href="goCompetBoardDetail?competboard=${cp.competboard}">${cp.compettitle}</a></td>
 						        <td>${cp.uploadtime}</td>
 						        <td>${cp.viewcount}</td>
 						    </tr>
