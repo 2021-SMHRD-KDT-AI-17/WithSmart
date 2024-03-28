@@ -9,7 +9,7 @@
 </insert>
 
  <select id="friendBoardList" resultType="kr.smhrd.entity.FriendBoard">
- 	select * from tbl_friendboard <!-- order by f_date desc -->
+ 	select * from tbl_friendboard  order by writetime desc 
  </select>
  
  	<select id="friendboardContent" parameterType="int" resultType="kr.smhrd.entity.FriendBoard">

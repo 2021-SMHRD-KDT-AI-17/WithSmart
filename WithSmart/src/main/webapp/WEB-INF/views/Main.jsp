@@ -37,12 +37,12 @@
 
   <!-- header 파일 불러오기  --> 
  <%@ include file = "./header.jsp" %>  
-    
+  
 
 	<!-- 배경 사진 삽입  -->
   <div class="hero-slant overlay" data-stellar-background-ratio="0.5" style="background-image: url('resources/images/hero-min.jpg'); background-position: 0% 0px";>
 
-         
+      	
       <!-- 화면 소개 및 회원가입/로그인 하기  -->   
       <div class="container">
         <div class="row align-items-center justify-content-between">

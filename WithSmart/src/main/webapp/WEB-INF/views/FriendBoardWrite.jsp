@@ -99,7 +99,7 @@
               <div class="form-group">
               <!-- 작성자 입력  -->
                 <label class="text-black" for="lname">작성자</label>
-                <input type="text" class="form-control"name ="writer">
+                <input type="text" class="form-control"name ="writer" readonly value="${loginMember.mb_id }">
               </div>
             </div>
           </div>
