@@ -117,19 +117,26 @@
 			<!-- 부트스트랩 페이징 적용   -->
 			<nav aria-label="Page navigation example" class="bottom_num">
 			  <ul class="pagination justify-content-center">
-			    <li class="page-item">
-			      <a class="page-link" href="#" aria-label="Previous">
-			        <span aria-hidden="true">&laquo;</span>
-			      </a>
-			    </li>
-			    <li class="page-item"><a class="page-link" href="#">1</a></li>
-			    <li class="page-item"><a class="page-link" href="#">2</a></li>
-			    <li class="page-item"><a class="page-link" href="#">3</a></li>
-			    <li class="page-item">
-			      <a class="page-link" href="#" aria-label="Next">
-			        <span aria-hidden="true">&raquo;</span>
-			      </a>
-			    </li>
+			    <div class="pagination">
+					    <c:if test="${currentPage > 1}">
+					        <a href="goJobBoard?page=${currentPage - 1}">&laquo; 이전</a>
+					    </c:if>
+					
+					    <c:forEach begin="1" end="${totalPages}" var="pageNum">
+					        <c:choose>
+					            <c:when test="${pageNum == currentPage}">
+					                <span>${pageNum} </span>
+					            </c:when>
+					            <c:otherwise>
+					                <a href="goJobBoard?page=${pageNum}">${pageNum}</a>
+					            </c:otherwise>
+					        </c:choose>
+					    </c:forEach>
+					
+					    <c:if test="${currentPage < totalPages}">
+					        <a href="goJobBoard?page=${currentPage + 1}">다음 &raquo;</a>
+					    </c:if>
+					</div>
 			  </ul>
 			</nav>
     
