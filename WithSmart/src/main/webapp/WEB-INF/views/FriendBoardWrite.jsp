@@ -46,6 +46,27 @@
 		margin-left: 500px;
 	
 	}
+	
+	@media (max-width: 992px) {
+        .container {
+            margin-left: 50px;
+            margin-right: 50px;
+            width: auto;
+        }
+    }
+
+    @media (max-width: 768px) {
+       .btn {
+            float: none;
+            margin-right: 0;
+            margin-top: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+    }
+	
 	.btn{
 		display: inline-block;
 		float: right;
@@ -54,6 +75,10 @@
 
 	.form-group{
 		margin-bottom: 20px;
+	}
+	
+	.text-black{
+		font-size: 20px;
 	}
 
 </style>
@@ -77,7 +102,7 @@
       </div>
       <div class="col-lg-7">
 		
-        <h1 class="h6 mb-3 text-black" ><strong>게시글 작성</strong></h1>
+        <h1 class="h6 mb-3 text-black"style ="font-size: 40px; margin-top: 20px;" ><strong>게시글 작성</strong></h1>
       
       
       <table id="list">
@@ -88,8 +113,6 @@
           <div class="row" style ="margin-top: 50px">
             <div class="col-md-6">
               <div class="form-group">
-              
-              
               <!--  글 제목 입력  -->
                 <label class="text-black" for="fname">제목</label>
                 <input type="text" class="form-control" name="title">
@@ -103,25 +126,22 @@
               </div>
             </div>
           </div>
-    
-    
-	       	<div class="form-group">
+    	 <div class="col-md-12">
+   			<div class="form-group">
 	       		<!-- 파일 첨부  -->
-	       		
 	       		<input type="file" style="float:right; margin-bottom: 20px;" name="filename">
 	  	    </div>
-       
+        </div>
           <div class="form-group">
             <!--글 내용 입력  -->
             <label class="text-black" for="contents">내용</label>
             <textarea name="content" class="form-control" id="contents" cols="30" rows="10"></textarea>
           </div>
+          
         	<div class ="btn">
-<!--           <button type="submit" class="btn btn-primary" style="color: white">작성하기</button> -->
-
-          <input type="submit" class="btn btn-primary" value="작성하기">
-          <input type="reset" class="btn btn-primary" value="초기화">
-        </div>
+	          <input type="submit" class="btn btn-primary" value="작성하기">
+	          <input type="reset" class="btn btn-primary" value="초기화">
+	        </div>
         </form>
       	
       </div>
@@ -135,7 +155,7 @@
 	      <div class="spinner-border" role="status">
 	        <span class="sr-only">Loading...</span>
 	      </div>
-	    </div>
+	  	</div>
 
  
 

@@ -33,19 +33,38 @@
 		
 		justify-content: center;
 		align-items: center;
-		margin-top: 100px;
+		margin-top: 150px;
 		margin-left: 300px;
 		margin-right : 500px;
-		width: 1000px;
+		width: 1300px;
 		
 	}
 	
-	.table-responsive{
+	@media (max-width: 992px) {
+        .board {
+            margin-left: 50px;
+            margin-right: 50px;
+            width: auto;
+        }
+    }
+
+    @media (max-width: 1900px) {
+        .board {
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+
+        .table-responsive {
+            width: 100%;
+        }
+    }
+	
+	/* .table-responsive{
 		width: 1200px;
 		margin-top: 150px;
 	
 		
-	}
+	} */
 	.btn{
 		display: inline-block;
 		float: right;
@@ -76,7 +95,7 @@
         <div class="board">
        
 			<div class="table-responsive">
-										
+				<span><h1>질문 게시판</h1></span>													
 	                <div class ="btn">
 						<a href="goMain"><button class="btn btn-primary" id="writer">홈으로 가기</button></a>
 	                	<%if(loginMember ==null){ %>

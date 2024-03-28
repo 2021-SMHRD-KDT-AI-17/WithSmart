@@ -65,6 +65,30 @@
 		text-align:center;
 		}
 		
+		
+		@media (max-width: 992px) {
+       	 .site-section {
+            margin-left: 50px;
+            margin-right: 50px;
+            width: auto;
+        	}
+    	}
+
+   		 @media (max-width: 1900px) {
+       	 	.site-section {
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+
+        .container article {
+            width: 100%;
+       	 }
+       	 
+       	 .imgalign{
+       	  width: 100%;
+       	 }
+   		}
+		
 </style>
 
 </head>
@@ -88,7 +112,7 @@
 	
 		    <!-- 공모전 정보 DB에서 가져오기  -->
 		    	
-		    <div style="margin-top: 50px">	
+		    <div style="margin-top: 150px">	
 		       	 	  <!--공모전명  -->
 			          <h3>공모전명 : <strong>${cp_detail.compettitle}</strong></h3>
 			          <hr></hr>

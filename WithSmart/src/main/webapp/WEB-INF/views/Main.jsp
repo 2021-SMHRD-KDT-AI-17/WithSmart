@@ -17,8 +17,12 @@
   <meta name="description" content="" />
   <meta name="keywords" content="bootstrap, bootstrap4" />
 
-
+	<!-- 구글 폰트 적용 -->	
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+  <!-- 고딕체 적용 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gothic+A1&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="resources/css/bootstrap.min.css">
   <link rel="stylesheet" href="resources/css/owl.carousel.min.css">
@@ -62,10 +66,30 @@
        
         padding: 50px;
         margin : 300px;
-       
-    }
-
-
+      }
+        
+	   @media (max-width: 768px) {
+	    .content {
+	        display: none; /* 화면 너비가 768px 이하일 때 content를 숨김 */
+	    	}
+    	}
+    	
+    	
+    	/* footer.jsp 파일내에 class=site-footer" 영역이 768px이하면 숨김 */
+    	@media (max-width: 768px) {
+    	 .site-footer {
+        	display: none;
+    		}
+    		
+		 /* Monteserrat 폰트를 전역으로 적용 */
+		body {
+		    font-family: 'Montserrat', sans-serif;
+		}
+		
+		/* Gothic A1 폰트를 전역으로 적용 */
+		h1, h2, h3, h4, h5, h6, p, a, ul, ol, li, span, div {
+		    font-family: 'Gothic A1', sans-serif;
+		}
 </style>
 
 
@@ -113,12 +137,13 @@
       </div>
       </div>  --%>
       
+      
       <!--배경에 비디오 삽입  -->
       <div class="video-container">
     	<video autoplay loop muted>
     		<source src="resources/images/computer.mp4" type ="video/mp4">
     	</video>
-    	</div>
+     </div>
     	
     	<!-- 배경 위에 내용 포함하기  -->
 		<div class ="content">
@@ -135,7 +160,7 @@
 	                    <p class="text-white mb-4" data-aos="fade-up" data-aos-delay="100"> 스마트인재 개발원 수강생과 수료생들을 위한 서비스입니다. 
 	                        <%if(loginMember == null){ %>
 	                        <br> 회원가입 후 서비스를 이용해보세요! <br>
-	                    <button class="btn btn-primary" style ="margin-top: 30px; align-content: center"><a href ="goJoin" , style ='color:white; ' >회원가입  / 로그인 </a></btton>
+	                    <button class="btn btn-primary" style ="margin-top: 30px; display: flex; justify-content: center;"><a href ="goJoin" , style ='color:white; text-decoration: none;' >회원가입  / 로그인 </a></btton>
 	                    <%} %>
 	                    </p>
 	                </div>   
@@ -143,10 +168,10 @@
 	        </div>
 	    </div>
 
-      
-
       <div class="slant" style="background-image: url('resources/images/slant.svg');"></div>
     </div>
+      
+
     
  
  	<!-- footer 파일 불러오기 -->
