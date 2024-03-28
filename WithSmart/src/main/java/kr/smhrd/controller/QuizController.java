@@ -14,7 +14,6 @@ import kr.smhrd.entity.Quiz;
 
 @Controller
 public class QuizController {
-    
     @Autowired
     private QuizMapper quizMapper;
     
