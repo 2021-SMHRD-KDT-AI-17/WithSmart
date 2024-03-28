@@ -11,12 +11,9 @@
     </select>
     
         
-   <insert id="submitQuiz" parameterType="java.util.Map">
-    INSERT INTO tbl_test (quiz_idx, mb_id, answer)
-    VALUES
-    <foreach collection="quiz_idx" item="quiz_idx" separator=",">
-        (#{quiz_idx}, #{mb_id}, #{userAnswerMap['userAnswer_' + quiz_idx]})
-    </foreach>
-</insert>
+  <insert id="insertUserAnswer">
+        INSERT INTO tbl_test (quiz_idx, mb_id, answer)
+        VALUES (#{quiz_idx}, #{mb_id}, #{userAnswer})
+    </insert>
   
 </mapper>

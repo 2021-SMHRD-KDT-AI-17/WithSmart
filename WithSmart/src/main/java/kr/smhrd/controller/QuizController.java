@@ -1,9 +1,8 @@
 package kr.smhrd.controller;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -38,29 +37,22 @@ public class QuizController {
  // 퀴즈 결과 페이지
     @RequestMapping("/quizScore")
     public String submitQuiz(
-        @RequestParam Map<String, Object> params,
+        @RequestParam("quiz_idx") List<Integer> quiz_idxList,
+        @RequestParam("mb_id") String mb_id,
+        @RequestParam Map<String, String> userAnswerMap,
         Model model
     ) {
-        String quizIdxListString = (String) params.get("quiz_idx");
-        List<Integer> quiz_idxList = Arrays.asList(quizIdxListString.split(","))
-                                       .stream()
-                                       .map(Integer::parseInt)
-                                       .collect(Collectors.toList());
-        String mb_id = (String) params.get("mb_id");
-        Map<String, String> userAnswerMap = (Map<String, String>) params.get("userAnswerMap");
-
-        int totalScore = 0;
-        int maxScore = quiz_idxList.size() * 10; // 각 문제당 최대 10점
-        for (int quiz_idx : quiz_idxList) {
-            String userAnswer = userAnswerMap.get("userAnswer_" + quiz_idx);
-            quizMapper.submitQuiz(quiz_idx, mb_id, userAnswer);
-            int correctAnswer = quizMapper.getCorrectAnswer(quiz_idx);
-            if (userAnswer.equals(String.valueOf(correctAnswer))) {
-                totalScore += 10; // 정답인 경우 10점씩 증가
+        try {
+            for (int quiz_idx : quiz_idxList) {
+                String userAnswer = userAnswerMap.get("userAnswer_" + quiz_idx);
+                quizMapper.insertUserAnswer(quiz_idx, mb_id, userAnswer); // 사용자의 답안 저장
             }
+            // 저장 완료 메시지 전달 또는 다음 단계로 이동
+            model.addAttribute("message", "사용자의 답안이 저장되었습니다.");
+        } catch (Exception e) {
+            // 예외 처리
+            model.addAttribute("error", "답안 저장 중 오류가 발생했습니다: " + e.getMessage());
         }
-        model.addAttribute("totalScore", totalScore);
-        model.addAttribute("maxScore", maxScore);
         return "quizScore"; // 퀴즈 결과 페이지로 이동
     }
 }
