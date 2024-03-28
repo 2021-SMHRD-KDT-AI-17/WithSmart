@@ -109,11 +109,10 @@
 							<div style="color: #000000;">비밀번호 변경 <input type="password" name="mb_pw" size= 20 placeholder="새 비밀번호 입력" > </div>
 							<%-- <div><input type="password" name="mb_pw" placeholder="비밀번호를 입력하세요" value="${loginMember.mb_pw }"></div> --%>
 							<br>
+							<hr></hr>
 							<br>
 							<div class="button-container"><input type="submit" class="buttonfit" value="수정하기"></div> 
 							<br>
-							<br>
-							
 							<div class ="btn">
 						<a href="goMain"><button class="btn btn-primary" id="writer">홈으로 가기</button></a>
 	              			  </div> 			

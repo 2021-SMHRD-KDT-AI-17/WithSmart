@@ -28,6 +28,22 @@
 <meta charset="UTF-8">
 <title>WithSmart</title>
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+
+<style>
+
+	.kkologout{
+		background-color: #F7E600;
+		border-color:#F7E600;
+		text-decoration: none; 
+		color: #000000 !important;
+		border-radius:7px;
+		border:none;
+		width:200px;
+		height:49.17px;
+	}
+
+</style>
+
 </head>
 <body>
 	<script>
@@ -85,23 +101,23 @@
             <h3 class="text-white mb-4" data-aos="fade-up" data-aos-delay="100"><strong>회원가입</strong></h3>
             
             <!-- 회원가입 정보 입력 form  -->
-            <form action="memberInsert" class="sign-up-form d-grid" data-aos="fade-up" data-aos-delay="200" method ="post">
-	            <input type="text" class="form-control" placeholder="이메일을 입력해주세요" name="mb_id"  id="inputE">
-	            <input type="button" class="btn btn-primary" value="Email 중복체크" onclick="checkE()">
+            <form action="memberInsert" class="sign-up-form d-grid" data-aos="fade-up" data-aos-delay="200" method ="post" style=width:425px>
+	            <input type="text" class="form-control" placeholder="이메일을 입력해주세요" style="margin-bottom:10px" name="mb_id"  id="inputE">
+	            <input type="button" class="btn btn-primary" value="Email 중복 체크" onclick="checkE()" style="margin-bottom:10px">
 	            <span id="resultCheck"></span>
-	            <input type="password" class="form-control" style="margin-bottom:20px" placeholder="비밀번호를 입력해주세요" name="mb_pw">
-	            <input type="text" class ="form-control" style = "margin-top:10px" placeholder ="닉네임을 입력해주세요" name="mb_nick">
-	            <input type="text" class ="form-control" style = "margin-top:10px" placeholder ="인증번호를 입력해주세요" name="mb_cert" id="inputC">
-	            <input type="button" class="btn btn-primary" value="인증번호 확인" onclick="checkC()">
+	            <input type="password" class="form-control" placeholder="비밀번호를 입력해주세요" name="mb_pw">
+	            <input type="text" class ="form-control" style = "margin-top:5px" placeholder ="닉네임을 입력해주세요" name="mb_nick">
+	            <input type="text" class ="form-control" style = "margin-bottom:10px" placeholder ="발급 받은 인증번호를 입력해주세요" name="mb_cert" id="inputC">
+	            <input type="button" class="btn btn-primary" value="인증번호 확인 " onclick="checkC()">
 	            <div id="certCheck"></div>
-	            <input type="submit" class="btn btn-success" style="margin-top:10px" value="회원가입" width="500">
+	            <input type="submit" class="btn btn-success" style="margin-top:10px" value="회원가입 하기 " width=500;>
             </form>
           
           <br><br>
           
           <!-- 로그인  -->
       		<h3 class="text-white mb-4" data-aos="fade-up" data-aos-delay="100"><strong>로그인</strong></h3>
-				<form action="goLogin" class="sign-up-form d-grid" data-aos="fade-up" data-aos-delay="200" method ="post">
+				<form action="goLogin" class="sign-up-form d-grid" data-aos="fade-up" data-aos-delay="200" method ="post" style=width:425px>
 					<input type="text" class="form-control" placeholder="이메일을 입력하세요" name="mb_id">
 					<input type="password" class="form-control"  placeholder="비밀번호를 입력하세요" name="mb_pw">
 					<input type="submit" class="btn btn-success" style="margin-top:20px"value="로그인">
@@ -114,7 +130,7 @@
 					</span>
 					<span onclick="kakaoLogout();">
 				      <a href="javascript:void(0)">
-				      	<button class="btn btn-warning"><a href="goMain">카카오 로그아웃</a></button>
+				      	<button class="kkologout" style="color:#000000 !important;"><a href="goMain">카카오 로그아웃</a></button>
 				      </a>
 					 </span>
 					<br>
