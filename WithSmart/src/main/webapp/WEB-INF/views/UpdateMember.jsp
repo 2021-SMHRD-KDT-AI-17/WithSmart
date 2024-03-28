@@ -36,8 +36,27 @@
 		margin-top: 100px;
 		margin-left: 300px;
 		margin-right : 500px;
-		width: 1000px;
+		width: 1300px;
 	}
+	
+	@media (max-width: 992px) {
+        .board {
+            margin-left: 50px;
+            margin-right: 50px;
+            width: auto;
+        }
+    }
+
+    @media (max-width: 1900px) {
+        .board {
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+
+        .table-responsive {
+            width: 100%;
+        }
+    }
 	
 	.table-responsive{
 		width: 1200px;
@@ -77,6 +96,9 @@
 	text-align:center;
 	}
 	
+	.inputInfo{
+		margin: 200px;
+	}
 
 		
 	
@@ -98,25 +120,26 @@
 						<hr></hr>
 						<br>
 						<form action="memberUpdate" method="post">
-							<div>이메일 정보 <input name="mb_id" size= 20 readonly value="${loginMember.mb_id}"></div>
+							<div name ="inputInfo">이메일 정보 <input name="mb_id" size= 20 readonly value="${loginMember.mb_id}"></div>
 							<br>
 						<%-- <div><input type="hidden" name="mb_id" value="${loginMember.mb_id }"></div> --%>
 							
-							<div style="color: #000000;">닉네임 변경   <input type="text" name="mb_nick" size= 20 placeholder="변경할 닉네임" value="${loginMember.mb_nick }"> </div>
+							<div name ="inputInfo" style="color: #000000;">닉네임 변경   <input type="text" name="mb_nick" size= 20 placeholder="변경할 닉네임" value="${loginMember.mb_nick }"> </div>
 							<%-- <div><input type="text" name="mb_nick" placeholder="닉네임를 입력하세요" value="${loginMember.mb_nick }"></div> --%>
 							<br>
 							
-							<div style="color: #000000;">비밀번호 변경 <input type="password" name="mb_pw" size= 20 placeholder="새 비밀번호 입력" > </div>
+							<div name ="inputInfo" style="color: #000000;">비밀번호 변경 <input type="password" name="mb_pw" size= 20 placeholder="새 비밀번호 입력" > </div>
 							<%-- <div><input type="password" name="mb_pw" placeholder="비밀번호를 입력하세요" value="${loginMember.mb_pw }"></div> --%>
 							<br>
 							<br>
-							<div class="button-container"><input type="submit" class="buttonfit" value="수정하기"></div> 
-							<br>
-							<br>
 							
+							<div class="button-container"><input type="submit" class="buttonfit" value="수정하기">
 							<div class ="btn">
-						<a href="goMain"><button class="btn btn-primary" id="writer">홈으로 가기</button></a>
-	              			  </div> 			
+								<a href="goMain"><button class="btn btn-primary" id="writer">홈으로 가기</button></a>
+	              			 </div> 			
+							</div> 
+						
+							
 	              			  
 	  					</form>
 				</div>

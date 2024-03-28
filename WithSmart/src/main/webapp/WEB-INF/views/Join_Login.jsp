@@ -28,6 +28,9 @@
 <meta charset="UTF-8">
 <title>WithSmart</title>
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+
+
+
 </head>
 <body>
 	<script>
@@ -75,7 +78,7 @@
  <%@ include file = "./header.jsp" %>
  
     
-    <div class="hero-slant overlay" data-stellar-background-ratio="0.5" style="background-image: url('resources/images/hero-min.jpg'); background-position: 0% 0px";>
+    <div class="hero-slant overlay" data-stellar-background-ratio="0.5" style="background-image: url('resources/images/join_login.jpg'); background-position: 0% 0px";>
 
           
       <div class="container">
@@ -114,7 +117,7 @@
 					</span>
 					<span onclick="kakaoLogout();">
 				      <a href="javascript:void(0)">
-				      	<button class="btn btn-warning"><a href="goMain">카카오 로그아웃</a></button>
+				      	<button class="btn btn-warning" style ="margin-left: 20px;"><a href="goMain" style="color: black; font-weight: bold; ">카카오 로그아웃</a></button>
 				      </a>
 					 </span>
 					<br>
@@ -132,7 +135,7 @@
         </div>        
       </div>
 
-      <div class="slant" style="background-image: url('resources/images/slant.svg');"></div>
+      <div class="slant" style="background-image: url('resources/images/slant.svg'); margin-top: 200px"></div>
     </div>
     <script type="text/javascript">
     function checkC(){
@@ -181,7 +184,7 @@
 		)
 	}
    
-    
+ 
     
     </script>
     
