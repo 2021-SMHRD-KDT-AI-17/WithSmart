@@ -45,6 +45,8 @@ public class CompetBoardController {
 	
 	@RequestMapping("/goCompetBoardDetail")
 	public String goCompetBoardDetail(@RequestParam("competboard") int competboard, Model model ) {
+		CompetboardMapper.getCompetCount(competboard);
+		
 		CompetBoard competBoard = CompetboardMapper.getCompetBoardById(competboard);
 		model.addAttribute("cp_detail", competBoard);
 		return "CompetBoardDetail";
