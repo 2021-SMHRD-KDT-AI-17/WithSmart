@@ -28,8 +28,8 @@ public class FriendBoard {
 	    @NonNull private String filename;
 	    @NonNull private String content;
 	    private String writetime;
-	    private Integer viewcount;
-	    private Integer heartcount;
+        private int viewcount;
+	    private int heartcount;
 	    
 //		public FriendBoard(String title, String writer, String filename,
 //				String content) {

@@ -16,7 +16,6 @@ INSERT INTO tbl_member VALUES('kkk@naver.com', '5555', '케이케이케이','AIS
 INSERT INTO tbl_certification VALUES('1', '인공지능 개발자 과정 17차', 'AISERVICE17');
 
 select * from tbl_member;
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-AI-17/WithSmart.git
 
 select * from tbl_suggboard;
 
@@ -30,12 +29,4 @@ select * from tbl_jobboard;
 
 select * from tbl_certification;
 
-
-<<<<<<< HEAD
-
-
-
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-AI-17/WithSmart.git
-=======
-
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-AI-17/WithSmart.git
+select * from tbl_friendboard;
