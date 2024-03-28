@@ -102,7 +102,7 @@
 										<div><strong>위드스마트</strong> 에서 많은 정보와 교류를 나누어보세요 :)</div>
 										<br>
 										<!-- <div id=loginButton><button onclick='location.href="goJoin"'>로그인 하러가기</button></div> -->
-										<div text-align: center><button class="btn btn-primary" display :inline-block; ><a href ="goJoin", style ='color:white' >로그인 하러가기</a></button></div>
+										<div><button class="btn btn-primary" display :inline-block; ><a href ="goJoin", style ='color:white' >로그인 하러가기</a></button></div>
 									</ul>
 									
 								</div>			

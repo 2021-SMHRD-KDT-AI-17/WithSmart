@@ -36,6 +36,37 @@
 
 <meta charset="UTF-8">
 <title>WithSmart</title>
+
+<style>
+		a:link {
+		  color : blue;
+		  text-decoration: none;
+		}
+		a:visited {
+		  color : #f3928f;
+		  text-decoration: none;
+		}
+
+		.date{
+		font-size:25px;
+		}
+		
+		.hplink{
+		font-size:25px;
+		}
+		
+		.content{
+		background-color:#f0efef;
+		padding:20px;
+		border-radius:10px;
+		}
+		
+		.imgalign{
+		text-align:center;
+		}
+		
+</style>
+
 </head>
 
 <body>
@@ -49,7 +80,7 @@
  	<!-- 게시판 상세 보기  -->
     <div class="site-section">
     <div class="container article">
-      <div class="row justify-content-center align-items-stretch">
+      <div class="row justify-content-center align-items-stretch";>
         
        
         <article class="col-lg-8 order-lg-2 px-lg-5">
@@ -59,13 +90,25 @@
 		    	
 		    <div style="margin-top: 50px">	
 		       	 	  <!--공모전명  -->
-			          <h3>${cp_detail.compettitle}</h3>
+			          <h3>공모전명 : <strong>${cp_detail.compettitle}</strong></h3>
+			          <hr></hr>
+			          
+			          <div class="content">
+			          <br>
 			          <!-- 공모전 내용  -->
-			           <img src="${cp_detail.imglink}" alt="이미지" width="700">
+			          <div class="imgalign">
+			           <img src="${cp_detail.imglink}" alt="이미지" width="600" style="align:center;">
+			           </div>
 			           <br>
-			          <p><a href="${cp_detail.homelink}" target="_blank" >홈페이지 상세 링크 주소(여기를 클릭하세요)</a></p>
-			          <span>기간 : </span>
-			          <span> ${cp_detail.during}</span>		
+			           <br>
+			           <hr></hr>
+			           <span><strong>홈페이지 상세 링크 주소</strong></span>
+			          <p><a href="${cp_detail.homelink}" target="_blank" class="hplink"><strong>[이곳을 클릭하세요]</strong></a></p>
+			          <hr></hr>
+			          <span><strong>기 간</strong></span> <br>
+			          <span class="date"><strong> ${cp_detail.during}</strong></span>		
+			          
+			          </div>
 			</div>
         </div>
            

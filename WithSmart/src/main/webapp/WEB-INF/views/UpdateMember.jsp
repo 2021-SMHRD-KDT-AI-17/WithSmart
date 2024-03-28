@@ -37,16 +37,16 @@
 		margin-left: 300px;
 		margin-right : 500px;
 		width: 1000px;
-		text-align: center;
 	}
 	
 	.table-responsive{
 		width: 1200px;
 		margin: 0 auto;
 		margin-top: 150px;
-		
-		/* margin-left: auto;
-   		margin-right: auto; */
+		background-image: linear-gradient(45deg, #f0efef, white);
+/* 		background-color:#f0efef; */
+		padding:30px;
+		border-radius: 30px 30px 30px 30px;
 		
 	}
 	.btn{
@@ -61,6 +61,24 @@
 		
 	}
 	
+	.buttonfit{
+		display: inline-block;
+		background-color:#e84545;
+		border-color:#e84545;
+		color:#ffffff;
+		border-radius:3px;
+		text-align:center;
+		border:none;
+		padding:15px;
+
+	}
+	
+	.button-container{
+	text-align:center;
+	}
+	
+
+		
 	
 </style>
 </head>
@@ -77,22 +95,27 @@
 										
 	                
 						<h2>회원정보수정</h2>
+						<hr></hr>
 						<br>
 						<form action="memberUpdate" method="post">
-							<div>접속한 이메일 계정 정보 : ${loginMember.mb_id }</div>
+							<div>이메일 정보 <input size= 20 readonly value="${loginMember.mb_id}"></div>
 							<br>
-							<div><input type="hidden" name="mb_id" value="${loginMember.mb_id }"></div>
-							<p>수정할 비밀번호</p>
-							<div><input type="password" name="mb_pw" placeholder="비밀번호를 입력하세요" value="${loginMember.mb_pw }"></div>
-							<br>
-							<p>수정할 닉네임<p>
-							<div><input type="text" name="mb_nick" placeholder="닉네임를 입력하세요" value="${loginMember.mb_nick }"></div>
-							<br>
-							<div><input type="submit" class="button fit" placeholder="닉네임를 입력하세요" value="수정"></div> 
+	<%-- 						<div><input type="hidden" name="mb_id" value="${loginMember.mb_id }"></div> --%>
 							
+							<div style="color: #000000;">닉네임 변경   <input type="text" name="mb_nick" size= 20 placeholder="변경할 닉네임" value="${loginMember.mb_nick }"> </div>
+							<%-- <div><input type="text" name="mb_nick" placeholder="닉네임를 입력하세요" value="${loginMember.mb_nick }"></div> --%>
+							<br>
+							
+							<div style="color: #000000;">비밀번호 변경 <input type="password" name="mb_pw" size= 20 placeholder="새 비밀번호 입력" > </div>
+							<%-- <div><input type="password" name="mb_pw" placeholder="비밀번호를 입력하세요" value="${loginMember.mb_pw }"></div> --%>
+							<br>
+							<br>
+							<div class="button-container"><input type="submit" class="buttonfit" value="수정하기"></div> 
+							<br>
+							<br>
 							<div class ="btn">
-						<a href="goMain"><button class="btn btn-primary" id="writer">홈으로 가기</button></a>
-	                </div> 			
+						<a href="goMain"><button class="btn btn-primary" id="writer" >홈으로 가기</button></a>
+	              			  </div> 			
 	  					</form>
 				</div>
         </div>
