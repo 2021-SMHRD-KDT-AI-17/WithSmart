@@ -37,6 +37,7 @@
 <meta charset="UTF-8">
 <title>WithSmart</title>
 </head>
+
 <body>
 
       <!-- header 파일 불러오기  --> 
@@ -57,11 +58,11 @@
 		    <!-- 공모전 정보 DB에서 가져오기  -->
 		    	
 		    <div style="margin-top: 50px">	
-		       <!--공모전명  -->
+		       	 	  <!--공모전명  -->
 			          <h3>${cp_detail.compettitle}</h3>
 			          <!-- 공모전 내용  -->
-			           <img src="${cp_detail.imglink}" alt="이미지">
-			          <p><a href="${cp_detail.homelink}">홈페이지 상세 링크</a></p>
+			           <img src="${cp_detail.imglink}" alt="이미지" width="700">
+			          <p><a href="${cp_detail.homelink}" target="_blank" >홈페이지 상세 링크</a></p>
 			          <span>기간 : </span>
 			          <span> ${cp_detail.during}</span>		
 			</div>
