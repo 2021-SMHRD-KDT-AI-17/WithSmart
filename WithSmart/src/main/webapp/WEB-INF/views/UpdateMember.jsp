@@ -98,9 +98,9 @@
 						<hr></hr>
 						<br>
 						<form action="memberUpdate" method="post">
-							<div>이메일 정보 <input size= 20 readonly value="${loginMember.mb_id}"></div>
+							<div>이메일 정보 <input name="mb_id" size= 20 readonly value="${loginMember.mb_id}"></div>
 							<br>
-	<%-- 						<div><input type="hidden" name="mb_id" value="${loginMember.mb_id }"></div> --%>
+						<%-- <div><input type="hidden" name="mb_id" value="${loginMember.mb_id }"></div> --%>
 							
 							<div style="color: #000000;">닉네임 변경   <input type="text" name="mb_nick" size= 20 placeholder="변경할 닉네임" value="${loginMember.mb_nick }"> </div>
 							<%-- <div><input type="text" name="mb_nick" placeholder="닉네임를 입력하세요" value="${loginMember.mb_nick }"></div> --%>
@@ -113,9 +113,11 @@
 							<div class="button-container"><input type="submit" class="buttonfit" value="수정하기"></div> 
 							<br>
 							<br>
+							
 							<div class ="btn">
-						<a href="goMain"><button class="btn btn-primary" id="writer" >홈으로 가기</button></a>
+						<a href="goMain"><button class="btn btn-primary" id="writer">홈으로 가기</button></a>
 	              			  </div> 			
+	              			  
 	  					</form>
 				</div>
         </div>
