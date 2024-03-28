@@ -103,7 +103,8 @@
 						<%-- <div><input type="hidden" name="mb_id" value="${loginMember.mb_id }"></div> --%>
 							
 							<div style="color: #000000;">닉네임 변경   <input type="text" name="mb_nick" size= 20 placeholder="변경할 닉네임" value="${loginMember.mb_nick }"> </div>
-							<%-- <div><input type="text" name="mb_nick" placeholder="닉네임를 입력하세요" value="${loginMember.mb_nick }"></div> --%>
+							<%-- <div><input type="text" name="mb_nick" placeholder="닉네임를 입력하세요" value="${loginM
+							ember.mb_nick }"></div> --%>
 							<br>
 							
 							<div style="color: #000000;">비밀번호 변경 <input type="password" name="mb_pw" size= 20 placeholder="새 비밀번호 입력" > </div>
