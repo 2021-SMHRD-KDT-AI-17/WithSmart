@@ -40,9 +40,11 @@
 		        Kakao.API.request({
 		          url: '/v2/user/me',
 		          success: function (response) {
+		        	  alert("로그인 성공!")
 		        	  console.log(response)
 		          },
 		          fail: function (error) {
+		        	 	alert("로그인 실패!")
 		            console.log(error)
 		          },
 		        })
@@ -106,10 +108,15 @@
 					<br><br>
 					<span onclick="kakaoLogin();">
 				      <a href="javascript:void(0)">
-				          <img src="https://k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg" width="150"
+				          <img src="https://k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg" width="200"
 											alt="카카오 로그인 버튼" />
 				      </a>
 					</span>
+					<span onclick="kakaoLogout();">
+				      <a href="javascript:void(0)">
+				      	<button class="btn btn-warning"><a href="goMain">카카오 로그아웃</a></button>
+				      </a>
+					 </span>
 					<br>
 					<!-- <span onclick="kakaoLogout();">
 				      <a href="javascript:void(0)">

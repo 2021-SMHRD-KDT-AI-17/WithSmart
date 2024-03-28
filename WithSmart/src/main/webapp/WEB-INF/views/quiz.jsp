@@ -11,23 +11,18 @@
     <!-- 부트스트랩 CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
-  
-  <link rel="stylesheet" href="resources/css/bootstrap.min.css">
-  <link rel="stylesheet" href="resources/css/owl.carousel.min.css">
-  <link rel="stylesheet" href="resources/css/owl.theme.default.min.css">
-  <link rel="stylesheet" href="resources/fonts/icomoon/style.css">
-  <link rel="stylesheet" href="resources/fonts/feather/style.css">
-  <link rel="stylesheet" href="resources/fonts/flaticon/font/flaticon.css">
-  <link rel="stylesheet" href="resources/css/jquery.fancybox.min.css">
-  <link rel="stylesheet" href="resources/css/aos.css">
-  <link rel="stylesheet" href="resources/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="resources/css/style.css">
 </head>
 <body>
-	<br>
+    <br>
     <div class="container mt-5">
         <h2 class="text-center mb-4">오늘의 퀴즈</h2>
-        <form id="quiz-form" action="/quizScore" method="post">
+        <form id="quiz-form" action="quizScore" method="post">
+            <!-- 사용자 ID 입력 -->
+            <label for="mb_id">사용자 ID:</label>
+            <input type="text" id="mb_id" name="mb_id">
+            
             <div class="list-group">
                 <!-- 서버로부터 받은 퀴즈 데이터를 반복문으로 동적으로 추가 -->
                 <c:forEach items="${quizList}" var="quiz">
