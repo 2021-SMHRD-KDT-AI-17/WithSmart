@@ -2,8 +2,8 @@
     pageEncoding="UTF-8"%>
     
     
-     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
- <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>  
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>  
  
  
 <!-- /*
@@ -99,7 +99,7 @@
               <div class="form-group">
               <!-- 작성자 입력  -->
                 <label class="text-black" for="lname">작성자</label>
-                <input type="text" class="form-control"name ="writer" readonly value="${loginMember.mb_id }">
+                <input type="text" class="form-control"name ="writer" readonly value="${loginMember.mb_nick }">
               </div>
             </div>
           </div>

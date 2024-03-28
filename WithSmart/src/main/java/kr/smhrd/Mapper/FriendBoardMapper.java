@@ -9,13 +9,19 @@ import kr.smhrd.entity.FriendBoard;
 @Mapper
 public interface FriendBoardMapper {
 
+	public int insertBoard(FriendBoard friendboard);
+	
 	public List<FriendBoard> friendBoardList();
 
-	public int insertBoard(FriendBoard friendboard);
+	public FriendBoard FboardContent(int friendboard_idx);
+	
+	public void deleteFBoard(int friendboard_idx);
 
-	public void FriendboardCount(int num);
+	public void FboardCount(int friendboard_idx);
 
-	public FriendBoard FriendboardContent(int num);
+	public void Fboardheart(int friendboard_idx);
+
+	
 
 
 

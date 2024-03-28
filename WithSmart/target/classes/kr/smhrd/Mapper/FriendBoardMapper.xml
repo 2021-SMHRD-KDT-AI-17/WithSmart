@@ -3,18 +3,32 @@
 <mapper namespace="kr.smhrd.Mapper.FriendBoardMapper">
 
 
-<insert id="insertBoard" parameterType="kr.smhrd.entity.FriendBoard" >
-		insert into tbl_friendboard(title, writer, filename, content)
-		values(#{title}, #{writer}, #{filename}, #{content})
-</insert>
+	<insert id="insertBoard" parameterType="kr.smhrd.entity.FriendBoard" >
+			insert into tbl_friendboard(title, writer, filename, content)
+			values(#{title}, #{writer}, #{filename}, #{content})
+	</insert>
 
- <select id="friendBoardList" resultType="kr.smhrd.entity.FriendBoard">
- 	select * from tbl_friendboard  order by writetime desc 
- </select>
- 
- 	<select id="friendboardContent" parameterType="int" resultType="kr.smhrd.entity.FriendBoard">
-		select * from tbl_friendboard where num=#{num}
+	<select id="friendBoardList" resultType="kr.smhrd.entity.FriendBoard">
+	 	select * from tbl_friendboard order by writetime desc 
 	</select>
+	
+	<delete id="deleteFBoard" parameterType="int">
+		delete from tbl_friendboard where friendboard_idx=#{friendboard_idx}
+	</delete>
+	
+	
+	
+	<select id="FboardContent" parameterType="int" resultType="kr.smhrd.entity.FriendBoard">
+		select * from tbl_friendboard where friendboard_idx=#{friendboard_idx}
+	</select>
+	
+	<update id="FboardCount" parameterType="int">
+		update tbl_friendboard set viewcount=viewcount+1 where friendboard_idx=#{friendboard_idx}
+	</update>
+	
+	<update id="Fboardheart" parameterType="int">
+		update tbl_friendboard set heartcount=heartcount+1 where friendboard_idx=#{friendboard_idx}
+	</update>
 
 
 

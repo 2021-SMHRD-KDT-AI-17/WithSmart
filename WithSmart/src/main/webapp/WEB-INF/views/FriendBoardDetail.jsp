@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
- <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>  
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>  
     
     
 <!-- /*
@@ -44,9 +44,6 @@
 
       <!-- header 파일 불러오기  --> 
  <%@ include file = "./header.jsp" %>
- 	
-<!--     <div class="hero-slant overlay" data-stellar-background-ratio="0.5" style="background-image: url('resources/images/hero-min.jpg')">
- -->    
  
  	<!-- 게시판 상세 보기  -->
     <div class="site-section">
@@ -59,18 +56,34 @@
 	    	
 	    <!-- 게시글 가져오기  -->
 	    	
-	    <div style="margin-top: 50px" id="f_board">	
+	    <div style="margin-top: 50px" id="Friendboard">	
 	    
 	    <table id="list">
 	    
-	       <!--게시글 제목  -->
-          <h3>게시글 제목</h3>
-          <td>${f_board.tilte}</td>
-          <!-- 게시글 내용  -->
-          <p>내용1</p>
-          <p>세부 내용</p>
-          <p>사진파일  </p>
-		
+	       	  <tr>
+	          	<td>제목</td>
+	          	<td><h2>${friendboard.title }</h2></td>
+	          </tr>
+	          <tr>
+	          	<td>작성자</td>
+	          	<td>${friendboard.writer }</td>
+	          </tr>
+	          
+	          <tr>
+				<td>다운로드</td>
+				<td><a href="resources/image/${friendboard.filename }" download>${friendboard.filename}</a></td>
+			  </tr>
+	          
+	          <tr>
+	          	<td colspan="2">내용</td>
+	          </tr>
+	          <tr>	
+	          	<td colspan="3">
+	          		<h4>${friendboard.content }</h4>
+	          		<img alt="" src="resources/image/${friendboard.filename}"> 
+	          	</td>
+	          	  
+	          </tr>
 		</table>
 		
 		</div>
@@ -85,10 +98,10 @@
                   <div class="comment-body">
                   
                   <!-- 답글 단 회원 이름 가져오기  -->
-                    <h3>회원 닉네임</h3>
+                    <h3></h3>
                     
                   <!-- 답글 단 시간 가져오기 -->  
-                    <div class="meta">답글 시간 (January 9, 2018 at 2:21pm)</div>
+                    <div class="meta">답글시간</div>
                    <!--답글 내용 가져오기  --> 
                     <p>댓글 내용  <button class="btn btn-info" style ="margin-left: 30px" >추천하기</button></p>
                     
@@ -127,18 +140,14 @@
               <div class="comment-form-wrap pt-5">
                 <h3 class="mb-5">댓글 남기기</h3>
                 
-                	<form action="#" class="">
+                	<form action="FriendBoardComment" method="post">
 	                  	<div class="form-group">
-	                    <label for="nick">닉네임 *</label>
-	                    <input type="text" class="form-control" id="name">
-	                  </div>
-	                  <div class="form-group">
-	                    <label for="email">이메일 * </label>
-	                    <input type="email" class="form-control" id="email">
+	                    <label for="nick">닉네임</label>
+	                    <input type="text" class="form-control" name="writer" readonly value="${loginMember.mb_nick }">
 	                  </div>
 	                  <div class="form-group">
 	                    <label for="message">답글</label>
-	                    <textarea name="message" id="message" cols="30" rows="5" class="form-control"></textarea>
+	                    <textarea name="cmtcontent" id="message" cols="10" rows="2" class="form-control"></textarea>
 	                  </div>
 	                  <div class="form-group">
 	                    <input type="submit" value="답글달기" class="btn btn-primary btn-md" name="#">
