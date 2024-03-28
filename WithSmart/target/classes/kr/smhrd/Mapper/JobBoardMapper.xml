@@ -6,4 +6,13 @@
 		select * from tbl_jobboard
 	</select>
 	
+	<select id="getTotalCount" resultType="int">
+		select count(*) from tbl_jobboard
+	</select>
+	
+	<select id="getJobBoardList" parameterType="int" resultType="kr.smhrd.entity.JobBoard">
+		select * from tbl_jobboard limit #{startIndex}, 10
+	</select>
+
+	
 </mapper>

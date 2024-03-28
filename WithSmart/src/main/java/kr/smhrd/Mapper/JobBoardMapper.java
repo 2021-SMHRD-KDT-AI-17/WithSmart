@@ -13,6 +13,12 @@ public interface JobBoardMapper {
 
 	public List<JobBoard> jobboardList();
 
+	public int getTotalCount();
+
+	public List<JobBoard> getJobBoardList(int startIndex);
+
+
+
 	
 
 }
