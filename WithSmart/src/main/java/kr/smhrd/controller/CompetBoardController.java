@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
@@ -27,16 +28,14 @@ public class CompetBoardController {
 	public String goCompetBoard(Model model) {
 		List<CompetBoard> cp_list = CompetboardMapper.CompetboardList();
 		model.addAttribute("cp_list",cp_list);
-		List<CompetBoard> CompetboardList = CompetboardMapper.CompetboardList();
-		for (CompetBoard competboard : CompetboardList) {
-		    System.out.println(competboard);
-		}
 		return "CompetBoard";
 	}
 	
 	@RequestMapping("/goCompetBoardDetail")
-	public String goCompetBoardDetail() {
-		
+	public String goCompetBoardDetail(@RequestParam("competboard") int competboard, Model model ) {
+		CompetBoard competBoard = CompetboardMapper.getCompetBoardById(competboard);
+		System.out.println(competBoard);
+		model.addAttribute("cp_detail", competBoard);
 		return "CompetBoardDetail";
 	}
 	
