@@ -72,6 +72,7 @@ public class QuizController {
 
     	        // 채점 결과 페이지로 이동
     	        return "quizScore";
+    	        
     	    } catch (Exception e) {
     	        // 예외 처리
     	        model.addAttribute("error", "채점 중 오류가 발생했습니다: " + e.getMessage());
