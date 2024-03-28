@@ -8,7 +8,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<% Member loginMember = (Member)session.getAttribute("loginMember"); %>
+	<% 
+	    Member loginMember = (Member)session.getAttribute("loginMember");
+	%>  
+	
+	
     <div class="site-mobile-menu site-navbar-target">
       <div class="site-mobile-menu-header">
         <div class="site-mobile-menu-close">
@@ -61,7 +65,7 @@
 					</ul>
                </li>
                
-               <li><a href ="showQuiz" class="text-black">오늘의 퀴즈</a>
+               <li><a href ="quizMain" class="text-black">오늘의 퀴즈</a>
                <li><a href ="goLunch" class="text-black">점심메뉴 고르기</a>
                <li><a href ="#" class="text-black">채팅</a>
                
@@ -77,12 +81,6 @@
 	                  		<li><a href="goShowMember">회원정보관리</a></li>
 	                  <%} %>
 	                  <li><a href="memberLogout">로그아웃</a></li>
-	                  <span onclick="kakaoLogout();">
-				      <a href="javascript:void(0)">
-				      	
-				         <li><a href="goMain">카카오 로그아웃</a><li>
-				      </a>
-					 </span>
 	                  
 	                  </ul>
 	              </li>

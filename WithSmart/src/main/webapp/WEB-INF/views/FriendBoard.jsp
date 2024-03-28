@@ -109,13 +109,14 @@
 					    
 					    
 					    
-					    <c:forEach items="${F_list }" var="f" varStatus="fs">
+					    <c:forEach items="${f_list }" var="f" varStatus="fs">
 							<tr>
 								<td>${fs.count }</td>
 								<td>${f.title }</td>
 								<td>${f.writer }</td>
-								<td>${fn:split(f.f_date ," ")[1] }</td>
-								<td>${f.count }</td>
+								<td>${fn:split(f.writetime ," ")[1] }</td>
+								<td>${f.viewcount }</td>
+								<td>${f.heartcount }</td>
 			<%-- 						<c:if test="${loginMember.email eq 'admin' }">
 									<td><a href="deleteBoard?num=${f.num}">삭제</a></td>    
 									</c:if> --%>
