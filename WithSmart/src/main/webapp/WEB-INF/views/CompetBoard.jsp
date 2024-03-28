@@ -127,6 +127,7 @@
 					                <a href="goCompetBoard?page=${pageNum}">${pageNum}</a>
 					            </c:otherwise>
 					        </c:choose>
+
 					    </c:forEach>
 					
 					    <c:if test="${currentPage < totalPages}">
