@@ -21,6 +21,10 @@ public interface CompetBoardMapper {
 
 	List<CompetBoard> getCompetBoardList(int startIndex);
 
+	public void getCompetCount(int competboard);
+
+	
+
 
 
 
