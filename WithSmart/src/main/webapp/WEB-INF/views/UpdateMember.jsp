@@ -27,6 +27,7 @@
 <head>
 <meta charset="UTF-8">
 <title>WithSmart</title>
+
 <style type="text/css">
 	
 	.board{
@@ -124,14 +125,13 @@
 						<form action="memberUpdate" method="post">
 							<div name ="inputInfo">이메일 정보 <input name="mb_id" size= 20 readonly value="${loginMember.mb_id}"></div>
 							<br>
-						<%-- <div><input type="hidden" name="mb_id" value="${loginMember.mb_id }"></div> --%>
 							
 							<div name ="inputInfo" style="color: #000000;">닉네임 변경   <input type="text" name="mb_nick" size= 20 placeholder="변경할 닉네임" value="${loginMember.mb_nick }"> </div>
-							<%-- <div><input type="text" name="mb_nick" placeholder="닉네임를 입력하세요" value="${loginMember.mb_nick }"></div> --%>
-							<br>
 							
-							<div name ="inputInfo" style="color: #000000;">비밀번호 변경 <input type="password" name="mb_pw" size= 20 placeholder="새 비밀번호 입력" > </div>
-							<%-- <div><input type="password" name="mb_pw" placeholder="비밀번호를 입력하세요" value="${loginMember.mb_pw }"></div> --%>
+							<br>
+							<div name ="inputInfo" style="color: #000000;">현재 비밀번호 <input type="text" size= 20 placeholder="현재 비밀번호" value="${loginMember.mb_pw}" readonly> </div>
+							<div name ="inputInfo" style="color: #000000;">비밀번호 변경 <input type="password" name="mb_pw" size= 20 placeholder="새 비밀번호 입력"> </div>
+							
 							<br>
 							<br>
 							

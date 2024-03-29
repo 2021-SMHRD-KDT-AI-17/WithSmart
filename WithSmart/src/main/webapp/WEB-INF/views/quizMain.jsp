@@ -47,7 +47,7 @@
             <img src="resources/images/quizmain.png" alt="영차">
             <br>
             <br>
-            <input type="text" name="mb_id" placeholder="사용자 ID 입력" required><br>
+            <input type="text" name="mb_id" placeholder="사용자 ID 입력" required value="${param.mb_id}"><br>
             <button type="submit" class="btn btn-primary btn-lg">오늘의 퀴즈 풀기</button>
         </form>
     </div>
