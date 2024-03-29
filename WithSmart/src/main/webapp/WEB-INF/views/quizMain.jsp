@@ -67,8 +67,8 @@ button[type="submit"] {
 		<form id="start-quiz-form" action="showQuiz" method="post">
 			<img src="resources/images/quizmain.png" alt="영차"> <br> <br>
 			<!-- 사용자 ID 입력 -->
-			<label for="mb_id">사용자 ID:</label><br> <input type="text"
-				id="mb_id" name="mb_id" value="${loginMember.mb_id}" readonly><br>
+			<label for="mb_id">사용자 닉네임:</label><br>
+<input type="text" id="mb_id" name="mb_id" value="${sessionScope.loginMember.mb_nick}" readonly><br>
 			<button type="submit" class="btn btn-primary btn-lg">오늘의 퀴즈
 				풀기</button>
 		</form>
