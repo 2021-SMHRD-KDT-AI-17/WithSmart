@@ -132,10 +132,11 @@
 					    </tr>
 					  </thead>
 					  <tbody>
+					  <!-- goJobBoardDetail?job_idx= -->
 					  	<c:forEach items="${b_list}" var="b" varStatus="s">
 					    	<tr>
 					    		<td>${b.job_idx}</td>
-					    		<td><a href="goJobBoardDetail?job_idx=${b.detailinfo}"  target="_blank">${b.jobtitle}</a></td>
+					    		<td><a href="${b.detailinfo}"  target="_blank">${b.jobtitle}</a></td>
 					    		<td style="text-align:center"><a href="${b.companyinfo}"  target="_blank">${b.companyname}</td>
 					    		<td style="text-align:center">${b.enddate}</td>
 					    		<td style="text-align:center">${fn:split(b.uploadtime," ")[0] }</td>
