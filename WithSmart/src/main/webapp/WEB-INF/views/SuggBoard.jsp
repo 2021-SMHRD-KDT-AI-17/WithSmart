@@ -79,6 +79,14 @@
 		
 	}
 	
+	hr {
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2); /* 수평 그림자 추가 */
+	}
+	
+	h1{
+	font-wieght:bold;
+	}
+	
 	
 </style>
 </head>
@@ -98,13 +106,14 @@
         <div class="board">
        
 			<div class="table-responsive">
-					<span><h1>애로 및 건의사항 게시판</h1></span>					
+					<span><h1 >애로 및 건의사항 게시판</h1></span>
+					<hr></hr>					
 	                <div class ="btn">
-						<a href="goMain"><button class="btn btn-primary" id="writer">홈으로 가기</button></a>
+						<a href="goMain"><button class="btn btn-primary" id="writer" style="background: #2E9AFE; border:none">홈으로 가기</button></a>
 	                	<%if(loginMember ==null){ %>
 							<a href="goJoin"><button type="button" class="btn btn-primary">글 작성하기</button></a>
 						<%}else{ %>
-							<a href="goSuggBoardWrite"><button type="button" class="btn btn-primary">글 작성하기</button></a>
+							<a href="goSuggBoardWrite"><button type="button" class="btn btn-primary" style="background: #2E9AFE; border:none">글 작성하기</button></a>
 						<%} %>
 	                </div>
 					
@@ -128,7 +137,7 @@
 	                        	<c:when test="${loginMember.mb_id eq 'admin@naver.com'}">
 						        	<td>${s.title }</td>
 						    		<td>${s.writer }</td>
-		                        	<td>${fn:split(s.writetime ," ")[0] }</td>
+		                        	<td>${fn:split(s.writetime," ")[0]  }</td>
 		                        	<c:if test="${loginMember.mb_id eq 'admin@naver.com' }">
 									<td><a href="deleteSBoard?suggboard_idx=${s.suggboard_idx }">삭제</a></td>
 									</c:if>
@@ -136,7 +145,7 @@
 	                        	<c:otherwise>
 	                        		<td>건의합니다</td>
 						    		<td>***</td>
-		                        	<td>${fn:split(s.writetime ," ")[1] }</td>
+		                        	<td>${fn:split(s.writetime ," ")[0] }</td>
 	                        	</c:otherwise>
 							</c:choose>
 	                     </tr>
