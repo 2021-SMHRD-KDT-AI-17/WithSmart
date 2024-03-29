@@ -27,5 +27,12 @@
 		update tbl_projectboard set heartcount=heartcount+1 where projectboard_idx=#{projectboard_idx}
 	</update>		
 	
+	<select id="getTotalCount" resultType="int">
+		select count(*) from tbl_projectboard
+	</select>
+	
+	<select id="getProjectBoardList" parameterType="int" resultType="kr.smhrd.entity.ProjectBoard">
+		select * from tbl_projectboard order by writetime desc limit #{startIndex}, 10
+	</select>	
 	
 </mapper>

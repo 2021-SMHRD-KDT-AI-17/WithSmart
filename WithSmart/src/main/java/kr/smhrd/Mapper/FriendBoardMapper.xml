@@ -30,6 +30,13 @@
 		update tbl_friendboard set heartcount=heartcount+1 where friendboard_idx=#{friendboard_idx}
 	</update>
 
+	<select id="getTotalCount" resultType="int">
+		select count(*) from tbl_friendboard
+	</select>
+	
+	<select id="getFriendBoardList" parameterType="int" resultType="kr.smhrd.entity.FriendBoard">
+		select * from tbl_friendboard order by writetime desc limit #{startIndex}, 10
+	</select>	
 
 
 

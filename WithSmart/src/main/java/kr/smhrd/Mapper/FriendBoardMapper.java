@@ -21,7 +21,9 @@ public interface FriendBoardMapper {
 
 	public void Fboardheart(int friendboard_idx);
 
-	
+	public int getTotalCount();
+
+	public List<FriendBoard> getFriendBoardList(int startIndex);	
 
 
 

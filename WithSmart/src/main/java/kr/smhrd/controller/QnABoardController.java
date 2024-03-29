@@ -15,7 +15,6 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import kr.smhrd.Mapper.QnABoardMapper;
-import kr.smhrd.entity.FriendBoard;
 import kr.smhrd.entity.QnABoard;
 
 @Controller
@@ -25,10 +24,20 @@ public class QnABoardController {
 	private QnABoardMapper qnaBoardMapper;
 	
 	@RequestMapping("/goQnABoard")
-	public String goQnABoard(Model model) {
-		List<QnABoard> q_list = qnaBoardMapper.qnaBoardList();
-		model.addAttribute("q_list", q_list);
-		return "QnABoard";
+	public String goQnABoard(@RequestParam(defaultValue = "1") int page, Model model) {
+		int pagesize = 10;
+	    int totalCount = qnaBoardMapper.getTotalCount();
+	    int totalPages = (int) Math.ceil((double) totalCount / pagesize);
+	    if (page > totalPages) {
+	        page = totalPages;
+	    }
+	    int startIndex = (page - 1) * pagesize; // 시작 인덱스 계산
+	    List<QnABoard> q_list = qnaBoardMapper.getQnaBoardList(startIndex);
+	    System.out.println(startIndex);
+	    model.addAttribute("q_list", q_list);
+	    model.addAttribute("totalPages", totalPages);
+	    model.addAttribute("currentPage", page);
+	    return "QnABoard";
 	}
 	
 	// 게시글 등록
