@@ -86,6 +86,10 @@
       
    }
    
+   	.table>thead{
+		text-align: center;
+	}
+   
    
 </style>
 </head>
@@ -108,11 +112,11 @@
          <div class="table-responsive">
                    <span><h1>친목 게시판</h1></span>           
                    <div class ="btn">
-                  <a href="goMain"><button class="btn btn-primary" id="writer">홈으로 가기</button></a>
+                  <a href="goMain"><button class="btn btn-primary" id="writer" style="background: #2E9AFE; border:none">홈으로 가기</button></a>
                   <%if(loginMember == null){ %>
 						<a href="goJoin"><button type="button" class="btn btn-primary">글 작성하기</button></a>
 						<%}else{ %>
-							<a href="goFriendBoardWrite"><button type="button" class="btn btn-primary">글 작성하기</button></a>
+							<a href="goFriendBoardWrite"><button type="button" class="btn btn-primary" style="background: #2E9AFE; border:none">글 작성하기</button></a>
 						<%} %>
                    </div>
                
@@ -141,13 +145,13 @@
 	                       	<%}else{ %>
 	                       	<td>${fs.count+(currentPage-1)*10}</td>
 	                       	<%} %>
-	                        <td>${f.title }</td>
-	                        <td>${f.writer }</td>
-	                        <td>${fn:split(f.writetime ," ")[0] }</td>
-	                        <td>${f.viewcount }</td>
+	                        <td >${f.title }</td>
+	                        <td style="text-align:center">${f.writer }</td>
+	                        <td style="text-align:center">${fn:split(f.writetime ," ")[0] }</td>
+	                        <td style="text-align:center">${f.viewcount }</td>
 	                        <td><a href="Fboardheart?friendboard_idx=${f.friendboard_idx }">${f.heartcount } <span type="button"> ♥ </span></a></td>
 	                        <c:if test="${loginMember.mb_id eq 'admin@naver.com' }">
-								<td><a href="deleteFBoard?friendboard_idx=${f.friendboard_idx }">삭제</a></td>
+								<td style="text-align:center"><a href="deleteFBoard?friendboard_idx=${f.friendboard_idx }">삭제</a></td>
 							</c:if>
 	                     </tr>
             		</c:forEach>
