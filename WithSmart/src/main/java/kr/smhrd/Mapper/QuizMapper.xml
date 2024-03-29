@@ -10,6 +10,10 @@
     LIMIT 10;
 </select>
 
+ <select id="getCorrectAnswer" parameterType="int" resultType="int">
+        SELECT answer FROM tbl_quiz WHERE quiz_idx = #{quiz_idx}
+    </select>
+
 <insert id="submitQuiz" parameterType="kr.smhrd.entity.QuizAnswer">
     INSERT INTO tbl_test (quiz_idx, mb_id, answer)
     VALUES (#{quiz_idx}, #{mb_id}, #{userAnswer})
