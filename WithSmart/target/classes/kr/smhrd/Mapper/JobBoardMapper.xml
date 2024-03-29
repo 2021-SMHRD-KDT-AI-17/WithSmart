@@ -13,6 +13,9 @@
 	<select id="getJobBoardList" parameterType="int" resultType="kr.smhrd.entity.JobBoard">
 		select * from tbl_jobboard limit #{startIndex}, 10
 	</select>
-
+	
+	<update id="JobCount" parameterType="int">
+		update tbl_jobboard set viewcount=viewcount+1 where job_idx=#{job_idx}
+	</update>
 	
 </mapper>
