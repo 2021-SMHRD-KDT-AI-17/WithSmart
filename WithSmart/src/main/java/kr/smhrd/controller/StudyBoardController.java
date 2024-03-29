@@ -15,6 +15,7 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import org.springframework.ui.Model;
 import kr.smhrd.Mapper.StudyBoardMapper;
+import kr.smhrd.entity.CompetBoard;
 import kr.smhrd.entity.FriendBoard;
 import kr.smhrd.entity.StudyBoard;
 
@@ -25,9 +26,20 @@ public class StudyBoardController {
 	private StudyBoardMapper studyBoardMapper;
 	
 	@RequestMapping("/goStudyBoard")
-	public String goStudyBoard(Model model) {
-		List<StudyBoard> st_list = studyBoardMapper.studyBoardList();
+	public String goStudyBoard(@RequestParam(defaultValue = "1") int page, Model model) {
+		int pagesize = 10;
+	    int totalCount = studyBoardMapper.getTotalCount();
+	    int totalPages = (int) Math.ceil((double) totalCount / pagesize);
+	    if (page > totalPages) {
+	        page = totalPages;
+	    }
+	    int startIndex = (page - 1) * pagesize; // 시작 인덱스 계산
+		/*List<StudyBoard> st_list = studyBoardMapper.studyBoardList();*/
+		List<StudyBoard> st_list = studyBoardMapper.getStudyBoardList(startIndex);
+		 /*model.addAttribute("st_list", st_list);*/
 		model.addAttribute("st_list", st_list);
+		model.addAttribute("totalPages", totalPages);
+		model.addAttribute("currentPage", page);
 		return "StudyBoard";
 	}
 
