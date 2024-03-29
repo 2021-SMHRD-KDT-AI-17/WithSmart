@@ -78,6 +78,9 @@
 		margin-right: 200px; 
 		
 	}
+	.table>thead{
+		text-align: center;
+	}
 	
 	
 </style>
@@ -125,14 +128,14 @@
 					  <tbody>
 					  	<c:forEach items="${p_list }" var="p" varStatus="ps">
 	                     <tr onclick="location.href='PboardContent?projectboard_idx=${p.projectboard_idx }'" onMouseover="this.style.color='red';" onMouseout="this.style.color='black'">
-	                        <td width=10px>${ps.count }</td>
-	                        <td width=50px>${p.title }</td>
-	                        <td width=10px>${p.writer }</td>
-	                        <td width=15px>${fn:split(p.writetime ," ")[0] }</td>
-	                        <td width=5px>${p.viewcount }</td>
-	                        <td width=5px><a href="Pboardheart?projectboard_idx=${p.projectboard_idx }">${p.heartcount } <span type="button"> ♥ </span></a></td>
+	                        <td style="text-align:center;">${ps.count }</td>
+	                        <td>${p.title }</td>
+	                        <td style="text-align:center;">${p.writer }</td>
+	                        <td style="text-align:center;">${fn:split(p.writetime ," ")[0] }</td>
+	                        <td style="text-align:center;">${p.viewcount }</td>
+	                        <td style="text-align:center;"><a href="Pboardheart?projectboard_idx=${p.projectboard_idx }">${p.heartcount } <span type="button"> ♥ </span></a></td>
 		                        <c:if test="${loginMember.mb_id eq 'admin@naver.com' }">
-									<td width=5px><a href="deletePBoard?projectboard_idx=${p.projectboard_idx }">삭제</a></td>
+									<td style="text-align:center" ><a href="deletePBoard?projectboard_idx=${p.projectboard_idx }">삭제</a></td>
 								</c:if>
 	                     </tr>
             		  	</c:forEach>
