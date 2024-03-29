@@ -19,13 +19,12 @@
     VALUES (#{quiz_idx}, #{mb_id}, #{userAnswer})
 </insert>
     
-   <!-- 랭킹 조회 -->
-    <select id="showRankingResult">
-        SELECT mb_id,
-            COUNT(quiz_idx) AS "푼_문제_수",
-            (SUM(CASE WHEN best_answer_yn = 'Y' THEN 1 ELSE 0 END) / COUNT(quiz_idx) * 100) AS "정답률"
-        FROM tbl_test
-        GROUP BY mb_id;
-    </select>
+  <select id="getquizRanking" resultType="java.util.Map">
+    SELECT mb_id,
+        COUNT(quiz_idx) AS "푼_문제_수",
+        (SUM(CASE WHEN best_answer_yn = 'Y' THEN 1 ELSE 0 END) / COUNT(quiz_idx) * 100) AS "정답률"
+    FROM tbl_test
+    GROUP BY mb_id;
+</select>
    
 </mapper>
