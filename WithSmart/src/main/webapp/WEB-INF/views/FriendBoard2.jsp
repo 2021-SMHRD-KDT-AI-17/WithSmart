@@ -86,6 +86,10 @@
       
    }
    
+   	.table>thead{
+		text-align: center;
+	}
+   
    
 </style>
 </head>
@@ -136,14 +140,14 @@
                    
                    <c:forEach items="${f_list }" var="f" varStatus="fs">
 	                     <tr onclick="location.href='FboardContent?friendboard_idx=${f.friendboard_idx }'" onMouseover="this.style.color='red';" onMouseout="this.style.color='black'">
-	                        <td>${fs.count }</td>
+	                        <td style="text-align:center">${fs.count }</td>
 	                        <td>${f.title }</td>
-	                        <td>${f.writer }</td>
-	                        <td>${fn:split(f.writetime ," ")[1] }</td>
-	                        <td>${f.viewcount }</td>
-	                        <td><a href="Fboardheart?friendboard_idx=${f.friendboard_idx }">${f.heartcount } <span type="button"> ♥ </span></a></td>
+	                        <td style="text-align:center">${f.writer }</td>
+	                        <td style="text-align:center">${fn:split(f.writetime ," ")[0] }</td>
+	                        <td style="text-align:center">${f.viewcount }</td>
+	                        <td style="text-align:center"><a href="Fboardheart?friendboard_idx=${f.friendboard_idx }">${f.heartcount } <span type="button"> ♥ </span></a></td>
 	                        <c:if test="${loginMember.mb_id eq 'admin@naver.com' }">
-								<td><a href="deleteFBoard?friendboard_idx=${f.friendboard_idx }">삭제</a></td>
+								<td style="text-align:center"><a href="deleteFBoard?friendboard_idx=${f.friendboard_idx }">삭제</a></td>
 							</c:if>
 	                     </tr>
             		</c:forEach>

@@ -139,7 +139,7 @@
 		                       <%--  <td style="text-align:center" >${sts.count }</td>  --%>
 		                        <td >${st.title }</td>
 		                        <td style="text-align:center" >${st.writer }</td>
-		                        <td style="text-align:center">${fn:split(st.writetime ," ")[1] }</td>
+		                        <td style="text-align:center">${fn:split(st.writetime ," ")[0] }</td>
 		                        <td style="text-align:center">${st.viewcount }</td>
 		                        <td style="text-align:center" ><a href="Stboardheart?studyboard_idx=${st.studyboard_idx }">${st.heartcount } <span type="button"> ♥ </span></a></td>
 		                        <c:if test="${loginMember.mb_id eq 'admin@naver.com' }">
