@@ -37,7 +37,7 @@ public class JobBoardController {
 	@RequestMapping("/goJobBoardDetail")
 	public String goJobBoardDetail(@RequestParam("job_idx") int job_idx) {
 		jobboardMapper.JobCount(job_idx);
-		return "redirect:/JobBoard";
+		return "redirect:/goJobBoard";
 	}
 	
 	
