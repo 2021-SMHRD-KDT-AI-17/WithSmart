@@ -101,8 +101,8 @@
             <h1 class="text-white font-weight-bold mb-4" data-aos="fade-up" data-aos-delay="0">WithSmart</h1>
             <h3 class="text-white mb-4" data-aos="fade-up" data-aos-delay="100"><strong>회원가입</strong></h3>
             
-            <!-- 회원가입 정보 입력 form  -->
-            <form action="memberInsert" class="sign-up-form d-grid" data-aos="fade-up" data-aos-delay="200" method ="post" style=width:425px>
+            <!-- 회원가입 정보 입력 form  memberInsert-->
+            <form action="loginSuccess" class="sign-up-form d-grid" data-aos="fade-up" data-aos-delay="200" method ="post" style=width:425px>
 	            <input type="text" class="form-control" placeholder="이메일을 입력해주세요" name="mb_id"  id="inputE" style="margin-bottom:10px">
 	            <input type="button" class="btn btn-success" value="Email 중복체크" onclick="checkE()" style="margin-bottom:10px">
 	            <span id="resultCheck"></span>

@@ -36,16 +36,36 @@
 		margin-top: 100px;
 		margin-left: 300px;
 		margin-right : 500px;
-		width: 1000px;
+		width: 1300px;
 		
 	}
 	
-	.table-responsive{
+	
+	@media (max-width: 992px) {
+        .board {
+            margin-left: 50px;
+            margin-right: 50px;
+            width: auto;
+        }
+    }
+
+    @media (max-width: 1900px) {
+        .board {
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+
+        .table-responsive {
+            width: 100%;
+        }
+    }
+	
+	/* .table-responsive{
 		width: 1200px;
 		margin-top: 150px;
 	
 		
-	}
+	} */
 	.btn{
 		display: inline-block;
 		float: right;
@@ -68,6 +88,11 @@
  		/* width: 100%;  */
 	}
 	
+	#wrapper{
+		margin-top: 200px;
+	}
+	
+	
 </style>
 </head>
 <body>
@@ -78,10 +103,12 @@
 		
 	%>
 
+<div class="hero-slant overlay" data-stellar-background-ratio="0.5" style="background-image: url('resources/images/joinSuccess1.jpg'); background-position: 0% 0px";>
 
 <!-- header 파일 불러오기 -->
     <%@ include file="./header.jsp" %>   
 
+<!-- 	 배경사진 삽입  -->        
 
         <div class="board">
        		
@@ -100,28 +127,25 @@
 										<br>
 										<br>
 										<!-- Q2. 회원가입 한 회원정보 중 이메일을 출력하시오.(request영역 활용) -->
-										<div><strong><%=mb_nick %></strong>님 회원가입이 완료되었습니다.</div>
-										<div><strong>위드스마트</strong> 에서 많은 정보와 교류를 나누어보세요 :)</div>
+										<div style="color: white"><strong><%=mb_nick %></strong>님 회원가입이 완료되었습니다.</div>
+										<div style="color: white"><strong>위드스마트</strong> 에서 많은 정보와 교류를 나누어보세요 :)</div>
 										<br>
 										<!-- <div id=loginButton><button onclick='location.href="goJoin"'>로그인 하러가기</button></div> -->
 										<div><button class="btn btn-primary" display :inline-block; ><a href ="goJoin", style ='color:white' >로그인 하러가기</a></button></div>
 										<br>
 										
-									</ul>
-									
+									</ul>	
 								</div>			
 						</div>
-  					
 				</div>
-    
         </div>
       
-
+</div>
     
-<!--	 배경사진 삽입         
+<!-- 	 배경사진 삽입  -->        
 
-<div class="hero-slant overlay" data-stellar-background-ratio="0.5" style="background-image: url('resources/images/img_h_7-min.jpg'); background-position: 0% 0px";>
- -->   
+<!-- <div class="hero-slant overlay" data-stellar-background-ratio="0.5" style="background-image: url('resources/images/joinSuccess1.jpg'); background-position: 0% 0px";> -->
+  
     
     	
     <div id="overlayer"></div>
