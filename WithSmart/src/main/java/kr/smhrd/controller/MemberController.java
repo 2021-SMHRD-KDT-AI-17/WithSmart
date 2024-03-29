@@ -80,7 +80,7 @@ public class MemberController {
 		// System.out.println(member);
 		Member loginMember = memberMapper.goLogin(member);
 		session.setAttribute("loginMember", loginMember);
-		session.setAttribute("loginMember1", loginMember);
+		// session.setAttribute("loginMember1", loginMember);
 		return "Main";
 	}
 	
