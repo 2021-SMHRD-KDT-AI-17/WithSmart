@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
 <!DOCTYPE html>
 <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -115,79 +117,25 @@
 					      <th scope="col">작성일</th>
 					      <th scope="col">조회수</th>
 					      <th scope="col">추천수</th>
+					      <%if(loginMember.getMb_id().equals("admin@naver.com")){ %>
+                     		 <td scope="col">삭제</td>
+                     	  <%} %>
 					    </tr>
 					  </thead>
 					  <tbody>
-					    <tr>
-					      <th scope="row">1</th>
-					      <td><a href="goStudyBoardDetail">제목1</a></td>
-					      <td>닉네임</td>
-					      <td>작성일</td>
-					      <td>11</td>
-					      <td>11</td>
-					    </tr>
-					    <tr>
-					      <th scope="row">2</th>
-					      <td><a href="goStudyBoardDetail">제목2</a></td>
-					      <td>닉네임</td>
-					      <td>작성일</td>
-					      <td>11</td>
-					      <td>11</td>
-					    </tr>
-					    <tr>
-					      <th scope="row">3</th>
-					      <td><a href="goStudyBoardDetail">제목3</a></td>
-					      <td>닉네임</td>
-					      <td>작성일</td>
-					      <td>11</td>
-					      <td>11</td>
-					    </tr>
-					    
-					    <tr>
-					      <th scope="row">4</th>
-					      <td><a href="goStudyBoardDetail">제목4</a></td>
-					      <td>닉네임</td>
-					      <td>작성일</td>
-					      <td>11</td>
-					      <td>11</td>
-					    </tr>
-					    
-					    <tr>
-					      <th scope="row">5</th>
-					      <td><a href="goStudyBoardDetail">제목5</a></td>
-					      <td>닉네임</td>
-					      <td>작성일</td>
-					      <td>11</td>
-					      <td>11</td>
-					    </tr>
-					    
-					    <tr>
-					      <th scope="row">6</th>
-					      <td><a href="goStudyBoardDetail">제목6</a></td>
-					      <td>닉네임</td>
-					      <td>작성일</td>
-					      <td>11</td>
-					      <td>11</td>
-					    </tr>
-					    
-					    <tr>
-					      <th scope="row">7</th>
-					      <td><a href="goStudyBoardDetail">제목7</a></td>
-					      <td>닉네임</td>
-					      <td>작성일</td>
-					      <td>11</td>
-					      <td>11</td>
-					    </tr>
-					    
-					    <tr>
-					    
-					      <th scope="row">8</th>
-					      <td><a href="goStudyBoardDetail">제목8</a></td>
-					      <td>닉네임</td>
-					      <td>작성일</td>
-					      <td>11</td>
-					      <td>11</td>
-					    </tr>
+					  	<c:forEach items="${st_list }" var="st" varStatus="sts">
+		                     <tr onclick="location.href='StboardContent?studyboard_idx=${st.studyboard_idx }'" onMouseover="this.style.color='red';" onMouseout="this.style.color='black'">
+		                        <td>${sts.count }</td>
+		                        <td>${st.title }</td>
+		                        <td>${st.writer }</td>
+		                        <td>${fn:split(st.writetime ," ")[1] }</td>
+		                        <td>${st.viewcount }</td>
+		                        <td><a href="Stboardheart?studyboard_idx=${st.studyboard_idx }">${st.heartcount } <span type="button"> ♥ </span></a></td>
+		                        <c:if test="${loginMember.mb_id eq 'admin@naver.com' }">
+									<td><a href="deleteStBoard?studyboard_idx=${st.studyboard_idx }">삭제</a></td>
+								</c:if>
+		                     </tr>
+            		   </c:forEach>	  
 					    
 					  </tbody>
     

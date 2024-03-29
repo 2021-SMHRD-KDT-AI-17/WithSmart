@@ -1,3 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="kr.smhrd.Mapper.StudyBoardMapper"></mapper>
+<mapper namespace="kr.smhrd.Mapper.StudyBoardMapper">
+	
+	<insert id="insertBoard" parameterType="kr.smhrd.entity.StudyBoard">
+		insert into tbl_studyboard(title, writer, filename, content)
+			values(#{title}, #{writer}, #{filename}, #{content})
+	</insert>
+	
+	<select id="studyBoardList" resultType="kr.smhrd.entity.StudyBoard">
+		select * from tbl_studyboard order by writetime desc
+	</select>
+	
+	<delete id="deleteStBoard" parameterType="int">
+		delete from tbl_studyboard where studyboard_idx=#{studyboard_idx}
+	</delete>
+	
+	<update id="Stboardheart" parameterType="int">
+		update tbl_studyboard set heartcount=heartcount+1 where studyboard_idx=#{studyboard_idx}
+	</update>
+	
+	<update id="StboardCount" parameterType="int">
+		update tbl_studyboard set viewcount=viewcount+1 where studyboard_idx=#{studyboard_idx}
+	</update>
+	
+	<select id="StboardContent" parameterType="int" resultType="kr.smhrd.entity.StudyBoard">
+		select * from tbl_studyboard where studyboard_idx=#{studyboard_idx}
+	</select>
+	
+	
+</mapper>

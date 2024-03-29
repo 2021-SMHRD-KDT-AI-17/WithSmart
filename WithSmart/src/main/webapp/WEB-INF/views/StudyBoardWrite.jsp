@@ -96,7 +96,7 @@
         <h1 class="h6 mb-3 text-black" style ="font-size: 40px; margin-top: 20px;" ><strong>게시글 작성</strong></h1>
       
      	 <!-- 글 작성 입력 폼 -->
-        <form action ="#" method ="">
+        <form action ="StudyBoardInsert" method ="post" enctype="multipart/form-data">
           <div class="row" style ="margin-top: 50px">
             <div class="col-md-6">
               <div class="form-group">
@@ -109,7 +109,7 @@
               <div class="form-group">
               <!-- 작성자 입력  -->
                 <label class="text-black" for="lname">작성자</label>
-                <input type="text" class="form-control"name ="writer">
+                <input type="text" class="form-control"name ="writer" readonly value="${loginMember.mb_nick }">
               </div>
             </div>
           </div>
@@ -122,12 +122,12 @@
           <div class="form-group">
             <!--글 내용 입력  -->
             <label class="text-black" for="contents">내용</label>
-            <textarea name="contents" class="form-control" id="contents" cols="30" rows="10"></textarea>
+            <textarea name="content" class="form-control" id="contents" cols="30" rows="10"></textarea>
           </div>
         
       	<div class ="btn">
-          <button type="submit" class="btn btn-primary"><a href="goStudyBoard" style="color: white">작성하기</a></button>
-          <button type="submit" class="btn btn-primary"><a href="goStudyBoard" style="color: white">뒤로가기</a></button>
+          <input type="submit" class="btn btn-primary" value="작성하기">
+	      <input type="reset" class="btn btn-primary" value="초기화">
         </div>
         </form>
       </div>
