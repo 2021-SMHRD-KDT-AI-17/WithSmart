@@ -11,9 +11,5 @@ public class LunchController {
 		return "Lunch";
 	}
 	
-	
-	@RequestMapping("/loginSuccess")
-	public String loginSuccess() {
-		return "JoinSuccess";
-	}
+
 }
