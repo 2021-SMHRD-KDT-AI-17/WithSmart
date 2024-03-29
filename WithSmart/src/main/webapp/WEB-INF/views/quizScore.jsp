@@ -1,39 +1,85 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ include file="header.jsp"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>퀴즈 결과</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>퀴즈 결과</title>
+
+<!-- 부트스트랩 CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+	integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+	crossorigin="anonymous">
+<link
+	href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap"
+	rel="stylesheet">
+<link rel="stylesheet" href="resources/css/style.css">
+<style>
+/* 퀴즈 결과 페이지에 대한 추가적인 스타일 */
+.quiz-result-container {
+	text-align: center;
+	margin-top: 50px;
+}
+
+.quiz-score {
+	font-size: 24px;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+
+.quiz-message {
+	font-size: 18px;
+	margin-bottom: 30px;
+}
+
+.btn-back-to-main {
+	font-size: 18px;
+	padding: 10px 30px;
+}
+</style>
 </head>
 <body>
-    <h1>퀴즈 결과</h1>
-    
-    <%-- 사용자의 점수 표시 --%>
-    <p>당신의 점수는 ${score} / ${maxScore} 점입니다.</p>
-    
-    <%-- 사용자의 점수에 따른 메시지 표시 --%>
-    <c:choose>
-        <%-- 만점일 경우 --%>
-        <c:when test="${score == maxScore}">
-            <p>모든 문제를 정확히 맞추셨습니다! 축하합니다!</p>
-        </c:when>
-        <%-- 절반 이상을 맞춘 경우 --%>
-        <c:when test="${score > maxScore / 2}">
-            <p>잘 하셨습니다. 더 많은 연습을 통해 더 높은 점수를 획득하세요!</p>
-        </c:when>
-        <%-- 절반 미만을 맞춘 경우 --%>
-        <c:otherwise>
-            <p>분발하세요. 좀 더 공부해서 더 높은 점수를 획득하세요.</p>
-        </c:otherwise>
-    </c:choose>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<div class="container">
+		<div class="quiz-result-container">
+			<h1>퀴즈 결과</h1>
 
-    <%-- 초기화면으로 돌아가는 버튼 --%>
-    <form id="quiz-score-form" action="backToMain" method="post">
-        <div class="text-center">
-            <button type="submit" class="btn btn-primary">초기화면으로 돌아가기</button>
-        </div>
-    </form>
+			<!-- 사용자의 점수 표시 -->
+			<p class="quiz-score">당신의 점수는 ${score} / ${maxScore} 점입니다.</p>
+
+			<!-- 사용자의 점수에 따른 메시지 표시 -->
+			<p class="quiz-message">
+				<c:choose>
+					<c:when test="${score == maxScore}">
+						<!-- 만점일 경우 -->
+        모든 문제를 정확히 맞추셨습니다! 축하합니다!
+    </c:when>
+					<c:when test="${score > maxScore / 2}">
+						<!-- 절반 이상을 맞춘 경우 -->
+        잘 하셨습니다. 더 많은 연습을 통해 더 높은 점수를 획득하세요!
+    </c:when>
+					<c:otherwise>
+						<!-- 절반 미만을 맞춘 경우 -->
+        아쉬워요... 다음엔 잘 할수 있을거에요...
+    </c:otherwise>
+				</c:choose>
+			</p>
+
+			<!-- 초기화면으로 돌아가는 버튼 -->
+			<form id="quiz-score-form" action="backToMain" method="post">
+				<button type="submit" class="btn btn-primary btn-back-to-main">초기화면으로
+					돌아가기</button>
+			</form>
+		</div>
+	</div>
 </body>
 </html>

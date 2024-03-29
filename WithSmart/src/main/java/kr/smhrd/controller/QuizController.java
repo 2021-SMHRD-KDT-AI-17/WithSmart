@@ -49,35 +49,41 @@ public class QuizController {
             int maxScore = totalQuestions * 10; // 만점을 계산 (한 문제당 10점)
 
             // 각 문제에 대한 채점
-//            for (int quiz_idx : quiz_idxList) {
-//                // 사용자가 선택한 답 가져오기
-//                String userAnswer = userAnswerMap.get("userAnswer_" + quiz_idx);
-//                // 정답 가져오기
-//                int correctAnswer = quizMapper.getCorrectAnswer(quiz_idx);
-//
-//                // 사용자 답안과 정답 비교하여 정확도 계산
-//                if (userAnswer != null && userAnswer.equals(String.valueOf(correctAnswer))) {
-//                    totalCorrectAnswers++; // 정답일 경우 정답 수 증가
-//                }
-//            }
+            for (int quiz_idx : quiz_idxList) {
+                // 사용자가 선택한 답 가져오기
+                String userAnswer = userAnswerMap.get("userAnswer_" + quiz_idx);
+                // 정답 가져오기
+                int correctAnswer = quizMapper.getCorrectAnswer(quiz_idx);
 
-    	        // 점수 계산: 총 정답 수 * 한 문제당 점수
-    	        int score = totalCorrectAnswers * 10;
+                // 사용자 답안과 정답 비교하여 정확도 계산
+                if (userAnswer != null && userAnswer.equals(String.valueOf(correctAnswer))) {
+                    totalCorrectAnswers++; // 정답일 경우 정답 수 증가
+                }
 
-    	        // 채점 결과를 모델에 추가
-    	        model.addAttribute("totalQuestions", totalQuestions);
-    	        model.addAttribute("totalCorrectAnswers", totalCorrectAnswers);
-    	        model.addAttribute("score", score);
-    	        model.addAttribute("maxScore", maxScore);
+                // 사용자가 선택한 답을 DB에 저장
+                QuizAnswer quizAnswer = new QuizAnswer();
+                quizAnswer.setQuiz_idx(quiz_idx);
+                quizAnswer.setMb_id(mb_id);
+                quizAnswer.setUserAnswer(userAnswer);
+                quizMapper.submitQuiz(quizAnswer);
+            }
 
-    	        // 채점 결과 페이지로 이동
-    	        return "quizScore";
-    	        
-    	    } catch (Exception e) {
-    	        // 예외 처리
-    	        model.addAttribute("error", "채점 중 오류가 발생했습니다: " + e.getMessage());
-    	        return "quizError"; // 에러 페이지로 이동
-    	    }
+            // 점수 계산: 총 정답 수 * 한 문제당 점수
+            int score = totalCorrectAnswers * 10;
+
+            // 채점 결과를 모델에 추가
+            model.addAttribute("totalQuestions", totalQuestions);
+            model.addAttribute("totalCorrectAnswers", totalCorrectAnswers);
+            model.addAttribute("score", score);
+            model.addAttribute("maxScore", maxScore);
+
+            // 채점 결과 페이지로 이동
+            return "quizScore";
+        } catch (Exception e) {
+            // 예외 처리
+            model.addAttribute("error", "채점 중 오류가 발생했습니다: " + e.getMessage());
+            return "quizError"; // 에러 페이지로 이동
+        }
     }
     @RequestMapping("/backToMain")
     public String backToMain() {
