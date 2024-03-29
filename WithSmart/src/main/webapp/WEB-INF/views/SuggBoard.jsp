@@ -128,7 +128,7 @@
 	                        	<c:when test="${loginMember.mb_id eq 'admin@naver.com'}">
 						        	<td>${s.title }</td>
 						    		<td>${s.writer }</td>
-		                        	<td>${fn:split(s.writetime ," ")[1] }</td>
+		                        	<td>${fn:split(s.writetime ," ")[0] }</td>
 		                        	<c:if test="${loginMember.mb_id eq 'admin@naver.com' }">
 									<td><a href="deleteSBoard?suggboard_idx=${s.suggboard_idx }">삭제</a></td>
 									</c:if>

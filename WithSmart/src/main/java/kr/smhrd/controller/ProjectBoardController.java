@@ -1,24 +1,105 @@
 package kr.smhrd.controller;
 
+import java.io.IOException;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+
+import kr.smhrd.Mapper.ProjectBoardMapper;
+import kr.smhrd.entity.FriendBoard;
+import kr.smhrd.entity.ProjectBoard;
 
 @Controller
 public class ProjectBoardController {
-
+	
+	@Autowired
+	private ProjectBoardMapper projectBoardMapper;
+	
 	@RequestMapping("/goProjectBoard")
-	public String goProjectBoard() {
+	public String goProjectBoard(Model model) {
+		List<ProjectBoard> p_list = projectBoardMapper.projectBoardList();
+		model.addAttribute("p_list",p_list);
 		return "ProjectBoard";
 	}
 
-	@RequestMapping("/goProjectBoardDetail")
-	public String goProjectBoardDetail() {
-		return "ProjectBoardDetail";
-	}
-
+//	@RequestMapping("/goProjectBoardDetail")
+//	public String goProjectBoardDetail() {
+//		return "ProjectBoardDetail";
+//	}
+	
 	@RequestMapping("/goProjectBoardWrite")
 	public String goProjectBoardWrite() {
 		return "ProjectBoardWrite";
+	}
+	
+	@RequestMapping("ProjectBoardInsert")
+	public String ProjectBoardInsert(ProjectBoard Projectboard, HttpServletRequest request) {
+		
+		String path = request.getRealPath("resources/image");
+		int size = 1024 * 1024 * 10;
+		String encoding = "UTF-8";
+		DefaultFileRenamePolicy rename = new DefaultFileRenamePolicy();
+
+		try {
+			MultipartRequest multi = new MultipartRequest(request, path, size, encoding, rename);
+			String title = multi.getParameter("title");
+			String writer = multi.getParameter("writer");
+			String filename = multi.getFilesystemName("filename");
+			String content = multi.getParameter("content");
+
+			
+			Projectboard = new ProjectBoard(title, writer, filename, content);
+			
+			// System.out.println(Projectboard.toString());
+			
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		int cnt = projectBoardMapper.insertBoard(Projectboard);
+		
+		if(cnt>0) {
+			System.out.println("업로드 성공");
+		}else {
+			System.out.println("업로드 실패");
+		}
+		
+		return "redirect:/goProjectBoard";
+	}
+	
+	// 게시물 상세보기
+	@RequestMapping("/PboardContent")
+	public String PboardContent(int projectboard_idx, Model model) {
+		projectBoardMapper.PboardCount(projectboard_idx);
+		
+		ProjectBoard projectboard = projectBoardMapper.PboardContent(projectboard_idx);
+		model.addAttribute("projectboard", projectboard);
+		return "ProjectBoardDetail";
+	}
+	
+	// 추천
+	@RequestMapping("/Pboardheart")
+	public String Pboardheart(int projectboard_idx) {
+		projectBoardMapper.Pboardheart(projectboard_idx);
+		return "redirect:/goProjectBoard";
+	}
+	
+	
+	// 삭제
+	@RequestMapping("/deletePBoard")
+	public String deletePBoard(@RequestParam("projectboard_idx") int projectboard_idx) {
+		projectBoardMapper.deletePBoard(projectboard_idx);
+		return "redirect:/goProjectBoard";
 	}
 	
 }
