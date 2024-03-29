@@ -34,8 +34,8 @@
 		justify-content: center;
 		align-items: center;
 		margin-top: 100px;
-		margin-left: 300px;
-		margin-right : 500px;
+		margin-left: auto;
+		margin-right : auto;
 		width: 1300px;
 		
 	}

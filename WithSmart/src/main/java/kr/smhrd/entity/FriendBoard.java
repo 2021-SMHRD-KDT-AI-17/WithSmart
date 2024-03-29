@@ -20,18 +20,24 @@ import lombok.ToString;
 public class FriendBoard {
 
 
-	    // 친목 식별자 
-	    private int friendboard_idx;
 
-	    @NonNull private String title;
-	    @NonNull private String writer;
-	    @NonNull private String filename;
-	    @NonNull private String content;
-	    private String writetime;
-        private int viewcount;
-	    private int heartcount;
+    // 친목 식별자 
+    private int friendboard_idx;
 
-
+    @NonNull private String title;
+    
+    @NonNull private String writer;
+    
+    @NonNull private String filename;
+    
+    @NonNull private String content;
+    
+    private String writetime;
+    
+    private int viewcount;
+    
+    private int heartcount;
+    
 
 	
 	
