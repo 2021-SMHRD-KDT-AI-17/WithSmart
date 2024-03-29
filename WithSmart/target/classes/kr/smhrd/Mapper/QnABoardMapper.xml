@@ -27,5 +27,11 @@
 		update tbl_qnaboard set heartcount=heartcount+1 where qnaboard_idx=#{qnaboard_idx}
 	</update>
 	
+	<select id="getTotalCount" resultType="int">
+		select count(*) from tbl_qnaboard
+	</select>
 	
+	<select id="getQnaBoardList" parameterType="int" resultType="kr.smhrd.entity.QnABoard">
+		select * from tbl_qnaboard order by writetime desc limit #{startIndex}, 10
+	</select>		
 </mapper>

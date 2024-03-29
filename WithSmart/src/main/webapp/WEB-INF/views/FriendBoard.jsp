@@ -135,13 +135,13 @@
                    
                    <% int currentPage = (Integer)request.getAttribute("currentPage");%>
                    <c:forEach items="${f_list }" var="f" varStatus="fs">
-	                     <tr>
+                   <tr onclick="location.href='FboardContent?friendboard_idx=${f.friendboard_idx }'" onMouseover="this.style.color='red';" onMouseout="this.style.color='black'">
 	                        <%if(currentPage==1){ %>
 	                       	<td>${fs.count}</td>
 	                       	<%}else{ %>
 	                       	<td>${fs.count+(currentPage-1)*10}</td>
 	                       	<%} %>
-	                        <td><a href="FboardContent?friendboard_idx=${f.friendboard_idx }">${f.title }</a></td>
+	                        <td>${f.title }</td>
 	                        <td>${f.writer }</td>
 	                        <td>${fn:split(f.writetime ," ")[0] }</td>
 	                        <td>${f.viewcount }</td>
