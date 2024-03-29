@@ -1,8 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>  
 <!DOCTYPE html>
 <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -36,11 +33,10 @@
 		
 		justify-content: center;
 		align-items: center;
-		margin-top: 200px;
+		margin-top: 100px;
 		margin-left: 300px;
 		margin-right : 500px;
 		width: 1300px;
-		
 	}
 	
 	@media (max-width: 992px) {
@@ -62,16 +58,21 @@
         }
     }
 	
-	/* .table-responsive{
+	.table-responsive{
 		width: 1200px;
+		margin: 0 auto;
 		margin-top: 150px;
-	
+		background-image: linear-gradient(45deg, #f0efef, white);
+/* 		background-color:#f0efef; */
+		padding:30px;
+		border-radius: 30px 30px 30px 30px;
 		
-	} */
+	}
 	.btn{
 		display: inline-block;
 		float: right;
 		margin: 0 5px 0 30px;
+
 	}
 	
 	.bottom_num{
@@ -79,93 +80,71 @@
 		
 	}
 	
+	.buttonfit{
+		display: inline-block;
+		background-color:#e84545;
+		border-color:#e84545;
+		color:#ffffff;
+		border-radius:3px;
+		text-align:center;
+		border:none;
+		padding:15px;
+
+	}
+	
+	.button-container{
+	text-align:center;
+	margin-left:200px;
+	
+	}
+	
+	.inputInfo{
+		margin: 200px;
+	}
+
+		
 	
 </style>
 </head>
 <body>
-
-	<%-- <%
-		// 로그인한 사용자의 세션 가지고오기
-		Member loginMember = (Member)session.getAttribute("loginMember");
-		
-	%> --%>
 
 
 <!-- header 파일 불러오기 -->
     <%@ include file="./header.jsp" %>   
 
 
-        <div class="board">
+        <div class="board" >
        
 			<div class="table-responsive">
-					<span><h1>애로 및 건의사항 게시판</h1></span>					
-	                <div class ="btn">
-						<a href="goMain"><button class="btn btn-primary" id="writer">홈으로 가기</button></a>
-	                	<%if(loginMember ==null){ %>
-							<a href="goJoin"><button type="button" class="btn btn-primary">글 작성하기</button></a>
-						<%}else{ %>
-							<a href="goSuggBoardWrite"><button type="button" class="btn btn-primary">글 작성하기</button></a>
-						<%} %>
-	                </div>
-					
-  					<table class="table">
-					  <thead>
-					    <tr>
-					      <td scope="col">No</td>
-					      <td scope="col">제목</td>
-					      <td scope="col">작성자</td>
-					      <td scope="col">작성일</td>
-					      <%if(loginMember.getMb_id().equals("admin@naver.com")){ %>
-                     		<td scope="col">삭제</td>
-                     	<%} %>
-					    </tr>
-					  </thead>
-					  
-					  <c:forEach items="${s_list }" var="s" varStatus="ss">
-	                     <tr>
-	                        <td>${ss.count }</td>
-	                        <c:choose> 
-	                        	<c:when test="${loginMember.mb_id eq 'admin@naver.com'}">
-						        	<td><a href="SboardContent?suggboard_idx=${s.suggboard_idx }">${s.title }</a></td>
-						    		<td>${s.writer }</td>
-		                        	<td>${fn:split(s.writetime ," ")[1] }</td>
-		                        	<c:if test="${loginMember.mb_id eq 'admin@naver.com' }">
-									<td><a href="deleteSBoard?suggboard_idx=${s.suggboard_idx }">삭제</a></td>
-									</c:if>
-					    	    </c:when>
-	                        	<c:otherwise>
-	                        		<td>건의합니다</td>
-						    		<td>***</td>
-		                        	<td>${fn:split(s.writetime ," ")[1] }</td>
-	                        	</c:otherwise>
-							</c:choose>
-	                     </tr>
-            		</c:forEach>
-    					
-    					
-    					
-  					</table>
+										
+	                
+						<h2>회원정보수정</h2>
+						<hr></hr>
+						<br>
+						<form action="memberUpdate" method="post">
+							<div name ="inputInfo">이메일 정보 <input name="mb_id" size= 20 readonly value="${loginMember.mb_id}"></div>
+							<br>
+						<%-- <div><input type="hidden" name="mb_id" value="${loginMember.mb_id }"></div> --%>
+							
+							<div name ="inputInfo" style="color: #000000;">닉네임 변경   <input type="text" name="mb_nick" size= 20 placeholder="변경할 닉네임" value="${loginMember.mb_nick }"> </div>
+							<%-- <div><input type="text" name="mb_nick" placeholder="닉네임를 입력하세요" value="${loginMember.mb_nick }"></div> --%>
+							<br>
+							
+							<div name ="inputInfo" style="color: #000000;">비밀번호 변경 <input type="password" name="mb_pw" size= 20 placeholder="새 비밀번호 입력" > </div>
+							<%-- <div><input type="password" name="mb_pw" placeholder="비밀번호를 입력하세요" value="${loginMember.mb_pw }"></div> --%>
+							<br>
+							<br>
+							
+							<div class="button-container"><input type="submit" class="buttonfit" value="수정하기">
+							<div class ="btn">
+								<a href="goMain"><button class="btn btn-primary" id="writer">홈으로 가기</button></a>
+	              			 </div> 			
+							</div> 
+						
+							
+	              			  
+	  					</form>
 				</div>
-			
-			<!-- 부트스트랩 페이징 적용   -->
-			<nav aria-label="Page navigation example" class="bottom_num">
-			  <ul class="pagination justify-content-center">
-			    <li class="page-item">
-			      <a class="page-link" href="#" aria-label="Previous">
-			        <span aria-hidden="true">&laquo;</span>
-			      </a>
-			    </li>
-			    <li class="page-item"><a class="page-link" href="#">1</a></li>
-			    <li class="page-item"><a class="page-link" href="#">2</a></li>
-			    <li class="page-item"><a class="page-link" href="#">3</a></li>
-			    <li class="page-item">
-			      <a class="page-link" href="#" aria-label="Next">
-			        <span aria-hidden="true">&raquo;</span>
-			      </a>
-			    </li>
-			  </ul>
-			</nav>
-    
         </div>
       
 

@@ -42,6 +42,26 @@
 		margin-left: 500px;
 	
 	}
+	
+	@media (max-width: 992px) {
+        .container {
+            margin-left: 50px;
+            margin-right: 50px;
+            width: auto;
+        }
+    }
+
+    @media (max-width: 768px) {
+       .btn {
+            float: none;
+            margin-right: 0;
+            margin-top: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+    }
 	.btn{
 		display: inline-block;
 		float: right;
@@ -50,6 +70,10 @@
 
 	.form-group{
 		margin-bottom: 20px;
+	}
+	
+	.text-black{
+		font-size: 20px;
 	}
 
 </style>
@@ -73,7 +97,7 @@
       </div>
       <div class="col-lg-7">
 		
-        <h1 class="h6 mb-3 text-black" ><strong>게시글 작성</strong></h1>
+        <h1 class="h6 mb-3 text-black" style ="font-size: 40px; margin-top: 20px;" ><strong>게시글 작성</strong></h1>
       
      	 <!-- 글 작성 입력 폼 -->
         <form action ="SuggBoardInsert" method ="post"  enctype="multipart/form-data">
@@ -94,11 +118,11 @@
             </div>
           </div>
     
-    
-	       	<div class="form-group">
+    		<div class="col-md-12">
+	       		<div class="form-group">
 	       		<!-- 파일 첨부  -->
-	       		
-	       		<input type="file" style="float:right; margin-bottom: 20px;" name="filename">
+	       			<input type="file" style="float:right; margin-bottom: 20px;" name="filename">
+	  	   	 	</div>
 	  	    </div>
        
           <div class="form-group">

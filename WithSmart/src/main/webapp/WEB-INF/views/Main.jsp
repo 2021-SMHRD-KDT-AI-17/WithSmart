@@ -17,8 +17,12 @@
   <meta name="description" content="" />
   <meta name="keywords" content="bootstrap, bootstrap4" />
 
-
+	<!-- 구글 폰트 적용 -->	
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+  <!-- 고딕체 적용 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gothic+A1&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="resources/css/bootstrap.min.css">
   <link rel="stylesheet" href="resources/css/owl.carousel.min.css">
@@ -32,6 +36,64 @@
 
   <title>WithSmart</title>
 </head>
+<style>
+	.video-container{
+		position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: -1; /* 비디오가 다른 콘텐츠 위에 렌더링되도록 함 */
+	}
+	
+	 video {
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+	/* 내용 스타일 */
+    .content {
+        position: relative; /* 비디오 위에 콘텐츠를 겹칠 수 있도록 함 */
+        z-index: 1; /* 콘텐츠가 비디오 위에 렌더링되도록 함 */
+        color: white;
+       
+        padding: 50px;
+        margin : 300px;
+      }
+        
+	   @media (max-width: 768px) {
+	    .content {
+	        display: none; /* 화면 너비가 768px 이하일 때 content를 숨김 */
+	    	}
+    	}
+    	
+    	
+    	/* footer.jsp 파일내에 class=site-footer" 영역이 768px이하면 숨김 */
+    	@media (max-width: 768px) {
+    	 .site-footer {
+        	display: none;
+    		}
+    		
+		 /* Monteserrat 폰트를 전역으로 적용 */
+		body {
+		    font-family: 'Montserrat', sans-serif;
+		}
+		
+		/* Gothic A1 폰트를 전역으로 적용 */
+		h1, h2, h3, h4, h5, h6, p, a, ul, ol, li, span, div {
+		    font-family: 'Gothic A1', sans-serif;
+		}
+</style>
+
+
+
 <body>
 
 
@@ -40,9 +102,11 @@
   
 
 	<!-- 배경 사진 삽입  -->
-  <div class="hero-slant overlay" data-stellar-background-ratio="0.5" style="background-image: url('resources/images/hero-min.jpg'); background-position: 0% 0px";>
-
-      	
+  <!-- <div class="hero-slant overlay" data-stellar-background-ratio="0.5" style="background-image: url('resources/images/hero-min.jpg'); background-position: 0% 0px";> -->
+<%-- 	
+	<div class="video-container">
+		<video src="resources/images/computer.mp4" controls autoplay muted play >
+      	<div class="video-overlay">
       <!-- 화면 소개 및 회원가입/로그인 하기  -->   
       <div class="container">
         <div class="row align-items-center justify-content-between">
@@ -69,10 +133,45 @@
            -->
           </div>   
         </div>        
+      </video>
       </div>
+      </div>  --%>
+      
+      
+      <!--배경에 비디오 삽입  -->
+      <div class="video-container">
+    	<video autoplay loop muted>
+    		<source src="resources/images/computer.mp4" type ="video/mp4">
+    	</video>
+     </div>
+    	
+    	<!-- 배경 위에 내용 포함하기  -->
+		<div class ="content">
+        	<div class="container">
+	            <div class="row align-items-center justify-content-between">
+	                <div class="col-lg-7 intro">
+	                    <h1 class="text-white font-weight-bold mb-4" data-aos="fade-up" data-aos-delay="0">
+	                        <%if(loginMember == null){ %>
+	                        안녕하세요! <br> WithSmart 입니다.
+	                        <%}else { %>
+	                        <%=loginMember.getMb_nick() %>님 안녕하세요! <br> WithSmart 입니다.
+	                        <%} %>
+	                    </h1>
+	                    <p class="text-white mb-4" data-aos="fade-up" data-aos-delay="100"> 스마트인재 개발원 수강생과 수료생들을 위한 서비스입니다. 
+	                        <%if(loginMember == null){ %>
+	                        <br> 회원가입 후 서비스를 이용해보세요! <br>
+	                    <button class="btn btn-primary" style ="margin-top: 30px; display: flex; justify-content: center;"><a href ="goJoin" , style ='color:white; text-decoration: none;' >회원가입  / 로그인 </a></btton>
+	                    <%} %>
+	                    </p>
+	                </div>   
+	            </div>        
+	        </div>
+	    </div>
 
       <div class="slant" style="background-image: url('resources/images/slant.svg');"></div>
     </div>
+      
+
     
  
  	<!-- footer 파일 불러오기 -->
