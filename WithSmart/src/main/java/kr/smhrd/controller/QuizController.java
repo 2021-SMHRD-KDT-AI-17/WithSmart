@@ -90,5 +90,21 @@ public class QuizController {
         return "redirect:/quizMain";
     }
     
+    @RequestMapping("/goquizRanking")
+    public String goquizRanking() {
+    	return "quizRanking";
+    }
+    
+    
+    @RequestMapping("showRanking")
+    	public String showRanking(Model model) {
+    	
+    	List<Map<String,Object>> ranking = quizMapper.getquizRanking();
+    	
+    	model.addAttribute("ranking",ranking);
+    	
+    	return "redirect:/quizRanking";
+    }
+    
     
 }
