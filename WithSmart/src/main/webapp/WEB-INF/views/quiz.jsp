@@ -30,9 +30,14 @@
         .form-check-input {
             margin-right: 10px;
         }
+        
+        body {
+    background-color: #f8f9fa; /* 배경색 설정 */
+}
     </style>
 </head>
 <body>
+    <br>
     <br>
     <br>
     <br>
@@ -40,7 +45,7 @@
         <h2 class="text-center mb-4">오늘의 퀴즈</h2>
         <div class="text-center">
             <!-- main 페이지에서 전달된 사용자 ID를 화면에 표시 -->
-            <h4>사용자 ID : ${param.mb_id}> </h4>
+            <%-- <h4>사용자 ID : ${param.mb_id}> </h4> --%>
         </div>
         <form id="quiz-form" action="submitQuiz" method="post">
         <input type="hidden" name="mb_id" value="${param.mb_id}" readonly>
