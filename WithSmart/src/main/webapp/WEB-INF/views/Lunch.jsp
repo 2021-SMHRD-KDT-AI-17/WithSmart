@@ -39,6 +39,19 @@
     	margin: 150px;
     }
 	 
+	 #map{
+	 	border-style:ridge;
+	 	border-width:15px;
+	 	border-color:#febf00;
+	 	border-radius: 10px;
+	 	box-shadow:2px 3px 5px 0px;
+	 }
+	 
+	 h1{
+	 font-family: fantasy;
+	 }
+	
+	 
 </style>
 
 
@@ -49,7 +62,8 @@
     <%@ include file="./header.jsp" %>   
 
      <div class="container-fluid" align="center" style ="margin-top: 200px;" >
-	 	<h1> 주변 식당 보기</h1>
+	 	<h1> 개발원 맛집 리스트</h1>
+	 	<h3 style="margin-top:50px" >지도를 클릭하여 주변 맛집을 확인해보세요!</h3>
 	 </div>
 	
 	<!-- 지도 담을 div 태그 -->
@@ -350,22 +364,23 @@
 	 
 	 </script>
 	 
-	 
+	 <hr></hr>
 	 <div class="container" align="center">
-	 	<h1>룰렛 돌리기</h1>
+	 	<h1 style="margin-top:20px">룰렛 돌리기</h1>
+	 	<h3 style="margin-top:30px">원하는 맛집을 추가하여 룰렛을 돌려보세요!</h3>
 	 </div>
 	 
 	 <!-- 룰렛판 담을 div 태그  -->
 	  <div id="menu">
             <canvas width="600" height='600'></canvas>  
             <!-- 버튼 클릭시 resources/js/lunch.js에 있는 rotate() 함수 호출  -->
-            <button onclick="rotate()" style="margin-bottom: 30px; margin-top: 30px">돌려돌려 돌림판</button>
+            <button onclick="rotate()" style="margin-bottom: 30px; margin-top: 20px; box-shadow:2px 3px 5px 0px">룰렛 돌리기!</button>
             <div id="addDiv">
-              <input type="text" id="menuAdd">
+              <input type="text" id="menuAdd" style="box-shadow:2px 3px 5px 0px">
               <!-- 버튼 클릭시 resources/js/lunch.js에 있는 add() 함수 호출  -->
               <div class="btn">
-	              <button onclick="add()" style="margin-left: 20px">메뉴 추가</button>
-	              <button id="removeAllButton" onclick="removeAll()" style="margin-left: 20px">초기화</button>
+	              <button onclick="add()" style="margin-left: 20px; box-shadow:2px 3px 5px 0px">맛집 추가</button>
+	              <button id="removeAllButton" onclick="removeAll()" style="margin-left: 20px; box-shadow:2px 3px 5px 0px">초기화</button>
 	          </div>
             </div>
        </div>

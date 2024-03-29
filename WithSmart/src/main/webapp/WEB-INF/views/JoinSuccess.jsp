@@ -58,9 +58,11 @@
 	}
 	
 	#Update{
-  		display: block;  
+/*   		display: block;   */
         /* background: linear-gradient(45deg, white, #c9f1c0); */
 		font-size: 20px;
+/* 		border:1px solid #000000;
+		border-radius: 30px 30px 30px 30px; */
 		/* background-size: cover; */
 		/* padding: 20px; */
  		/* width: 100%;  */
@@ -103,6 +105,8 @@
 										<br>
 										<!-- <div id=loginButton><button onclick='location.href="goJoin"'>로그인 하러가기</button></div> -->
 										<div><button class="btn btn-primary" display :inline-block; ><a href ="goJoin", style ='color:white' >로그인 하러가기</a></button></div>
+										<br>
+										
 									</ul>
 									
 								</div>			

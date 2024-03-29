@@ -29,6 +29,20 @@
 <title>WithSmart</title>
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 
+<style>
+	.kkologout{
+	
+		background-color: #F7E600;
+		border-color:#F7E600;
+		border-radius:7px;
+		border:none;
+		width:200px;
+		height:49.17px;
+		
+	}
+
+
+</style>
 
 
 </head>
@@ -88,26 +102,26 @@
             <h3 class="text-white mb-4" data-aos="fade-up" data-aos-delay="100"><strong>회원가입</strong></h3>
             
             <!-- 회원가입 정보 입력 form  -->
-            <form action="memberInsert" class="sign-up-form d-grid" data-aos="fade-up" data-aos-delay="200" method ="post">
-	            <input type="text" class="form-control" placeholder="이메일을 입력해주세요" name="mb_id"  id="inputE">
-	            <input type="button" class="btn btn-primary" value="Email 중복체크" onclick="checkE()">
+            <form action="memberInsert" class="sign-up-form d-grid" data-aos="fade-up" data-aos-delay="200" method ="post" style=width:425px>
+	            <input type="text" class="form-control" placeholder="이메일을 입력해주세요" name="mb_id"  id="inputE" style="margin-bottom:10px">
+	            <input type="button" class="btn btn-success" value="Email 중복체크" onclick="checkE()" style="margin-bottom:10px">
 	            <span id="resultCheck"></span>
 	            <input type="password" class="form-control" style="margin-bottom:20px" placeholder="비밀번호를 입력해주세요" name="mb_pw">
 	            <input type="text" class ="form-control" style = "margin-top:10px" placeholder ="닉네임을 입력해주세요" name="mb_nick">
-	            <input type="text" class ="form-control" style = "margin-top:10px" placeholder ="인증번호를 입력해주세요" name="mb_cert" id="inputC">
-	            <input type="button" class="btn btn-primary" value="인증번호 확인" onclick="checkC()">
+	            <input type="text" class ="form-control" style = "margin-top:10px" placeholder ="발급 받은 인증번호를 입력해주세요" name="mb_cert" id="inputC">
+	            <input type="button" class="btn btn-success" value="인증번호 확인" onclick="checkC()" style = "margin-top:5px">
 	            <div id="certCheck"></div>
-	            <input type="submit" class="btn btn-success" style="margin-top:10px" value="회원가입" width="500">
+	            <input type="submit" class="btn btn-primary" style="margin-top:10px" value="회원가입 하기" width="500">
             </form>
           
           <br><br>
           
           <!-- 로그인  -->
       		<h3 class="text-white mb-4" data-aos="fade-up" data-aos-delay="100"><strong>로그인</strong></h3>
-				<form action="goLogin" class="sign-up-form d-grid" data-aos="fade-up" data-aos-delay="200" method ="post">
+				<form action="goLogin" class="sign-up-form d-grid" data-aos="fade-up" data-aos-delay="200" method ="post" style=width:425px>
 					<input type="text" class="form-control" placeholder="이메일을 입력하세요" name="mb_id">
 					<input type="password" class="form-control"  placeholder="비밀번호를 입력하세요" name="mb_pw">
-					<input type="submit" class="btn btn-success" style="margin-top:20px"value="로그인">
+					<input type="submit" class="btn btn-primary" style="margin-top:20px"value="로그인">
 					<br><br>
 					<span onclick="kakaoLogin();">
 				      <a href="javascript:void(0)">
@@ -117,7 +131,8 @@
 					</span>
 					<span onclick="kakaoLogout();">
 				      <a href="javascript:void(0)">
-				      	<button class="btn btn-warning" style ="margin-left: 20px;"><a href="goMain" style="color: black; font-weight: bold; ">카카오 로그아웃</a></button>
+				      	<button class="kkologout" style ="width:200px; height:49.17px;"><a href="goMain" style="color: black; font-weight: bold; ">카카오 로그아웃</a></button>
+<!-- 				      	<button class="btn btn-warning" style ="width:200px; height:49.17px;"><a href="goMain" style="color: black; font-weight: bold; ">카카오 로그아웃</a></button> -->
 				      </a>
 					 </span>
 					<br>
@@ -135,8 +150,8 @@
         </div>        
       </div>
 
-      <div class="slant" style="background-image: url('resources/images/slant.svg'); margin-top: 200px"></div>
-    </div>
+	       <div class="slant" style="background-image: url('resources/images/slant.svg'); margin-top : 200px"></div>
+        </div>
     <script type="text/javascript">
     function checkC(){
 		var inputC = $('#inputC').val()

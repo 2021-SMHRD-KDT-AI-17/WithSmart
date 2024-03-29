@@ -94,6 +94,8 @@
 	
 	.button-container{
 	text-align:center;
+	margin-left:200px;
+	
 	}
 	
 	.inputInfo{
