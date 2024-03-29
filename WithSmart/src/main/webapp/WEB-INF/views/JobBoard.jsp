@@ -85,6 +85,17 @@
 		
 	}
 	
+	.paging{
+		margin-top : 20px;
+		margin-bottom: 30px;
+		
+	}
+	
+	.table>thead{
+		text-align: center;
+	}
+	
+	
 </style>
 </head>
 <body>
@@ -125,38 +136,44 @@
 					    	<tr>
 					    		<td>${b.job_idx}</td>
 					    		<td><a href="${b.detailinfo}"  target="_blank">${b.jobtitle}</a></td>
-					    		<td><a href="${b.companyinfo}"  target="_blank">${b.companyname}</td>
-					    		<td>${b.enddate}</td>
-					    		<td>${b.uploadtime }</td>
-					    		<td>${b.viewcount}</td>
+					    		<td style="text-align:center"><a href="${b.companyinfo}"  target="_blank">${b.companyname}</td>
+					    		<td style="text-align:center">${b.enddate}</td>
+					    		<td style="text-align:center">${b.uploadtime }</td>
+					    		<td style="text-align:center">${b.viewcount}</td>
 					    	</tr>
 					    </c:forEach>
 					  </tbody>
   					</table>
 				</div>
 			
+			
+			<div class="paging">
 			<!-- 부트스트랩 페이징 적용   -->
 			<nav aria-label="Page navigation example" class="bottom_num">
 			  <ul class="pagination justify-content-center">
 			    <div class="pagination">
+			      <li class="page-item">
 					    <c:if test="${currentPage > 1}">
-					        <a href="goJobBoard?page=${currentPage - 1}">&laquo; 이전</a>
+					        <a class="page-link" href="goJobBoard?page=${currentPage - 1}">&laquo; 이전</a>
 					    </c:if>
-					
+				  </li>	
 					    <c:forEach begin="1" end="${totalPages}" var="pageNum">
-					        <c:choose>
+					       <li class="page-item ${pageNum == currentPage ? 'active' : ''}">
+					    	<c:choose>
 					            <c:when test="${pageNum == currentPage}">
-					                <span>${pageNum} </span>
+					                <span class="page-link">${pageNum} </span>
 					            </c:when>
 					            <c:otherwise>
-					                <a href="goJobBoard?page=${pageNum}">${pageNum}</a>
+					                <a class="page-link" href="goJobBoard?page=${pageNum}">${pageNum}</a>
 					            </c:otherwise>
 					        </c:choose>
 					    </c:forEach>
 					
+					<li class="page-item">
 					    <c:if test="${currentPage < totalPages}">
-					        <a href="goJobBoard?page=${currentPage + 1}">다음 &raquo;</a>
+					        <a class="page-link" href="goJobBoard?page=${currentPage + 1}">다음 &raquo;</a>
 					    </c:if>
+					</li>
 					</div>
 			  </ul>
 			</nav>
