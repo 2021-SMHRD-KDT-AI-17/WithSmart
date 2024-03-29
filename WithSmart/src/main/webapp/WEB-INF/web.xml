@@ -47,10 +47,21 @@
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>QnABoardCommentController</display-name>
+		<servlet-name>QnABoardCommentController</servlet-name>
+		<servlet-class>kr.smhrd.controller.QnABoardCommentController</servlet-class>
+	</servlet>
 
 	<servlet-mapping>
 		<servlet-name>appServlet</servlet-name>
 		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>QnABoardCommentController</servlet-name>
+		<url-pattern>/QnABoardCommentController</url-pattern>
 	</servlet-mapping>
 
 </web-app>
