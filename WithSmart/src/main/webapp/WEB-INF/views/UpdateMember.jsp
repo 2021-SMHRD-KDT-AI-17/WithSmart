@@ -34,7 +34,7 @@
 		
 		justify-content: center;
 		align-items: center;
-		margin-top: 100px;
+		margin-top: 200px;
 		margin-left: 300px;
 		margin-right : 500px;
 		width: 1300px;
@@ -59,16 +59,16 @@
         }
     }
 	
-	.table-responsive{
+	 .table-responsive{
 		width: 1200px;
-		margin: 0 auto;
-		margin-top: 150px;
+		/*margin: 0 auto;
+		margin-top: 150px; */
 		background-image: linear-gradient(45deg, #f0efef, white);
-/* 		background-color:#f0efef; */
+ 		background-color:#f0efef; 
 		padding:30px;
 		border-radius: 30px 30px 30px 30px;
 		
-	}
+	} */
 	.btn{
 		display: inline-block;
 		float: right;

@@ -47,10 +47,17 @@
 	 	box-shadow:2px 3px 5px 0px;
 	 }
 	 
-	 h1{
-	 font-family: fantasy;
-	 }
-	
+	 
+	 h1 {
+            font-family: "Arial Black", sans-serif;
+            text-shadow: 4px 4px 4px rgba(128, 128, 128, 0.5);
+            font-size: 70px;
+        	font-weight: bold;
+       		 /* color: #58D3F7; */
+             /* font-style: italic; */
+/*             font-weight: bold; */
+        }
+        
 	 
 </style>
 
@@ -364,7 +371,7 @@
 	 
 	 </script>
 	 
-	 <hr></hr>
+	 <hr style="border-top: 2px solid black"></hr>
 	 <div class="container" align="center">
 	 	<h1 style="margin-top:20px">룰렛 돌리기</h1>
 	 	<h3 style="margin-top:30px">원하는 맛집을 추가하여 룰렛을 돌려보세요!</h3>
