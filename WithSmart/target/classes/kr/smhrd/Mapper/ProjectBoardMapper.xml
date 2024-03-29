@@ -1,3 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="kr.smhrd.Mapper.ProjectBoardMapper"></mapper>
+<mapper namespace="kr.smhrd.Mapper.ProjectBoardMapper">
+	
+	<select id="projectBoardList" resultType="kr.smhrd.entity.ProjectBoard">
+		select * from tbl_projectboard order by writetime desc
+	</select>
+	
+	<insert id="insertBoard" parameterType="kr.smhrd.entity.ProjectBoard">
+		insert into tbl_projectboard(title, writer, filename, content)
+			values(#{title}, #{writer}, #{filename}, #{content})
+	</insert>
+	
+	<delete id="deletePBoard" parameterType="int">
+		delete from tbl_projectboard where projectboard_idx=#{projectboard_idx}
+	</delete>
+	
+	<select id="PboardContent" parameterType="int" resultType="kr.smhrd.entity.ProjectBoard">
+		select * from tbl_projectboard where projectboard_idx=#{projectboard_idx}
+	</select>
+	
+	<update id="PboardCount" parameterType="int">
+		update tbl_projectboard set viewcount=viewcount+1 where projectboard_idx=#{projectboard_idx}
+	</update>
+	
+	<update id="Pboardheart" parameterType="int">
+		update tbl_projectboard set heartcount=heartcount+1 where projectboard_idx=#{projectboard_idx}
+	</update>		
+	
+	
+</mapper>

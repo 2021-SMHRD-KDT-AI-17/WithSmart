@@ -1,3 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="kr.smhrd.Mapper.QnABoardMapper"></mapper>
+<mapper namespace="kr.smhrd.Mapper.QnABoardMapper">
+	
+	<insert id="insertBoard" parameterType="kr.smhrd.entity.QnABoard">
+		insert into tbl_qnaboard(title, writer, filename, content)
+		values(#{title}, #{writer}, #{filename}, #{content})
+	</insert>
+	
+	<select id="qnaBoardList" resultType="kr.smhrd.entity.QnABoard">
+		select * from tbl_qnaboard order by writetime desc
+	</select>
+	
+	<delete id="deleteQBoard" parameterType="int">
+		delete from tbl_qnaboard where qnaboard_idx=#{qnaboard_idx}
+	</delete>
+	
+	<select id="QboardContent" parameterType="int" resultType="kr.smhrd.entity.QnABoard">
+		select * from tbl_qnaboard where qnaboard_idx=#{qnaboard_idx}
+	</select>
+	
+	<update id="QboardCount" parameterType="int">
+		update tbl_qnaboard set viewcount=viewcount+1 where qnaboard_idx=#{qnaboard_idx}
+	</update>
+	
+	<update id="Qboardheart" parameterType="int">
+		update tbl_qnaboard set heartcount=heartcount+1 where qnaboard_idx=#{qnaboard_idx}
+	</update>
+	
+	
+</mapper>
