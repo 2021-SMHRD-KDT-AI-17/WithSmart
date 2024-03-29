@@ -105,6 +105,8 @@
 										<br>
 										<!-- <div id=loginButton><button onclick='location.href="goJoin"'>로그인 하러가기</button></div> -->
 										<div><button class="btn btn-primary" display :inline-block; ><a href ="goJoin", style ='color:white' >로그인 하러가기</a></button></div>
+										<br>
+										
 									</ul>
 									
 								</div>			
