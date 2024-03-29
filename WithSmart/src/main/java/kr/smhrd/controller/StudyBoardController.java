@@ -61,7 +61,12 @@ public class StudyBoardController {
 			MultipartRequest multi = new MultipartRequest(request, path, size, encoding, rename);
 			String title = multi.getParameter("title");
 			String writer = multi.getParameter("writer");
-			String filename = multi.getFilesystemName("filename");
+			String filename="";
+            if(multi.getFilesystemName("filename") == null) {
+            	filename = "";
+            }else {
+            	filename = multi.getFilesystemName("filename");
+            }
 			String content = multi.getParameter("content");
 
 			

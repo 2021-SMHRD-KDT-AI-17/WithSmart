@@ -115,7 +115,7 @@
               <div class="form-group">
               <!--  글 제목 입력  -->
                 <label class="text-black" for="fname">제목</label>
-                <input type="text" class="form-control" name="title">
+                <input type="text" class="form-control" name="title" maxlength="30">
               </div>
             </div>
             <div class="col-md-6">

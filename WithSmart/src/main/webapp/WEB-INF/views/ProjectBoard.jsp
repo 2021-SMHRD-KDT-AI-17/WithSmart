@@ -103,11 +103,11 @@
 			<div class="table-responsive">
 				<span><h1>프로젝트 게시판</h1></span>						
 	                <div class ="btn">
-						<a href="goMain"><button class="btn btn-primary" id="writer">홈으로 가기</button></a>
+						<a href="goMain"><button class="btn btn-primary" id="writer" style="background: #2E9AFE; border:none">홈으로 가기</button></a>
 	                	<%if(loginMember ==null){ %>
 							<a href="goJoin"><button type="button" class="btn btn-primary">글 작성하기</button></a>
 						<%}else{ %>
-							<a href="goProjectBoardWrite"><button type="button" class="btn btn-primary">글 작성하기</button></a>
+							<a href="goProjectBoardWrite"><button type="button" class="btn btn-primary" style="background: #2E9AFE; border:none">글 작성하기</button></a>
 						<%} %>
 	                </div>
 					
