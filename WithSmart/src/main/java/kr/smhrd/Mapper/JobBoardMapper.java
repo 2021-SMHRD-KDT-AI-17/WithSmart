@@ -17,6 +17,8 @@ public interface JobBoardMapper {
 
 	public List<JobBoard> getJobBoardList(int startIndex);
 
+	public void JobCount(int job_idx);
+
 
 
 	
