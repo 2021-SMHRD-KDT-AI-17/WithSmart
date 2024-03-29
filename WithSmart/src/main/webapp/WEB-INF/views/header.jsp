@@ -18,6 +18,11 @@
     }
 </script>
 
+<style type="text/css">
+
+
+</style>
+
 
 
 </head>
@@ -39,7 +44,7 @@
     <div class="container">
 
 	<!-- Statr nav 메인 화면 시작   -->
-      <nav class="site-nav">
+      <nav class="site-nav" >
         <div class="logo">
         <!-- 로고 클릭시 Main.jsp로 이동  -->
           <a href="goMain" class="text-black">WithSmart<span class="text-black"></span></a>
@@ -149,7 +154,7 @@
             
 
   
-            <a href="#" class="burger light ml-auto site-menu-toggle js-menu-toggle d-block d-lg-none" data-toggle="collapse" data-target="#main-navbar">
+            <a href="#" class="burger light ml-auto site-menu-toggle js-menu-toggle d-block d-lg-none" data-toggle="collapse" data-target="#main-navbar" style="background:#F7CE83; opacity :0.3;" >
               <span></span>
             </a>
 

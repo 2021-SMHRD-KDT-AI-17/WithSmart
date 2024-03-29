@@ -78,7 +78,17 @@
 		
 	}
 	a{
-		color: black;'
+		color: black;
+	}
+	
+	.paging{
+		margin-top : 20px;
+		margin-bottom: 30px;
+		
+	}
+	
+	.table>thead{
+		text-align: center;
 	}
 	
 	
@@ -118,10 +128,10 @@
 					  <tbody>
 					    <c:forEach items="${cpList}" var="cp" varStatus="s">
     						<tr>
-						        <td>${cp.competboard}</td>
-						        <td><a href="goCompetBoardDetail?competboard=${cp.competboard}">${cp.compettitle}</a></td>
-						        <td>${cp.uploadtime}</td>
-						        <td>${cp.viewcount}</td>
+						        <td style="text-align:center"> ${cp.competboard}</td>
+						        <td ><a href="goCompetBoardDetail?competboard=${cp.competboard}">${cp.compettitle}</a></td>
+						        <td style="text-align:center">${cp.uploadtime}</td>
+						        <td style="text-align:center">${cp.viewcount}</td>
 						    </tr>
 						</c:forEach>
 					  </tbody>
@@ -129,33 +139,43 @@
 				</div>
 			</div>
 			
-			<!-- 부트스트랩 페이징 적용   -->
-			<nav aria-label="Page navigation example" class="bottom_num">
-			  <ul class="pagination justify-content-center">
-			    <div class="pagination">
-					    <c:if test="${currentPage > 1}">
-					        <a href="goCompetBoard?page=${currentPage - 1}">&laquo; 이전</a>
-					    </c:if>
+			
+			<div class="paging">
+				<!-- 부트스트랩 페이징 적용   -->
+				<nav aria-label="Page navigation example" class="bottom_num">
+				  <ul class="pagination justify-content-center">
+				    <div class="pagination">
+				    <li class="page-item">
+						    <c:if test="${currentPage > 1}">
+						        <a class="page-link" href="goCompetBoard?page=${currentPage - 1}">&laquo; 이전</a>
+						    </c:if>
+					</li>
 					
-					    <c:forEach begin="1" end="${totalPages}" var="pageNum">
-					        <c:choose>
-					            <c:when test="${pageNum == currentPage}">
-					                <span>${pageNum} </span>
-					            </c:when>
-					            <c:otherwise>
-					                <a href="goCompetBoard?page=${pageNum}">${pageNum}</a>
-					            </c:otherwise>
-					        </c:choose>
-					    </c:forEach>
+						    <c:forEach begin="1" end="${totalPages}" var="pageNum">
+								 <li class="page-item ${pageNum == currentPage ? 'active' : ''}">
+						        <c:choose>
+						            <c:when test="${pageNum == currentPage}">
+						                <span class="page-link">${pageNum} </span>
+						            </c:when>
+						            <c:otherwise>
+						                <a class="page-link" href="goCompetBoard?page=${pageNum}">${pageNum}</a>
+						            </c:otherwise>
+						        </c:choose>
+						        </li>
+						    </c:forEach>
 					
-					    <c:if test="${currentPage < totalPages}">
-					        <a href="goCompetBoard?page=${currentPage + 1}">다음 &raquo;</a>
-					    </c:if>
-					</div>
-			  </ul>
-			</nav>
-    
-        </div>
+					
+					<li class="page-item">	
+						    <c:if test="${currentPage < totalPages}">
+						        <a class="page-link" href="goCompetBoard?page=${currentPage + 1}">다음 &raquo;</a>
+						    </c:if>
+					</li>	    
+						
+						</div>
+				  </ul>
+				</nav>
+	    
+          </div>
       
 
     
