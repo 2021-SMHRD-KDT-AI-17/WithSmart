@@ -78,6 +78,10 @@
 		
 	}
 	
+	.table>thead{
+		text-align:center;
+	}
+	
 	
 </style>
 </head>
@@ -125,14 +129,21 @@
 					  <tbody>
 					  	<c:forEach items="${st_list }" var="st" varStatus="sts">
 		                     <tr onclick="location.href='StboardContent?studyboard_idx=${st.studyboard_idx }'" onMouseover="this.style.color='red';" onMouseout="this.style.color='black'">
-		                        <td>${sts.count }</td>
-		                        <td>${st.title }</td>
-		                        <td>${st.writer }</td>
-		                        <td>${fn:split(st.writetime ," ")[1] }</td>
-		                        <td>${st.viewcount }</td>
-		                        <td><a href="Stboardheart?studyboard_idx=${st.studyboard_idx }">${st.heartcount } <span type="button"> ♥ </span></a></td>
+		                         <%int currentPage = (Integer)request.getAttribute("currentPage");%>
+		                         <%if(currentPage ==1){ %>
+                         	 <td style="text-align:center" >${sts.count}</td>
+                             	<%}else{ %>
+                             <td style="text-align:center">${sts.count+(currentPage-1)*10}</td>
+                             	<%} %> 
+		                        
+		                       <%--  <td style="text-align:center" >${sts.count }</td>  --%>
+		                        <td >${st.title }</td>
+		                        <td style="text-align:center" >${st.writer }</td>
+		                        <td style="text-align:center">${fn:split(st.writetime ," ")[1] }</td>
+		                        <td style="text-align:center">${st.viewcount }</td>
+		                        <td style="text-align:center" ><a href="Stboardheart?studyboard_idx=${st.studyboard_idx }">${st.heartcount } <span type="button"> ♥ </span></a></td>
 		                        <c:if test="${loginMember.mb_id eq 'admin@naver.com' }">
-									<td><a href="deleteStBoard?studyboard_idx=${st.studyboard_idx }">삭제</a></td>
+									<td style="text-align:center" ><a href="deleteStBoard?studyboard_idx=${st.studyboard_idx }">삭제</a></td>
 								</c:if>
 		                     </tr>
             		   </c:forEach>	  

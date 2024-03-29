@@ -32,7 +32,7 @@
 	</select>
 	
 	<select id="getStudyBoardList" parameterType="int" resultType="kr.smhrd.entity.StudyBoard">
-		select * from tbl_studyboard limit #{startIndex}, 10
+		select * from tbl_studyboard order by writetime desc limit #{startIndex}, 10  
 	</select>
 	
 </mapper>
