@@ -115,7 +115,7 @@
 					      <th scope="col">제목</th>
 					      <th scope="col">작성자</th>
 					      <th scope="col">작성일</th>
-					      <th scope="col">조회수</th>
+					      <th scope="col">조회수</th> 
 					      <th scope="col">추천수</th>
 					      <%if(loginMember.getMb_id().equals("admin@naver.com")){ %>
                      		<td scope="col">삭제</td>
@@ -125,17 +125,22 @@
 					  <tbody>
 					  	<c:forEach items="${p_list }" var="p" varStatus="ps">
 	                     <tr onclick="location.href='PboardContent?projectboard_idx=${p.projectboard_idx }'" onMouseover="this.style.color='red';" onMouseout="this.style.color='black'">
-	                        <td>${ps.count }</td>
-	                        <td>${p.title }</td>
-	                        <td>${p.writer }</td>
-	                        <td>${fn:split(p.writetime ," ")[0] }</td>
-	                        <td>${p.viewcount }</td>
-	                        <td><a href="Pboardheart?projectboard_idx=${p.projectboard_idx }">${p.heartcount } <span type="button"> ♥ </span></a></td>
-	                        <c:if test="${loginMember.mb_id eq 'admin@naver.com' }">
-								<td><a href="deletePBoard?projectboard_idx=${p.projectboard_idx }">삭제</a></td>
-							</c:if>
+	                        <td width=10px>${ps.count }</td>
+	                        <td width=50px>${p.title }</td>
+	                        <td width=10px>${p.writer }</td>
+	                        <td width=15px>${fn:split(p.writetime ," ")[0] }</td>
+	                        <td width=5px>${p.viewcount }</td>
+	                        <td width=5px><a href="Pboardheart?projectboard_idx=${p.projectboard_idx }">${p.heartcount } <span type="button"> ♥ </span></a></td>
+		                        <c:if test="${loginMember.mb_id eq 'admin@naver.com' }">
+									<td width=5px><a href="deletePBoard?projectboard_idx=${p.projectboard_idx }">삭제</a></td>
+								</c:if>
 	                     </tr>
             		  	</c:forEach>
+            		  	
+	            		  	
+            		  	
+            		  
+            		  		
 					    
 					  </tbody>
     
