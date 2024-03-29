@@ -15,7 +15,6 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import kr.smhrd.Mapper.ProjectBoardMapper;
-import kr.smhrd.entity.FriendBoard;
 import kr.smhrd.entity.ProjectBoard;
 
 @Controller
@@ -25,10 +24,20 @@ public class ProjectBoardController {
 	private ProjectBoardMapper projectBoardMapper;
 	
 	@RequestMapping("/goProjectBoard")
-	public String goProjectBoard(Model model) {
-		List<ProjectBoard> p_list = projectBoardMapper.projectBoardList();
-		model.addAttribute("p_list",p_list);
-		return "ProjectBoard";
+	public String goProjectBoard(@RequestParam(defaultValue = "1") int page, Model model) {
+		int pagesize = 10;
+	    int totalCount = projectBoardMapper.getTotalCount();
+	    int totalPages = (int) Math.ceil((double) totalCount / pagesize);
+	    if (page > totalPages) {
+	        page = totalPages;
+	    }
+	    int startIndex = (page - 1) * pagesize; // 시작 인덱스 계산
+	    List<ProjectBoard> p_list = projectBoardMapper.getProjectBoardList(startIndex);
+	    System.out.println(startIndex);
+	    model.addAttribute("p_list", p_list);
+	    model.addAttribute("totalPages", totalPages);
+	    model.addAttribute("currentPage", page);
+	    return "ProjectBoard";
 	}
 
 //	@RequestMapping("/goProjectBoardDetail")

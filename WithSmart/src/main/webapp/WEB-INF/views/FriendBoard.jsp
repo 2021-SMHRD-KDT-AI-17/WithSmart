@@ -1,8 +1,14 @@
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+    
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+ <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>  
+    
+    
+    
+    
 <!DOCTYPE html>
 <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -13,7 +19,7 @@
   <meta name="keywords" content="bootstrap, bootstrap4" />
 
 
-	<!-- 부트스트랩 css 적용  -->
+   <!-- 부트스트랩 css 적용  -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
   
@@ -28,22 +34,24 @@
   <link rel="stylesheet" href="resources/css/style.css">
 <html>
 <head>
-<meta charset="UTF-8">
+      <meta charset="UTF-8">
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      
 <title>WithSmart</title>
 <style type="text/css">
-	
-	.board{
-		
-		justify-content: center;
-		align-items: center;
-		margin-top: 150px;
-		margin-left: 300px;
-		margin-right : 500px;
-		width: 1300px;
-		
-	}
-	
-	@media (max-width: 992px) {
+   
+   .board{
+      
+      justify-content: center;
+      align-items: center;
+      margin-top: 150px;
+      margin-left: 300px;
+      margin-right : 500px;
+      width: 1300px;
+      
+   }
+   
+   @media (max-width: 992px) {
         .board {
             margin-left: 50px;
             margin-right: 50px;
@@ -61,100 +69,94 @@
             width: 100%;
         }
     }
-/* 	
-	.table-responsive{
-		width: 1200px;
-		margin-top: 150px;
-	
-		
-	} */
-	.btn{
-		display: inline-block;
-		float: right;
-		margin: 0 5px 0 30px;
-	}
-	
-	.bottom_num{
-		margin-right: 200px; 
-		
-	}
-	.table>thead{
-		text-align: center;
-	}
-	
-	
+  /*  .table-responsive{
+      width: 1200px;
+      margin-top: 150px;
+   
+      
+   } */
+   .btn{
+      display: inline-block;
+      float: right;
+      margin: 0 5px 0 30px;
+   }
+   
+   .bottom_num{
+      margin-right: 200px; 
+      
+   }
+   
+   
 </style>
 </head>
+
 <body>
 
-	<%-- <%
-		// 로그인한 사용자의 세션 가지고오기
-		Member loginMember = (Member)session.getAttribute("loginMember");
-		
-	%> --%>
+   <%-- <%
+      // 로그인한 사용자의 세션 가지고오기
+      Member loginMember = (Member)session.getAttribute("loginMember");
+      
+   %> --%>
 
 
 <!-- header 파일 불러오기 -->
     <%@ include file="./header.jsp" %>   
 
-
+	
         <div class="board">
        
-			<div class="table-responsive">
-				<span><h1>프로젝트 게시판</h1></span>						
-	                <div class ="btn">
-						<a href="goMain"><button class="btn btn-primary" id="writer">홈으로 가기</button></a>
-	                	<%if(loginMember ==null){ %>
-							<a href="goJoin"><button type="button" class="btn btn-primary">글 작성하기</button></a>
+         <div class="table-responsive">
+                   <span><h1>친목 게시판</h1></span>           
+                   <div class ="btn">
+                  <a href="goMain"><button class="btn btn-primary" id="writer">홈으로 가기</button></a>
+                  <%if(loginMember == null){ %>
+						<a href="goJoin"><button type="button" class="btn btn-primary">글 작성하기</button></a>
 						<%}else{ %>
-							<a href="goProjectBoardWrite"><button type="button" class="btn btn-primary">글 작성하기</button></a>
+							<a href="goFriendBoardWrite"><button type="button" class="btn btn-primary">글 작성하기</button></a>
 						<%} %>
-	                </div>
-					
-  					<table class="table">
-					  <thead>
-					    <tr>
-					      <th scope="col">No</th>
-					      <th scope="col">제목</th>
-					      <th scope="col">작성자</th>
-					      <th scope="col">작성일</th>
-					      <th scope="col">조회수</th> 
-					      <th scope="col">추천수</th>
-					      <%if(loginMember.getMb_id().equals("admin@naver.com")){ %>
-                     		<td scope="col">삭제</td>
-                     	  <%} %>
-					    </tr>
-					  </thead>
-					  <tbody>
-					  	<c:forEach items="${p_list }" var="p" varStatus="ps">
-	                     <tr onclick="location.href='PboardContent?projectboard_idx=${p.projectboard_idx }'" onMouseover="this.style.color='red';" onMouseout="this.style.color='black'">
-	                     	<% int currentPage = (Integer)request.getAttribute("currentPage");%>
+                   </div>
+               
+                 <table class="table">
+                 
+                 <thead>
+                   <tr>
+                     <td scope="col">No</td>
+                     <td scope="col">제목</td>
+                     <td scope="col">작성자</td>
+                     <td scope="col">작성일</td>
+                     <td scope="col">조회수</td>
+                     <td scope="col">추천수</td>
+                     <%if(loginMember.getMb_id().equals("admin@naver.com")){ %>
+                     	<td scope="col">삭제</td>
+                     <%} %>
+                   </tr>
+                   
+
+                   
+                   <% int currentPage = (Integer)request.getAttribute("currentPage");%>
+                   <c:forEach items="${f_list }" var="f" varStatus="fs">
+                   <tr onclick="location.href='FboardContent?friendboard_idx=${f.friendboard_idx }'" onMouseover="this.style.color='red';" onMouseout="this.style.color='black'">
 	                        <%if(currentPage==1){ %>
-	                       	<td>${ps.count}</td>
+	                       	<td>${fs.count}</td>
 	                       	<%}else{ %>
-	                       	<td>${ps.count+(currentPage-1)*10}</td>
+	                       	<td>${fs.count+(currentPage-1)*10}</td>
 	                       	<%} %>
-	                        <td>${p.title }</td>
-	                        <td style="text-align:center;">${p.writer }</td>
-	                        <td style="text-align:center;">${fn:split(p.writetime ," ")[0] }</td>
-	                        <td style="text-align:center;">${p.viewcount }</td>
-	                        <td style="text-align:center;"><a href="Pboardheart?projectboard_idx=${p.projectboard_idx }">${p.heartcount } <span type="button"> ♥ </span></a></td>
-		                        <c:if test="${loginMember.mb_id eq 'admin@naver.com' }">
-									<td style="text-align:center" ><a href="deletePBoard?projectboard_idx=${p.projectboard_idx }">삭제</a></td>
-								</c:if>
+	                        <td>${f.title }</td>
+	                        <td>${f.writer }</td>
+	                        <td>${fn:split(f.writetime ," ")[0] }</td>
+	                        <td>${f.viewcount }</td>
+	                        <td><a href="Fboardheart?friendboard_idx=${f.friendboard_idx }">${f.heartcount } <span type="button"> ♥ </span></a></td>
+	                        <c:if test="${loginMember.mb_id eq 'admin@naver.com' }">
+								<td><a href="deleteFBoard?friendboard_idx=${f.friendboard_idx }">삭제</a></td>
+							</c:if>
 	                     </tr>
-            		  	</c:forEach>
-            		  	
-	            		  	
-            		  	
-            		  
-            		  		
-					    
-					  </tbody>
+            		</c:forEach>
+                   
+                 </thead>
     
-  					</table>
-				</div>
-			
+                 </table>
+            </div>
+         
 			<div class="paging">
 				<!-- 부트스트랩 페이징 적용   -->
 				<nav aria-label="Page navigation example" class="bottom_num">
@@ -162,7 +164,7 @@
 				    <div class="pagination">
 				    <li class="page-item">
 						    <c:if test="${currentPage > 1}">
-						        <a class="page-link" href="goProjectBoard?page=${currentPage - 1}">&laquo; 이전</a>
+						        <a class="page-link" href="goFriendBoard?page=${currentPage - 1}">&laquo; 이전</a>
 						    </c:if>
 					</li>
 					
@@ -173,7 +175,7 @@
 						                <span class="page-link">${pageNum} </span>
 						            </c:when>
 						            <c:otherwise>
-						                <a class="page-link" href="goProjectBoard?page=${pageNum}">${pageNum}</a>
+						                <a class="page-link" href="goFriendBoard?page=${pageNum}">${pageNum}</a>
 						            </c:otherwise>
 						        </c:choose>
 						        </li>
@@ -182,7 +184,7 @@
 					
 					<li class="page-item">	
 						    <c:if test="${currentPage < totalPages}">
-						        <a class="page-link" href="goProjectBoard?page=${currentPage + 1}">다음 &raquo;</a>
+						        <a class="page-link" href="goFriendBoard?page=${currentPage + 1}">다음 &raquo;</a>
 						    </c:if>
 					</li>	    
 						
@@ -194,19 +196,19 @@
       
 
     
-<!--	 배경사진 삽입         
+<!--    배경사진 삽입         
 
 <div class="hero-slant overlay" data-stellar-background-ratio="0.5" style="background-image: url('resources/images/img_h_7-min.jpg'); background-position: 0% 0px";>
  -->   
     
-    	
+       
     <div id="overlayer"></div>
-    	<div class="loader">
-      	<div class="spinner-border" role="status">
-       		<span class="sr-only">Loading...</span>
-      	</div>
-    </div> 	
-    	
+       <div class="loader">
+         <div class="spinner-border" role="status">
+             <span class="sr-only">Loading...</span>
+         </div>
+    </div>    
+       
     
      <div class="slant" style="background-image: url('resources/images/slant.svg');"></div>
    
@@ -214,7 +216,7 @@
 
 
 
-	<!-- script  -->
+   <!-- script  -->
    <script src="resources/js/jquery-3.5.1.min.js"></script>
     <script src="resources/js/jquery-migrate-3.0.0.min.js"></script>
     <script src="resources/js/popper.min.js"></script>
@@ -228,5 +230,7 @@
     <script src="resources/js/jquery.waypoints.min.js"></script>
     <script src="resources/js/jquery.fancybox.min.js"></script>
     <script src="resources/js/custom.js"></script>
+</body>
+</html>
 </body>
 </html>

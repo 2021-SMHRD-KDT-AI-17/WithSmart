@@ -21,4 +21,8 @@ public interface QnABoardMapper {
 
 	public void Qboardheart(int qnaboard_idx);
 
+	public int getTotalCount();
+
+	public List<QnABoard> getQnaBoardList(int startIndex);
+
 }

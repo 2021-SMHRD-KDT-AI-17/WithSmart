@@ -21,4 +21,8 @@ public interface ProjectBoardMapper {
 
 	public void Pboardheart(int projectboard_idx);
 
+	public int getTotalCount();
+
+	public List<ProjectBoard> getProjectBoardList(int startIndex);
+
 }

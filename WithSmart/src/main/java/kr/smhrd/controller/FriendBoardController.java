@@ -31,11 +31,19 @@ public class FriendBoardController {
 	
 	// goFriendBoard.jsp로 이동 + DB값 가져오기
 	@RequestMapping("/goFriendBoard")
-	public String goFriendBoard(Model model) {
-//		System.out.println("친목게시판으로!");
-		List<FriendBoard> f_list = friendBoardMapper.friendBoardList();
-		model.addAttribute("f_list", f_list);
-		return "FriendBoard";
+	public String goFriendBoard(@RequestParam(defaultValue = "1") int page, Model model) {
+		int pagesize = 10;
+	    int totalCount = friendBoardMapper.getTotalCount();
+	    int totalPages = (int) Math.ceil((double) totalCount / pagesize);
+	    if (page > totalPages) {
+	        page = totalPages;
+	    }
+	    int startIndex = (page - 1) * pagesize; // 시작 인덱스 계산
+	    List<FriendBoard> f_list = friendBoardMapper.getFriendBoardList(startIndex);
+	    model.addAttribute("f_list", f_list);
+	    model.addAttribute("totalPages", totalPages);
+	    model.addAttribute("currentPage", page);
+	    return "FriendBoard";
 	}
 	
 	// goFriendBoardWrite.jsp로 이동
