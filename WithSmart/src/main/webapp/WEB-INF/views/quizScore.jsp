@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ include file="header.jsp"%>
+<%@ include file="./header.jsp"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -40,6 +40,12 @@
 .btn-back-to-main {
 	font-size: 18px;
 	padding: 10px 30px;
+	margin-right: 10px; /* 버튼 간 간격을 조절합니다. */
+}
+
+.btn-go-quiz-Ranking {
+	font-size: 18px;
+	padding: 10px 30px;
 }
 </style>
 </head>
@@ -74,11 +80,18 @@
 				</c:choose>
 			</p>
 
-			<!-- 초기화면으로 돌아가는 버튼 -->
-			<form id="quiz-score-form" action="backToMain" method="post">
-				<button type="submit" class="btn btn-primary btn-back-to-main">초기화면으로
-					돌아가기</button>
-			</form>
+			<!-- 버튼 그룹 -->
+<div class="btn-group">
+    <!-- 초기화면으로 돌아가는 버튼 -->
+    <form id="quiz-score-form" action="backToMain" method="post">
+        <button type="submit" class="btn btn-primary btn-back-to-main btn-lg">초기화면으로 돌아가기</button>
+    </form>
+
+    <!-- 랭킹 보기 버튼 -->
+    <form id="quiz-ranking-form" action="goquizRanking" method="post">
+        <button type="submit" class="btn btn-primary btn-go-quiz-Ranking btn-lg">랭킹 보기</button>
+    </form>
+</div>
 		</div>
 	</div>
 </body>

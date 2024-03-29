@@ -90,5 +90,24 @@ public class QuizController {
         return "redirect:/quizMain";
     }
     
+    @RequestMapping("/goquizRanking")
+    public String showRanking(Model model) {
+        List<Map<String,Object>> ranking = quizMapper.getquizRanking();
+        model.addAttribute("ranking",ranking);
+
+        // 추가된 출력문
+        System.out.println(ranking);
+
+        return "quizRanking"; // 수정된 부분
+    }
+    
+//    @RequestMapping("/goquizRanking")
+//    public String goquizRanking() {
+//    	return "quizRanking";
+//    }
+    
+    
+    
+    
     
 }
