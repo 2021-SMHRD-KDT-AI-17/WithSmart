@@ -9,6 +9,11 @@
     ORDER BY RAND(CURRENT_TIMESTAMP())
     LIMIT 10;
 </select>
+
+<insert id="submitQuiz" parameterType="kr.smhrd.entity.QuizAnswer">
+    INSERT INTO tbl_test (quiz_idx, mb_id, answer)
+    VALUES (#{quiz_idx}, #{mb_id}, #{userAnswer})
+</insert>
     
    
 </mapper>
