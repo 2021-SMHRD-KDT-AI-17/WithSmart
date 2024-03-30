@@ -18,5 +18,13 @@
 		delete from tbl_suggboard where suggboard_idx=#{suggboard_idx}
 	</delete>
 	
+	<select id="getTotalCount" resultType="int">
+		select count(*) from tbl_suggboard
+	</select>
+	
+	<select id="getsuggBoardList" parameterType="int" resultType="kr.smhrd.entity.SuggBoard">
+		select * from tbl_suggboard order by writetime desc limit #{startIndex}, 10
+	</select>
+	
 	
 </mapper>
