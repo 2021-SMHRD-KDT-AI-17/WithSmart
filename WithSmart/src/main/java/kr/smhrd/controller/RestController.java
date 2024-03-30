@@ -3,6 +3,7 @@ package kr.smhrd.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.smhrd.Mapper.CertificationMapper;
 import kr.smhrd.Mapper.MemberMapper;
@@ -36,12 +37,27 @@ public class RestController {
 	// 인증번호 확인
 	@RequestMapping("/certCheck")
 	public int certCheck(@RequestParam("inputC") String inputC) {
-		 Certification cert = new Certification();
-		 cert.setMb_cert(inputC);
+		 // Certification cert = new Certification();
+		 // cert.setMb_cert(inputC);
 		if((inputC.equals("AISERVICE17"))||(inputC.equals("AISERVICE18"))) {
 			return 1;
 		}else {
 			return 0;
+		}
+	}
+	
+	// 아이디비번체크
+	@RequestMapping("/LoginCheck")
+	public @ResponseBody int LoginCheck(@RequestParam("inputId") String inputId, @RequestParam("inputPw") String inputPw) {
+		Member member = memberMapper.LoginCheck(inputId);
+		if(member==null) {
+			return 1;
+		}else {
+			if(member.getMb_pw().equals(inputPw)) {
+				return 2;
+			}else {
+				return 3;
+			}
 		}
 	}
 	

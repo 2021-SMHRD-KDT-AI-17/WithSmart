@@ -2,7 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@page import="kr.smhrd.entity.Member"%>   
 <%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+ <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>  
 <!DOCTYPE html>
 <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -70,6 +72,7 @@
 	
 	<%
 		List<Member> list = (List<Member>)request.getAttribute("list");
+		// int membersize = memberMapper.getMembersize();
 	%>
 
 
@@ -88,7 +91,7 @@
   					<table class="table">
 					  <thead>
 					  	<h2>회원관리페이지</h2>
-					  	<h3>총 <%=list.size() %>명</h3>
+					  	<h3>총 ${membersize }명</h3>
 					    <tr>
 					      <th scope="col">No</th>
 					      <th scope="col">이메일</th>
@@ -102,9 +105,14 @@
 					    		<td><%=m.getMb_nick() %></td>
 					    	</tr>
 					    <%} %> --%>
+					    <% int currentPage = (Integer)request.getAttribute("currentPage");%>
 					    <c:forEach items="${list }" var="m" varStatus="status">
 								<tr>
+									<%if(currentPage==1){ %>
 									<td>${status.count }</td>
+									<%}else{ %>
+									<td>${status.count+(currentPage-1)*10 }</td>
+									<%} %>
 									<td>${m.mb_id }</td>
 									<td>${m.mb_nick }</td>
 									<td><a href="deleteMember?mb_id=${m.mb_id }">삭제</a></td>						
@@ -117,22 +125,37 @@
 			
 			<!-- 부트스트랩 페이징 적용   -->
 			<nav aria-label="Page navigation example" class="bottom_num">
-			  <ul class="pagination justify-content-center">
-			    <li class="page-item">
-			      <a class="page-link" href="#" aria-label="Previous">
-			        <span aria-hidden="true">&laquo;</span>
-			      </a>
-			    </li>
-			    <li class="page-item"><a class="page-link" href="#">1</a></li>
-			    <li class="page-item"><a class="page-link" href="#">2</a></li>
-			    <li class="page-item"><a class="page-link" href="#">3</a></li>
-			    <li class="page-item">
-			      <a class="page-link" href="#" aria-label="Next">
-			        <span aria-hidden="true">&raquo;</span>
-			      </a>
-			    </li>
-			  </ul>
-			</nav>
+				  <ul class="pagination justify-content-center">
+				    <div class="pagination">
+				    <li class="page-item">
+						    <c:if test="${currentPage > 1}">
+						        <a class="page-link" href="goShowMember?page=${currentPage - 1}">&laquo; 이전</a>
+						    </c:if>
+					</li>
+					
+						    <c:forEach begin="1" end="${totalPages}" var="pageNum">
+								 <li class="page-item ${pageNum == currentPage ? 'active' : ''}">
+						        <c:choose>
+						            <c:when test="${pageNum == currentPage}">
+						                <span class="page-link">${pageNum} </span>
+						            </c:when>
+						            <c:otherwise>
+						                <a class="page-link" href="goShowMember?page=${pageNum}">${pageNum}</a>
+						            </c:otherwise>
+						        </c:choose>
+						        </li>
+						    </c:forEach>
+					
+					
+					<li class="page-item">	
+						    <c:if test="${currentPage < totalPages}">
+						        <a class="page-link" href="goShowMember?page=${currentPage + 1}">다음 &raquo;</a>
+						    </c:if>
+					</li>	    
+						
+						</div>
+				  </ul>
+				</nav>
     
         </div>
       
