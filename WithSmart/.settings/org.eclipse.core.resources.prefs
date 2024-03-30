@@ -1,2 +1,6 @@
 eclipse.preferences.version=1
+<<<<<<< HEAD
+encoding//src/main/webapp/WEB-INF/views/UpdateMember.jsp=UTF-8
+=======
 encoding//src/main/webapp/WEB-INF/views/quizRanking.jsp=UTF-8
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-AI-17/WithSmart.git

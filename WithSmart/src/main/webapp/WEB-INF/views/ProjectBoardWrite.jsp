@@ -128,8 +128,8 @@
           </div>
         
       	<div class ="btn">
-          <input type="submit" class="btn btn-primary" value="작성하기">
-	      <input type="reset" class="btn btn-primary" value="초기화">
+          <input type="submit" class="btn btn-primary"  style="background: #2E9AFE; border:none"value="작성하기">
+	      <input type="reset" class="btn btn-primary"  style="background: #2E9AFE; border:none" value="초기화">
         </div>
         </form>
       </div>
