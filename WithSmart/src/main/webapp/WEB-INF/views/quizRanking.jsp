@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ include file="./header.jsp"%>
 
 <!DOCTYPE html>
@@ -61,7 +62,7 @@
         <thead>
         <tr>
             <th>순위</th>
-            <th>사용자 ID</th>
+            <th>사용자 닉네임</th>
             <th>푼 문제 수</th>
             <th>정답률 (%)</th>
         </tr>
@@ -71,9 +72,9 @@
         <c:forEach var="result" items="${ranking}" varStatus="loop">
             <tr>
                 <td>${loop.index + 1}</td>
-                <td>${result.mb_id}</td>
-                <td>${result['푼_문제_수']}</td>
-                <td>${result['정답률']}</td>
+                <td>${result.mb_nick}</td> <%-- 사용자의 닉네임을 출력합니다. --%>
+                <td>${result['푼_문제_수']} 문제</td>
+                <td><fmt:formatNumber value="${result['정답률']}" pattern="###" />%</td> <%-- 소수점 이하를 버려서 정수로 변환하여 출력 --%>
             </tr>
         </c:forEach>
         </tbody>
