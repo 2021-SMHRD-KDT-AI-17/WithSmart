@@ -37,7 +37,10 @@
 	<select id="getFriendBoardList" parameterType="int" resultType="kr.smhrd.entity.FriendBoard">
 		select * from tbl_friendboard order by writetime desc limit #{startIndex}, 10
 	</select>	
-
+	
+	<select id="FgetComment" resultType="kr.smhrd.entity.FriendBoardComment">
+		select * from tbl_friendboard_comment where friendboard_idx=#{friendboard_idx}
+	</select>
 
 
 </mapper>

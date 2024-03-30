@@ -23,7 +23,9 @@ public interface FriendBoardMapper {
 
 	public int getTotalCount();
 
-	public List<FriendBoard> getFriendBoardList(int startIndex);	
+	public List<FriendBoard> getFriendBoardList(int startIndex);
+
+	public List<FriendBoard> FgetComment(int friendboard_idx);	
 
 
 
