@@ -25,4 +25,9 @@ public interface QnABoardMapper {
 
 	public List<QnABoard> getQnaBoardList(int startIndex);
 
+	public List<QnABoard> QgetComment(int qnaboard_idx);
+
+	
+
+
 }
