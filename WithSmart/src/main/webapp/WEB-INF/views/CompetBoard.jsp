@@ -130,7 +130,7 @@
     						<tr>
 						        <td style="text-align:center"> ${cp.competboard}</td>
 						        <td ><a href="goCompetBoardDetail?competboard=${cp.competboard}">${cp.compettitle}</a></td>
-						        <td style="text-align:center">${cp.uploadtime}</td>
+						        <td style="text-align:center">${fn:split(cp.uploadtime," ")[0]}</td>
 						        <td style="text-align:center">${cp.viewcount}</td>
 						    </tr>
 						</c:forEach>

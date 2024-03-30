@@ -80,11 +80,15 @@
 	}
 	
 	hr {
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2); /* 수평 그림자 추가 */
+    box-shadow: 0 4px 2px rgba(0, 0, 0, 0.7); /* 수평 그림자 추가 */
 	}
 	
 	h1{
-	font-wieght:bold;
+	/*  font-family: 'Roboto Condensed', sans-serif;
+    font-weight: bold;  */
+    /* font-style: italic; */
+   /*  text-shadow: 2px 2px 4px rgba(128, 128, 128, 0.5); */
+    
 	}
 	
 	

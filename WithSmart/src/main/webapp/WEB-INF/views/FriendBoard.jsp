@@ -105,7 +105,7 @@
 
 <!-- header 파일 불러오기 -->
     <%@ include file="./header.jsp" %>   
-
+<!-- <div class="hero-slant overlay" data-stellar-background-ratio="0.5" style="background-image: url('resources/images/Friend.jpg'); background-position: 10% 10px";> -->
 	
         <div class="board">
        
