@@ -72,7 +72,7 @@
         <c:forEach var="result" items="${ranking}" varStatus="loop">
             <tr>
                 <td>${loop.index + 1}</td>
-                <td>${sessionScope.loginMember.mb_nick}</td> <%-- 사용자의 닉네임을 출력합니다. --%>
+                <td>${result.mb_nick}</td> <%-- 사용자의 닉네임을 출력합니다. --%>
                 <td>${result['푼_문제_수']} 문제</td>
                 <td><fmt:formatNumber value="${result['정답률']}" pattern="###" />%</td> <%-- 소수점 이하를 버려서 정수로 변환하여 출력 --%>
             </tr>
