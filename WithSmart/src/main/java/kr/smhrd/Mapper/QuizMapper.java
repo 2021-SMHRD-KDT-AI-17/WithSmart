@@ -22,5 +22,5 @@ public interface QuizMapper {
    
     void submitQuiz(QuizAnswer quizAnswer);
 
-	List<Map<String, Object>> getquizRanking();
+    List<Map<String, Object>> getQuizRankingWithScore();
 }
