@@ -33,5 +33,9 @@
 	
 	<select id="getQnaBoardList" parameterType="int" resultType="kr.smhrd.entity.QnABoard">
 		select * from tbl_qnaboard order by writetime desc limit #{startIndex}, 10
-	</select>		
+	</select>	
+	
+	<select id="QgetComment" parameterType="int" resultType="kr.smhrd.entity.QnABoardComment">
+		select * from tbl_qnaboard_comment where qnaboard_idx=#{qnaboard_idx}
+	</select>
 </mapper>

@@ -33,7 +33,6 @@ public class QnABoardController {
 	    }
 	    int startIndex = (page - 1) * pagesize; // 시작 인덱스 계산
 	    List<QnABoard> q_list = qnaBoardMapper.getQnaBoardList(startIndex);
-	    System.out.println(startIndex);
 	    model.addAttribute("q_list", q_list);
 	    model.addAttribute("totalPages", totalPages);
 	    model.addAttribute("currentPage", page);
@@ -87,8 +86,11 @@ public class QnABoardController {
 	public String QboardContent(int qnaboard_idx, Model model) {
 		qnaBoardMapper.QboardCount(qnaboard_idx);
 		
+		List<QnABoard> qc_list = qnaBoardMapper.QgetComment(qnaboard_idx);
 		QnABoard qnaboard = qnaBoardMapper.QboardContent(qnaboard_idx);
 		model.addAttribute("qnaboard", qnaboard);
+		model.addAttribute("qc_list", qc_list);
+		System.out.println(qc_list);
 		return "QnABoardDetail";
 	}
 	
