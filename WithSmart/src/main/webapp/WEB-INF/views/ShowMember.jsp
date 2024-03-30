@@ -72,6 +72,7 @@
 	
 	<%
 		List<Member> list = (List<Member>)request.getAttribute("list");
+		// int membersize = memberMapper.getMembersize();
 	%>
 
 
@@ -90,7 +91,7 @@
   					<table class="table">
 					  <thead>
 					  	<h2>회원관리페이지</h2>
-					  	<h3>총 <%=list.size() %>명</h3>
+					  	<h3>총 ${membersize }명</h3>
 					    <tr>
 					      <th scope="col">No</th>
 					      <th scope="col">이메일</th>

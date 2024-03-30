@@ -102,10 +102,12 @@ public class MemberController {
 			page=totalPages;
 		}
 		int startIndex = (page-1) * pagesize;
+		int membersize = memberMapper.getMembersize();
 		List<Member> list = memberMapper.getgoShowMember(startIndex);
 		model.addAttribute("list",list);
 		model.addAttribute("totalPages", totalPages);
 		model.addAttribute("currentPage", page);
+		model.addAttribute("membersize", membersize);
 		return "ShowMember";
 	}
 	
