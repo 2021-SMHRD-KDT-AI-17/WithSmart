@@ -73,7 +73,10 @@ button[type="submit"] {
 <input type="text" id="mb_nick" name="mb_nick" value="${sessionScope.loginMember.mb_nick}" readonly style="width: 300px; margin: 0 auto; text-align: center;"><br>
 			<button type="submit" class="btn btn-primary btn-lg">오늘의 퀴즈
 				풀기</button>
-		</form>
+		
+		
+		<button type="submit" class="btn btn-primary btn">홈으로 돌아가기</button>
+		
 	</div>
 </body>
 </html>
