@@ -153,6 +153,7 @@
 	                <div class ="btn">
 						<a href="goMain"><button class="btn btn-primary"  style="background: #2E9AFE; border:none"id="writer">홈으로 가기</button></a>
 	               	</div>
+
 					
   					<table class="table">
 					  <thead>
