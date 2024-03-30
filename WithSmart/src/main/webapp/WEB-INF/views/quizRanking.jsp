@@ -73,7 +73,7 @@
                 <td>${loop.index + 1}</td>
                 <td>${result.mb_id}</td>
                 <td>${result['푼_문제_수']}</td>
-                <td>${result['정답률']}</td>
+                <td>${(int) result['정답률']}</td> <%-- 소수점 이하를 버려서 정수로 변환하여 출력 --%>
             </tr>
         </c:forEach>
         </tbody>
