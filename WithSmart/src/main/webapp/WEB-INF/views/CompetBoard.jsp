@@ -94,8 +94,8 @@
 	.listTitle{
 		 background: linear-gradient(to bottom, #A9E2F3, #ffffff); /* 그라데이션 배경 */
     	 box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
-    
 	}
+	
 	.start_table{
       background-image: url('resources/images/트로피5.jpg');
       width: 100%;
@@ -145,7 +145,7 @@
        
 			<div class="table-responsive">
 			
-			<div class="start_table" >
+			<div class="start_table">
 				<span ><h1>공모전 게시판</h1></span>			
 			</div>				
 	                <div class ="btn">
