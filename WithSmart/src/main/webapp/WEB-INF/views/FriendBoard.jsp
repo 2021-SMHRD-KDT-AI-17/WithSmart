@@ -89,7 +89,39 @@
    	.table>thead{
 		text-align: center;
 	}
+   .listTitle{
+		 background: linear-gradient(to bottom, #A9E2F3, #ffffff); /* 그라데이션 배경 */
+    	 box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
+    	 font-weight: bold;
+	}
+	
+	.start_table{
+      background-image: url('resources/images/친구6.jpg');
+      width: 100%;
+      height:170px;
+      display: flex;
+      justify-content: center;
+      align-items: center; 
+      
+      position: relative;
+      isolation : isolate;
+   }
    
+   
+   .start_table::after{
+      content : '';
+      position: absolute;
+      background: white;
+      z-index: -1;
+      inset:0;
+      opacity: 0.5;
+   
+   }
+   
+   .start_table h1{
+      color: black;
+      font-weight: bold;
+   }
    
 </style>
 </head>
@@ -110,7 +142,10 @@
         <div class="board">
        
          <div class="table-responsive">
+         
+         <div class="start_table">
                    <span><h1>친목 게시판</h1></span>           
+         </div>          
                    <div class ="btn">
                   <a href="goMain"><button class="btn btn-primary" id="writer" style="background: #2E9AFE; border:none">홈으로 가기</button></a>
                   <%if(loginMember == null){ %>
@@ -123,7 +158,7 @@
                  <table class="table">
                  
                  <thead>
-                   <tr>
+                   <tr class="listTitle">
                      <td scope="col">No</td>
                      <td scope="col">제목</td>
                      <td scope="col">작성자</td>
@@ -141,9 +176,9 @@
                    <c:forEach items="${f_list }" var="f" varStatus="fs">
                    <tr onclick="location.href='FboardContent?friendboard_idx=${f.friendboard_idx }'" onMouseover="this.style.color='red';" onMouseout="this.style.color='black'">
 	                        <%if(currentPage==1){ %>
-	                       	<td>${fs.count}</td>
+	                       	<td style="text-align:center">${fs.count}</td>
 	                       	<%}else{ %>
-	                       	<td>${fs.count+(currentPage-1)*10}</td>
+	                       	<td style="text-align:center">${fs.count+(currentPage-1)*10}</td>
 	                       	<%} %>
 	                        <td >${f.title }</td>
 	                        <td style="text-align:center">${f.writer }</td>

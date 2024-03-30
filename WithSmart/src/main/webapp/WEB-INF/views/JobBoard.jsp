@@ -96,7 +96,7 @@
 	}
 	
 	.start_table{
-		background-image: url('resources/images/laptop2.jpg');
+		background-image: url('resources/images/채용2.jpg');
 		width: 100%;
 		height:170px;
 		display: flex;
@@ -125,7 +125,10 @@
 		font-weight: bold;
 	}
 	
-	
+	.listTitle{
+		 background: linear-gradient(to bottom, #A9E2F3, #ffffff); /* 그라데이션 배경 */
+    	 box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
+	}
 	
 </style>
 </head>
@@ -157,7 +160,7 @@
 					
   					<table class="table">
 					  <thead>
-					    <tr style="background: #E5E1DA;">
+					    <tr class="listTitle">
 					     <th scope="col">No</th>
 					      <th scope="col">채용공고명</th>
 					      <th scope="col">회사명</th>
