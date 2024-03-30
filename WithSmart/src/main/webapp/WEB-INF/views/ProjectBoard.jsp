@@ -82,6 +82,38 @@
 		text-align: center;
 	}
 	
+	.listTitle{
+		 background: linear-gradient(to bottom, #A9E2F3, #ffffff); /* 그라데이션 배경 */
+    	 box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
+	}
+	
+	.start_table{
+      background-image: url('resources/images/프로젝트2.jpg');
+      width: 100%;
+      height:170px;
+      display: flex;
+      justify-content: center;
+      align-items: center; 
+      
+      position: relative;
+      isolation : isolate;
+   }
+   
+   
+   .start_table::after{
+      content : '';
+      position: absolute;
+      background: white;
+      z-index: -1;
+      inset:0;
+      opacity: 0.5;
+   
+   }
+   
+   .start_table h1{
+      color: black;
+      font-weight: bold;
+   }
 	
 </style>
 </head>
@@ -101,7 +133,10 @@
         <div class="board">
        
 			<div class="table-responsive">
-				<span><h1>프로젝트 게시판</h1></span>						
+			
+			<div class="start_table">
+				<span><h1>프로젝트 게시판</h1></span>		
+				</div>				
 	                <div class ="btn">
 						<a href="goMain"><button class="btn btn-primary" id="writer" style="background: #2E9AFE; border:none">홈으로 가기</button></a>
 	                	<%if(loginMember ==null){ %>
@@ -113,7 +148,7 @@
 					
   					<table class="table">
 					  <thead>
-					    <tr>
+					    <tr class="listTitle">
 					      <th scope="col">No</th>
 					      <th scope="col">제목</th>
 					      <th scope="col">작성자</th>
