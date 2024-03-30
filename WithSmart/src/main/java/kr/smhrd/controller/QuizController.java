@@ -26,6 +26,11 @@ public class QuizController {
         return "quizMain"; // 메인 페이지를 표시
     }
     
+//    @RequestMapping("/goMain")
+//	public String goMain() {
+//		return "Main";
+//	}
+    
     // 퀴즈 풀이 페이지
     @RequestMapping("/showQuiz")
     public String showQuiz(Model model) {
@@ -98,14 +103,11 @@ public class QuizController {
         String mb_nick = (String) session.getAttribute("mb_nick");
         
         // 퀴즈 랭킹 조회
-        List<Map<String, Object>> ranking = quizMapper.getquizRanking();
+        List<Map<String, Object>> ranking = quizMapper.getQuizRankingWithScore();
         
         // 모델에 데이터 추가
         model.addAttribute("ranking", ranking);
         model.addAttribute("mb_nick", mb_nick); // 사용자 닉네임도 함께 전달
-        
-        // 추가된 출력문
-        System.out.println(ranking);
         
         return "quizRanking"; // 수정된 부분
     }
