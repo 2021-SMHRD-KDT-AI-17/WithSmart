@@ -116,7 +116,7 @@
 			<div class="table-responsive">
 				<span><h1>채용공고 게시판</h1></span>			
 	                <div class ="btn">
-						<a href="goMain"><button class="btn btn-primary" id="writer">홈으로 가기</button></a>
+						<a href="goMain"><button class="btn btn-primary"  style="background: #2E9AFE; border:none" id="writer">홈으로 가기</button></a>
 	               
 	                </div>
 					

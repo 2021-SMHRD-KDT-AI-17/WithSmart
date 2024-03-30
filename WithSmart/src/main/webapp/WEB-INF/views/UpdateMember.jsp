@@ -82,8 +82,8 @@
                 </div>
                 <div class="form-group">
                  
-                    <button type="submit" class="btn btn-primary btn-lg">수정하기</button>
-                    <a href="goMain" class="btn btn-primary btn-lg">홈으로 가기</a>
+                    <button type="submit" class="btn btn-primary btn-lg"  style="background: #2E9AFE; border:none">수정하기</button>
+                    <a href="goMain" class="btn btn-primary btn-lg"  style="background: #2E9AFE; border:none">홈으로 가기</a>
                 </div>
             </form>
         </div>
