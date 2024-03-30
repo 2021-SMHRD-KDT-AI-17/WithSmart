@@ -95,6 +95,37 @@
 		text-align: center;
 	}
 	
+	.start_table{
+		background-image: url('resources/images/laptop2.jpg');
+		width: 100%;
+		height:170px;
+		display: flex;
+		justify-content: center;
+		align-items: center; 
+		
+		position: relative;
+		isolation : isolate;
+	}
+	
+	
+	
+	.start_table::after{
+		content : '';
+		position: absolute;
+		background: white;
+		z-index: -1;
+		inset:0;
+		opacity: 0.5;
+	
+	}
+	
+	.start_table h1{
+		color: black ;
+		/*#FBF9F1 - 아이보리 색상  */
+		font-weight: bold;
+	}
+	
+	
 	
 </style>
 </head>
@@ -112,17 +143,20 @@
 
 
         <div class="board">
-       
+      
 			<div class="table-responsive">
-				<span><h1>채용공고 게시판</h1></span>			
+			<!-- 게시판 이미지 삽입 -->
+				<div class="start_table" >
+					<span><h1>채용공고 게시판</h1></span>			
+	              </div>  
+	              
 	                <div class ="btn">
-						<a href="goMain"><button class="btn btn-primary"  style="background: #2E9AFE; border:none" id="writer">홈으로 가기</button></a>
-	               
-	                </div>
+						<a href="goMain"><button class="btn btn-primary"  style="background: #2E9AFE; border:none"id="writer">홈으로 가기</button></a>
+	               	</div>
 					
   					<table class="table">
 					  <thead>
-					    <tr>
+					    <tr style="background: #E5E1DA;">
 					     <th scope="col">No</th>
 					      <th scope="col">채용공고명</th>
 					      <th scope="col">회사명</th>
