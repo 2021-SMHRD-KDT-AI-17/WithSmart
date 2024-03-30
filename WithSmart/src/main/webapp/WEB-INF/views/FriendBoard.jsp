@@ -105,7 +105,7 @@
 
 <!-- header 파일 불러오기 -->
     <%@ include file="./header.jsp" %>   
-
+<!-- <div class="hero-slant overlay" data-stellar-background-ratio="0.5" style="background-image: url('resources/images/Friend.jpg'); background-position: 10% 10px";> -->
 	
         <div class="board">
        
@@ -134,9 +134,9 @@
                      	<td scope="col">삭제</td>
                      <%} %>
                    </tr>
-                   
+                    </thead>
 
-                   
+                   <tbody>
                    <% int currentPage = (Integer)request.getAttribute("currentPage");%>
                    <c:forEach items="${f_list }" var="f" varStatus="fs">
                    <tr onclick="location.href='FboardContent?friendboard_idx=${f.friendboard_idx }'" onMouseover="this.style.color='red';" onMouseout="this.style.color='black'">
@@ -149,14 +149,14 @@
 	                        <td style="text-align:center">${f.writer }</td>
 	                        <td style="text-align:center">${fn:split(f.writetime ," ")[0] }</td>
 	                        <td style="text-align:center">${f.viewcount }</td>
-	                        <td><a href="Fboardheart?friendboard_idx=${f.friendboard_idx }">${f.heartcount } <span type="button"> ♥ </span></a></td>
+	                        <td style="text-align:center"><a href="Fboardheart?friendboard_idx=${f.friendboard_idx }">${f.heartcount } <span type="button"> ♥ </span></a></td>
 	                        <c:if test="${loginMember.mb_id eq 'admin@naver.com' }">
 								<td style="text-align:center"><a href="deleteFBoard?friendboard_idx=${f.friendboard_idx }">삭제</a></td>
 							</c:if>
 	                     </tr>
             		</c:forEach>
-                   
-                 </thead>
+                   </tbody>
+                
     
                  </table>
             </div>

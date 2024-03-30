@@ -11,7 +11,7 @@
 	</select>
 	
 	<update id="memberMileage" parameterType="kr.smhrd.entity.Member">
-		update tbl_member set mileage=mileage+10 where mb_id=#{mb_id} and 
+		update tbl_member set mileage=mileage+10 where mb_id=#{mb_id}
 	</update>
 	
 	<select id="goShowMember" resultType="kr.smhrd.entity.Member">
