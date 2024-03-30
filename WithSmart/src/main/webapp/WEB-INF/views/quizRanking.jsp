@@ -54,6 +54,7 @@
             border-radius: 50%; /* 이미지를 원형으로 만들기 */
             padding: 10px; /* 이미지 주변 여백 추가 */
         }
+       
 
         .table {
             background-color: #fff; /* 테이블 배경색 */
@@ -73,6 +74,10 @@
         .table-striped tbody tr:nth-of-type(odd) {
             background-color: #f3f3f3; /* 줄무늬 행 배경색 */
         }
+        .image {
+         width: 500px; /* 이미지의 가로 크기 */
+   		 height: auto; /* 세로 크기를 자동으로 조정하여 비율 유지 */
+        }
     
     </style>
 </head>
@@ -88,16 +93,16 @@
     <!-- 순위 아이콘 이미지 -->
     <div class="trophy-icons">
         <div class="trophy-icon">
-            <img src="resources/images/월계수(은).jpg" alt="2등" width="100px" height="100px">
-            <p>2</p>
+            <img src="resources/images/월계수(은).jpg" alt="2위" width="200px" height="200px">
+            <p>2등</p>
         </div>
         <div class="trophy-icon">
-            <img src="resources/images/월계수.jpg" alt="1등" width="100px" height="100px">
-            <p>1</p>
+            <img src="resources/images/월계수.jpg" alt="1위" width="200px" height="200px">
+            <p>1등</p>
         </div>
         <div class="trophy-icon">
-            <img src="resources/images/월계수동.jpg" alt="3등" width="100px" height="100px">
-            <p>3</p>
+            <img src="resources/images/월계수동.jpg" alt="3위" width="200px" height="200px">
+            <p>3등</p>
         </div>
     </div>
     
