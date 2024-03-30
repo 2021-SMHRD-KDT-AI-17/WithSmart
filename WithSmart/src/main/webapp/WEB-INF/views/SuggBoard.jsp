@@ -36,7 +36,7 @@
 		
 		justify-content: center;
 		align-items: center;
-		margin-top: 200px;
+		margin-top: 150px;
 		margin-left: 300px;
 		margin-right : 500px;
 		width: 1300px;
@@ -80,6 +80,37 @@
 	}
 	
 	
+		.start_table{
+		background-image: url('resources/images/laptop2.jpg');
+		width: 100%;
+		height:170px;
+		display: flex;
+		justify-content: center;
+		align-items: center; 
+		
+		position: relative;
+		isolation : isolate;
+	}
+	
+	
+	
+	.start_table::after{
+		content : '';
+		position: absolute;
+		background: white;
+		z-index: -1;
+		inset:0;
+		opacity: 0.5;
+	
+	}
+	
+	.start_table h1{
+		color: black ;
+		/*#FBF9F1 - 아이보리 색상  */
+		font-weight: bold;
+	}
+	
+	
 </style>
 </head>
 <body>
@@ -98,7 +129,11 @@
         <div class="board">
        
 			<div class="table-responsive">
+			
+			<div class="start_table" >
 					<span><h1>애로 및 건의사항 게시판</h1></span>					
+	         </div>  
+	             
 	                <div class ="btn">
 						<a href="goMain"><button class="btn btn-primary" id="writer"   style="background: #2E9AFE; border:none">홈으로 가기</button></a>
 	                	<%if(loginMember ==null){ %>

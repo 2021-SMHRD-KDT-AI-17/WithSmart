@@ -97,7 +97,7 @@
     
 	}
 	.start_table{
-      background-image: url('resources/images/트로피4.jpg');
+      background-image: url('resources/images/트로피5.jpg');
       width: 100%;
       height:170px;
       display: flex;
