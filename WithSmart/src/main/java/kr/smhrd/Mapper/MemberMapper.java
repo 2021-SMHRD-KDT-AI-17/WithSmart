@@ -25,6 +25,15 @@ public interface MemberMapper {
 
 	public Member InsertCheck(String inputE);
 
+	public int getTotalCount();
+
+	public List<Member> getgoShowMember(int startIndex);
+	
+	@Select("select * from tbl_member where mb_id=#{mb_id}")
+	public Member LoginCheck(String inputId);
+
+	public int getMembersize();
+
 	
 
 	
