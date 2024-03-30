@@ -28,6 +28,12 @@
 <meta charset="UTF-8">
 <title>WithSmart</title>
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+<!-- <script>
+    // 메뉴 클릭 시 로그인 확인 함수
+    function logCheck() {
+        
+    }
+</script> -->
 
 <style>
 	.kkologout{
@@ -170,7 +176,8 @@
     <script type="text/javascript">
        
        function logCheck(){
-    	    var inputId = $('#inputId').val();
+    	   
+			var inputId = $('#inputId').val();
     	    var inputPw = $('#inputPw').val();
     	    
     	    $.ajax({
@@ -190,6 +197,15 @@
     	            alert("통신실패!");
     	        }
     	    });
+    	    
+    	    
+       	    var loginMember = <%= session.getAttribute("loginMember") %>;
+            if (loginMember == null) {
+            		alert("출석포인트 획득!");
+            	
+            	 
+            }
+            
     	}
        
        
@@ -220,7 +236,6 @@
     
     function checkC(){
 		var inputC = $('#inputC').val()
-		console.log(inputC)
 		
 		$.ajax( 
 			{

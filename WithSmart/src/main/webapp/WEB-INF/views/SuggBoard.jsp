@@ -148,30 +148,34 @@
 					    <tr>
 					      <td scope="col">No</td>
 					      <td scope="col">제목</td>
-					      <td scope="col">작성자</td>
-					      <td scope="col">작성일</td>
+					      <td scope="col" style="text-align:center">작성자</td>
+					      <td scope="col" style="text-align:center">작성일</td>
 					      <%if(loginMember.getMb_id().equals("admin@naver.com")){ %>
-                     		<td scope="col">삭제</td>
+                     		<td scope="col" style="text-align:center">삭제</td>
                      	<%} %>
 					    </tr>
 					  </thead>
-					  
+					  <% int currentPage = (Integer)request.getAttribute("currentPage");%>
 					  <c:forEach items="${s_list }" var="s" varStatus="ss">
 	                     <tr onclick="location.href='SboardContent?suggboard_idx=${s.suggboard_idx }'" onMouseover="this.style.color='red';" onMouseout="this.style.color='black'">
+	                        <%if(currentPage==1){ %>
 	                        <td>${ss.count }</td>
+	                        <%}else{ %>
+	                        <td>${ss.count+(currentPage-1)*10}</td>
+	                        <%} %>
 	                        <c:choose> 
 	                        	<c:when test="${loginMember.mb_id eq 'admin@naver.com'}">
 						        	<td>${s.title }</td>
-						    		<td>${s.writer }</td>
-		                        	<td>${fn:split(s.writetime ," ")[0] }</td>
+						    		<td style="text-align:center">${s.writer }</td>
+		                        	<td style="text-align:center">${fn:split(s.writetime ," ")[0] }</td>
 		                        	<c:if test="${loginMember.mb_id eq 'admin@naver.com' }">
-									<td><a href="deleteSBoard?suggboard_idx=${s.suggboard_idx }">삭제</a></td>
+									<td style="text-align:center"><a href="deleteSBoard?suggboard_idx=${s.suggboard_idx }">삭제</a></td>
 									</c:if>
 					    	    </c:when>
 	                        	<c:otherwise>
 	                        		<td>건의합니다</td>
-						    		<td>***</td>
-		                        	<td>${fn:split(s.writetime ," ")[1] }</td>
+						    		<td style="text-align:center">***</td>
+		                        	<td style="text-align:center">${fn:split(s.writetime ," ")[0] }</td>
 	                        	</c:otherwise>
 							</c:choose>
 	                     </tr>
@@ -184,22 +188,37 @@
 			
 			<!-- 부트스트랩 페이징 적용   -->
 			<nav aria-label="Page navigation example" class="bottom_num">
-			  <ul class="pagination justify-content-center">
-			    <li class="page-item">
-			      <a class="page-link" href="#" aria-label="Previous">
-			        <span aria-hidden="true">&laquo;</span>
-			      </a>
-			    </li>
-			    <li class="page-item"><a class="page-link" href="#">1</a></li>
-			    <li class="page-item"><a class="page-link" href="#">2</a></li>
-			    <li class="page-item"><a class="page-link" href="#">3</a></li>
-			    <li class="page-item">
-			      <a class="page-link" href="#" aria-label="Next">
-			        <span aria-hidden="true">&raquo;</span>
-			      </a>
-			    </li>
-			  </ul>
-			</nav>
+				  <ul class="pagination justify-content-center">
+				    <div class="pagination">
+				    <li class="page-item">
+						    <c:if test="${currentPage > 1}">
+						        <a class="page-link" href="goSuggBoard?page=${currentPage - 1}">&laquo; 이전</a>
+						    </c:if>
+					</li>
+					
+						    <c:forEach begin="1" end="${totalPages}" var="pageNum">
+								 <li class="page-item ${pageNum == currentPage ? 'active' : ''}">
+						        <c:choose>
+						            <c:when test="${pageNum == currentPage}">
+						                <span class="page-link">${pageNum} </span>
+						            </c:when>
+						            <c:otherwise>
+						                <a class="page-link" href="goSuggBoard?page=${pageNum}">${pageNum}</a>
+						            </c:otherwise>
+						        </c:choose>
+						        </li>
+						    </c:forEach>
+					
+					
+					<li class="page-item">	
+						    <c:if test="${currentPage < totalPages}">
+						        <a class="page-link" href="goSuggBoard?page=${currentPage + 1}">다음 &raquo;</a>
+						    </c:if>
+					</li>	    
+						
+						</div>
+				  </ul>
+				</nav>
     
         </div>
       

@@ -67,6 +67,10 @@
                     <input type="text" class="form-control" id="mb_id" name="mb_id" value="${loginMember.mb_id}" readonly>
                 </div>
                 <div class="form-group">
+                    <label for="mb_id">마일리지 정보</label>
+                    <input type="text" class="form-control" id="mileage" name="mileage" value="${loginMember.mileage}" readonly>
+                </div>
+                <div class="form-group">
                     <label for="mb_nick">닉네임 변경</label>
                     <input type="text" class="form-control" id="mb_nick" name="mb_nick" placeholder="변경할 닉네임" value="${loginMember.mb_nick}">
                 </div>

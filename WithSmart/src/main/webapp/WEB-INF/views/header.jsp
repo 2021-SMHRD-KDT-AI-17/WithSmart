@@ -97,10 +97,10 @@
               <li class="has-children">
                 <a href="#"  class="text-black">자유게시판</a>
                 <ul class="dropdown">
-                  <li><a href="goStudyBoard"  class="text-black">스터디게시판</a></li>
-                  <li><a href="goFriendBoard" class="text-black" >친목게시판</a></li>
-                  <li><a href="goProjectBoard" class="text-black" >프로젝트게시판</a></li>
-                  <li><a href="goQnABoard" class="text-black">질문게시판</a></li>
+                  <li><a href="goStudyBoard">스터디게시판</a></li>
+                  <li><a href="goFriendBoard">친목게시판</a></li>
+                  <li><a href="goProjectBoard">프로젝트게시판</a></li>
+                  <li><a href="goQnABoard">질문게시판</a></li>
                 </ul>
               </li>
            

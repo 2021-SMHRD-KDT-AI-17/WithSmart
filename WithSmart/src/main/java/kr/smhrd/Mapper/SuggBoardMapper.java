@@ -16,4 +16,8 @@ public interface SuggBoardMapper {
 	public SuggBoard SboardContent(int suggboard_idx);
 
 	public void deleteSBoard(int suggboard_idx);
+
+	public int getTotalCount();
+
+	public List<SuggBoard> getsuggBoardList(int startIndex);
 }
