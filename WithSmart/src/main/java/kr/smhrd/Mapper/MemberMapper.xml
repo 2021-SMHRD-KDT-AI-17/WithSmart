@@ -10,6 +10,10 @@
 		select * from tbl_member where mb_id=#{mb_id} and mb_pw=#{mb_pw}
 	</select>
 	
+	<update id="memberMileage" parameterType="kr.smhrd.entity.Member">
+		update tbl_member set mileage=mileage+10 where mb_id=#{mb_id} and 
+	</update>
+	
 	<select id="goShowMember" resultType="kr.smhrd.entity.Member">
 		select * from tbl_member
 	</select>
