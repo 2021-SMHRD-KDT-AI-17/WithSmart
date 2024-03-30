@@ -40,6 +40,18 @@
 <meta charset="UTF-8">
 <title>WithSmart</title>
 </head>
+
+<style>
+
+	#list{
+		align-content: center;
+	}
+	#list>tr{
+		margin-bottom: 50px;
+	}
+
+</style>
+
 <body>
 
       <!-- header 파일 불러오기  --> 
@@ -56,7 +68,7 @@
 	    	
 	    <!-- 게시글 가져오기  -->
 	    	
-	    <div style="margin-top: 50px" id="Friendboard">	
+	    <div style="margin-top: 150px" id="Friendboard">	
 	    
 	    <table id="list">
 	    
@@ -66,7 +78,7 @@
 	          </tr>
 	          <tr>
 	          	<td>작성자</td>
-	          	<td>${friendboard.writer }</td>
+	          	<td><h3>${friendboard.writer }</h3></td>
 	          </tr>
 	          
 	          <tr>
@@ -103,7 +115,7 @@
                   <!-- 답글 단 시간 가져오기 -->  
                     <div class="meta">답글시간</div>
                    <!--답글 내용 가져오기  --> 
-                    <p>댓글 내용  <button class="btn btn-info" style ="margin-left: 30px" >추천하기</button></p>
+                    <p>댓글 내용  <button class="btn btn-primary" style ="margin-left: 30px" >추천하기</button></p>
                     
                      <!-- 부트스트랩 아이콘 가져옴 -->
                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-emoji-heart-eyes" viewBox="0 0 16 16">
@@ -123,7 +135,7 @@
 		               <!-- 답글 단 시간 가져오기 -->  
 		                 <div class="meta">답글 시간 (January 9, 2018 at 2:21pm)</div>
 		               <!--답글 내용 가져오기  --> 
-		                  <p>댓글 내용 <button class="btn btn-info" style ="margin-left: 30px" >추천하기</button></p> 
+		                  <p>댓글 내용 <button class="btn btn-primary" style ="margin-left: 30px" >추천하기</button></p> 
 		                  <!-- 부트스트랩 아이콘 가져옴 -->
 		                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-emoji-heart-eyes" viewBox="0 0 16 16">
   						<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
@@ -150,11 +162,11 @@
 	                    <textarea name="cmtcontent" id="message" cols="10" rows="2" class="form-control"></textarea>
 	                  </div>
 	                  <div class="form-group">
-	                    <input type="submit" value="답글달기" class="btn btn-primary btn-md" name="#">
+	                    <input type="submit" value="답글달기" class="btn btn-primary btn-md" style="background: #2E9AFE; border:none;" name="#">
 	                  	
 	                  	<!--뒤로 가기 (게시판 메인페이지로 이동)  -->
-	                  	<button class="btn btn-primary btn-md"><a href="goFriendBoard" style="color:white">뒤로가기</a></button>
-	                  	<button class="btn btn-primary btn-md"><a href="#" style="color:white">글 삭제</a></button>
+	                  	<button class="btn btn-primary btn-md" style="background: #2E9AFE; border:none;"><a href="goFriendBoard" style="color:white" >뒤로가기</a></button>
+	                  	<button class="btn btn-primary btn-md" style="background: #2E9AFE; border:none;"><a href="#" style="color:white">글 삭제</a></button>
 					  </div>			
 	                </form>		  	
               </div>

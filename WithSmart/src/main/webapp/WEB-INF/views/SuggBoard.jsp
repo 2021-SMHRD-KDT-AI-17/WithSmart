@@ -1,7 +1,8 @@
-<%@page import="java.util.ArrayList"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
- <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>  
 <!DOCTYPE html>
 <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -31,18 +32,19 @@
 <title>WithSmart</title>
 <style type="text/css">
 	
-	.container-md{
+	.board{
 		
 		justify-content: center;
 		align-items: center;
-		margin-top: 150px;
+		margin-top: 200px;
 		margin-left: 300px;
 		margin-right : 500px;
-		width: 100%;
+		width: 1300px;
 		
 	}
+	
 	@media (max-width: 992px) {
-        .container-md {
+        .board {
             margin-left: 50px;
             margin-right: 50px;
             width: auto;
@@ -50,7 +52,7 @@
     }
 
     @media (max-width: 1900px) {
-        .container-md {
+        .board {
             margin-left: 20px;
             margin-right: 20px;
         }
@@ -60,8 +62,7 @@
         }
     }
 	
-/* 	
-	.table-responsive{
+	/* .table-responsive{
 		width: 1200px;
 		margin-top: 150px;
 	
@@ -76,19 +77,6 @@
 	.bottom_num{
 		margin-right: 200px; 
 		
-	}
-	a{
-		color: black;
-	}
-	
-	.paging{
-		margin-top : 20px;
-		margin-bottom: 30px;
-		
-	}
-	
-	.table>thead{
-		text-align: center;
 	}
 	
 	
@@ -107,79 +95,78 @@
     <%@ include file="./header.jsp" %>   
 
 
-        <div class="container-md">
+        <div class="board">
        
 			<div class="table-responsive">
-				<span><h1>공모전 게시판</h1></span>							
+					<span><h1>애로 및 건의사항 게시판</h1></span>					
 	                <div class ="btn">
-
-						<a href="goMain"><button class="btn btn-primary" id="writer" style="background: #2E9AFE; border:none">홈으로 가기</button></a>
-
-						<a href="goMain"><button class="btn btn-primary"  style="background: #2E9AFE; border:none" id="writer">홈으로 가기</button></a>
-
-	           
+						<a href="goMain"><button class="btn btn-primary" id="writer"   style="background: #2E9AFE; border:none">홈으로 가기</button></a>
+	                	<%if(loginMember ==null){ %>
+							<a href="goJoin"><button type="button" class="btn btn-primary">글 작성하기</button></a>
+						<%}else{ %>
+							<a href="goSuggBoardWrite"><button type="button" class="btn btn-primary"  style="background: #2E9AFE; border:none">글 작성하기</button></a>
+						<%} %>
 	                </div>
 					
   					<table class="table">
 					  <thead>
-					    <tr style= "background-color: #A9E2F3;">
-					      <th scope="col">No</th>
-					      <th scope="col">공모전명</th>
-					      <th scope="col">작성일</th>
-					      <th scope="col">조회수</th>
+					    <tr>
+					      <td scope="col">No</td>
+					      <td scope="col">제목</td>
+					      <td scope="col">작성자</td>
+					      <td scope="col">작성일</td>
+					      <%if(loginMember.getMb_id().equals("admin@naver.com")){ %>
+                     		<td scope="col">삭제</td>
+                     	<%} %>
 					    </tr>
 					  </thead>
-					  <tbody>
-					    <c:forEach items="${cpList}" var="cp" varStatus="s">
-    						<tr>
-						        <td style="text-align:center"> ${cp.competboard}</td>
-						        <td ><a href="goCompetBoardDetail?competboard=${cp.competboard}">${cp.compettitle}</a></td>
-						        <td style="text-align:center">${fn:split(cp.uploadtime," ")[0]}</td>
-						        <td style="text-align:center">${cp.viewcount}</td>
-						    </tr>
-						</c:forEach>
-					  </tbody>
+					  
+					  <c:forEach items="${s_list }" var="s" varStatus="ss">
+	                     <tr onclick="location.href='SboardContent?suggboard_idx=${s.suggboard_idx }'" onMouseover="this.style.color='red';" onMouseout="this.style.color='black'">
+	                        <td>${ss.count }</td>
+	                        <c:choose> 
+	                        	<c:when test="${loginMember.mb_id eq 'admin@naver.com'}">
+						        	<td>${s.title }</td>
+						    		<td>${s.writer }</td>
+		                        	<td>${fn:split(s.writetime ," ")[0] }</td>
+		                        	<c:if test="${loginMember.mb_id eq 'admin@naver.com' }">
+									<td><a href="deleteSBoard?suggboard_idx=${s.suggboard_idx }">삭제</a></td>
+									</c:if>
+					    	    </c:when>
+	                        	<c:otherwise>
+	                        		<td>건의합니다</td>
+						    		<td>***</td>
+		                        	<td>${fn:split(s.writetime ," ")[1] }</td>
+	                        	</c:otherwise>
+							</c:choose>
+	                     </tr>
+            		</c:forEach>
+    					
+    					
+    					
   					</table>
 				</div>
-			</div>
 			
-			
-			<div class="paging">
-				<!-- 부트스트랩 페이징 적용   -->
-				<nav aria-label="Page navigation example" class="bottom_num">
-				  <ul class="pagination justify-content-center">
-				    <div class="pagination">
-				    <li class="page-item">
-						    <c:if test="${currentPage > 1}">
-						        <a class="page-link" href="goCompetBoard?page=${currentPage - 1}">&laquo; 이전</a>
-						    </c:if>
-					</li>
-					
-						    <c:forEach begin="1" end="${totalPages}" var="pageNum">
-								 <li class="page-item ${pageNum == currentPage ? 'active' : ''}">
-						        <c:choose>
-						            <c:when test="${pageNum == currentPage}">
-						                <span class="page-link">${pageNum} </span>
-						            </c:when>
-						            <c:otherwise>
-						                <a class="page-link" href="goCompetBoard?page=${pageNum}">${pageNum}</a>
-						            </c:otherwise>
-						        </c:choose>
-						        </li>
-						    </c:forEach>
-					
-					
-					<li class="page-item">	
-						    <c:if test="${currentPage < totalPages}">
-						        <a class="page-link" href="goCompetBoard?page=${currentPage + 1}">다음 &raquo;</a>
-						    </c:if>
-					</li>	    
-						
-						</div>
-				  </ul>
-				</nav>
-	    
-          </div>
+			<!-- 부트스트랩 페이징 적용   -->
+			<nav aria-label="Page navigation example" class="bottom_num">
+			  <ul class="pagination justify-content-center">
+			    <li class="page-item">
+			      <a class="page-link" href="#" aria-label="Previous">
+			        <span aria-hidden="true">&laquo;</span>
+			      </a>
+			    </li>
+			    <li class="page-item"><a class="page-link" href="#">1</a></li>
+			    <li class="page-item"><a class="page-link" href="#">2</a></li>
+			    <li class="page-item"><a class="page-link" href="#">3</a></li>
+			    <li class="page-item">
+			      <a class="page-link" href="#" aria-label="Next">
+			        <span aria-hidden="true">&raquo;</span>
+			      </a>
+			    </li>
+			  </ul>
+			</nav>
+    
+        </div>
       
 
     
