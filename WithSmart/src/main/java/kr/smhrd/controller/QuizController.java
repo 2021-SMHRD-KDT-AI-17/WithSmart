@@ -26,10 +26,10 @@ public class QuizController {
         return "quizMain"; // 메인 페이지를 표시
     }
     
-    @RequestMapping("/goMain")
-	public String goMain() {
-		return "Main";
-	}
+//    @RequestMapping("/goMain")
+//	public String goMain() {
+//		return "Main";
+//	}
     
     // 퀴즈 풀이 페이지
     @RequestMapping("/showQuiz")

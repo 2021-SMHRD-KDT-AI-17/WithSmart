@@ -25,9 +25,18 @@ public class SuggBoardController {
 	
 	
 	@RequestMapping("/goSuggBoard")
-	public String goSuggBoard(Model model) {
-		List<SuggBoard> s_list = suggBoardMapper.suggBoardList();
+	public String goSuggBoard(@RequestParam(defaultValue = "1") int page, Model model) {
+		int pagesize = 10;
+		int totalCount = suggBoardMapper.getTotalCount();
+		int totalPages = (int) Math.ceil((double) totalCount / pagesize);
+		if (page > totalPages) {
+	        page = totalPages;
+	    }
+	    int startIndex = (page - 1) * pagesize; // 시작 인덱스 계산
+		List<SuggBoard> s_list = suggBoardMapper.getsuggBoardList(startIndex);
 		model.addAttribute("s_list", s_list);
+		model.addAttribute("totalPages", totalPages);
+		model.addAttribute("currentPage", page);
 		return "SuggBoard";
 	}
 	

@@ -34,6 +34,10 @@ public interface MemberMapper {
 
 	public int getMembersize();
 
+	public void memberMileage(Member member);
+
+
+
 	
 
 	

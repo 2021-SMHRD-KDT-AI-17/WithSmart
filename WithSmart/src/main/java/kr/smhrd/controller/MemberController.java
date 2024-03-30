@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -81,6 +82,7 @@ public class MemberController {
 		// System.out.println(member);
 		Member loginMember = memberMapper.goLogin(member);
 		session.setAttribute("loginMember", loginMember);
+		memberMapper.memberMileage(member);
 		// session.setAttribute("loginMember1", loginMember);
 		return "Main";
 	}
