@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>  
     
 <!-- /*
 * Template Name: Append
@@ -90,27 +92,29 @@
 
 		<!-- 답글 보기  -->
 
-            <div class="pt-5">
-              <h3 class="mb-5">댓글</h3>
-              <ul class="comment-list">
-                <li class="comment">
-                  <div class="comment-body">
-                  
-                  <!-- 답글 단 회원 이름 가져오기  -->
-                    <h3>회원 닉네임</h3>
-                    
-                  <!-- 답글 단 시간 가져오기 -->  
-                    <div class="meta">답글 시간 (January 9, 2018 at 2:21pm)</div>
-                   <!--답글 내용 가져오기  --> 
-                    <p>댓글 내용  <button class="btn btn-info" style ="margin-left: 30px" >추천하기</button></p>
-                     <!-- 부트스트랩 아이콘 가져옴 -->
-                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-emoji-heart-eyes" viewBox="0 0 16 16">
-  						<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
- 						<path d="M11.315 10.014a.5.5 0 0 1 .548.736A4.5 4.5 0 0 1 7.965 13a4.5 4.5 0 0 1-3.898-2.25.5.5 0 0 1 .548-.736h.005l.017.005.067.015.252.055c.215.046.515.108.857.169.693.124 1.522.242 2.152.242s1.46-.118 2.152-.242a27 27 0 0 0 1.109-.224l.067-.015.017-.004.005-.002zM4.756 4.566c.763-1.424 4.02-.12.952 3.434-4.496-1.596-2.35-4.298-.952-3.434m6.488 0c1.398-.864 3.544 1.838-.952 3.434-3.067-3.554.19-4.858.952-3.434"/>
-					</svg>
-                    <span>추천수</span>
-                    </div>
-                </li>
+			<div class="pt-5">
+			    <h3 class="mb-5">댓글</h3>
+			    <ul class="comment-list">
+			        <c:forEach items="${qc_list}" var="qc" varStatus="qcs">
+			            <li class="comment">
+			                <div class="comment-body">
+			                    <!-- 답글 단 회원 이름 가져오기  -->
+			                    <h3>${qc.writer}</h3>
+			                    <!-- 답글 단 시간 가져오기 -->  
+			                    <div class="meta">${qc.writetime}</div>
+			                    <!-- 답글 내용 가져오기  --> 
+			                    <p>${qc.cmtcontent }<button class="btn btn-info" style="margin-left: 30px">추천하기</button></p>
+			                    <!-- 부트스트랩 아이콘 가져옴 -->
+			                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-emoji-heart-eyes" viewBox="0 0 16 16">
+			                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+			                        <path d="M11.315 10.014a.5.5 0 0 1 .548.736A4.5 4.5 0 0 1 7.965 13a4.5 4.5 0 0 1-3.898-2.25.5.5 0 0 1 .548-.736h.005l.017.005.067.015.252.055c.215.046.515.108.857.169.693.124 1.522.242 2.152.242s1.46-.118 2.152-.242a27 27 0 0 0 1.109-.224l.067-.015.017-.004.005-.002zM4.756 4.566c.763-1.424 4.02-.12.952 3.434-4.496-1.596-2.35-4.298-.952-3.434m6.488 0c1.398-.864 3.544 1.838-.952 3.434-3.067-3.554.19-4.858.952-3.434"/>
+			                    </svg>
+			                    <span>${qc.heartcount}</span>
+			                </div>
+			            </li>
+			        </c:forEach>
+			    </ul>
+			</div>
 	       
               <!-- END comment-list -->
               
@@ -118,19 +122,19 @@
               <!-- 댓글 남기기 입력 폼 -->
               <div class="comment-form-wrap pt-5">
                 <h3 class="mb-5">댓글 남기기</h3>
-                	<form action="#" class="">
+                	<form action="QnABoardComment" method="post">
 	                  	<div class="form-group">
 	                    <label for="nick">닉네임 *</label>
-	                    <input type="text" class="form-control" id="name">
+	                    <input type="text" class="form-control" name="writer" readonly value="${loginMember.mb_nick}">
 	                  </div>
-	                  <div class="form-group">
-	                    <label for="email">이메일 * </label>
-	                    <input type="email" class="form-control" id="email">
+	                  <div>
+	                  	   <input type="hidden" name="qnaboard_idx" value="${qnaboard.qnaboard_idx}">
 	                  </div>
 	                  <div class="form-group">
 	                    <label for="message">답글</label>
-	                    <textarea name="message" id="message" cols="30" rows="5" class="form-control"></textarea>
+	                    <textarea name="cmtcontent" id="message" cols="30" rows="5" class="form-control"></textarea>
 	                  </div>
+	                  
 	                  <div class="form-group">
 	                    <input type="submit" value="답글달기" class="btn btn-primary btn-md" name="#">
 	                  	
