@@ -76,7 +76,9 @@
                 </div>
                 <div class="form-group">
                     <label for="new_password">새 비밀번호</label>
-                    <input type="text" class="form-control" id="new_password" name="mb_pw" placeholder="새 비밀번호 입력">
+                    <input type="text" class="form-control" name="mb_pw" placeholder="새 비밀번호 입력" id="inputPW">
+                    <input type="text" class="form-control" name="mb_repw" placeholder="새 비밀번호를 다시한번 입력" id="inputRePW">
+                    <div id="resultCheckPw" style="color:red;"></div>
                 </div>
                 <div class="form-group">
                  
@@ -97,6 +99,26 @@
 
    
 	<!-- script  -->
+	<script type="text/javascript">
+	function checkPwMatch(){
+    	var pw = document.getElementById("inputPW").value;
+    	var Repw= document.getElementById("inputRePW").value;
+    	
+    	if(pw==Repw){
+    		document.getElementById("resultCheckPw").innerHTML = "";
+    	}else{
+    		document.getElementById("resultCheckPw").innerHTML = "비밀번호가 일치하지 않습니다";
+    	}
+    }
+    document.getElementById("inputPW").addEventListener("input",checkPwMatch);
+    document.getElementById("inputRePW").addEventListener("input",checkPwMatch);
+	
+	
+	
+	</script>
+	
+	
+	
    <script src="resources/js/jquery-3.5.1.min.js"></script>
     <script src="resources/js/jquery-migrate-3.0.0.min.js"></script>
     <script src="resources/js/popper.min.js"></script>

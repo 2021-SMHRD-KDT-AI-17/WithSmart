@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+
 import kr.smhrd.Mapper.MemberMapper;
 import kr.smhrd.entity.Member;
 
@@ -93,9 +94,18 @@ public class MemberController {
 	
 	// 회원정보 페이지로 이동
 	@RequestMapping("/goShowMember")
-	public String goShowMember(Model model) {
-		List<Member> list = memberMapper.goShowMember();
+	public String goShowMember(@RequestParam(defaultValue = "1") int page, Model model) {
+		int pagesize = 10;
+		int totalCount = memberMapper.getTotalCount();
+		int totalPages = (int) Math.ceil((double) totalCount / pagesize);
+		if(page>totalPages) {
+			page=totalPages;
+		}
+		int startIndex = (page-1) * pagesize;
+		List<Member> list = memberMapper.getgoShowMember(startIndex);
 		model.addAttribute("list",list);
+		model.addAttribute("totalPages", totalPages);
+		model.addAttribute("currentPage", page);
 		return "ShowMember";
 	}
 	
@@ -119,6 +129,7 @@ public class MemberController {
 		memberMapper.deleteMember(mb_id);
 		return "redirect:/goShowMember";
 	}
+	
 	
 	
 

@@ -87,8 +87,8 @@
                </li>
                
                <li><a href ="goJoin" class="text-black" onclick="checkLogin()";>오늘의 퀴즈</a>
-               <li><a href ="goLunch" class="text-black">점심메뉴 고르기</a>
-               <li><a href ="#" class="text-black" onclick="checkLogin()";>채팅</a>	
+               <li><a href ="goJoin" class="text-black" onclick="checkLogin()">점심메뉴 고르기</a>
+               <li><a href ="goJoin" class="text-black" onclick="checkLogin()">채팅</a>	
               
               <!-- 로그인 했을 때  -->
               <%}else{ %>
