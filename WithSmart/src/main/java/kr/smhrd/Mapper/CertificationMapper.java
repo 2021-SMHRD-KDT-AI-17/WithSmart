@@ -8,9 +8,12 @@ import kr.smhrd.entity.Member;
 
 @Mapper
 public interface CertificationMapper {
+	
+	@Select("select * from tbl_certification where mb_cert=#{mb_cert}")
+	Certification certCheck(String inputC);
 
 	
-	public Certification certCheck(String inputC);
+	
 
 	
 	

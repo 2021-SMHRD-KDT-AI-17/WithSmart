@@ -220,7 +220,6 @@
     
     function checkC(){
 		var inputC = $('#inputC').val()
-		console.log(inputC)
 		
 		$.ajax( 
 			{
