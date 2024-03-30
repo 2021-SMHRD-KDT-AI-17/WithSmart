@@ -106,7 +106,9 @@
 	            <input type="text" class="form-control" placeholder="이메일을 입력해주세요" name="mb_id"  id="inputE" style="margin-bottom:10px">
 	            <input type="button" class="btn btn-success" value="Email 중복체크" onclick="checkE()" style="margin-bottom:10px">
 	            <span id="resultCheck"></span>
-	            <input type="password" class="form-control" style="margin-bottom:20px" placeholder="비밀번호를 입력해주세요" name="mb_pw">
+	            <input type="password" class="form-control" style="margin-bottom:20px" placeholder="비밀번호를 입력해주세요" name="mb_pw" id="inputPW">
+	            <input type="password" class="form-control" style="margin-bottom:20px" placeholder="비밀번호를 다시 한번 입력해주세요" name="mb_repw" id="inputRePW">
+	            <div id="resultCheckPw" style="color:red;"></div>
 	            <input type="text" class ="form-control" style = "margin-top:10px" placeholder ="닉네임을 입력해주세요" name="mb_nick">
 	            <input type="text" class ="form-control" style = "margin-top:10px" placeholder ="발급 받은 인증번호를 입력해주세요" name="mb_cert" id="inputC">
 	            <input type="button" class="btn btn-success" value="인증번호 확인" onclick="checkC()" style = "margin-top:5px">
@@ -118,11 +120,15 @@
           
           <!-- 로그인  -->
       		<h3 class="text-white mb-4" data-aos="fade-up" data-aos-delay="100"><strong>로그인</strong></h3>
-				<form action="goLogin" class="sign-up-form d-grid" data-aos="fade-up" data-aos-delay="200" method ="post" style=width:425px>
-					<input type="text" class="form-control" placeholder="이메일을 입력하세요" name="mb_id">
-					<input type="password" class="form-control"  placeholder="비밀번호를 입력하세요" name="mb_pw">
-					<input type="submit" class="btn btn-primary" style="margin-top:20px"value="로그인">
-					<br><br>
+				<form action="goLogin" class="sign-up-form d-grid" data-aos="fade-up" data-aos-delay="200" method ="post" style=width:425px id="Loginform">
+				
+					<input type="text" class="form-control" placeholder="이메일을 입력하세요" name="mb_id" id="inputId">
+					<input type="password" class="form-control"  placeholder="비밀번호를 입력하세요" name="mb_pw" id="inputPw">
+					<input type="submit" class="btn btn-primary" style="margin-top:20px" value="로그인" onclick="logCheck()">
+					<div id="resultlogCheck" style="color:red"></div>
+					<br>
+				
+					
 					<span onclick="kakaoLogin();">
 				      <a href="javascript:void(0)">
 				          <img src="https://k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg" width="200"
@@ -135,6 +141,8 @@
 <!-- 				      	<button class="btn btn-warning" style ="width:200px; height:49.17px;"><a href="goMain" style="color: black; font-weight: bold; ">카카오 로그아웃</a></button> -->
 				      </a>
 					 </span>
+					 
+					 </form>	
 					<br>
 					<!-- <span onclick="kakaoLogout();">
 				      <a href="javascript:void(0)">
@@ -143,7 +151,7 @@
 				      </a>
 					</span> -->
 					
-				</form>
+				
     
     
           </div>   
@@ -152,7 +160,64 @@
 
 	       <div class="slant" style="background-image: url('resources/images/slant.svg'); margin-top : 200px"></div>
         </div>
+    <script>
+    
+    	document.getElementById("Loginform").addEventListener("submit",function(event){
+    		event.preventDefault();
+    		logCheck();
+    	})
+    </script>
     <script type="text/javascript">
+       
+       function logCheck(){
+    	    var inputId = $('#inputId').val();
+    	    var inputPw = $('#inputPw').val();
+    	    
+    	    $.ajax({
+    	        url: 'LoginCheck',
+    	        data: {'inputId': inputId, 'inputPw': inputPw},
+    	        type: 'post',
+    	        success: function(data){
+    	            if(data == 1){
+    	                $('#resultlogCheck').text("등록되지 않은 아이디입니다.");
+    	            } else if(data == 2){
+    	                $('#Loginform').submit();
+    	            } else if(data == 3){
+    	                $('#resultlogCheck').text("비밀번호가 틀렸습니다.");
+    	            }
+    	        },
+    	        error: function(){
+    	            alert("통신실패!");
+    	        }
+    	    });
+    	}
+       
+       
+/*    function logCheck(){
+   	var inputId = ${'#inputId'}.val();
+   	var inputPw = ${'#inputPw'}.val();
+   	
+   	$.ajax({
+   		url : 'LoginCheck',
+   		data : {'inputId': inputId, 'inputPw': inputPw},
+   		type : 'post',
+   		success : function(data){
+   			if(data==1){
+   				$('#resultlogCheck').text("등록되지 않은 아이디입니다.");
+   			}else if(data==2){
+   				$('#Loginform').submit();
+   			}else if(data==3){
+   				$('#resultlogCheck').text("비밀번호가 틀렸습니다.");
+   			}
+   		},
+   		error : function(){
+   			alert("통신실패!");
+   		}
+   	});
+   }   */
+    
+    
+    
     function checkC(){
 		var inputC = $('#inputC').val()
 		console.log(inputC)
@@ -198,8 +263,19 @@
 			}
 		)
 	}
-   
- 
+    
+    function checkPwMatch(){
+    	var pw = document.getElementById("inputPW").value;
+    	var Repw= document.getElementById("inputRePW").value;
+    	
+    	if(pw==Repw){
+    		document.getElementById("resultCheckPw").innerHTML = "";
+    	}else{
+    		document.getElementById("resultCheckPw").innerHTML = "비밀번호가 일치하지 않습니다";
+    	}
+    }
+    document.getElementById("inputPW").addEventListener("input",checkPwMatch);
+    document.getElementById("inputRePW").addEventListener("input",checkPwMatch);
     
     </script>
     

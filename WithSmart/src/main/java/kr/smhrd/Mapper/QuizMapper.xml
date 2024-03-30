@@ -9,15 +9,22 @@
     ORDER BY RAND(CURRENT_TIMESTAMP())
     LIMIT 10;
 </select>
-
+	<!-- 정답 비교 -->
  <select id="getCorrectAnswer" parameterType="int" resultType="int">
         SELECT answer FROM tbl_quiz WHERE quiz_idx = #{quiz_idx}
     </select>
-
+	<!-- 퀴즈 채점 -->
 <insert id="submitQuiz" parameterType="kr.smhrd.entity.QuizAnswer">
     INSERT INTO tbl_test (quiz_idx, mb_id, answer)
     VALUES (#{quiz_idx}, #{mb_id}, #{userAnswer})
 </insert>
     
+  <select id="getquizRanking" resultType="java.util.Map">
+    SELECT mb_id,
+        COUNT(quiz_idx) AS "푼_문제_수",
+        (SUM(CASE WHEN best_answer_yn = 'Y' THEN 1 ELSE 0 END) / COUNT(quiz_idx) * 100) AS "정답률"
+    FROM tbl_test
+    GROUP BY mb_id;
+</select>
    
 </mapper>
