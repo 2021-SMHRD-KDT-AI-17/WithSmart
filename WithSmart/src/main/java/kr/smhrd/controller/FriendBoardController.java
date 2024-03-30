@@ -109,9 +109,11 @@ public class FriendBoardController {
 	public String FboardContent(int friendboard_idx, Model model) {
 		friendBoardMapper.FboardCount(friendboard_idx); // 조회수
 		
-		
+		List<FriendBoard> fc_list = friendBoardMapper.FgetComment(friendboard_idx);
 		FriendBoard friendboard = friendBoardMapper.FboardContent(friendboard_idx);
+		model.addAttribute("fc_list", fc_list);
 		model.addAttribute("friendboard", friendboard);
+		System.out.println(fc_list);
 		return "FriendBoardDetail";
 	}
 	
