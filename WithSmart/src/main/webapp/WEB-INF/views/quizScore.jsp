@@ -94,12 +94,12 @@
 <div class="btn-group">
     <!-- 초기화면으로 돌아가는 버튼 -->
     <form id="quiz-score-form" action="backToMain" method="post">
-        <button type="submit" class="btn btn-primary btn-back-to-main btn-lg">초기화면으로 돌아가기</button>
+        <button type="submit" class="btn btn-primary btn-back-to-main btn-lg" style="background: #2E9AFE; border:none">초기화면으로 돌아가기</button>
     </form>
 
     <!-- 랭킹 보기 버튼 -->
     <form id="quiz-ranking-form" action="goquizRanking" method="post">
-        <button type="submit" class="btn btn-primary btn-go-quiz-Ranking btn-lg">랭킹 보기</button>
+        <button type="submit" class="btn btn-primary btn-go-quiz-Ranking btn-lg" style="background: #2E9AFE; border:none">랭킹 보기</button>
     </form>
 </div>
 		</div>

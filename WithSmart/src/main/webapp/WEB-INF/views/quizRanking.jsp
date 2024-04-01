@@ -104,28 +104,36 @@ body {
 	display: block;
 	margin: auto;
 }
+
+h1{
+		letter-spacing: .1em;
+		text-shadow: 0 -1px 0 #fff, 0 1px 0 #2e2e2e, 0 2px 0 #2c2c2c, 0 3px 0 #2a2a2a, 0 4px 0 #282828, 0 5px 0 #262626, 0 6px 0 #242424, 0 7px 0 #222, 0 8px 0 #202020, 0 9px 0 #1e1e1e, 0 10px 0 #1c1c1c, 0 11px 0 #1a1a1a, 0 12px 0 #181818, 0 13px 0 #161616, 0 14px 0 #141414, 0 15px 0 #121212, 0 22px 30px rgba(0,0,0,0.9);
+		color: #FFFF00;
+		font-size: 60px;
+        font-weight: bold;
+}
 </style>
 </head>
 <body>
 	<br>
 	<br>
 	<div class="container">
-		<h1 class="mt-5" align="center">퀴즈 랭킹</h1>
+		<h1 class="mt-5" align="center">Quiz Ranking</h1>
 		<br> <br> <br>
 
 		<!-- 순위 아이콘 이미지 -->
 		<div class="trophy-icons">
 			<div class="trophy-icon">
 				<img src="resources/images/월계수(은).jpg" alt="2위" class="second">
-				<p>2위 : ${ranking[1].mb_nick}</p>
+				<p><strong>2위 :</strong> ${ranking[1].mb_nick}</p>
 			</div>
 			<div class="trophy-icon">
 				<img src="resources/images/월계수.jpg" alt="1위" class="first">
-				<p>1위 : ${ranking[0].mb_nick}</p>
+				<p><strong>1위 :</strong> ${ranking[0].mb_nick}</p>
 			</div>
 			<div class="trophy-icon">
 				<img src="resources/images/월계수동.jpg" alt="3위" class="third">
-				<p>3위 : ${ranking[2].mb_nick}</p>
+				<p><strong>3위 :</strong> ${ranking[2].mb_nick}</p>
 			</div>
 		</div>
 
@@ -175,8 +183,10 @@ body {
 	<br>
 	<br>
 	<form id="quizrank-main" action="backToMain" method="post">
-		<button type="submit" class="btn btn-primary mt-3 btn-center">초기
+		<button type="submit" class="btn btn-primary mt-3 btn-center" style="background: #2E9AFE; border:none">초기
 			화면으로 돌아가기</button>
+			<br>
+			<br>
 	</form>
 </body>
 </html>
