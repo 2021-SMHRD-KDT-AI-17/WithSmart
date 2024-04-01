@@ -25,4 +25,6 @@ public interface ProjectBoardMapper {
 
 	public List<ProjectBoard> getProjectBoardList(int startIndex);
 
+	public List<ProjectBoard> PgetComment(int projectboard_idx);
+
 }
