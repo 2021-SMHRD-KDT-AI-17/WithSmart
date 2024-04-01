@@ -37,6 +37,23 @@
 
 <meta charset="UTF-8">
 <title>WithSmart</title>
+
+<style>
+
+table {
+  border-collapse: separate; /* 셀 테두리를 분리하도록 설정 */
+  border-spacing: 20px; /* 행과 열 사이의 간격 설정 */
+}
+
+/*  td {
+            border: 1px solid black; padding: 8px; 
+} */
+
+
+
+</style>
+
+
 </head>
 <body>
 
@@ -78,7 +95,7 @@
 	          	<td colspan="2">내용</td>
 	          </tr>
 	          <tr>	
-	          	<td colspan="3">
+	          	<td colspan="3" style="border: 1px solid black; padding: 8px">
 	          		<h4>${projectboard.content }</h4>
 	          		<img alt="" src="resources/image/${projectboard.filename}"> 
 	          	</td>
