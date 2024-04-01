@@ -12,6 +12,8 @@ public interface QnABoardCommentMapper {
 
 	public void insertComment(@Param("writer") String writer, @Param("cmtcontent")String cmtcontent, @Param("qnaboard_idx")int qnaboard_idx);
 
+	public void qboardcommentheart(int cmt_idx);
+
 
 
 	
