@@ -168,6 +168,7 @@
                      <%if(loginMember.getMb_id().equals("admin@naver.com")){ %>
                      	<td scope="col">삭제</td>
                      <%} %>
+                     <td scope="col">수정</td>
                    </tr>
                     </thead>
 
@@ -185,9 +186,11 @@
 	                        <td style="text-align:center">${fn:split(f.writetime ," ")[0] }</td>
 	                        <td style="text-align:center">${f.viewcount }</td>
 	                        <td style="text-align:center"><a href="Fboardheart?friendboard_idx=${f.friendboard_idx }">${f.heartcount } <span type="button"> ♥ </span></a></td>
-	                        <c:if test="${loginMember.mb_id eq 'admin@naver.com' }">
+	                        <c:if test="${loginMember.mb_id eq 'admin@naver.com'}">
 								<td style="text-align:center"><a href="deleteFBoard?friendboard_idx=${f.friendboard_idx }">삭제</a></td>
 							</c:if>
+							<%-- <td style="text-align:center"><a href="UpdateFboard?friendboard_idx=${f.friendboard_idx }"></a></td> --%>
+							<td style="text-align:center"><a href="goFriendUpdate">수정</a></td>
 	                     </tr>
             		</c:forEach>
                    </tbody>
