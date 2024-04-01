@@ -189,9 +189,9 @@
 	                        <c:if test="${loginMember.mb_id eq 'admin@naver.com'}">
 								<td style="text-align:center"><a href="deleteFBoard?friendboard_idx=${f.friendboard_idx }">삭제</a></td>
 							</c:if>
-							<c:if test="${loginMember.mb_nick} == ${f.writer} ">
+							<%-- <c:if test="${loginMember.mb_nick} == ${f.writer} "> --%>
 								<td style="text-align:center"><a href="goFriendUpdate?friendboard_idx=${f.friendboard_idx}">수정</a></td>
-							</c:if>
+							<%-- </c:if> --%>
 							
 	                     </tr>
             		</c:forEach>

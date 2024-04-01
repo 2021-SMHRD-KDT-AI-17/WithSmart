@@ -31,6 +31,8 @@ public interface FriendBoardMapper {
 
 	public void UpdateFboard(FriendBoard friendboard);
 
+	public void deleteComment(int friendboard_idx);
+
 	
 
 

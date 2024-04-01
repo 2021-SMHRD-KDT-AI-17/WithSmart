@@ -128,6 +128,7 @@ public class FriendBoardController {
 	@RequestMapping("/deleteFBoard")
 	public String deleteFBoard(@RequestParam("friendboard_idx") int friendboard_idx) {
 		friendBoardMapper.deleteFBoard(friendboard_idx);
+		friendBoardMapper.deleteComment(friendboard_idx);
 		return "redirect:/goFriendBoard";
 	}
 	
@@ -177,18 +178,18 @@ public class FriendBoardController {
 	}
 	
 	// 게시물 개인 삭제이동할 페이지
-	@RequestMapping("/goPerFriendBoard")
-	public String goPerFriendBoard() {
-		return "FriendBoard";
-	}
-	
-
-	// 게시물 개인 삭제
-	@RequestMapping("/PerdeleteFBoard")
-	public String PerdeleteFBoard(@RequestParam("friendboard_idx") int friendboard_idx) {
-		friendBoardMapper.PerdeleteFBoard(friendboard_idx);
-		return "goPerFriendBoard";
-	}
+//	@RequestMapping("/goPerFriendBoard")
+//	public String goPerFriendBoard() {
+//		return "FriendBoard";
+//	}
+//	
+//
+//	// 게시물 개인 삭제
+//	@RequestMapping("/PerdeleteFBoard")
+//	public String PerdeleteFBoard(@RequestParam("friendboard_idx") int friendboard_idx) {
+//		friendBoardMapper.PerdeleteFBoard(friendboard_idx);
+//		return "goPerFriendBoard";
+//	}
 	
 	
 }
