@@ -27,7 +27,9 @@ public interface FriendBoardMapper {
 
 	public List<FriendBoard> FgetComment(int friendboard_idx);
 
-	public FriendBoard UpdateFboard(int friendboard_idx);
+	public void PerdeleteFBoard(int friendboard_idx);
+
+	public void UpdateFboard(FriendBoard friendboard);
 
 
 	
