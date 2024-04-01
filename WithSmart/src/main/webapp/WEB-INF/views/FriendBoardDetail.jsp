@@ -2,7 +2,8 @@
     pageEncoding="UTF-8"%>
     
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>  
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@page import="java.util.ArrayList"%>  
     
     
 <!-- /*
@@ -96,6 +97,13 @@
 	          	</td>
 	          	  
 	          </tr>
+	          <tr>
+	          <c:forEach items="${f_list }" var="f" varStatus="fs">
+	          <c:if test="'${loginMember.mb_nick' eq '${friendboard.writer}'">
+			  <button class="btn btn-primary btn-md"><a href="deleteFBoard?friendboard_idx=${f.friendboard_idx }" style="color:white">글 삭제</a></button>
+			  </c:if>
+			  </c:forEach>
+			  </tr>
 		</table>
 		
 		</div>
@@ -151,7 +159,7 @@
 	                  	
 	                  	<!--뒤로 가기 (게시판 메인페이지로 이동)  -->
 	                  	<button class="btn btn-primary btn-md"><a href="goFriendBoard" style="color:white">뒤로가기</a></button>
-	                  	<button class="btn btn-primary btn-md"><a href="#" style="color:white">글 삭제</a></button>
+	                  	
 					  </div>			
 	                </form>		  	
               </div>

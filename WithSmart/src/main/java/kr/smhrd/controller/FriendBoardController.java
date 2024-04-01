@@ -113,7 +113,7 @@ public class FriendBoardController {
 		FriendBoard friendboard = friendBoardMapper.FboardContent(friendboard_idx);
 		model.addAttribute("fc_list", fc_list);
 		model.addAttribute("friendboard", friendboard);
-		System.out.println(fc_list);
+		// System.out.println(fc_list);
 		return "FriendBoardDetail";
 	}
 	
@@ -131,40 +131,20 @@ public class FriendBoardController {
 		return "redirect:/goFriendBoard";
 	}
 	
-//	// 댓글 등록
-//	@RequestMapping("/FriendBoardComment")
-//	public String FriendBoardComment(FriendBoardComment FriendboardComment, HttpServletRequest request) {
-//		
-//		// 1. 요청객체(request)
-//		// 2. 파일을 저장할 경로(String)
-//		String path = request.getRealPath("resources/image");
-//		System.out.println(path);
-//		// 3. 허용가능한 용량 크기(int)
-//		int size = 1024 * 1024 * 10;
-//		// 4. 인코딩 타입(String)
-//		String encoding = "UTF-8";
-//		// 5. 파일 이름 중복제거
-//		DefaultFileRenamePolicy rename = new DefaultFileRenamePolicy();
-//		try {
-//			MultipartRequest multi = new MultipartRequest(request, path, size, encoding, rename);
-//			String writer = multi.getParameter("writer");
-//			String cmtcontent = multi.getParameter("cmtcontent");
-//			
-//			FriendboardComment = new FriendBoardComment(writer, cmtcontent);
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//		
-//		// int cnt = friendBoardCommentMapper.CommentBoard(FriendboardComment);
-//		
-////		if(cnt>0) {
-////			System.out.println("업로드 성공");
-////		}else {
-////			System.out.println("업로드 실패");
-////		}
-//		
-//		return "redirect:/FboardContent";
-//	}
+	// goFriendUpdate.jsp로 이동
+	@RequestMapping("/goFriendUpdate")
+	public String goFriendUpdate() {
+		return "FriendUpdate";
+	}
+	
+	// 게시물 수정
+	@RequestMapping("/UpdateFboard")
+	public String UpdateFboard(int friendboard_idx, Model model) {
+		FriendBoard friendboard = friendBoardMapper.UpdateFboard(friendboard_idx);
+		model.addAttribute("friendboard", friendboard);
+		return "redirect:/FriendBoardInsert";
+		// friendBoardMapper.UpdateFboard(friendboard_idx);
+	}
 	
 	
 }
