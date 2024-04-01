@@ -6,8 +6,9 @@
     <title>채팅 페이지</title>
 </head>
 <body>
+
+<script async src="//client.uchat.io/uchat.js"></script>
 <%
-    // Java 코드로 변환된 부분 시작
     long time = System.currentTimeMillis() / 1000; // 현재 시간 (초)
     String room = "vensr"; // 채팅방 이름
     String token = "ff1dfa881d09c6e515a3b48b51d0aad3"; // 토큰 (유출 주의)
@@ -44,10 +45,7 @@
     String userDataString = userData.toString();
     String hash = DigestUtils.md5Hex(userDataString); // 해시 생성
     userData.append("hash=").append(hash); // 해시 추가
-    
-    // JavaScript 코드 출력
-    out.println("<script async src=\"//client.uchat.io/uchat.js\"></script>");
-    out.println("<u-chat room=\"" + room + "\" user_data=\"" + userDataString + "\" style=\"display:inline-block; width:500px; height:500px;\"></u-chat>");
 %>
+<u-chat room="<%= room %>" user_data="<%= userDataString %>" style="display:inline-block; width:500px; height:500px;"></u-chat>
 </body>
 </html>
