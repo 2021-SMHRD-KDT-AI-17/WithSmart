@@ -152,6 +152,7 @@ public class FriendBoardController {
 		try {
 			MultipartRequest multi = new MultipartRequest(request, path, size, encoding, rename);
 			String title = multi.getParameter("title");
+			System.out.println(title);
 			String writer = multi.getParameter("writer");
 			String filename="";
             if(multi.getFilesystemName("filename") == null) {

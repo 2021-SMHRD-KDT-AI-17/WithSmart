@@ -190,7 +190,7 @@
 								<td style="text-align:center"><a href="deleteFBoard?friendboard_idx=${f.friendboard_idx }">삭제</a></td>
 							</c:if>
 							<%-- <td style="text-align:center"><a href="UpdateFboard?friendboard_idx=${f.friendboard_idx }"></a></td> --%>
-							<td style="text-align:center"><a href="UpdateFboard?friendboard_idx=${f.friendboard_idx}">수정</a></td>
+							<td style="text-align:center"><a href="goFriendUpdate?friendboard_idx=${f.friendboard_idx}">수정</a></td>
 	                     </tr>
             		</c:forEach>
                    </tbody>

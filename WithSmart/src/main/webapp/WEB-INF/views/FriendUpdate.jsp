@@ -129,7 +129,7 @@
     	 <div class="col-md-12">
    			<div class="form-group">
 	       		<!-- 파일 첨부  -->
-	       		<input type="file" style="float:right; margin-bottom: 20px;" name="filename" value="${friendboard.filename} }">
+	       		<input type="file" style="float:right; margin-bottom: 20px;" name="filename" value="${friendboard.filename} ">
 	  	    </div>
         </div>
           <div class="form-group">
