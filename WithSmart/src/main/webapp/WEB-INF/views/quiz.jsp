@@ -47,6 +47,7 @@
         
         body {
     background-color: #f8f9fa; /* 배경색 설정 */
+    
 		}
 	
 		h2{
