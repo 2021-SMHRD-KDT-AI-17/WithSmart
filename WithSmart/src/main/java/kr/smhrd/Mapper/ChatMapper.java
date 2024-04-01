@@ -6,20 +6,15 @@ import kr.smhrd.entity.Chat;
 
 public interface ChatMapper {
 
+    List<Chat> getAllGroupChat();
 
-	 List<Chat> getAllGroupChat();
+    void saveGroupChat(Chat chat);
 
-	    void saveGroupChat(Chat chat);
+    void saveGroupMember(Chat chat);
 
-	    void saveGroupMember(Chat chat);
+    void saveGroupChatMessage(Chat chat);
 
-	    void saveGroupChatMessage(Chat chat);
+    List<Chat> getGroupChatMessage(Integer gp_id); // gp_id 타입 변경
 
-	    List<Chat> getGroupChatMessage(int gpid);
-
-	    List<Chat> getGroupMember(int gpid);
-
-
-	
-
+    List<Chat> getGroupMember(Integer gp_id); // gp_id 타입 변경
 }

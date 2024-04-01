@@ -1,27 +1,17 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Group Chat Messages</title>
+    <title>메세지 보내기</title>
 </head>
 <body>
-    <h1>Group Chat Messages</h1>
-    <!-- Display all group chat messages -->
-    <ul>
-        <c:forEach items="${message}" var="message">
-            <li>${message.sender_id}: ${message.message}</li>
-        </c:forEach>
-    </ul>
-    
-    <!-- Form to send a new message -->
-    <h2>Send Message</h2>
-    <form action="/sendMessage" method="post">
-        <input type="hidden" name="gpid" value="${param.gpid}">
-        <input type="hidden" name="senderid" value="user123"> <!-- Assuming sender ID is hardcoded here -->
-        <label for="message">Message:</label>
+    <h1>메세지 보내기</h1>
+    <form action="sendMessage" method="post">
+        <input type="hidden" name="gp_id" value="${param.gp_id}">
+        <input type="hidden" name="sender_id" value="${param.sender_id}">
+        <label for="message">메세지:</label>
         <input type="text" id="message" name="message">
-        <input type="submit" value="Send Message">
+        <input type="submit" value="메세지 보내기">
     </form>
 </body>
 </html>

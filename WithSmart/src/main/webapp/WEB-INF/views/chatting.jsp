@@ -18,10 +18,9 @@
     <!-- Form to create a new chat -->
     <h2>채팅 시작하기</h2>
     <form action="createChat" method="post">
-    	<input type="hidden" name="gp_id" value="${gp_id}">
-        <label for="gp_name">그룹 명:</label>
-        <input type="text" id="gp_name" name="gp_name">
-        <input type="submit" value="채팅 시작">
-    </form>
+    <label for="gp_name">그룹 명:</label>
+    <input type="text" id="gp_name" name="gp_name">
+    <input type="submit" value="채팅 시작">
+</form>
 </body>
 </html>
