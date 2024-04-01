@@ -109,7 +109,7 @@
       
       
      	 <!-- 글 작성 입력 폼 -->
-        <form action ="UpdateFboard" method ="post" enctype="multipart/form-data">
+        <form action ="UpdateFboard?friendboard_idx=${friendboard.friendboard_idx }" method ="post" enctype="multipart/form-data">
           <div class="row" style ="margin-top: 50px" id="Friendboard">
             <div class="col-md-6">
               <div class="form-group">
@@ -122,24 +122,24 @@
               <div class="form-group">
               <!-- 작성자 입력  -->
                 <label class="text-black" for="lname">작성자</label>
-                <input type="text" class="form-control"name ="writer" readonly value="${loginMember.mb_nick }">
+                <input type="text" class="form-control" name ="writer" readonly value="${friendboard.writer }">
               </div>
             </div>
           </div>
     	 <div class="col-md-12">
    			<div class="form-group">
 	       		<!-- 파일 첨부  -->
-	       		<input type="file" style="float:right; margin-bottom: 20px;" name="filename" value="${friendboard.filename} ">
+	       		<input type="file" style="float:right; margin-bottom: 20px;" name="filename">현재파일 : ${friendboard.filename}
 	  	    </div>
         </div>
           <div class="form-group">
             <!--글 내용 입력  -->
             <label class="text-black" for="contents">내용</label>
-            <textarea name="content" class="form-control" id="content" cols="30" rows="10" value="${friendboard.content}"></textarea>
+            <textarea name="content" class="form-control" cols="30" rows="10">${ friendboard.content}</textarea>
           </div>
           
         	<div class ="btn">
-	          <input type="submit" class="btn btn-primary"  style="background: #2E9AFE; border:none" value="작성하기">
+	          <input type="submit" class="btn btn-primary"  style="background: #2E9AFE; border:none" value="수정하기">
 	          <input type="reset" class="btn btn-primary"  style="background: #2E9AFE; border:none" value="초기화">
 	        </div>
         </form>
