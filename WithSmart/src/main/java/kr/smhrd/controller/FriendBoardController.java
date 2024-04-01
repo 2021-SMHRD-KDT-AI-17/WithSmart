@@ -142,7 +142,7 @@ public class FriendBoardController {
 	// 게시물 수정
 	@RequestMapping("/UpdateFboard")
 	public String UpdateFboard(@RequestParam("friendboard_idx") int friendboard_idx, HttpServletRequest request, FriendBoard Friendboard) {
-		System.out.println("컨트롤러 접근");
+		// System.out.println("컨트롤러 접근");
 		String path = request.getRealPath("resources/image");
 		int size = 1024 * 1024 * 10;
 		String encoding = "UTF-8";
@@ -163,21 +163,13 @@ public class FriendBoardController {
 			String content = multi.getParameter("content");
 
 			
-			Friendboard = new FriendBoard(title, writer, filename, content);
+			Friendboard = new FriendBoard(friendboard_idx, title, writer, filename, content);
 			
-			 System.out.println(Friendboard.toString());
+			// System.out.println(Friendboard.toString());
 			
 			
 		} catch (IOException e) {
 			e.printStackTrace();
-		}
-		
-		int cnt = friendBoardMapper.insertBoard(Friendboard);
-		
-		if(cnt>0) {
-			System.out.println("업로드 성공");
-		}else {
-			System.out.println("업로드 실패");
 		}
 		friendBoardMapper.UpdateFboard(Friendboard);
 		return "redirect:/goFriendBoard";
