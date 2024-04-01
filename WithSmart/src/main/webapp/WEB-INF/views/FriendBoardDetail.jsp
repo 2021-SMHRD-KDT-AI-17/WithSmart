@@ -94,17 +94,13 @@
 	          	<td colspan="3">
 	          		<h4>${friendboard.content }</h4>
 	          		<img alt="" src="resources/image/${friendboard.filename}"> 
-	          	</td>
-	          	  
-	          </tr>
-	          <tr>
-	          <c:forEach items="${f_list }" var="f" varStatus="fs">
-	          <c:if test="'${loginMember.mb_nick' eq '${friendboard.writer}'">
-			  <button class="btn btn-primary btn-md"><a href="deleteFBoard?friendboard_idx=${f.friendboard_idx }" style="color:white">글 삭제</a></button>
-			  </c:if>
-			  </c:forEach>
-			  </tr>
+	          	</td>  
+	          </tr>	  
 		</table>
+		
+		 <%-- <c:if test="'${loginMember.mb_nick' eq '${friendboard.writer}'"> --%>
+			  <button class="btn btn-primary btn-md"><a href="PerdeleteFBoard" style="color:white">글 삭제</a></button>
+	     <%-- </c:if> --%>
 		
 		</div>
 
@@ -143,7 +139,7 @@
                 <h3 class="mb-5">댓글 남기기</h3>
                 	<form action="FriendBoardComment" method="post">
 	                  	<div class="form-group">
-	                    <label for="nick">닉네임 *</label>
+	                    <label for="nick">닉네임</label>
 	                    <input type="text" class="form-control" name="writer" readonly value="${loginMember.mb_nick}">
 	                  </div>
 	                  <div>

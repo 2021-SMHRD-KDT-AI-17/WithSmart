@@ -164,7 +164,7 @@
                      <td scope="col">작성자</td>
                      <td scope="col">작성일</td>
                      <td scope="col">조회수</td>
-                     <td scope="col">추천수</td>
+                     <td scope="col">좋아요</td>
                      <%if(loginMember.getMb_id().equals("admin@naver.com")){ %>
                      	<td scope="col">삭제</td>
                      <%} %>
@@ -190,7 +190,7 @@
 								<td style="text-align:center"><a href="deleteFBoard?friendboard_idx=${f.friendboard_idx }">삭제</a></td>
 							</c:if>
 							<%-- <td style="text-align:center"><a href="UpdateFboard?friendboard_idx=${f.friendboard_idx }"></a></td> --%>
-							<td style="text-align:center"><a href="goFriendUpdate">수정</a></td>
+							<td style="text-align:center"><a href="UpdateFboard?friendboard_idx=${f.friendboard_idx}">수정</a></td>
 	                     </tr>
             		</c:forEach>
                    </tbody>

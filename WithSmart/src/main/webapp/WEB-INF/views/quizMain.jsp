@@ -65,16 +65,20 @@ button[type="submit"] {
 <body>
 	<div class="container">
 		<form id="start-quiz-form" action="showQuiz" method="post">
-			<button formaction="goMain" formmethod="post" class="btn btn-primary btn" style="background: #2E9AFE; border:none">홈으로 돌아가기</button>
-			<br>
-			<br>
+			
+			
 			<img src="resources/images/quizmain.png" alt="영차"> <br> <br>
 			<!-- 사용자 ID 입력 -->
 			<label for="mb_id"></label><br>
 <input type="hidden" id="mb_id" name="mb_id" value="${sessionScope.loginMember.mb_id}" readonly>
 			<label for="mb_nick" style="display: block; text-align: center;">사용자 닉네임</label>
-<input type="text" id="mb_nick" name="mb_nick" value="${sessionScope.loginMember.mb_nick}" readonly style="width: 300px; margin: 0 auto; text-align: center;"><br>
+<input type="text" id="mb_nick" name="mb_nick" value="${sessionScope.loginMember.mb_nick}" readonly style="width: 300px; margin: 0 auto; text-align: center;">
+			<br>
+			<br>
 			<button type="submit" class="btn btn-primary btn-lg" style="background: #2E9AFE; border:none">오늘의 퀴즈 풀기</button>
+			<br>
+			<br>
+			<button formaction="goquizRanking" formmethod="post" class="btn btn-primary btn" style="background: #2E9AFE; border:none">랭킹보기</button>
 				
 				
 		</form>

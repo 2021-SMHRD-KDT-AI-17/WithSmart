@@ -133,17 +133,68 @@ public class FriendBoardController {
 	
 	// goFriendUpdate.jsp로 이동
 	@RequestMapping("/goFriendUpdate")
-	public String goFriendUpdate() {
+	public String goFriendUpdate(@RequestParam("friendboard_idx") int friendboard_idx, Model model) {
+		FriendBoard friendboard = friendBoardMapper.FboardContent(friendboard_idx);
+		model.addAttribute("friendboard", friendboard);
 		return "FriendUpdate";
 	}
 	
 	// 게시물 수정
 	@RequestMapping("/UpdateFboard")
-	public String UpdateFboard(int friendboard_idx, Model model) {
-		FriendBoard friendboard = friendBoardMapper.UpdateFboard(friendboard_idx);
-		model.addAttribute("friendboard", friendboard);
-		return "redirect:/FriendBoardInsert";
-		// friendBoardMapper.UpdateFboard(friendboard_idx);
+	public String UpdateFboard(@RequestParam("friendboard_idx") int friendboard_idx, HttpServletRequest request, FriendBoard Friendboard) {
+		System.out.println("컨트롤러 접근");
+		String path = request.getRealPath("resources/image");
+		int size = 1024 * 1024 * 10;
+		String encoding = "UTF-8";
+		DefaultFileRenamePolicy rename = new DefaultFileRenamePolicy();
+
+		
+		try {
+			MultipartRequest multi = new MultipartRequest(request, path, size, encoding, rename);
+			String title = multi.getParameter("title");
+			String writer = multi.getParameter("writer");
+			String filename="";
+            if(multi.getFilesystemName("filename") == null) {
+            	filename = "";
+            }else {
+            	filename = multi.getFilesystemName("filename");
+            }
+			String content = multi.getParameter("content");
+
+			
+			Friendboard = new FriendBoard(title, writer, filename, content);
+			
+			 System.out.println(Friendboard.toString());
+			
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		int cnt = friendBoardMapper.insertBoard(Friendboard);
+		
+		if(cnt>0) {
+			System.out.println("업로드 성공");
+		}else {
+			System.out.println("업로드 실패");
+		}
+		friendBoardMapper.UpdateFboard(Friendboard);
+		return "redirect:/goFriendBoard";
+		
+	}
+	
+	// 게시물 개인 삭제이동할 페이지
+	@RequestMapping("/goPerFriendBoard")
+	public String goPerFriendBoard() {
+		return "FriendBoard";
+	}
+	
+
+	// 게시물 개인 삭제
+	@RequestMapping("/PerdeleteFBoard")
+	public String PerdeleteFBoard(@RequestParam("friendboard_idx") int friendboard_idx) {
+		friendBoardMapper.PerdeleteFBoard(friendboard_idx);
+		return "goPerFriendBoard";
 	}
 	
 	
