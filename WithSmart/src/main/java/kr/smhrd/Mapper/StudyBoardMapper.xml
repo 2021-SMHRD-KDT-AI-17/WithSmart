@@ -35,4 +35,7 @@
 		select * from tbl_studyboard order by writetime desc limit #{startIndex}, 10  
 	</select>
 	
+	<select id="SgetComment" parameterType="int" resultType="kr.smhrd.entity.StudyBoardComment">
+		select * from tbl_studyboard_comment where studyboard_idx=#{studyboard_idx}
+	</select>
 </mapper>

@@ -26,4 +26,6 @@ public interface StudyBoardMapper {
 
 	public int getTotalCount();
 
+	public List<StudyBoard> SgetComment(int studyboard_idx);
+
 }

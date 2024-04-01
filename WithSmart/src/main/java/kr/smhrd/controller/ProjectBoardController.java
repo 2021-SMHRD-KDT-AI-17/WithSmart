@@ -96,8 +96,10 @@ public class ProjectBoardController {
 	public String PboardContent(int projectboard_idx, Model model) {
 		projectBoardMapper.PboardCount(projectboard_idx);
 		
+		List<ProjectBoard> pc_list = projectBoardMapper.PgetComment(projectboard_idx); 
 		ProjectBoard projectboard = projectBoardMapper.PboardContent(projectboard_idx);
 		model.addAttribute("projectboard", projectboard);
+		model.addAttribute("pc_list", pc_list);
 		return "ProjectBoardDetail";
 	}
 	

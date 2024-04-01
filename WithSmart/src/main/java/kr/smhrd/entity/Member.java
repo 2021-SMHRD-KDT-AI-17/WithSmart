@@ -24,4 +24,5 @@ public class Member {
 	private String mb_nick;
 	private String mb_cert;
 	private int mileage;
+	private String attendance;
 }

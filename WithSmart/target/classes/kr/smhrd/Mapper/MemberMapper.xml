@@ -38,4 +38,11 @@
 		select count(*) from tbl_member;
 	</select>
 	
+	<select id="selectattendance" parameterType="String" resultType="String">
+		select left(attendance,10) from tbl_member where mb_id=#{mb_id}
+	</select>
+	
+	<update id="updateattendance" parameterType="String">
+		update tbl_member set attendance = Now() where mb_id = #{mb_id}
+	</update>
 </mapper>
