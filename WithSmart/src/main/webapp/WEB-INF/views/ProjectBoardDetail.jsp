@@ -81,6 +81,7 @@ table {
 	          	<td>제목</td>
 	          	<td><h2>${projectboard.title }</h2></td>
 	          </tr>
+	         
 	          <tr>
 	          	<td>작성자</td>
 	          	<td>${projectboard.writer }</td>
@@ -95,7 +96,7 @@ table {
 	          	<td colspan="2">내용</td>
 	          </tr>
 	          <tr>	
-	          	<td colspan="3" style="border: 1px solid black; padding: 8px">
+	          	<td colspan="3" style="border: 1px solid black; padding: 8px; border-radius:10px">
 	          		<h4>${projectboard.content }</h4>
 	          		<img alt="" src="resources/image/${projectboard.filename}"> 
 	          	</td>
