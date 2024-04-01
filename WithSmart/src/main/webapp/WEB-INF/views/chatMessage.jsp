@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
+<%-- <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,4 +14,4 @@
         <input type="submit" value="메세지 보내기">
     </form>
 </body>
-</html>
+</html> --%>
