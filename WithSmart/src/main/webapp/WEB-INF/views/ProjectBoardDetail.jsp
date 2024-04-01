@@ -47,7 +47,7 @@ table {
 
  .lovebt{
  	 margin-left: 10px; 
- 	 width: 30px;
+ 	 width: 100px;
  	 border-radius: 10px;
  	 color:red;
  	 border:none;
@@ -127,7 +127,7 @@ table {
 			                    <div class="meta">${pc.writetime}</div>
 			                    <!-- 답글 내용 가져오기  --> 
 			                   <%--  <p>${pc.cmtcontent }<button class="btn btn-info" style="margin-left: 30px; width: 100px">♥</button></p> --%>
-			                    <p>${pc.cmtcontent }<button class="lovebt">♥</button></p>
+			                    <p>${pc.cmtcontent }<button class="lovebt">좋아요♥</button></p>
 			                    <!-- 부트스트랩 아이콘 가져옴 -->
 			                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-emoji-heart-eyes" viewBox="0 0 16 16">
 			                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>

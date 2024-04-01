@@ -156,12 +156,12 @@ table {
 	                  	   <input type="hidden" name="studyboard_idx" value="${studyboard.studyboard_idx}">
 	                  </div>
 	                  <div class="form-group">
-	                    <label for="message">답글</label>
-	                    <textarea name="cmtcontent" id="message" cols="30" rows="5" class="form-control"></textarea>
+	                    <label for="message">댓글</label>
+	                    <textarea name="cmtcontent" id="message" cols="30" rows="5" class="form-control" placeholder="내용을 입력해주세요. 욕설과 비방은 정지 사유 대상입니다."></textarea>
 	                  </div>
 	                  
 	                  <div class="form-group">
-	                    <input type="submit" value="답글달기" class="btn btn-primary btn-md" name="#">
+	                    <input type="submit" value="댓글달기" class="btn btn-primary btn-md" name="#">
 	                  	
 	                  	<!--뒤로 가기 (게시판 메인페이지로 이동)  -->
 	                  	<button class="btn btn-primary btn-md" style="background: #2E9AFE; border:none"><a href="goStudyBoard" style="color:white">뒤로가기</a></button>

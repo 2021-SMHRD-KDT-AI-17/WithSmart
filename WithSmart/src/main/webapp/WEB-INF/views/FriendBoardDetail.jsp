@@ -50,6 +50,20 @@
 	#list>tr{
 		margin-bottom: 50px;
 	}
+	
+	table {
+  border-collapse: separate; /* 셀 테두리를 분리하도록 설정 */
+  border-spacing: 20px; /* 행과 열 사이의 간격 설정 */
+	}
+
+ .lovebt{
+ 	 margin-left: 10px; 
+ 	 width: 100px;
+ 	 border-radius: 10px;
+ 	 color:red;
+ 	 border:none;
+	 }
+	
 
 </style>
 
@@ -64,12 +78,12 @@
       <div class="row justify-content-center align-items-stretch">
         
        
-        <article class="col-lg-8 order-lg-2 px-lg-5">
+        <article class="col-lg-8 order-lg-2 px-lg-5" style="border:10px solid #A9E2F3; padding:10px; margin-top:50px; border-radius:10px; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);">
     
 	    	
 	    <!-- 게시글 가져오기  -->
 	    	
-	    <div style="margin-top: 150px" id="Friendboard">	
+	    <div style="margin-top: 50px" id="Friendboard">	
 	    
 	    <table id="list">
 	    
@@ -79,7 +93,7 @@
 	          </tr>
 	          <tr>
 	          	<td>작성자</td>
-	          	<td><h3>${friendboard.writer }</h3></td>
+	          	<td>${friendboard.writer }</td>
 	          </tr>
 	          
 	          <tr>
@@ -91,15 +105,17 @@
 	          	<td colspan="2">내용</td>
 	          </tr>
 	          <tr>	
-	          	<td colspan="3">
-	          		<h4>${friendboard.content }</h4>
+	          	<td colspan="3" style="border: 3px solid #BDBDBD; width:1000px; height:600px; border-radius:10px; padding: 30px">
 	          		<img alt="" src="resources/image/${friendboard.filename}"> 
+	          		<br>
+	          		<h4 style="margin-top: 20px; font-size:15px">${friendboard.content }</h4>
+	          		
 	          	</td>  
 	          </tr>	  
 		</table>
 		
 		 <%-- <c:if test="'${loginMember.mb_nick' eq '${friendboard.writer}'"> --%>
-			  <button class="btn btn-primary btn-md"><a href="PerdeleteFBoard" style="color:white">글 삭제</a></button>
+			  
 	     <%-- </c:if> --%>
 		
 		</div>
@@ -118,12 +134,12 @@
 			                    <!-- 답글 단 시간 가져오기 -->  
 			                    <div class="meta">${fc.writetime}</div>
 			                    <!-- 답글 내용 가져오기  --> 
-			                    <p>${fc.cmtcontent}<button class="btn btn-info" style="margin-left: 30px">추천하기</button></p>
+			                    <p>${fc.cmtcontent}<button class="lovebt">좋아요♥</button></p>
 			                    <!-- 부트스트랩 아이콘 가져옴 -->
 			                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-emoji-heart-eyes" viewBox="0 0 16 16">
 			                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
 			                        <path d="M11.315 10.014a.5.5 0 0 1 .548.736A4.5 4.5 0 0 1 7.965 13a4.5 4.5 0 0 1-3.898-2.25.5.5 0 0 1 .548-.736h.005l.017.005.067.015.252.055c.215.046.515.108.857.169.693.124 1.522.242 2.152.242s1.46-.118 2.152-.242a27 27 0 0 0 1.109-.224l.067-.015.017-.004.005-.002zM4.756 4.566c.763-1.424 4.02-.12.952 3.434-4.496-1.596-2.35-4.298-.952-3.434m6.488 0c1.398-.864 3.544 1.838-.952 3.434-3.067-3.554.19-4.858.952-3.434"/>
-			                    </svg>
+			                    </svg> 
 			                    <span>${fc.heartcount}</span>
 			                </div>
 			            </li>
@@ -146,16 +162,16 @@
 	                  	   <input type="hidden" name="friendboard_idx" value="${friendboard.friendboard_idx}">
 	                  </div>
 	                  <div class="form-group">
-	                    <label for="message">답글</label>
-	                    <textarea name="cmtcontent" id="message" cols="30" rows="5" class="form-control"></textarea>
+	                    <label for="message">댓글</label>
+	                    <textarea name="cmtcontent" id="message" cols="30" rows="5" class="form-control" placeholder="내용을 입력해주세요. 욕설과 비방은 정지 사유 대상입니다."></textarea>
 	                  </div>
 	                  
 	                  <div class="form-group">
-	                    <input type="submit" value="답글달기" class="btn btn-primary btn-md" name="#">
+	                    <input type="submit" value="댓글달기" class="btn btn-primary btn-md" name="#">
 	                  	
 	                  	<!--뒤로 가기 (게시판 메인페이지로 이동)  -->
-	                  	<button class="btn btn-primary btn-md"><a href="goFriendBoard" style="color:white">뒤로가기</a></button>
-	                  	
+	                  	<button class="btn btn-primary btn-md" style="background: #2E9AFE; border:none"><a href="goFriendBoard" style="color:white">뒤로가기</a></button>
+	                  	<button class="btn btn-primary btn-md" style="background: #2E9AFE; border:none"><a href="PerdeleteFBoard" style="color:white">글 삭제</a></button>
 					  </div>			
 	                </form>		  	
               </div>

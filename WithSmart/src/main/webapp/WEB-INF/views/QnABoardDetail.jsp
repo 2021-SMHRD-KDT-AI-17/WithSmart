@@ -47,7 +47,7 @@ table {
 
  .lovebt{
  	 margin-left: 10px; 
- 	 width: 30px;
+ 	 width: 100px;
  	 border-radius: 10px;
  	 color:red;
  	 border:none;
@@ -124,7 +124,7 @@ table {
 			                    <!-- 답글 단 시간 가져오기 -->  
 			                    <div class="meta">${qc.writetime}</div>
 			                    <!-- 답글 내용 가져오기  --> 
-			                    <p>${qc.cmtcontent }<button class="lovebt"><a href="Qboardcommentheart?cmt_idx=${qc.cmt_idx}&qnaboard_idx=${qnaboard.qnaboard_idx}">♥</a></button></p>
+			                    <p>${qc.cmtcontent }<button class="lovebt"><a href="Qboardcommentheart?cmt_idx=${qc.cmt_idx}&qnaboard_idx=${qnaboard.qnaboard_idx}">좋아요♥</a></button></p>
 			                    <!-- 부트스트랩 아이콘 가져옴 -->
 			                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-emoji-heart-eyes" viewBox="0 0 16 16">
 			                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
@@ -152,12 +152,12 @@ table {
 	                  	   <input type="hidden" name="qnaboard_idx" value="${qnaboard.qnaboard_idx}">
 	                  </div>
 	                  <div class="form-group">
-	                    <label for="message">답글</label>
-	                    <textarea name="cmtcontent" id="message" cols="30" rows="5" class="form-control"></textarea>
+	                    <label for="message">댓글</label>
+	                    <textarea name="cmtcontent" id="message" cols="30" rows="5" class="form-control" placeholder="내용을 입력해주세요. 욕설과 비방은 정지 사유 대상입니다."></textarea>
 	                  </div>
 	                  
 	                  <div class="form-group">
-	                    <input type="submit" value="답글달기" class="btn btn-primary btn-md" name="#">
+	                    <input type="submit" value="댓글달기" class="btn btn-primary btn-md" name="#">
 	                  	
 	                  	<!--뒤로 가기 (게시판 메인페이지로 이동)  -->
 	                  	<button class="btn btn-primary btn-md" style="background: #2E9AFE; border:none"><a href="goQnABoard" style="color:white">뒤로가기</a></button>
