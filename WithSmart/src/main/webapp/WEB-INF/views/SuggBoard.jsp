@@ -174,14 +174,14 @@
 		                        	<c:if test="${loginMember.mb_id eq 'admin@naver.com' }">
 									<td style="text-align:center"><a href="deleteSBoard?suggboard_idx=${s.suggboard_idx }">삭제</a></td>
 									</c:if>
-					    	    </c:when>
+					    	    </c:when>  
 	                        	<c:otherwise>
 	                        		<td>건의합니다</td>
 						    		<td style="text-align:center">***</td>
 		                        	<td style="text-align:center">${fn:split(s.writetime ," ")[0] }</td>
 	                        	</c:otherwise>
 							</c:choose>
-	                     </tr>
+	                    </tr>
             		</c:forEach>
     					
     					
