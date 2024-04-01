@@ -58,6 +58,28 @@
 /*             font-weight: bold; */
         }
         
+        .start_table{
+      background-image: url('resources/images/파스타3.jpg');
+      width: 100%;
+      height:300px;
+      display: flex;
+      justify-content: center;
+      align-items: center; 
+      
+      position: relative;
+      isolation : isolate;
+   }
+   
+   
+   .start_table::after{
+      content : '';
+      position: absolute;
+      background: white;
+      z-index: -1;
+      inset:0;
+      opacity: 0.5;
+   
+   }
 	 
 </style>
 
@@ -69,7 +91,11 @@
     <%@ include file="./header.jsp" %>   
 
      <div class="container-fluid" align="center" style ="margin-top: 200px;" >
+     
+     <div class="start_table">
 	 	<h1> 개발원 맛집 리스트</h1>
+	 </div>
+	 	
 	 	<h3 style="margin-top:50px" >지도를 클릭하여 주변 맛집을 확인해보세요!</h3>
 	 </div>
 	

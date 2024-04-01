@@ -12,5 +12,9 @@ public interface StudyBoardCommentMapper {
 
 	public void insertComment(@Param("writer") String writer, @Param("cmtcontent")String cmtcontent, @Param("studyboard_idx")int studyboard_idx);
 
+	public void stboarcommentheart(int cmt_idx);
+
+
+
 	
 }

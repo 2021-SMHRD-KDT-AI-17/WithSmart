@@ -28,4 +28,11 @@ public class QnABoardCommentController {
 	return "redirect:/QboardContent?qnaboard_idx=" + qnaboard_idx;
 	}
 	
+	@RequestMapping("/Qboardcommentheart")
+	public String Qboardcommentheart(int cmt_idx, int qnaboard_idx) {
+		
+		qnaBoardCommentMapper.qboardcommentheart(cmt_idx);
+		
+		return "redirect:/QboardContent?qnaboard_idx=" + qnaboard_idx;
+	}
 }

@@ -129,7 +129,7 @@
 	            <input type="text" class ="form-control" style = "margin-top:10px" placeholder ="발급 받은 인증번호를 입력해주세요" name="mb_cert" id="inputC">
 	            <input type="button" class="btn btn-success" value="인증번호 확인" onclick="checkC()" style = "margin-top:5px">
 	            <div id="certCheck"></div>
-	            <input type="submit" class="btn btn-primary" style="margin-top:10px" value="회원가입 하기" width="500">
+	            <input type="submit" class="btn btn-primary" style="margin-top:10px; background: #2E9AFE; border:none" value="회원가입 하기" width="500">
             </form>
           
           <br><br>
@@ -140,7 +140,7 @@
 				
 					<input type="text" class="form-control" placeholder="이메일을 입력하세요" name="mb_id" id="inputId">
 					<input type="password" class="form-control"  placeholder="비밀번호를 입력하세요" name="mb_pw" id="inputPw">
-					<input type="submit" class="btn btn-primary" style="margin-top:20px" value="로그인" onclick="logCheck()">
+					<input type="submit" class="btn btn-primary" style="margin-top:20px; background: #2E9AFE; border:none" value="로그인" onclick="logCheck()">
 					<c:set var="todayDate" value="<%= todayDate %>" />
 					<input type="hidden" value="${todayDate}" name="todayDate">
 					<div id="resultlogCheck" style="color:red"></div>

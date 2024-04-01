@@ -154,13 +154,14 @@
 	                        <%if(loginMember == null){ %>
 	                        안녕하세요! <br> WithSmart 입니다.
 	                        <%}else { %>
-	                        <%=loginMember.getMb_nick() %>님 안녕하세요! <br> WithSmart 입니다.
+	                        <%=loginMember.getMb_nick() %> 님 안녕하세요! <br> WithSmart 입니다.
 	                        <%} %>
 	                    </h1>
-	                    <p class="text-white mb-4" data-aos="fade-up" data-aos-delay="100"> 스마트인재 개발원 수강생과 수료생들을 위한 서비스입니다. 
+	                    <p class="text-white mb-4" data-aos="fade-up" data-aos-delay="100"> '위드스마트' 는 스마트인재개발원 수강생들을 위한 소셜 네트워크 서비스입니다. 
 	                        <%if(loginMember == null){ %>
+	                        <br>
 	                        <br> 회원가입 후 서비스를 이용해보세요! <br>
-	                    <button class="btn btn-primary" style ="margin-top: 30px; display: flex; justify-content: center;"><a href ="goJoin" , style ='color:white; text-decoration: none;' >회원가입  / 로그인 </a></btton>
+	                    <button class="btn btn-primary" style ="margin-top: 30px; display: flex; justify-content: center; background: #2E9AFE; border:none"><a href ="goJoin" , style ='color:white; text-decoration: none;' >회원가입  / 로그인 </a></btton>
 	                    <%} %>
 	                    </p>
 	                </div>   
