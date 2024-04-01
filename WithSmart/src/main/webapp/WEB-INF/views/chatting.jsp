@@ -1,24 +1,27 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" isELIgnored="false"%>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Chatting Page</title>
+    <title>채팅 페이지</title>
 </head>
 <body>
-    <h1>Chatting Page</h1>
+    <h1>채팅 페이지</h1>
     <!-- Display all group chats -->
-    <h2>All Group Chats</h2>
+    <h2>모든 채팅</h2>
     <ul>
-        <c:forEach items="${chat}" var="chat">
-            <li>${chat.gp_name}</li>
-        </c:forEach>
+        <c:forEach items="${chat}" var="chatItem">
+    <li>${chatItem.gp_name}</li>
+</c:forEach>
     </ul>
     
     <!-- Form to create a new chat -->
-    <h2>Create New Chat</h2>
+    <h2>채팅 시작하기</h2>
     <form action="createChat" method="post">
-        <label for="gpname">Group Name:</label>
-        <input type="text" id="gpname" name="gpname">
-        <input type="submit" value="Create Chat">
+    	<input type="hidden" name="gp_id" value="${gp_id}">
+        <label for="gp_name">그룹 명:</label>
+        <input type="text" id="gp_name" name="gp_name">
+        <input type="submit" value="채팅 시작">
     </form>
 </body>
 </html>

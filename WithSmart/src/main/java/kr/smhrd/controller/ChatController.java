@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.smhrd.Mapper.ChatMapper;
 import kr.smhrd.entity.Chat;
@@ -35,10 +36,11 @@ public class ChatController {
 	}
 	
 	@RequestMapping("/createChat")
-	public String createChat(String gpname) {
-		chatMapper.saveGroupChat(new Chat(gpname));
+	public String createChat(@RequestParam("gpname") String gpname, @RequestParam(name = "gpid", required = false) Integer gpid) {
+	    // 'gpid'를 사용하여 작업 수행
+	    chatMapper.saveGroupChat(new Chat(gpname));
 		
-		return "redirect:/showChat";
+		return "redirect:/showMember";
 	}
 	
 	@RequestMapping("/addMember")

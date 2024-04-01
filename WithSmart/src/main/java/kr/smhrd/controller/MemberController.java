@@ -83,7 +83,8 @@ public class MemberController {
 		Member loginMember = memberMapper.goLogin(member);
 		String todayDate = request.getParameter("todayDate");
 		System.out.println(todayDate); String attendance =
-		memberMapper.selectattendance(member.getMb_id()); String getpoint = "0"; 
+		memberMapper.selectattendance(member.getMb_id()); 
+		String getpoint = "0"; 
 		if(!(attendance).equals(todayDate)) {
 			memberMapper.memberMileage(member);
 			memberMapper.updateattendance(member.getMb_id());

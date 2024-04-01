@@ -42,9 +42,13 @@
 		select * from tbl_friendboard_comment where friendboard_idx=#{friendboard_idx}
 	</select>
 	
-	<update id="UpdateFboard" parameterType="int">
-		update tbl_friendboard set title=#{title}, writer=#{writer}, filename={#filename}, content=#{content} where friendboard_idx=#{friendboard_idx}
+	<update id="UpdateFboard" parameterType="kr.smhrd.entity.FriendBoard">
+		update tbl_friendboard set title=#{title}, writer=#{writer}, filename=#{filename}, content=#{content} where friendboard_idx=#{friendboard_idx}
 	</update>
+	
+	<delete id="PerdeleteFBoard" parameterType="String">
+		delete from tbl_friendboard where mb_id=#{mb_id}
+	</delete>
 
 
 </mapper>
