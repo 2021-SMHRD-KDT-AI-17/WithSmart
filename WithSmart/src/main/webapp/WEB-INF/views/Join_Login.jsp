@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@page import="kr.smhrd.entity.Member" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page import="java.util.Date" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -96,6 +100,12 @@
 
    <!-- header 파일 불러오기  --> 
  <%@ include file = "./header.jsp" %>
+ <%
+	//현재 날짜를 가져옵니다.
+	 Date now = new Date();
+	 // 현재 날짜를 yyyy-MM-dd 형식으로 포맷합니다.
+	 String todayDate = new SimpleDateFormat("yyyy-MM-dd").format(now);
+ %>
  
     
     <div class="hero-slant overlay" data-stellar-background-ratio="0.5" style="background-image: url('resources/images/join_login.jpg'); background-position: 0% 0px";>
@@ -131,6 +141,8 @@
 					<input type="text" class="form-control" placeholder="이메일을 입력하세요" name="mb_id" id="inputId">
 					<input type="password" class="form-control"  placeholder="비밀번호를 입력하세요" name="mb_pw" id="inputPw">
 					<input type="submit" class="btn btn-primary" style="margin-top:20px" value="로그인" onclick="logCheck()">
+					<c:set var="todayDate" value="<%= todayDate %>" />
+					<input type="hidden" value="${todayDate}" name="todayDate">
 					<div id="resultlogCheck" style="color:red"></div>
 					<br>
 				
@@ -179,6 +191,9 @@
     	   
 			var inputId = $('#inputId').val();
     	    var inputPw = $('#inputPw').val();
+    	    <%-- var getpoint = '<%= session.getAttribute("getpoint") %>'; --%>
+    	    /* var getpoint = ${getpoint}  */
+    	   
     	    
     	    $.ajax({
     	        url: 'LoginCheck',
@@ -198,13 +213,13 @@
     	        }
     	    });
     	    
-    	    
-       	    var loginMember = <%= session.getAttribute("loginMember") %>;
-            if (loginMember == null) {
+/*             if (getpoint == ("1")) {
             		alert("출석포인트 획득!");
-            	
-            	 
-            }
+            }else if(getpoint == ("0")){
+            	alert("출석포인트를 이미 획득하셨습니다.");
+            }else{
+            	alert(JSON.stringify(getpoint));
+            }  */
             
     	}
        

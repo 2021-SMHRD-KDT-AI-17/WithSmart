@@ -78,11 +78,24 @@ public class MemberController {
 	 
 	// 로그인
 	@RequestMapping("/goLogin")
-	public String goLogin(Member member, HttpSession session) {
+	public String goLogin(Member member, HttpSession session, HttpServletRequest request, Model model ) {
 		// System.out.println(member);
 		Member loginMember = memberMapper.goLogin(member);
+		String todayDate = request.getParameter("todayDate");
+		System.out.println(todayDate); String attendance =
+		memberMapper.selectattendance(member.getMb_id()); String getpoint = "0"; 
+		if(!(attendance).equals(todayDate)) {
+			memberMapper.memberMileage(member);
+			memberMapper.updateattendance(member.getMb_id());
+			getpoint = "1";
+			System.out.println("포인트 획득");
+		}else {
+			System.out.println("포인트를 이미 획득하였습니다.");
+		}
+		session.setAttribute("getpoint", getpoint);
+		// model.addAttribute("getpoint", getpoint);
 		session.setAttribute("loginMember", loginMember);
-		memberMapper.memberMileage(member);
+		
 		// session.setAttribute("loginMember1", loginMember);
 		return "Main";
 	}
