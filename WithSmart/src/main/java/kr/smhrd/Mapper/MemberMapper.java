@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
 import kr.smhrd.entity.Member;
+import lombok.NonNull;
 
 @Mapper
 public interface MemberMapper {
@@ -35,6 +36,12 @@ public interface MemberMapper {
 	public int getMembersize();
 
 	public void memberMileage(Member member);
+
+	public String selectattendance(@NonNull String mb_id);
+
+	public void updateattendance(@NonNull String mb_id);
+
+	
 
 
 
