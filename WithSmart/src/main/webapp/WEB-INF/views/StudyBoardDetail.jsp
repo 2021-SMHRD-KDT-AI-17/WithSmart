@@ -38,6 +38,24 @@
 
 <meta charset="UTF-8">
 <title>WithSmart</title>
+
+<style>
+
+table {
+  border-collapse: separate; /* 셀 테두리를 분리하도록 설정 */
+  border-spacing: 20px; /* 행과 열 사이의 간격 설정 */
+}
+
+ .lovebt{
+ 	 margin-left: 10px; 
+ 	 width: 30px;
+ 	 border-radius: 10px;
+ 	 color:red;
+ 	 border:none;
+ }
+
+</style>
+
 </head>
 <body>
 
@@ -53,7 +71,7 @@
       <div class="row justify-content-center align-items-stretch">
         
        
-        <article class="col-lg-8 order-lg-2 px-lg-5">
+        <article class="col-lg-8 order-lg-2 px-lg-5" style="border:10px solid #A9E2F3; padding:10px; margin-top:50px; border-radius:10px; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);">
     
 	    	
 	    <!-- 게시글 가져오기  -->

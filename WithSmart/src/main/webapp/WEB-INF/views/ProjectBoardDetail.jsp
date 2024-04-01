@@ -53,18 +53,6 @@ table {
  	 border:none;
  }
 
-/* 	."col-lg-8 order-lg-2 px-lg-5"{
-	border: 1px solid #000; 
-	padding: 10px; 
-	margin-top:30px; 
-	border-radius:10px;
-	} */
-
-/* 	.content{
-		background-color:#f0efef;
-		padding:20px;
-		border-radius:10px;
-	} */
 
 </style>
 
@@ -85,14 +73,14 @@ table {
         
        
         <article class="col-lg-8 order-lg-2 px-lg-5" style="border:10px solid #A9E2F3; padding:10px; margin-top:50px; border-radius:10px; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);">
-   <!--  <article class="col-lg-8 order-lg-2 px-lg-5" style="padding: 10px; margin-top: 50px; border-radius: 10px; box-shadow: inset 0 0 10px rgba(0,0,0,0.3); background: linear-gradient(to right, #A9E2F3, #FFFFFF);"> -->
     
 	    	
 	    <!-- 게시글 가져오기  -->
 	    	
-	    <div style="margin-top: 40px" id="Projectboard">	
+	    <div style="margin-top: 50px" id="Projectboard">	
+	    
  		<table id="list">
-	       	  <tr class="separator">
+ 		
 	          	<td>제목</td>
 	          	<td><h2>${projectboard.title }</h2></td>
 	          </tr>
