@@ -31,6 +31,8 @@ public interface FriendBoardMapper {
 
 	public void UpdateFboard(FriendBoard friendboard);
 
+	
+
 
 	
 
