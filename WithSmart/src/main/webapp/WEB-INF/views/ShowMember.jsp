@@ -96,6 +96,7 @@
 					      <th scope="col">No</th>
 					      <th scope="col">이메일</th>
 					      <th scope="col">닉네임</th>
+					      <th scope="col">삭제<th>
 					    </tr>
 					  </thead>
 					  <tbody>
