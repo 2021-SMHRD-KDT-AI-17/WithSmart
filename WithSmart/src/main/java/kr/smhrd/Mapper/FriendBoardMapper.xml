@@ -41,6 +41,10 @@
 	<select id="FgetComment" resultType="kr.smhrd.entity.FriendBoardComment">
 		select * from tbl_friendboard_comment where friendboard_idx=#{friendboard_idx}
 	</select>
+	
+	<update id="UpdateFboard" parameterType="int">
+		update tbl_friendboard set title=#{title}, writer=#{writer}, filename={#filename}, content=#{content} where friendboard_idx=#{friendboard_idx}
+	</update>
 
 
 </mapper>
