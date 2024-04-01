@@ -103,7 +103,7 @@
 			                    <!-- 답글 단 시간 가져오기 -->  
 			                    <div class="meta">${qc.writetime}</div>
 			                    <!-- 답글 내용 가져오기  --> 
-			                    <p>${qc.cmtcontent }<button class="btn btn-info" style="margin-left: 30px">추천하기</button></p>
+			                    <p>${qc.cmtcontent }<button class="btn btn-info" style="margin-left: 30px"><a href="Qboardcommentheart?cmt_idx=${qc.cmt_idx}&qnaboard_idx=${qnaboard.qnaboard_idx}">추천하기</a></button></p>
 			                    <!-- 부트스트랩 아이콘 가져옴 -->
 			                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-emoji-heart-eyes" viewBox="0 0 16 16">
 			                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>

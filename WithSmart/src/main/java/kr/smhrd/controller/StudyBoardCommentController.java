@@ -29,4 +29,12 @@ public class StudyBoardCommentController {
 	return "redirect:/StboardContent?studyboard_idx=" + studyboard_idx;
 	}
 	
+	@RequestMapping("/Stboardcommentheart")
+	public String Stboardcommentheart(int cmt_idx, int studyboard_idx) {
+		
+	studyBoardCommentMapper.stboarcommentheart(cmt_idx);
+	
+	return "redirect:/StboardContent?studyboard_idx=" + studyboard_idx;
+	}
+	
 }

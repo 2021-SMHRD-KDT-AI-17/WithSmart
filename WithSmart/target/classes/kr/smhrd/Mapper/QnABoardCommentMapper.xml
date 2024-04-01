@@ -7,5 +7,8 @@
 			values(#{writer}, #{cmtcontent}, #{qnaboard_idx})
 	</insert>
 	
-		
+	<update id="qboardcommentheart" parameterType="int">
+		update tbl_qnaboard_comment set heartcount=heartcount+1 where cmt_idx=#{cmt_idx}
+	</update>
+			
 </mapper>
