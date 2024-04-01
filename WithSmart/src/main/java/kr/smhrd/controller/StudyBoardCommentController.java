@@ -30,11 +30,11 @@ public class StudyBoardCommentController {
 	}
 	
 	@RequestMapping("/Stboardcommentheart")
-	public String Stboardcommentheart(@RequestParam("cmt_idx") int cmt_idx) {
+	public String Stboardcommentheart(int cmt_idx, int studyboard_idx) {
 		
 	studyBoardCommentMapper.stboarcommentheart(cmt_idx);
 	
-	return "redirect:/StboardContent";
+	return "redirect:/StboardContent?studyboard_idx=" + studyboard_idx;
 	}
 	
 }
