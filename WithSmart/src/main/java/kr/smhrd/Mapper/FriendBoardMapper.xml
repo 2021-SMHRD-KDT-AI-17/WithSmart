@@ -49,6 +49,10 @@
 	<delete id="PerdeleteFBoard" parameterType="String">
 		delete from tbl_friendboard where mb_id=#{mb_id}
 	</delete>
+	
+	<delete id="deleteComment" parameterType="int">
+		delete from tbl_friendboard_comment where friendboard_idx=#{friendboard_idx}
+	</delete>
 
 
 </mapper>
