@@ -61,13 +61,7 @@
             width: 100%;
         }
     }
-/*    
-   .table-responsive{
-      width: 1200px;
-      margin-top: 150px;
-   
-      
-   } */
+    
    .btn{
       display: inline-block;
       float: right;
@@ -113,6 +107,9 @@
    .start_table h1{
       color: black;
       font-weight: bold;
+      font-family: "Arial Black", sans-serif;
+      text-shadow: 4px 4px 4px rgba(128, 128, 128, 0.5);
+       font-size: 50px;
    }
    
 </style>
