@@ -47,7 +47,12 @@
         
         body {
     background-color: #f8f9fa; /* 배경색 설정 */
-}
+		}
+	
+		h2{
+		
+		
+		}
     </style>
 </head>
 <body>
@@ -90,7 +95,10 @@
                 </div>
             </c:forEach>
             
-            <button type="submit" class="btn btn-primary mt-3">제출</button>
+            <button type="submit" class="btn btn-primary mt-3" style="background: #2E9AFE; border:none">제출</button>
+            <br>
+            <br>
+            <br>
         </form>
     </div>
 </body>

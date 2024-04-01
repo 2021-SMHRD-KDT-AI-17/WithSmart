@@ -79,6 +79,53 @@
 	}
 	
 	
+	.paging{
+		margin-top : 20px;
+		margin-bottom: 30px;
+		
+	}
+	
+	.table>thead{
+		text-align: center;
+	}
+	
+	.listTitle{
+		 background: linear-gradient(to bottom, #A9E2F3, #ffffff); /* 그라데이션 배경 */
+    	 box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
+	}
+	
+	.start_table{
+      background-image: url('resources/images/물음표4.jpg');
+      width: 100%;
+      height:170px;
+      display: flex;
+      justify-content: center;
+      align-items: center; 
+      
+      position: relative;
+      isolation : isolate;
+   }
+   
+   
+   .start_table::after{
+      content : '';
+      position: absolute;
+      background: white;
+      z-index: -1;
+      inset:0;
+      opacity: 0.5;
+   
+   }
+   
+   .start_table h1{
+      color: black;
+      font-weight: bold;
+   }
+	
+	h1{
+		text-shadow: 2px 2px 6px gray;
+	}
+	
 </style>
 </head>
 <body>
@@ -97,19 +144,22 @@
         <div class="board">
        
 			<div class="table-responsive">
-				<span><h1>질문 게시판</h1></span>													
+			
+			<div class="start_table">
+				<span><h1>질문 게시판</h1></span>	
+				</div>												
 	                <div class ="btn">
-						<a href="goMain"><button class="btn btn-primary" id="writer">홈으로 가기</button></a>
+						<a href="goMain"><button class="btn btn-primary" id="writer" style="background: #2E9AFE; border:none">홈으로 가기</button></a>
 	                	<%if(loginMember ==null){ %>
-							<a href="goJoin"><button type="button" class="btn btn-primary">글 작성하기</button></a>
+							<a href="goJoin"><button type="button" class="btn btn-primary" style="background: #2E9AFE; border:none">글 작성하기</button></a>
 						<%}else{ %>
-							<a href="goQnABoardWrite"><button type="button" class="btn btn-primary">글 작성하기</button></a>
+							<a href="goQnABoardWrite"><button type="button" class="btn btn-primary" style="background: #2E9AFE; border:none">글 작성하기</button></a>
 						<%} %>
 	                </div>
 					
   					<table class="table">
 					  <thead>
-					    <tr>
+					    <tr class="listTitle">
 					      <th scope="col">No</th>
 					      <th scope="col">제목</th>
 					      <th scope="col">작성자</th>
@@ -126,17 +176,17 @@
 	                     <tr onclick="location.href='QboardContent?qnaboard_idx=${q.qnaboard_idx }'" onMouseover="this.style.color='red';" onMouseout="this.style.color='black'">
 	                      <% int currentPage = (Integer)request.getAttribute("currentPage");%>
 	                        <%if(currentPage==1){ %>
-	                       	<td>${qs.count}</td>
+	                       	<td style="text-align:center">${qs.count}</td>
 	                       	<%}else{ %>
-	                       	<td>${qs.count+(currentPage-1)*10}</td>
+	                       	<td style="text-align:center">${qs.count+(currentPage-1)*10}</td>
 	                       	<%} %>
 	                        <td>${q.title }</td>
-	                        <td>${q.writer }</td>
-	                        <td>${fn:split(q.writetime ," ")[0] }</td>
-	                        <td>${q.viewcount }</td>
-	                        <td><a href="Qboardheart?qnaboard_idx=${q.qnaboard_idx }">${q.heartcount } <span type="button"> ♥ </span></a></td>
+	                        <td style="text-align:center">${q.writer }</td>
+	                        <td style="text-align:center">${fn:split(q.writetime ," ")[0] }</td>
+	                        <td style="text-align:center">${q.viewcount }</td>
+	                        <td style="text-align:center"><a href="Qboardheart?qnaboard_idx=${q.qnaboard_idx }">${q.heartcount } <span type="button"> ♥ </span></a></td>
 	                        <c:if test="${loginMember.mb_id eq 'admin@naver.com' }">
-								<td><a href="deleteQBoard?qnaboard_idx=${q.qnaboard_idx }">삭제</a></td>
+								<td style="text-align:center"><a href="deleteQBoard?qnaboard_idx=${q.qnaboard_idx }">삭제</a></td>
 							</c:if>
 	                     </tr>
             		    </c:forEach>

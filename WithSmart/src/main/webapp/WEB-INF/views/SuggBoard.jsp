@@ -106,10 +106,13 @@
 	
 	.start_table h1{
 		color: black ;
-		/*#FBF9F1 - 아이보리 색상  */
 		font-weight: bold;
 	}
 	
+	.listTitle{
+		 background: linear-gradient(to bottom, #A9E2F3, #ffffff); /* 그라데이션 배경 */
+    	 box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
+	}
 	
 </style>
 </head>
@@ -145,7 +148,7 @@
 					
   					<table class="table">
 					  <thead>
-					    <tr>
+					    <tr class="listTitle">
 					      <td scope="col">No</td>
 					      <td scope="col">제목</td>
 					      <td scope="col" style="text-align:center">작성자</td>
