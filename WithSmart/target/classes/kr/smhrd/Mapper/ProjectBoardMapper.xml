@@ -34,5 +34,8 @@
 	<select id="getProjectBoardList" parameterType="int" resultType="kr.smhrd.entity.ProjectBoard">
 		select * from tbl_projectboard order by writetime desc limit #{startIndex}, 10
 	</select>	
-	
+
+	<select id="PgetComment" parameterType="int" resultType="kr.smhrd.entity.ProjectBoardComment">
+		select * from tbl_projectboard_comment where projectboard_idx=#{projectboard_idx}
+	</select>	
 </mapper>

@@ -95,8 +95,12 @@ public class StudyBoardController {
 	public String StboardContent(int studyboard_idx, Model model) {
 		studyBoardMapper.StboardCount(studyboard_idx);
 		
+		List<StudyBoard> sc_list =  studyBoardMapper.SgetComment(studyboard_idx);
 		StudyBoard studyboard = studyBoardMapper.StboardContent(studyboard_idx);
+		model.addAttribute("sc_list", sc_list);
 		model.addAttribute("studyboard",studyboard);
+		System.out.println(sc_list);
+		
 		return "StudyBoardDetail";
 	}
 	
