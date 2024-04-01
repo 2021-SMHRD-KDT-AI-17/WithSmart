@@ -18,7 +18,17 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap"
 	rel="stylesheet">
+
+<link rel="stylesheet" href="resources/css/bootstrap.min.css">
+<link rel="stylesheet" href="resources/css/owl.carousel.min.css">
+<link rel="stylesheet" href="resources/css/owl.theme.default.min.css">
+<link rel="stylesheet" href="resources/fonts/icomoon/style.css">
+<link rel="stylesheet" href="resources/fonts/feather/style.css">
+<link rel="stylesheet" href="resources/fonts/flaticon/font/flaticon.css">
+<link rel="stylesheet" href="resources/css/jquery.fancybox.min.css">
+<link rel="stylesheet" href="resources/css/aos.css">
 <link rel="stylesheet" href="resources/css/style.css">
+
 <style>
 /* 퀴즈 결과 페이지에 대한 추가적인 스타일 */
 .quiz-result-container {
