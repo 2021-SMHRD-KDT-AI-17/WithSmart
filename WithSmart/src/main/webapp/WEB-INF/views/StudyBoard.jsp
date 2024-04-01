@@ -61,12 +61,7 @@
         }
     }
 	
-	/* .table-responsive{
-		width: 1200px;
-		margin-top: 150px;
-	
-		
-	} */
+
 	.btn{
 		display: inline-block;
 		float: right;
@@ -83,8 +78,8 @@
 	}
 	
 	.listTitle{
-		 background: linear-gradient(to bottom, #A9E2F3, #ffffff); /* 그라데이션 배경 */
-    	 box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
+		background: linear-gradient(to bottom, #A9E2F3, #ffffff); /* 그라데이션 배경 */
+    	 box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* 그림자 효과 */ 
 	}
 	
 	.start_table{
@@ -112,6 +107,9 @@
    .start_table h1{
       color: black;
       font-weight: bold;
+      font-family: "Arial Black", sans-serif;
+      text-shadow: 4px 4px 4px rgba(128, 128, 128, 0.5);
+       font-size: 50px;
    }
 	
 </style>

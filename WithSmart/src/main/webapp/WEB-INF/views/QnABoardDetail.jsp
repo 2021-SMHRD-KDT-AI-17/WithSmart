@@ -37,6 +37,24 @@
 
 <meta charset="UTF-8">
 <title>WithSmart</title>
+
+<style>
+
+table {
+  border-collapse: separate; /* 셀 테두리를 분리하도록 설정 */
+  border-spacing: 20px; /* 행과 열 사이의 간격 설정 */
+}
+
+ .lovebt{
+ 	 margin-left: 10px; 
+ 	 width: 30px;
+ 	 border-radius: 10px;
+ 	 color:red;
+ 	 border:none;
+ }
+
+</style>
+
 </head>
 <body>
 
@@ -52,7 +70,7 @@
       <div class="row justify-content-center align-items-stretch">
         
        
-        <article class="col-lg-8 order-lg-2 px-lg-5">
+        <article class="col-lg-8 order-lg-2 px-lg-5" style="border:10px solid #A9E2F3; padding:10px; margin-top:50px; border-radius:10px; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);">
     
 	    	
 	     <!-- 게시글 가져오기  -->
@@ -79,9 +97,11 @@
 	          	<td colspan="2">내용</td>
 	          </tr>
 	          <tr>	
-	          	<td colspan="3">
-	          		<h4>${qnaboard.content }</h4>
+	          	<td colspan="3" style="border: 3px solid #BDBDBD; width:1000px; height:600px; border-radius:10px; padding: 30px">
 	          		<img alt="" src="resources/image/${qnaboard.filename}"> 
+	          		<br>
+	          		<h4 style="margin-top: 20px; font-size:15px">${qnaboard.content }</h4>
+	          		
 	          	</td>
 	          	  
 	          </tr>
@@ -93,6 +113,7 @@
 		<!-- 답글 보기  -->
 
 			<div class="pt-5">
+			<hr>
 			    <h3 class="mb-5">댓글</h3>
 			    <ul class="comment-list">
 			        <c:forEach items="${qc_list}" var="qc" varStatus="qcs">
@@ -103,7 +124,7 @@
 			                    <!-- 답글 단 시간 가져오기 -->  
 			                    <div class="meta">${qc.writetime}</div>
 			                    <!-- 답글 내용 가져오기  --> 
-			                    <p>${qc.cmtcontent }<button class="btn btn-info" style="margin-left: 30px"><a href="Qboardcommentheart?cmt_idx=${qc.cmt_idx}&qnaboard_idx=${qnaboard.qnaboard_idx}">추천하기</a></button></p>
+			                    <p>${qc.cmtcontent }<button class="lovebt"><a href="Qboardcommentheart?cmt_idx=${qc.cmt_idx}&qnaboard_idx=${qnaboard.qnaboard_idx}">♥</a></button></p>
 			                    <!-- 부트스트랩 아이콘 가져옴 -->
 			                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-emoji-heart-eyes" viewBox="0 0 16 16">
 			                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
@@ -139,8 +160,8 @@
 	                    <input type="submit" value="답글달기" class="btn btn-primary btn-md" name="#">
 	                  	
 	                  	<!--뒤로 가기 (게시판 메인페이지로 이동)  -->
-	                  	<button class="btn btn-primary btn-md"><a href="goQnABoard" style="color:white">뒤로가기</a></button>
-	                  	<button class="btn btn-primary btn-md"><a href="#" style="color:white">글 삭제</a></button>
+	                  	<button class="btn btn-primary btn-md" style="background: #2E9AFE; border:none"><a href="goQnABoard" style="color:white">뒤로가기</a></button>
+	                  	<button class="btn btn-primary btn-md" style="background: #2E9AFE; border:none"><a href="#" style="color:white">글 삭제</a></button>
 					  </div>			
 	                </form>		  	
               </div>
