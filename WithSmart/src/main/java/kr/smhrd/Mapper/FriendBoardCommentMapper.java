@@ -12,5 +12,7 @@ public interface FriendBoardCommentMapper {
 
 	public void insertComment(@Param("writer") String writer, @Param("cmtcontent")String cmtcontent, @Param("friendboard_idx")int friendboard_idx);
 
+	public void Frboardcommentheart(int cmt_idx);
+
 
 }

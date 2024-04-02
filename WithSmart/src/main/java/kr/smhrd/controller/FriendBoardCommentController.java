@@ -31,4 +31,10 @@ public class FriendBoardCommentController {
 	return "redirect:/FboardContent?friendboard_idx=" + friendboard_idx;
 	}
 	
+	@RequestMapping("/Frboardcommentheart")
+	public String Frboardcommentheart(int cmt_idx, int friendboard_idx) {
+		friendBoardCommentMapper.Frboardcommentheart(cmt_idx);
+		return "redirect:/FboardContent?friendboard_idx=" + friendboard_idx;
+	}
+	
 }
