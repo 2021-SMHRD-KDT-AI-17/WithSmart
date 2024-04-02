@@ -24,4 +24,17 @@ public class StudyBoard {
     private String writetime;
     private int viewcount;
     private int heartcount;
+    
+	public StudyBoard(int studyboard_idx, @NonNull String title, @NonNull String writer, @NonNull String filename,
+			@NonNull String content) {
+		super();
+		this.studyboard_idx = studyboard_idx;
+		this.title = title;
+		this.writer = writer;
+		this.filename = filename;
+		this.content = content;
+	}
+    
+    
 }
+

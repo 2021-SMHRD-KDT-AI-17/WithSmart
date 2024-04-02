@@ -119,6 +119,49 @@ public class StudyBoardController {
 		return "redirect:/goStudyBoard";
 	}
 
+	//StudyUpdate로 이동
+	@RequestMapping("/goStudyUpdate")
+	public String goStudyUpdate(int studyboard_idx, Model model) {
+		
+		StudyBoard studyboard = studyBoardMapper.StboardContent(studyboard_idx);
+		model.addAttribute("studyboard",studyboard);
+		return "StudyUpdate";
+	}	
+	
+	// 수정
+	@RequestMapping("/UpdateStboard")
+	public String UpdateStboard(@RequestParam("studyboard_idx") int studyboard_idx, HttpServletRequest request, StudyBoard Studyboard) {
+		
+		String path = request.getRealPath("resources/image");
+		int size = 1024 * 1024 * 10;
+		String encoding = "UTF-8";
+		DefaultFileRenamePolicy rename = new DefaultFileRenamePolicy();
+
+		
+		try {
+			MultipartRequest multi = new MultipartRequest(request, path, size, encoding, rename);
+			String title = multi.getParameter("title");
+			System.out.println(title);
+			String writer = multi.getParameter("writer");
+			String filename="";
+            if(multi.getFilesystemName("filename") == null) {
+            	filename = "";
+            }else {
+            	filename = multi.getFilesystemName("filename");
+            }
+			String content = multi.getParameter("content");
+		
+		Studyboard = new StudyBoard(studyboard_idx, title, writer, filename, content);
+		
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		System.out.println(Studyboard);
+		studyBoardMapper.updatestboard(Studyboard);
+		
+		return "redirect:/goStudyBoard";
+
+	}
 	
 //	@RequestMapping("/goStudyBoardDetail")
 //	public String goStudyBoardDetail() {
