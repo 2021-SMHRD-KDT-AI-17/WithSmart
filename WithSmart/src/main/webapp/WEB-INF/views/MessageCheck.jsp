@@ -171,7 +171,7 @@
                   		<tr>
                   			<% int currentPage = (Integer)request.getAttribute("currentPage");%>
                            <%if(currentPage==1){ %>
-                             <td>${ms.count}</td>
+                             <td style="text-align:center">${ms.count}</td>
                              <%}else{ %>
                              <td>${ms.count+(currentPage-1)*10}</td>
                              <%} %> 

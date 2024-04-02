@@ -88,8 +88,13 @@
                
                <li><a href ="goJoin" class="text-black" onclick="checkLogin()";>오늘의 퀴즈</a>
                <li><a href ="goJoin" class="text-black" onclick="checkLogin()">점심메뉴 고르기</a>
-               <li><a href ="goJoin" class="text-black" onclick="checkLogin()">쪽지</a>	
-              
+               <li class="has-children">
+               <a href ="#" class="text-black">쪽지</a>
+               			<ul class="dropdown">
+			               <li><a href="goJoin" onclick="checkLogin()">쪽지쓰기 및 채팅</a></li>
+		                   <li><a href="goJoin" onclick="checkLogin()">쪽지함</a></li>
+               			</ul>	
+              </li>
               <!-- 로그인 했을 때  -->
               <%}else{ %>
               
@@ -119,7 +124,7 @@
                		<li class="has-children">
                		<a href="#" class="text-black">쪽지</a>
 		               <ul class="dropdown">
-			               <li><a href="goMessage">쪽지쓰기</a></li>
+			               <li><a href="goMessage">쪽지쓰기 및 채팅</a></li>
 		                   <li><a href="goMessageCheck">쪽지함</a></li>
                			</ul>
                </li>

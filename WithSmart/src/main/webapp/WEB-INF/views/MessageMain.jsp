@@ -30,7 +30,7 @@
 <link rel="stylesheet" href="resources/css/style.css">
 <style>
 	.container {
-	margin-top: 200px; /* 위 여백 설정 */
+	margin-top: 150px; /* 위 여백 설정 */
 }
 	form {
 		text-align: center; /* 폼 내부 요소 가운데 정렬 */
@@ -69,6 +69,10 @@
 	.text-black{
 		font-size: 20px;
 	}
+/* 	#chat{
+		margin-left: 1200px;
+		
+	} */
 	
 </style>
 </head>
@@ -87,6 +91,7 @@
      	 <!-- 글 작성 입력 폼 -->
         <form action ="messageSend" method ="post">
           <div class="row" style ="margin-top: 50px">
+          
             <div class="col-md-6">
               <div class="form-group">
               <!--  글 제목 입력  -->
@@ -117,10 +122,11 @@
 		  <input type="reset" class="btn btn-primary"  style="background: #2E9AFE; border:none" value="초기화" />
         </div>
         </form>
+         <!-- <iframe src='https://www.vchatcloud.com/chat-demo/iframe/iframe_pc/v4/index.html?channelKey=qgXMFEaTJL-HlUKiYICSx-20240402151009' frameborder='no' scrolling='no' marginwidth='0' marginheight='0' width='396' height='736' id="chat"></iframe> -->
       </div>
+       <iframe src='https://www.vchatcloud.com/chat-demo/iframe/iframe_pc/v4/index.html?channelKey=qgXMFEaTJL-HlUKiYICSx-20240402151009' frameborder='no' scrolling='no' marginwidth='0' marginheight='0' width='396' height='736' id="chat"></iframe>
     </div>
   </div>
-	
 	
 	
 	
@@ -130,7 +136,7 @@
 	        <span class="sr-only">Loading...</span>
 	      </div>
 	  	</div>
-	  	<iframe src='https://www.vchatcloud.com/chat-demo/iframe/iframe_pc/v4/index.html?channelKey=qgXMFEaTJL-HlUKiYICSx-20240402151009' frameborder='no' scrolling='no' marginwidth='0' marginheight='0' width='396' height='736'></iframe>
+	  	
 	  	
 	  	
 	  	

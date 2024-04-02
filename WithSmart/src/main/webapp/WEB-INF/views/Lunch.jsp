@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ include file="./header.jsp" %>   
 <!DOCTYPE html>
 <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -23,7 +24,7 @@
   <link rel="stylesheet" href="resources/css/jquery.fancybox.min.css">
   <link rel="stylesheet" href="resources/css/aos.css">
   <link rel="stylesheet" href="resources/css/style.css">
-<html>
+<html style="overflow-y:hidden !important">
 <head>
 <meta charset="UTF-8">
 <title>WithSmart</title>
@@ -88,7 +89,7 @@
 <body>
 
 	<!-- header 파일 불러오기 -->
-    <%@ include file="./header.jsp" %>   
+    
 
      <div class="container-fluid" align="center" style ="margin-top: 200px;" >
      
@@ -103,8 +104,6 @@
 	<div class="kakaoMap">
 		<div id="map" style="width:100%; height:500px;"></div>
 	</div>
-<!-- 	<script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=발급받은JavaScript 키"></script>
- --> 
  	<!-- 카카오 지도 API 사용  -->
  	<script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=d0f022c59208d8f98b74e224a733a304"></script>
  	
@@ -403,10 +402,13 @@
 	 	<h3 style="margin-top:30px">원하는 맛집을 추가하여 룰렛을 돌려보세요!</h3>
 	 </div>
 	 
+	<!--  <div id="result" style="text-align: center; margin-top: 20px; font-size: 40px; color: #333;">선택된 음식점: </div> -->
+	 
 	<!-- 룰렛판 담을 div 태그 -->
 <div id="menu">
     <canvas width="600" height='600'></canvas>  
     <button onclick="rotate()" style="margin-bottom: 10px; margin-top: 20px; box-shadow:2px 3px 5px 0px; padding: 10px 20px; font-size: 16px; display: block; margin-right: auto; margin-left: auto;">룰렛 돌리기!</button>
+    <br>
     <div id="addDiv" style="display: flex; align-items: center; justify-content: center;">
     <input type="text" id="menuAdd" style="box-shadow:2px 3px 5px 0px; margin-right: 10px;">
     <button onclick="add()" style="box-shadow:2px 3px 5px 0px; padding: 10px 20px; font-size: 16px; margin-right: 10px;">맛집 추가</button>
@@ -415,18 +417,32 @@
 </div>
     </div>
 </div>
+ 
        <script>
+       
+    // 룰렛 돌리기 버튼 클릭 시 실행되는 함수
+       
        
        var nearbyRestaurants = [
            "레스토레드", "파더스 베이글", "행복한 담벼락", "그냥집밥", "대접", "1515 짜장면",
            "청춘뚝배기", "쿠로시로", "해뜨는집", "남원추어탕", "풍남옥", "이삭토스트",
-           "한솥도시락", "캐치스피자", "대림국수", "미분당","900달러","아라타 돈가스","포카포카","목하식당","솥밥솥밥","퀴비","전부","폴리아",
-           "홍문장칼집","호시마츠 라멘","우동이 완성되다","저스트 텐동","돈부리바쇼 유메노덴","열도지","후토루","서울깍두기","무등산호랭이","장독대","산수쌈밥","이츠모",
+           "한솥도시락", "캐치스피자", "대림국수", "미분당","900달러","아라타 돈가스","포카포카","목하식당",
+           "솥밥솥밥","퀴비","전부","폴리아","무등산호랭이","장독대","산수쌈밥","이츠모","서울깍두기",
+           "홍문장칼집","호시마츠 라멘","우동이 완성되다","저스트 텐동","돈부리바쇼 유메노덴","열도지","후토루",
            "본투비버거"
        ];
 
-       // 200m 버튼을 클릭했을 때 실행되는 함수
+       // 버튼을 클릭했을 때 실행되는 함수
        function randomRestaurant() {
+    	   if (nearbyRestaurants.length === 0) {
+               nearbyRestaurants = [
+                   "레스토레드", "파더스 베이글", "행복한 담벼락", "그냥집밥", "대접", "1515 짜장면",
+                   "청춘뚝배기", "쿠로시로", "해뜨는집", "남원추어탕", "풍남옥", "이삭토스트",
+                   "한솥도시락", "캐치스피자", "대림국수", "미분당","900달러","아라타 돈가스","포카포카","목하식당","솥밥솥밥","퀴비","전부","폴리아",
+                   "홍문장칼집","호시마츠 라멘","우동이 완성되다","저스트 텐동","돈부리바쇼 유메노덴","열도지","후토루","서울깍두기","무등산호랭이","장독대","산수쌈밥","이츠모",
+                   "본투비버거"
+               ];
+           }
            // 랜덤한 인덱스 선택
            var randomIndex = Math.floor(Math.random() * nearbyRestaurants.length);
            
@@ -435,9 +451,17 @@
            
            // 선택된 음식점을 input 태그에 입력
            document.getElementById("menuAdd").value = selectedRestaurant;
-
+           
+           // 선택된 음식점을 배열에서 제거
+           nearbyRestaurants.splice(randomIndex, 1);
+         
            // 맛집 추가 함수 호출
            add();
+           
+
+        // 결과를 화면에 출력
+           /* document.getElementById("result").innerText = "선택된 음식점: " + selectedRestaurant; */
+            /*ㅁ  */
        }
 
        // 맛집 추가 버튼 클릭 시 이벤트 핸들러
@@ -464,7 +488,7 @@
     </div> 	
     	
     
-     <div class="slant" style="background-image: url('resources/images/slant.svg');"></div>
+    <div class="slant" style="background-image: url('resources/images/slant.svg');"></div>
    
     
 

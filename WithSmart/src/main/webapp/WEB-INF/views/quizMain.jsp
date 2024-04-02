@@ -60,6 +60,12 @@ button[type="submit"] {
 	color: white; /* 버튼 글자색 설정 */
 	cursor: pointer; /* 커서 모양 변경 */
 }
+.image{
+	width: 90%;
+    height:400px;
+    margin-left: 50px;
+
+}
 </style>
 </head>
 <body>
@@ -67,7 +73,7 @@ button[type="submit"] {
 		<form id="start-quiz-form" action="showQuiz" method="post">
 			
 			
-			<img src="resources/images/quizmain.png" alt="영차"> <br> <br>
+			<img src="resources/images/퀴즈.webp" alt="영차" class="image"> <br> <br>
 			<!-- 사용자 ID 입력 -->
 			<label for="mb_id"></label><br>
 <input type="hidden" id="mb_id" name="mb_id" value="${sessionScope.loginMember.mb_id}" readonly>
