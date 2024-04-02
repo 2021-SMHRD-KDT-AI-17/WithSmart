@@ -168,8 +168,13 @@
                    <tbody>
                    <%-- <% int currentPage = (Integer)request.getAttribute("currentPage");%> --%>
                    <c:forEach items="${m_list }" var="m" varStatus="ms">
-                  		<tr> 
-	                       	<td style="text-align:center">${ms.count}</td>
+                  		<tr>
+                  			<% int currentPage = (Integer)request.getAttribute("currentPage");%>
+                           <%if(currentPage==1){ %>
+                             <td>${ms.count}</td>
+                             <%}else{ %>
+                             <td>${ms.count+(currentPage-1)*10}</td>
+                             <%} %> 
 	                        <td style="text-align:center">${m.sendE }</td>
 	                        <td style="text-align:center">${m.message }</td>
 	                        <td style="text-align:center">${m.messagetime }</td>
@@ -182,42 +187,42 @@
                  </table>
             </div>
          
-			<%-- <div class="paging">
-				<!-- 부트스트랩 페이징 적용   -->
-				<nav aria-label="Page navigation example" class="bottom_num">
-				  <ul class="pagination justify-content-center">
-				    <div class="pagination">
-				    <li class="page-item">
-						    <c:if test="${currentPage > 1}">
-						        <a class="page-link" href="goFriendBoard?page=${currentPage - 1}">&laquo; 이전</a>
-						    </c:if>
-					</li>
-					
-						    <c:forEach begin="1" end="${totalPages}" var="pageNum">
-								 <li class="page-item ${pageNum == currentPage ? 'active' : ''}">
-						        <c:choose>
-						            <c:when test="${pageNum == currentPage}">
-						                <span class="page-link">${pageNum} </span>
-						            </c:when>
-						            <c:otherwise>
-						                <a class="page-link" href="goFriendBoard?page=${pageNum}">${pageNum}</a>
-						            </c:otherwise>
-						        </c:choose>
-						        </li>
-						    </c:forEach>
-					
-					
-					<li class="page-item">	
-						    <c:if test="${currentPage < totalPages}">
-						        <a class="page-link" href="goFriendBoard?page=${currentPage + 1}">다음 &raquo;</a>
-						    </c:if>
-					</li>	    
-						
-						</div>
-				  </ul>
-				</nav>
-	    
-          </div> --%>
+			<div class="paging">
+            <!-- 부트스트랩 페이징 적용   -->
+            <nav aria-label="Page navigation example" class="bottom_num">
+              <ul class="pagination justify-content-center">
+                <div class="pagination">
+                <li class="page-item">
+                      <c:if test="${currentPage > 1}">
+                          <a class="page-link" href="goMessageCheck?page=${currentPage - 1}">&laquo; 이전</a>
+                      </c:if>
+               </li>
+               
+                      <c:forEach begin="1" end="${totalPages}" var="pageNum">
+                         <li class="page-item ${pageNum == currentPage ? 'active' : ''}">
+                          <c:choose>
+                              <c:when test="${pageNum == currentPage}">
+                                  <span class="page-link">${pageNum} </span>
+                              </c:when>
+                              <c:otherwise>
+                                  <a class="page-link" href="goMessageCheck?page=${pageNum}">${pageNum}</a>
+                              </c:otherwise>
+                          </c:choose>
+                          </li>
+                      </c:forEach>
+               
+               
+               <li class="page-item">   
+                      <c:if test="${currentPage < totalPages}">
+                          <a class="page-link" href="goMessageCheck?page=${currentPage + 1}">다음 &raquo;</a>
+                      </c:if>
+               </li>       
+                  
+                  </div>
+              </ul>
+            </nav>
+       
+          </div>
       
 
     

@@ -28,10 +28,23 @@ public class MessageController {
 	
 	// 메시지 확인 이동하기
 	@RequestMapping("/goMessageCheck")
-	public String goMessageCheck(Model model, HttpSession session) {
+	public String goMessageCheck(@RequestParam(defaultValue = "1") int page, Model model, HttpSession session) {				
 		Member member = (Member)session.getAttribute("loginMember");
-		List<Message> m_list = messageMapper.getmessageList(member.getMb_id());
+		
+		int pagesize = 10;
+		int totalCount = messageMapper.getTotalCount(member.getMb_id());
+		int totalPages = (int) Math.ceil((double) totalCount / pagesize);
+		if (totalPages <1) {
+			totalPages = 1;
+		}
+	    if (page > totalPages) {
+	        page = totalPages;
+	    }
+	    int startIndex = (page - 1) * pagesize; // 시작 인덱스 계산
+	    List<Message> m_list = messageMapper.getmessageList(member.getMb_id(),startIndex);
 		model.addAttribute("m_list", m_list);
+		model.addAttribute("totalPages", totalPages);
+	    model.addAttribute("currentPage", page);
 		return "MessageCheck";
 	}
 
