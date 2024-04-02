@@ -24,4 +24,16 @@ public class ProjectBoard {
     private String writetime;
     private int viewcount;
     private int heartcount;
+    
+	public ProjectBoard(int projectboard_idx, @NonNull String title, @NonNull String writer, @NonNull String filename,
+			@NonNull String content) {
+		super();
+		this.projectboard_idx = projectboard_idx;
+		this.title = title;
+		this.writer = writer;
+		this.filename = filename;
+		this.content = content;
+	}
+    
+    
 }

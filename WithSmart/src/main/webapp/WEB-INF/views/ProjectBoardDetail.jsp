@@ -108,6 +108,10 @@ table {
 	          	  
 	          </tr>
 		</table>
+	    <c:if test="${projectboard.writer eq loginMember.mb_nick }">
+       		<button button class="btn btn-primary btn-md" style="background: #2E9AFE; border:none" onclick="location.href='goProjectUpdate?projectboard_idx=${projectboard.projectboard_idx}'">수정하기</button>
+       		<button button class="btn btn-primary btn-md" style="background: #2E9AFE; border:none" onclick="location.href='deletePBoard?projectboard_idx=${projectboard.projectboard_idx}'">삭제하기</button>
+       	</c:if>
 
 		</div>
 
@@ -163,11 +167,10 @@ table {
 	                  </div>
 	                  
 	                  <div class="form-group">
-	                    <input type="submit" value="댓글달기" class="btn btn-primary btn-md" name="#">
+	                    <input type="submit" value="댓글달기" style="background: #2E9AFE; border:none; color:white" class="btn btn-primary btn-md" name="#">
 	                  	
 	                  	<!--뒤로 가기 (게시판 메인페이지로 이동)  -->
-	                  	<button class="btn btn-primary btn-md" style="background: #2E9AFE; border:none"><a href="goProjectBoard" style="color:white; float: right">뒤로가기</a></button>
-	                  	<button class="btn btn-primary btn-md" style="background: #2E9AFE; border:none"><a href="#" style="color:white; float: right">글 삭제</a></button>
+					  <input type="button" class="btn btn-primary btn-md" style="background: #2E9AFE; border:none; color:white" onclick="location.href='goProjectBoard'" value="뒤로가기"></input>
 					  </div>			
 	                </form>		
               </div>

@@ -153,7 +153,7 @@
 					      <th scope="col">작성자</th>
 					      <th scope="col">작성일</th>
 					      <th scope="col">조회수</th>
-					      <th scope="col">추천수</th>
+					      <th scope="col">좋아요</th>
 					      <%if(loginMember.getMb_id().equals("admin@naver.com")){ %>
                      		 <td scope="col">삭제</td>
                      	  <%} %>

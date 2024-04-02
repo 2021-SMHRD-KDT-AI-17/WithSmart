@@ -38,4 +38,8 @@
 	<select id="PgetComment" parameterType="int" resultType="kr.smhrd.entity.ProjectBoardComment">
 		select * from tbl_projectboard_comment where projectboard_idx=#{projectboard_idx}
 	</select>	
+	
+	<update id="updatepboard" parameterType="kr.smhrd.entity.ProjectBoard">
+		update tbl_projectboard set title=#{title}, writer=#{writer}, filename=#{filename}, content=#{content} where projectboard_idx=#{projectboard_idx}
+	</update>
 </mapper>

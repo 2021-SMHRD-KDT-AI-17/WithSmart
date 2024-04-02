@@ -38,4 +38,8 @@
 	<select id="QgetComment" parameterType="int" resultType="kr.smhrd.entity.QnABoardComment">
 		select * from tbl_qnaboard_comment where qnaboard_idx=#{qnaboard_idx}
 	</select>
+	
+	<update id="updateqboard" parameterType="kr.smhrd.entity.QnABoard">
+		update tbl_qnaboard set title=#{title}, writer=#{writer}, filename=#{filename}, content=#{content} where qnaboard_idx=#{qnaboard_idx}
+	</update>
 </mapper>

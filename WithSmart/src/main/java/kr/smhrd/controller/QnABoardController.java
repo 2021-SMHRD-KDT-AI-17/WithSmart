@@ -16,6 +16,7 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import kr.smhrd.Mapper.QnABoardMapper;
 import kr.smhrd.entity.QnABoard;
+import kr.smhrd.entity.StudyBoard;
 
 @Controller
 public class QnABoardController {
@@ -108,6 +109,48 @@ public class QnABoardController {
 		return "redirect:/goQnABoard";
 	}
 
+	//QnAUpdate로 이동
+	@RequestMapping("/goQnAUpdate")
+	public String goQnAUpdate(int qnaboard_idx, Model model) {
+		
+		QnABoard qnaboard = qnaBoardMapper.QboardContent(qnaboard_idx);
+		model.addAttribute("qnaboard",qnaboard);
+		return "QnAUpdate";
+	}	
+	
+	// 수정
+		@RequestMapping("/UpdateQboard")
+		public String UpdateQboard(@RequestParam("qnaboard_idx") int qnaboard_idx, HttpServletRequest request, QnABoard QnAboard) {
+			
+			String path = request.getRealPath("resources/image");
+			int size = 1024 * 1024 * 10;
+			String encoding = "UTF-8";
+			DefaultFileRenamePolicy rename = new DefaultFileRenamePolicy();
 
+			
+			try {
+				MultipartRequest multi = new MultipartRequest(request, path, size, encoding, rename);
+				String title = multi.getParameter("title");
+				System.out.println(title);
+				String writer = multi.getParameter("writer");
+				String filename="";
+	            if(multi.getFilesystemName("filename") == null) {
+	            	filename = "";
+	            }else {
+	            	filename = multi.getFilesystemName("filename");
+	            }
+				String content = multi.getParameter("content");
+			
+			QnAboard = new QnABoard(qnaboard_idx, title, writer, filename, content);
+			
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			System.out.println(QnAboard);
+			qnaBoardMapper.updateqboard(QnAboard);
+			
+			return "redirect:/goQnABoard";
+
+		}
 	
 }
