@@ -161,8 +161,6 @@
                      <td scope="col">작성일</td>
                      <td scope="col">조회수</td>
                      <td scope="col">좋아요</td>
-                     <td scope="col">삭제</td>
-                     <td scope="col">수정</td>
                    </tr>
                     </thead>
 
@@ -180,17 +178,12 @@
 	                        <td style="text-align:center">${fn:split(f.writetime ," ")[0] }</td>
 	                        <td style="text-align:center">${f.viewcount }</td>
 	                        <td style="text-align:center"><a href="Fboardheart?friendboard_idx=${f.friendboard_idx }">${f.heartcount } <span type="button"> ♥ </span></a></td>
-	                        <c:choose>
-						    <c:when test="${loginMember.mb_id eq 'admin@naver.com'}">
+						    <c:if test="${loginMember.mb_id eq 'admin@naver.com'}">
 						        <td style="text-align:center"><a href="deleteFBoard?friendboard_idx=${f.friendboard_idx}">삭제</a></td>
-						    </c:when>
-						    <c:when test="${loginMember.mb_nick == f.writer}">
-								<td style="text-align:center"><a href="deleteFBoard?friendboard_idx=${f.friendboard_idx}">삭제</a></td>
-						    </c:when>
-						    </c:choose>
-							<c:if test="${loginMember.mb_nick == f.writer}">
-								<td style="text-align:center"><a href="goFriendUpdate?friendboard_idx=${f.friendboard_idx}">수정</a></td>
-							</c:if>
+						    </c:if>
+						    
+						  
+							
 							
 	                     </tr>
             		</c:forEach>
