@@ -26,3 +26,5 @@ select * from tbl_jobboard;
 select * from tbl_certification;
 
 select * from tbl_friendboard;
+
+select * from tbl_message;
