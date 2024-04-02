@@ -462,7 +462,7 @@
 
         // 결과를 화면에 출력
            /* document.getElementById("result").innerText = "선택된 음식점: " + selectedRestaurant; */
-            
+            /*ㅁ  */
        }
 
        // 맛집 추가 버튼 클릭 시 이벤트 핸들러
