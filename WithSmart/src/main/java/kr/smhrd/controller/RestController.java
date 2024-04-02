@@ -1,5 +1,7 @@
 package kr.smhrd.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -71,6 +73,13 @@ public class RestController {
 		}
 		
 	}
+	// 사용자 이메일 보이기
+	@RequestMapping("/getMemberEmail")
+	public List<Member> getMemberEmail(){
+		List<Member> myList = memberMapper.goShowMember();
+		return myList;
+	}
+	
 	
 //	// 회원가입 성공 유무
 //	@RequestMapping("/InsertCheck")
