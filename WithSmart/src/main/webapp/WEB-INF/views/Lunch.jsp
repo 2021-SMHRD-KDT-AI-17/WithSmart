@@ -406,37 +406,46 @@
 	<!-- 룰렛판 담을 div 태그 -->
 <div id="menu">
     <canvas width="600" height='600'></canvas>  
-    <!-- 버튼 클릭시 resources/js/lunch.js에 있는 rotate() 함수 호출  -->
     <button onclick="rotate()" style="margin-bottom: 10px; margin-top: 20px; box-shadow:2px 3px 5px 0px; padding: 10px 20px; font-size: 16px; display: block; margin-right: auto; margin-left: auto;">룰렛 돌리기!</button>
-    <div id="addDiv" style="text-align: center;">
-        <input type="text" id="menuAdd" style="box-shadow:2px 3px 5px 0px; margin-bottom: 10px;">
-        <button onclick="randomRestaurant()" style="margin-bottom: 10px; box-shadow:2px 3px 5px 0px; padding: 10px 20px; font-size: 16px;">가까운 음식점(200m근방)</button>
-        <!-- 버튼 클릭시 resources/js/lunch.js에 있는 add() 함수 호출  -->
-        <div class="btn" style="margin-left: auto; margin-right: auto; display: inline-block;">
-            <button onclick="add()" style="box-shadow:2px 3px 5px 0px; padding: 10px 20px; font-size: 16px;">맛집 추가</button>
-            <button id="removeAllButton" onclick="removeAll()" style="margin-left: 10px; box-shadow:2px 3px 5px 0px; padding: 10px 20px; font-size: 16px;">초기화</button>
-        </div>
+    <div id="addDiv" style="display: flex; align-items: center; justify-content: center;">
+    <input type="text" id="menuAdd" style="box-shadow:2px 3px 5px 0px; margin-right: 10px;">
+    <button onclick="add()" style="box-shadow:2px 3px 5px 0px; padding: 10px 20px; font-size: 16px; margin-right: 10px;">맛집 추가</button>
+     <button onclick="randomRestaurant()" style="box-shadow:2px 3px 5px 0px; padding: 10px 20px; font-size: 16px; margin-right: 10px;">식당 자동 추천</button>
+    <button id="removeAllButton" onclick="removeAll()" style="box-shadow:2px 3px 5px 0px; padding: 10px 20px; font-size: 16px;">초기화</button>
+</div>
     </div>
 </div>
        <script>
        
        var nearbyRestaurants = [
-    	    "레스토레드", "파더스 베이글", "행복한 담벼락", "그냥집밥", "대접", "1515 짜장면",
-    	    "청춘뚝배기", "쿠로시로", "해뜨는집", "남원추어탕", "풍남옥", "이삭토스트",
-    	    "한솥도시락", "캐치스피자", "대림국수", "미분당"
-    	];
+           "레스토레드", "파더스 베이글", "행복한 담벼락", "그냥집밥", "대접", "1515 짜장면",
+           "청춘뚝배기", "쿠로시로", "해뜨는집", "남원추어탕", "풍남옥", "이삭토스트",
+           "한솥도시락", "캐치스피자", "대림국수", "미분당"
+       ];
 
-    	// 200m 버튼을 클릭했을 때 실행되는 함수
-    	function randomRestaurant() {
-    	    // 랜덤한 인덱스 선택
-    	    var randomIndex = Math.floor(Math.random() * nearbyRestaurants.length);
-    	    
-    	    // 선택된 음식점 이름 가져오기
-    	    var selectedRestaurant = nearbyRestaurants[randomIndex];
-    	    
-    	    // 선택된 음식점을 input 태그에 입력
-    	    document.getElementById("menuAdd").value = selectedRestaurant;
-    	}</script>
+       // 200m 버튼을 클릭했을 때 실행되는 함수
+       function randomRestaurant() {
+           // 랜덤한 인덱스 선택
+           var randomIndex = Math.floor(Math.random() * nearbyRestaurants.length);
+           
+           // 선택된 음식점 이름 가져오기
+           var selectedRestaurant = nearbyRestaurants[randomIndex];
+           
+           // 선택된 음식점을 input 태그에 입력
+           document.getElementById("menuAdd").value = selectedRestaurant;
+
+           // 맛집 추가 함수 호출
+           add();
+       }
+
+       // 맛집 추가 버튼 클릭 시 이벤트 핸들러
+       function add() {
+           const input = document.getElementById('menuAdd').value;
+           // 기존 목록에 추가하는 로직 추가
+           // 예시로 console.log로 확인
+           console.log("추가된 음식점:", input);
+       }
+   </script>
 	
 	 
 	 
