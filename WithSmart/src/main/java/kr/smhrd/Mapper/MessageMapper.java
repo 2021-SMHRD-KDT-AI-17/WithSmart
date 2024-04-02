@@ -17,6 +17,10 @@ public interface MessageMapper {
 
 	public List<Message> getmessageList(@NonNull String mb_id);
 
+	
+
+	
+
 
 
 }

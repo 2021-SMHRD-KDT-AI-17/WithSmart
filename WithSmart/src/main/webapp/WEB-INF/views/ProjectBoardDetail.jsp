@@ -131,14 +131,10 @@ table {
 			                    <div class="meta">${pc.writetime}</div>
 			                    <!-- 답글 내용 가져오기  --> 
 			                   <%--  <p>${pc.cmtcontent }<button class="btn btn-info" style="margin-left: 30px; width: 100px">♥</button></p> --%>
-			                    <p>${pc.cmtcontent }<button class="lovebt">좋아요♥</button></p>
-			                    <!-- 부트스트랩 아이콘 가져옴 -->
-			                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-emoji-heart-eyes" viewBox="0 0 16 16">
-			                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
-			                        <path d="M11.315 10.014a.5.5 0 0 1 .548.736A4.5 4.5 0 0 1 7.965 13a4.5 4.5 0 0 1-3.898-2.25.5.5 0 0 1 .548-.736h.005l.017.005.067.015.252.055c.215.046.515.108.857.169.693.124 1.522.242 2.152.242s1.46-.118 2.152-.242a27 27 0 0 0 1.109-.224l.067-.015.017-.004.005-.002zM4.756 4.566c.763-1.424 4.02-.12.952 3.434-4.496-1.596-2.35-4.298-.952-3.434m6.488 0c1.398-.864 3.544 1.838-.952 3.434-3.067-3.554.19-4.858.952-3.434"/>
-			                    </svg>
-			                    <span>${pc.heartcount}</span>
-			                    <hr>
+			                    <span>${pc.cmtcontent }</span>
+			                    <span><button class="lovebt" onclick="location.href='Projectcommentheart?cmt_idx=${pc.cmt_idx}&projectboard_idx=${projectboard.projectboard_idx}'">좋아요♥ ${pc.heartcount}</button></span>
+			                    
+			                    
 			                </div>
 			                
 			            </li>
@@ -155,7 +151,7 @@ table {
                 <h3 class="mb-5">댓글 남기기</h3>
                 	<form action="ProjectBoardComment" method="post">
 	                  	<div class="form-group">
-	                    <label for="nick">닉네임 *</label>
+	                    <label for="nick">닉네임</label>
 	                    <input type="text" class="form-control" name="writer" readonly value="${loginMember.mb_nick}">
 	                  </div>
 	                  <div>

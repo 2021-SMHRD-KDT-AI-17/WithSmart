@@ -30,4 +30,9 @@ public class ProjectBoardCommentController {
 	return "redirect:/PboardContent?projectboard_idx=" + projectboard_idx;
 	}
 	
+	@RequestMapping("/Projectcommentheart")
+	public String Projectcommentheart(int cmt_idx, int projectboard_idx) {
+		projectBoardCommentMapper.Projectcommentheart(cmt_idx);
+		return "redirect:/PboardContent?projectboard_idx=" + projectboard_idx;
+	}
 }

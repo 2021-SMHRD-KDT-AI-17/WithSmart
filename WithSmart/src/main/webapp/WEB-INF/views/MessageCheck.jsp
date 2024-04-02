@@ -148,7 +148,7 @@
                    <div class ="btn">
                   <a href="deleteAllMessage" class="button next scrolly"><button class="btn btn-primary" id="writer" style="background: #2E9AFE; border:none">전체삭제하기</button></a>
                   
-				  <a href="goMain"><button type="button" class="btn btn-primary">뒤로가기</button></a>
+				  <a href="goMain"><button type="button" class="btn btn-primary" style="background: #2E9AFE; border:none">뒤로가기</button></a>
 						
 							
                    </div>
@@ -173,7 +173,7 @@
 	                        <td style="text-align:center">${m.sendE }</td>
 	                        <td style="text-align:center">${m.message }</td>
 	                        <td style="text-align:center">${m.messagetime }</td>
-	      					<td><a href="deleteMessage?message_idx=${m.message_idx} ">삭제</a></td>     
+	      					<td style="text-align:center"><a href="deleteMessage?message_idx=${m.message_idx} ">삭제</a></td>     
 	                    </tr>
             		</c:forEach>
                    </tbody>

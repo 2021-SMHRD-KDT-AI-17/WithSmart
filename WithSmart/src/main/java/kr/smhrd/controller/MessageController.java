@@ -51,7 +51,7 @@ public class MessageController {
 		Member member = (Member)session.getAttribute("loginMember");
 		List<Message> m_list = messageMapper.messageList(member.getMb_id());
 		session.setAttribute("m_list", m_list);
-		return "redirect:/goMessage";
+		return "redirect:/goMessageCheck";
 	}
 	
 	// 메세지 전체삭제
@@ -61,7 +61,7 @@ public class MessageController {
 		messageMapper.deleteAllMessage(member.getMb_id());
 		List<Message> m_list = messageMapper.messageList(member.getMb_id());
 		session.setAttribute("m_list", m_list);
-		return "redirect:/goMessage";
+		return "redirect:/goMessageCheck";
 	}
 	
 }

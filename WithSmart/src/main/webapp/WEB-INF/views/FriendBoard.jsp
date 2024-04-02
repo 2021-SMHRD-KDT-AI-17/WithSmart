@@ -161,6 +161,9 @@
                      <td scope="col">작성일</td>
                      <td scope="col">조회수</td>
                      <td scope="col">좋아요</td>
+                     <%if(loginMember.getMb_id().equals("admin@naver.com")){ %>
+                           <td scope="col">삭제</td>
+                          <%} %>
                    </tr>
                     </thead>
 
