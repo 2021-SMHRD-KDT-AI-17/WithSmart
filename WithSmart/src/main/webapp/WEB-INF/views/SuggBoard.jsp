@@ -115,6 +115,7 @@
 	.listTitle{
 		 background: linear-gradient(to bottom, #A9E2F3, #ffffff); /* 그라데이션 배경 */
     	 box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
+    	 font-weight: bold;
 	}
 	
 </style>
