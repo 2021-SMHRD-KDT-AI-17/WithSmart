@@ -168,7 +168,7 @@
 					      <th scope="col">회사명</th>
 					      <th scope="col">마감기한</th>
 					      <th scope="col">작성일</th>
-					      <th scope="col">조회수</th>
+					      
 					    </tr>
 					  </thead>
 					  <tbody>
@@ -180,7 +180,7 @@
 					    		<td style="text-align:center"><a href="${b.companyinfo}"  target="_blank">${b.companyname}</td>
 					    		<td style="text-align:center">${b.enddate}</td>
 					    		<td style="text-align:center">${fn:split(b.uploadtime," ")[0] }</td>
-					    		<td style="text-align:center">${b.viewcount}</td>
+					    		
 					    	</tr>
 					    </c:forEach>
 					  </tbody>

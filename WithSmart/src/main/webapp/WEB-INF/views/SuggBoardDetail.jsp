@@ -97,7 +97,7 @@ table {
 	          
 	          <tr>
 				<td>다운로드</td>
-				<td><a href="resources/image/${suggboard.filename }" download>${suggboard.filename}</a></td>
+				<td><a href="resources/image/${suggboard.content }" download>${suggboard.content}</a></td>
 			  </tr>
 	          
 	          <tr>
@@ -105,9 +105,9 @@ table {
 	          </tr>
 	          <tr>	
 	          	<td colspan="3" style="border: 3px solid #BDBDBD; width:1000px; height:600px; border-radius:10px; padding: 30px">
-	          		<img alt="" src="resources/image/${suggboard.filename}"> 
+	          		<img alt="" src="resources/image/${suggboard.content}"> 
 	          		<br>
-	          		<h4 style="margin-top: 20px; font-size:15px">${suggboard.content }</h4>
+	          		<h4 style="margin-top: 20px; font-size:15px">${suggboard.filename }</h4>
 	          		
 	          	</td>
 	          	  
@@ -194,7 +194,7 @@ table {
 	                    <input type="submit" value="답글달기" class="btn btn-primary btn-md" name="#"> --%>
 	                  	
 	                  	<!--뒤로 가기 (게시판 메인페이지로 이동)  -->
-	                  	<button class="btn btn-primary btn-md"><a href="goSuggBoard" style="color:white">뒤로가기</a></button>
+	                  	<input type="button" class="btn btn-primary btn-md" style="background: #2E9AFE; border:none" ;color:white" onclick="location.href='goSuggBoard'" value="뒤로가기">
 	                  	<!-- <button class="btn btn-primary btn-md"><a href="#" style="color:white">글 삭제</a></button> -->
 					  </div>			
 	                </form>		  	

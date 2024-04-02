@@ -93,10 +93,10 @@
 					  	<h2>회원관리페이지</h2>
 					  	<h3>총 ${membersize }명</h3>
 					    <tr>
-					      <th scope="col">No</th>
-					      <th scope="col">이메일</th>
-					      <th scope="col">닉네임</th>
-					      <th scope="col">삭제<th>
+					      <td scope="col">No</td>
+					      <td scope="col">이메일</td>
+					      <td scope="col">닉네임</td>
+					      <td scope="col">삭제<td>
 					    </tr>
 					  </thead>
 					  <tbody>

@@ -135,9 +135,9 @@
 			                    <!-- 답글 단 시간 가져오기 -->  
 			                    <div class="meta">${fc.writetime}</div>
 			                    <!-- 답글 내용 가져오기  --> 
-			                    <p>${fc.cmtcontent}
+			                    <span>${fc.cmtcontent}</span>
 			         
-			                    <div>${fc.heartcount}<button class="lovebt" onclick="location.href='Frboardcommentheart?cmt_idx=${fc.cmt_idx}&friendboard_idx=${friendboard.friendboard_idx}'">좋아요♥ ${sc.heartcount}</button></div>
+			                    <span><button class="lovebt" onclick="location.href='Frboardcommentheart?cmt_idx=${fc.cmt_idx}&friendboard_idx=${friendboard.friendboard_idx}'">좋아요♥ ${fc.heartcount}</button></span>
 			                </div>
 			            </li>
 			        </c:forEach>
