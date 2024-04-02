@@ -28,4 +28,6 @@ public interface StudyBoardMapper {
 
 	public List<StudyBoard> SgetComment(int studyboard_idx);
 
+	public void updatestboard(StudyBoard studyboard);
+
 }

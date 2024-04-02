@@ -16,6 +16,7 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import kr.smhrd.Mapper.ProjectBoardMapper;
 import kr.smhrd.entity.ProjectBoard;
+import kr.smhrd.entity.StudyBoard;
 
 @Controller
 public class ProjectBoardController {
@@ -117,5 +118,50 @@ public class ProjectBoardController {
 		projectBoardMapper.deletePBoard(projectboard_idx);
 		return "redirect:/goProjectBoard";
 	}
+
+
+	//ProjectUpdate로 이동
+	@RequestMapping("/goProjectUpdate")
+	public String goProjectUpdate(int projectboard_idx, Model model) {
+		
+		ProjectBoard projectboard = projectBoardMapper.PboardContent(projectboard_idx);
+		model.addAttribute("projectboard",projectboard);
+		return "ProjectUpdate";
+	}	
+	
+	// 수정
+		@RequestMapping("/UpdatePboard")
+		public String UpdatePboard(@RequestParam("projectboard_idx") int projectboard_idx, HttpServletRequest request, ProjectBoard Projectboard) {
+			
+			String path = request.getRealPath("resources/image");
+			int size = 1024 * 1024 * 10;
+			String encoding = "UTF-8";
+			DefaultFileRenamePolicy rename = new DefaultFileRenamePolicy();
+
+			
+			try {
+				MultipartRequest multi = new MultipartRequest(request, path, size, encoding, rename);
+				String title = multi.getParameter("title");
+				System.out.println(title);
+				String writer = multi.getParameter("writer");
+				String filename="";
+	            if(multi.getFilesystemName("filename") == null) {
+	            	filename = "";
+	            }else {
+	            	filename = multi.getFilesystemName("filename");
+	            }
+				String content = multi.getParameter("content");
+			
+			Projectboard = new ProjectBoard(projectboard_idx, title, writer, filename, content);
+			
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			System.out.println(Projectboard);
+			projectBoardMapper.updatepboard(Projectboard);
+			
+			return "redirect:/goProjectBoard";
+
+		}
 	
 }
