@@ -15,4 +15,8 @@ public interface MessageMapper {
 
 	public void deleteAllMessage(@NonNull String mb_id);
 
+	public List<Message> getmessageList(@NonNull String mb_id);
+
+
+
 }

@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -27,7 +28,10 @@ public class MessageController {
 	
 	// 메시지 확인 이동하기
 	@RequestMapping("/goMessageCheck")
-	public String goMessageCheck() {
+	public String goMessageCheck(Model model, HttpSession session) {
+		Member member = (Member)session.getAttribute("loginMember");
+		List<Message> m_list = messageMapper.getmessageList(member.getMb_id());
+		model.addAttribute("m_list", m_list);
 		return "MessageCheck";
 	}
 

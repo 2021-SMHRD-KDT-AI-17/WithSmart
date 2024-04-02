@@ -116,7 +116,11 @@
                
                <li><a href ="quizMain" class="text-black">오늘의 퀴즈</a>
                <li><a href ="goLunch" class="text-black">점심메뉴 고르기</a>
-               <li><a href ="goMessage" class="text-black">쪽지</a>
+               		<a href="#" class="text-black">쪽지</a>
+		               <ul class="dropdown">
+			               <li><a href="goMessage">쪽지쓰기</a></li>
+		                   <li><a href="goMessageCheck">쪽지함</a></li>
+               			
 
                <%} %>
                
