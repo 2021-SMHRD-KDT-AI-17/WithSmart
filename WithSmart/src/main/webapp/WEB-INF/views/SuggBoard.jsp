@@ -105,8 +105,11 @@
 	}
 	
 	.start_table h1{
-		color: black ;
-		font-weight: bold;
+		color: black;
+      font-weight: bold;
+      font-family: "Arial Black", sans-serif;
+      text-shadow: 4px 4px 4px rgba(128, 128, 128, 0.5);
+       font-size: 50px;
 	}
 	
 	.listTitle{
