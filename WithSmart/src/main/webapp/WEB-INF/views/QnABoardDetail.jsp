@@ -123,7 +123,7 @@ table {
 			            <li class="comment">
 			                <div class="comment-body">
 			                    <!-- 답글 단 회원 이름 가져오기  -->
-			                    <h3>${qc.writer}</h3>
+			                    <span><h3>${qc.writer}</h3>
 			                    <!-- 답글 단 시간 가져오기 -->  
 			                    <div class="meta">${qc.writetime}</div>
 			                    <!-- 답글 내용 가져오기  --> 

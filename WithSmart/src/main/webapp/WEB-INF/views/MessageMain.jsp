@@ -74,34 +74,52 @@
 </head>
 <body>
 <%@ include file="./header.jsp"%>
-	<div class="container">
-	<h1 class="h6 mb-3 text-black"style ="font-size: 40px; margin-top: 20px; margin-left:500px;"><strong>쪽지 쓰기</strong></h1>
-		<form action="messageSend" method="post">
-			<div class="field half first">
-				<label for="name" class="text-black">보내는사람</label>
-				<%if(loginMember == null){ %>
-					<input type="text" name="sendE" id="name" placeholder="보내는 사람 이메일" />
+	<div class="container" >
+	
+    <div class="row">
+      <div class="col-lg-12" >
+        <h1 class="h6 mb-3 text-black"></h1>
+      </div>
+      <div class="col-lg-7">
+		
+        <h1 class="h6 mb-3 text-black" style ="font-size: 40px; margin-top: 20px;" ><strong>쪽지</strong></h1>
+      
+     	 <!-- 글 작성 입력 폼 -->
+        <form action ="messageSend" method ="post">
+          <div class="row" style ="margin-top: 50px">
+            <div class="col-md-6">
+              <div class="form-group">
+              <!--  글 제목 입력  -->
+                <label class="text-black" for="name">보내는 사람</label>
+                <%if(loginMember == null){ %>
+					<input type="text" class = "form-control" name="sendE" id="name" placeholder="보내는 사람 이메일" />
 				<%}else{ %>
-					<input type="text" name="sendE" value="<%=loginMember.getMb_id() %>" id="mb_id" readonly/>
+					<input type="text" class = "form-control" name="sendE" value="<%=loginMember.getMb_id() %>" id="mb_id" readonly/>
 				<%} %>
-			</div>
-			<div class="field half">
-				<label for="email" class="text-black">받는사람</label>
-				<input type="text" name="receiveE" id="mb_id" placeholder="받는 사람 이메일" onclick="getEmail()"/>
-				<li><span id="resultEmailCheck"></span></li>
-			</div>
-
-			<div class="field">
-				<label class="text-black" for="message">메세지 내용</label>
-				<textarea id="message" name="message" cols="30" rows="10"></textarea>
-			</div>
-			<ul class="actions">
-				<input type="submit" value="메시지 보내기" class="btn btn-primary"  style="background: #2E9AFE; border:none" onclick="location.href='goMessageCheck'">
-				<input type="reset" class="btn btn-primary"  style="background: #2E9AFE; border:none" value="초기화" />
-			</ul>
-				
-		</form>
-	</div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+              <!-- 작성자 입력  -->
+                <label class="text-black" for="email">받는사람</label>
+                <input type="text" name="receiveE" class = "form-control" id="mb_id" placeholder="받는 사람 이메일"/>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <!--글 내용 입력  -->
+            <label class="text-black" for="contents">메세지 내용</label>
+            <textarea name="message" class="form-control" id="message" cols="30" rows="10"></textarea>
+          </div>
+        
+      	<div class ="btn">
+          <input type="submit" value="메시지 보내기" class="btn btn-primary"  style="background: #2E9AFE; border:none" onclick="location.href='goMessageCheck'">
+		  <input type="reset" class="btn btn-primary"  style="background: #2E9AFE; border:none" value="초기화" />
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
 	
 	
 	
