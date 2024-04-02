@@ -38,4 +38,8 @@
 	<select id="SgetComment" parameterType="int" resultType="kr.smhrd.entity.StudyBoardComment">
 		select * from tbl_studyboard_comment where studyboard_idx=#{studyboard_idx}
 	</select>
+	
+	<update id="updatestboard"  parameterType="kr.smhrd.entity.StudyBoard">
+		update tbl_studyboard set title=#{title}, writer=#{writer}, filename=#{filename}, content=#{content} where studyboard_idx=#{studyboard_idx}
+	</update>
 </mapper>

@@ -27,6 +27,8 @@ public interface QnABoardMapper {
 
 	public List<QnABoard> QgetComment(int qnaboard_idx);
 
+	public void updateqboard(QnABoard qnAboard);
+
 	
 
 

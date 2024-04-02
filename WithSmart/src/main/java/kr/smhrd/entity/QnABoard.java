@@ -25,4 +25,16 @@ public class QnABoard {
     private String writetime;
     private int viewcount;
     private int heartcount;
+    
+	public QnABoard(int qnaboard_idx, @NonNull String title, @NonNull String writer, @NonNull String filename,
+			@NonNull String content) {
+		super();
+		this.qnaboard_idx = qnaboard_idx;
+		this.title = title;
+		this.writer = writer;
+		this.filename = filename;
+		this.content = content;
+	}
+    
+    
 }
