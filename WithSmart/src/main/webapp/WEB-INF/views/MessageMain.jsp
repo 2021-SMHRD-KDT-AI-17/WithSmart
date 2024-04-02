@@ -112,9 +112,7 @@
 	        <span class="sr-only">Loading...</span>
 	      </div>
 	  	</div>
-	  	<iframe src='https://www.vchatcloud.com/chat-demo/iframe/iframe_pc/v4/index.html?
-         channelKey=qgXMFEaTJL-HlUKiYICSx-20240402151009' frameborder='no' 
-         scrolling='no' marginwidth='0' marginheight='0' width='500' height='900'></iframe>
+	  	<iframe src='https://www.vchatcloud.com/chat-demo/iframe/iframe_pc/v4/index.html?channelKey=qgXMFEaTJL-HlUKiYICSx-20240402151009' frameborder='no' scrolling='no' marginwidth='0' marginheight='0' width='396' height='736'></iframe>
 	  	
 	  	
 	  	
