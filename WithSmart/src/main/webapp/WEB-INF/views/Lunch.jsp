@@ -404,20 +404,63 @@
 	 </div>
 	 
 	 <!-- 룰렛판 담을 div 태그  -->
-	  <div id="menu">
-            <canvas width="600" height='600'></canvas>  
-            <!-- 버튼 클릭시 resources/js/lunch.js에 있는 rotate() 함수 호출  -->
-            <button onclick="rotate()" style="margin-bottom: 30px; margin-top: 20px; box-shadow:2px 3px 5px 0px">룰렛 돌리기!</button>
-            <div id="addDiv">
-              <input type="text" id="menuAdd" style="box-shadow:2px 3px 5px 0px">
-              <!-- 버튼 클릭시 resources/js/lunch.js에 있는 add() 함수 호출  -->
-              <div class="btn">
-	              <button onclick="add()" style="margin-left: 20px; box-shadow:2px 3px 5px 0px">맛집 추가</button>
-	              <button id="removeAllButton" onclick="removeAll()" style="margin-left: 20px; box-shadow:2px 3px 5px 0px">초기화</button>
-	          </div>
-            </div>
-       </div>
-	
+<div id="menu">
+    <canvas width="600" height="600"></canvas>
+    <!-- 버튼 클릭시 resources/js/lunch.js에 있는 rotate() 함수 호출  -->
+    <button onclick="rotate()" style="margin-bottom: 30px; margin-top: 20px; box-shadow:2px 3px 5px 0px">룰렛 돌리기!</button>
+    <div id="addDiv">
+        <!-- 버튼 클릭시 resources/js/lunch.js에 있는 add() 함수 호출  -->
+        <div class="btn">
+            <button onclick="add()" style="margin-left: 20px; box-shadow:2px 3px 5px 0px">맛집 추가</button>
+            <button id="removeAllButton" onclick="removeAll()" style="margin-left: 20px; box-shadow:2px 3px 5px 0px">초기화</button>
+            <button id="100mButton" onclick="add100mRestaurants()" style="margin-left: 20px; box-shadow:2px 3px 5px 0px">100m 근방 식당 추가</button>
+            <button id="200mButton" onclick="add200mRestaurants()" style="margin-left: 20px; box-shadow:2px 3px 5px 0px">200m 근방 식당 추가</button>
+        </div>
+    </div>
+</div>
+
+<!-- 룰렛에 추가될 리스트 요소를 포함할 ul 태그 -->
+<ul id="roulette"></ul>
+
+<script>
+    // 룰렛에 식당을 추가하는 함수
+    function addRestaurantToRoulette(restaurant) {
+        const roulette = document.getElementById('roulette');
+        const listItem = document.createElement('li');
+        listItem.textContent = restaurant;
+        roulette.appendChild(listItem);
+    }
+
+    // 100m 근방 식당 추가 버튼 클릭 시 이벤트 핸들러
+    function add100mRestaurants() {
+        removeAll(); // 기존 목록 초기화
+        const restaurants = ["레스토레드", "파더스 베이글", "행복한 담벼락", "그냥집밥", "대접", "1515 짜장면"];
+        restaurants.forEach(function(restaurant) {
+            addRestaurantToRoulette(restaurant);
+        });
+    }
+
+    // 200m 근방 식당 추가 버튼 클릭 시 이벤트 핸들러
+    function add200mRestaurants() {
+        removeAll(); // 기존 목록 초기화
+        const restaurants = ["청춘뚝배기", "쿠로시로", "해뜨는집", "남원추어탕", "풍남옥", "이삭토스트", "한솥도시락", "캐치스피자", "대림국수", "미분당"];
+        restaurants.forEach(function(restaurant) {
+            addRestaurantToRoulette(restaurant);
+        });
+    }
+
+    // 룰렛을 돌리는 함수
+    function rotate() {
+        // 여기에 룰렛을 돌리는 로직을 추가하세요.
+        alert("룰렛을 돌립니다!");
+    }
+
+    // 기존 목록 초기화 함수
+    function removeAll() {
+        const roulette = document.getElementById('roulette');
+        roulette.innerHTML = ''; // 룰렛 내용 모두 제거
+    }
+</script>
 	 
 	 
 	 
