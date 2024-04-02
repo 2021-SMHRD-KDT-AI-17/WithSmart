@@ -18,8 +18,11 @@
 	    delete from tbl_message where receiveE=#{mb_id}
 	</delete>
 	
-	<select id="getmessageList" parameterType="String" resultType="kr.smhrd.entity.Message">
-		select * from tbl_message where receiveE=#{mb_id} order by messagetime desc
+	<select id="getmessageList" resultType="kr.smhrd.entity.Message">
+		select * from tbl_message where receiveE=#{mb_id} order by messagetime desc limit #{startIndex}, 10;
 	</select>
 	
+	<select id="getTotalCount" resultType="int">
+		select count(*) from tbl_message where receiveE = #{mb_id}
+	</select>
 </mapper>
