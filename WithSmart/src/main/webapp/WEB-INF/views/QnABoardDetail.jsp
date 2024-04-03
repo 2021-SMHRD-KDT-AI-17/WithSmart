@@ -98,7 +98,7 @@ table {
 	          </tr>
 	          <tr>	
 	          	<td colspan="3" style="border: 3px solid #BDBDBD; width:1000px; height:600px; border-radius:10px; padding: 30px">
-	          		<img alt="" src="resources/image/${qnaboard.filename}"> 
+	          		<img alt="" src="resources/image/${qnaboard.filename}" width="550"> 
 	          		<br>
 	          		<h4 style="margin-top: 20px; font-size:15px">${qnaboard.content }</h4>
 	          		
