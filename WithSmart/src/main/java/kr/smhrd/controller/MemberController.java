@@ -148,6 +148,24 @@ public class MemberController {
 		return "redirect:/goShowMember";
 	}
 	
+	// 회원 개인 삭제
+	@RequestMapping("/deletePMember")
+	public String deletePMember(@RequestParam("mb_id") String mb_id) {
+		memberMapper.deleteMember(mb_id);
+		return "redirect:/memberRdelete";
+	}
+	
+	// 회원 개인삭제
+	@RequestMapping("/memberdelete")
+	public String memberdelete() {
+		return "DeleteMember";
+	}
+	
+	// 회원 진짜삭제
+	@RequestMapping("/memberRdelete")
+	public String memberRdelete() {
+		return "DeleteRealMember";
+	}
 	
 	
 
