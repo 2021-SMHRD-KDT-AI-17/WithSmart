@@ -81,7 +81,7 @@
 </table>
 <br>
 
-## ⚙ 시스템 아키텍처(구조) 예시 
+## ⚙ 시스템 아키텍처(구조)
 ![KakaoTalk_20240404_151442285](https://github.com/2021-SMHRD-KDT-AI-17/WithSmart/assets/157354042/6ca4ca78-5a9d-4096-a1ff-9a45425f5d24)
 <br>
 
