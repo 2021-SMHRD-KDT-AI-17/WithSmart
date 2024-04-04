@@ -1,5 +1,5 @@
 # 📎 WithSmart - 스마트인재개발원 커뮤니티 (팀명: 스마터즈)
-![image](https://user-images.githubusercontent.com/25995055/178401309-2a2ffc86-ef45-439b-bfd8-6978312100bc.png)
+![image](https://C:\Users\SMHRD\Desktop\핵심프로젝트/178401309-2a2ffc86-ef45-439b-bfd8-6978312100bc.png)
 
 ## 👀 서비스 소개
 * 서비스명:  WithSmart
