@@ -133,10 +133,10 @@
 <table>
   <tr>
     <td align="center"><img src ="https://github.com/2021-SMHRD-KDT-AI-17/WithSmart/assets/157410342/57db3397-6e9e-4649-aaab-089ddd36710d" width="100" height="100"/></td>
-    <td align="center"><img src="https://mb.ntdtv.kr/assets/uploads/2019/01/Screen-Shot-2019-01-08-at-4.31.55-PM-e1546932545978.png" width="100" height="100"/></td>
-    <td align="center"><img src="https://mblogthumb-phinf.pstatic.net/20160127_177/krazymouse_1453865104404DjQIi_PNG/%C4%AB%C4%AB%BF%C0%C7%C1%B7%BB%C1%EE_%B6%F3%C0%CC%BE%F0.png?type=w2" width="100" height="100"/></td>
-    <td align="center"><img src="https://i.pinimg.com/236x/ed/bb/53/edbb53d4f6dd710431c1140551404af9.jpg" width="100" height="100"/></td>
-    <td align="center"><img src="https://pbs.twimg.com/media/B-n6uPYUUAAZSUx.png" width="100" height="100"/></td>
+    <td align="center"><img src="https://github.com/2021-SMHRD-KDT-AI-17/WithSmart/assets/157410342/0dbc27ef-f72e-4a38-a71e-4f088ab273c8" width="100" height="100"/></td>
+    <td align="center"><img src="https://github.com/2021-SMHRD-KDT-AI-17/WithSmart/assets/157410342/f588d6f6-158d-4c3d-b843-f1bf16f49811" width="100" height="100"/></td>
+    <td align="center"><img src="https://github.com/2021-SMHRD-KDT-AI-17/WithSmart/assets/157410342/ed1f6fc4-fd37-4d33-bbf8-bb020b14f7a8" width="100" height="100"/></td>
+    <td align="center"><img src="https://github.com/2021-SMHRD-KDT-AI-17/WithSmart/assets/157410342/1a0a713c-6d91-4839-8be9-52190fa7c319" width="100" height="100"/></td>
   </tr>
   <tr>
     <td align="center"><strong>서동현</strong></td>
