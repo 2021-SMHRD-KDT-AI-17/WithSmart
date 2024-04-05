@@ -63,11 +63,16 @@ public class MemberController {
 
 	// 회원가입
 	@RequestMapping("/memberInsert")
-	public String memberInsert(Member member, Model model) {
+	public String memberInsert(Member member, Model model, @RequestParam("mb_cert") String mb_cert) {
 		// System.out.println(member);
-		memberMapper.memberInsert(member);
-		model.addAttribute("mb_nick", member.getMb_nick());
-		return "JoinSuccess";
+		if(mb_cert.equals("AISERVICE17")){
+			memberMapper.memberInsert(member);
+			model.addAttribute("mb_nick", member.getMb_nick());
+			return "JoinSuccess";
+		}
+		else {
+			return "redirect:/goJoin";
+		}
 	}
 
 	
