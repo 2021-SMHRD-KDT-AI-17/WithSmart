@@ -65,6 +65,12 @@
 		
 	}
 	
+	.listTitle{
+		 background: linear-gradient(to bottom, #A9E2F3, #ffffff); /* 그라데이션 배경 */
+    	 box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
+    	 font-weight: bold;
+	}
+	
 	
 </style>
 </head>
@@ -92,7 +98,7 @@
 					  <thead>
 					  	<h2>회원관리페이지</h2>
 					  	<h3>총 ${membersize }명</h3>
-					    <tr>
+					    <tr class="listTitle">
 					      <td scope="col">No</td>
 					      <td scope="col">이메일</td>
 					      <td scope="col">닉네임</td>

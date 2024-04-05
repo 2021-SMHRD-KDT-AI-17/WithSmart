@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ include file="./header.jsp"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -66,9 +68,22 @@ button[type="submit"] {
     margin-left: 50px;
 
 }
+.preload {
+
+      transition: none !important;
+
+      -webkit-transition: none !important;
+
+      -moz-transition: none !important;
+
+      -ms-transition: none !important;
+
+      -o-transition: none !important;
+
+    }
 </style>
 </head>
-<body>
+<body class="preload">
 	<div class="container">
 		<form id="start-quiz-form" action="showQuiz" method="post">
 			
@@ -84,10 +99,16 @@ button[type="submit"] {
 			<button type="submit" class="btn btn-primary btn-lg" style="background: #2E9AFE; border:none">오늘의 퀴즈 풀기</button>
 			<br>
 			<br>
-			<button formaction="goquizRanking" formmethod="post" class="btn btn-primary btn" style="background: #2E9AFE; border:none">랭킹보기</button>
-				
-				
+			<button formaction="goquizRanking" formmethod="post" class="btn btn-primary btn" style="background: #2E9AFE; border:none">랭킹보기</button>	
 		</form>
 	</div>
+	
+	<script type="text/javascript">
+		$(window).load(function(){
+	
+		      $('body').removeClass('preload')
+	
+		})
+	</script>
 </body>
 </html>

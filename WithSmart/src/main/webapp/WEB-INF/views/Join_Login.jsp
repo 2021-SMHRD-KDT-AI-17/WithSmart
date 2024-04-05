@@ -127,7 +127,7 @@
 	            <div id="resultCheckPw" style="color:red;"></div>
 	            <input type="text" class ="form-control" style = "margin-top:10px" placeholder ="닉네임을 입력해주세요" name="mb_nick">
 	            <input type="text" class ="form-control" style = "margin-top:10px" placeholder ="발급 받은 인증번호를 입력해주세요" name="mb_cert" id="inputC">
-	            <input type="button" class="btn btn-success" value="인증번호 확인" onclick="checkC()" style = "margin-top:5px">
+	            <input type="button" class="btn btn-success" value="인증번호 확인"  onclick="checkC()" style = "margin-top:5px">
 	            <div id="certCheck"></div>
 	            <input type="submit" class="btn btn-primary" style="margin-top:10px; background: #2E9AFE; border:none" value="회원가입 하기" width="500">
             </form>
@@ -224,28 +224,7 @@
     	}
        
        
-/*    function logCheck(){
-   	var inputId = ${'#inputId'}.val();
-   	var inputPw = ${'#inputPw'}.val();
-   	
-   	$.ajax({
-   		url : 'LoginCheck',
-   		data : {'inputId': inputId, 'inputPw': inputPw},
-   		type : 'post',
-   		success : function(data){
-   			if(data==1){
-   				$('#resultlogCheck').text("등록되지 않은 아이디입니다.");
-   			}else if(data==2){
-   				$('#Loginform').submit();
-   			}else if(data==3){
-   				$('#resultlogCheck').text("비밀번호가 틀렸습니다.");
-   			}
-   		},
-   		error : function(){
-   			alert("통신실패!");
-   		}
-   	});
-   }   */
+
     
     
     

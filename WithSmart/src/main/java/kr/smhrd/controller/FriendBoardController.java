@@ -127,8 +127,8 @@ public class FriendBoardController {
 	// 게시글 삭제
 	@RequestMapping("/deleteFBoard")
 	public String deleteFBoard(@RequestParam("friendboard_idx") int friendboard_idx) {
-		friendBoardMapper.deleteFBoard(friendboard_idx);
 		friendBoardMapper.deleteComment(friendboard_idx);
+		friendBoardMapper.deleteFBoard(friendboard_idx);
 		return "redirect:/goFriendBoard";
 	}
 	

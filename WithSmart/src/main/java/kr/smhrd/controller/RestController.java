@@ -73,6 +73,7 @@ public class RestController {
 		}
 		
 	}
+	
 	// 사용자 이메일 보이기
 	@RequestMapping("/getMemberEmail")
 	public List<Member> getMemberEmail(){
